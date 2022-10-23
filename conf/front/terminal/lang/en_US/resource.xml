@@ -1,0 +1,1464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Root>
+
+	<grade>
+		<administrator> laxcus administrator </administrator>
+		<user> laxcus user  </user>
+		<undefined> check failed! </undefined>
+	</grade>
+	
+	<MessageDialog>
+		<Button>
+			<Okay>Okay</Okay>
+			<Yes> Yes</Yes>
+			<No> No </No>
+			<Cancel> Cancel</Cancel>
+		</Button>
+	</MessageDialog>
+
+	<FileChooser>
+		<Button>
+			<Save> Save </Save>
+			<Open> Open </Open>
+			<Help> Help </Help>
+			<Cancel> Cancel </Cancel>
+			<Update> Update </Update>
+		</Button>
+	</FileChooser>
+
+	<ToolTip>
+		<Invoker title="Threads: %d, Processing Jobs:%d, Processed Jobs:%d. Received:%s, Sent:%s"/>
+		<Tub title="Edge Server"/>
+		<Sound title="Sound"/>
+		
+		<DBA title="Administrator"/>
+		<User title="User"/>
+		<Unuser title="Unidentifiable"/>
+		<Disconnect title="Disconnect"/>
+	</ToolTip>
+	
+	<Window>
+		<Frame title="Front Terminal - Laxcus Distributed OS" /> <!-- eg: Window/Frame/title -->
+		
+		<BrowserDataListPanel title="Cloud Data"> 
+			<SchemaRoot title="My Data"/>
+			<TaskRoot title="My Software"/>
+			<CrossTable title="Share Data"/>
+		</BrowserDataListPanel>
+		<RemoteSoftwareListPanel title="Cloud Software" row-height="40"> 			
+			<TaskRoot title="My Software"/>
+			<error title="Software Error">
+				<notfound-task> Cannot be find startup task! %s   </notfound-task>
+				<notfound-waretag> Cannot be find software information! %s </notfound-waretag>
+				<startup-failed> Startup task failed! %s  </startup-failed>
+				<throwable> Run failed, check log, please!  </throwable>
+				<local-mssing> Local task missing, please re-publish! </local-mssing>
+			</error>			
+			<popup-menu title="Popup Menu">
+				<run title="Run Software" tooltip="startup a cloud software"/>
+				<name title="Modify Name" tooltip="new software name"/>
+				<icon title="Modify Icon" tooltip="new software icon"/>
+				<delete title="Delete" tooltip="delete software from the cloud"/>
+				<refresh title="Refresh" tooltip="refresh local task"/>
+				<about title="Property" tooltip="software information"/>
+			</popup-menu>
+			<delete title="Delete Distributed Software"> <![CDATA[ Do You Want To Delete This Distributed Software? ]]></delete>
+		</RemoteSoftwareListPanel>
+		
+		<RemoteDataDetailPanel title="Cloud Data Detail" key-width="80" value-width="188" header-height="25" row-height="30">
+			<Header>
+				<Key title="Property"/>
+				<Value title="Value"/>
+			</Header>
+			
+			<Authorizer title="Authorizer" />
+			<AuthorizerOperator title="Option" />
+			<Table title="Table" />
+			<CreateTime title="Create Time" />
+			<Position title="Position"/>
+		</RemoteDataDetailPanel>
+		
+		<RemoteSoftwareDetailPanel title="Cloud Software Detail" key-width="80" value-width="188" header-height="25" row-height="30">
+			<Header>
+				<Key title="Property"/>
+				<Value title="Value"/>
+			</Header>
+			
+			<Authorizer title="Authorizer"/>
+			<AuthorizerOperator title="Option"/>
+			<Table title="Table" />
+			<CreateTime title="Create Time" />
+			<CloudTask title="Cloud Task" />
+			<LocalTask title="Local Task"/>
+			<Position title="Position"/>
+			<NotFound title="Not Found"/>
+		</RemoteSoftwareDetailPanel>
+		
+		<LocalTubListPanel title="Edge Software" row-height="40"> 	
+			<popup-menu title="Popup Menu">
+				<run title="Run Software" tooltip="startup a edge software"/>
+				<stop title="Stop Software" tooltip="stop a edge software"/>
+				<print title="Show Run Service" tooltip="show run service"/>
+				<show title="Show Edge Software" tooltip="show edge software"/>
+			</popup-menu>
+		</LocalTubListPanel>
+		
+		<LocalHubDetailPanel title="Edge Software Detail" key-width="80" value-width="188" header-height="25" row-height="30">
+			<Header>
+				<Key title="Property"/>
+				<Value title="Value"/>
+			</Header>
+			<Tub>
+				<Name title="Name" />
+				<Caption title="Caption" />
+				<Class title="Startup Class" />
+				<Count title="Count" />
+				<PID title="Processoer ID" />
+			</Tub>
+		</LocalHubDetailPanel>
+
+		<Tab>
+			<Prompt title="Message"/>
+			<Table title="Report"/>
+			<Graph title="Graphics"/>
+			<Log title="Log"/>
+			
+			<Cloud title="Cloud Data"/>
+			<Software title="Cloud Software"/>
+			<Local title="Edge Software"/>
+		</Tab>
+
+		<CommandPanel title="Command Panel" />
+		<PromptPanel title="Message Panel" row-height="32">
+			<Color message="0x2C724E" warning="0xFAA008" fault="0xe83929"/>
+		</PromptPanel>
+		<TablePanel title="Report Panel" header-height="25" row-height="30"/>
+		<GraphPanel title="Graphics Panel"/>
+		<LogPanel title="Log Panel" row-height="30">
+			<Forbid title="Forbid"/>
+			<Number title="%d rows"/>
+		</LogPanel>
+		
+		<!-- auto login -->
+		<auto-login>
+			<retry> Relogin...</retry>
+			<failed> Login failed </failed>
+			<successful> Login successful </successful>
+		</auto-login>
+	</Window>
+
+	<Dialog>
+		<Login title="Front Terminal - Laxcus Distributed OS">
+			<Server title="Site">
+				<Address title="Address" tooltip="entrance site"/>
+				<Port title="Port" tooltip="entrance port"/>
+			</Server>
+			<Account title="Account">
+				<Username title="Username" tooltip="SHA256 sign ot plian text"/>
+				<Password title="Password" tooltip="any word"/>
+			</Account>
+			<Licence title="Licence">
+				<Sign tooltip="any word"/>
+			</Licence>
+			<Button>
+				<Licence title="Anonymous"/>
+				<Okay title="Login"/>
+				<Cancel title="Cancel"/>
+			</Button>
+			<error>
+				<username title="Username"> entry a username, please! </username>
+				<password title="Password"> entry a password, please! </password>
+				<account title="Account"> sorry, invalid account, please try again! </account>
+				<server title="Site address">entry a address, please!</server>
+				<port title="Site port"> entry a port, please! </port>
+				<unhost title="Parameter error"> address error! </unhost>
+				
+				<connect-failed title="connect failed"> %s:%s server failed! check network or server, please! </connect-failed>
+				<redirect-failed> cannot be find gate server, check laxcus cluster, please!  </redirect-failed>
+				<entrance-failed> cannot be login! check entrance server, please! </entrance-failed>
+				<gate-failed> cannot be login, check network or gate server! </gate-failed>
+				<nat-failed>network failure! check cluster or network, please! </nat-failed>
+				<max-user> sorry, too many online members! </max-user>
+				<login-timeout> server busy! </login-timeout>
+				<service-missing> login failed, check username or password, please! </service-missing>
+				<reflect-failed> cannot be reflect, check server or network, please! </reflect-failed>
+				<max-retry> sorry, too many connections! </max-retry>
+				<licence-nat-refuse> cannot be support NAT, contact the administrator, please! </licence-nat-refuse>
+				<version-notmatch> software version limit, update it or contact the administor, please! </version-notmatch>
+				
+				<pitch>
+					<not-found title="pitch site failure"> cannot be pitch %s, check network or address, please! </not-found>
+				</pitch>
+			</error>
+		</Login>
+		
+		<Help title="Front Command - Laxcus Distributed OS">
+		</Help>
+		
+		<about title="Front Terminal - Laxcus Distributed OS">
+			<okay title="Okay"/>
+		</about>
+		
+		<CommandMode title="Command Mode">
+			<mode title="Command Mode">
+				<memory title="Memory Mode"/>
+				<disk title="Disk Mode"/>
+			</mode>
+			<buttons>
+				<okay title="Okay"/>
+				<cancel title="Cancel"/>
+			</buttons>
+		</CommandMode>
+		
+		<CommandTimeout title="Command Timeout">
+			<warning title="Warning"> incorrect time, refuse! </warning>
+			
+			<time title="Time">
+				<hour title="Hour"/>
+				<minute title="Minute"/>
+				<second title="Second"/>
+			</time>
+			<buttons>
+				<okay title="Oaky"/>
+				<cancel title="Cancel"/>
+			</buttons>
+		</CommandTimeout>
+		
+		<regex title="Regex Syntax Validator">
+			<close title="Regex Syntax Validator"> Do You Want To Exit The Validator? </close>
+		
+			<texts title="Regex Syntax">
+				<syntax title="Style">
+					<okay> Correct syntax! </okay>
+					<error> Incorrect syntax! </error>
+				</syntax>
+				<content title="Content"/>
+			</texts>
+			<result title="Test Result"/>
+			<buttons>
+				<test title="Test"/>
+				<reset title="Reset"/>
+				<exit title="Exit"/>
+			</buttons>
+		</regex>
+		
+		<Font>
+			<Title title="Font - Laxcus Distributed OS"/>
+			<Welcome title="How do you do?"/>
+			<Button>
+				<Okay title="Okay"/>
+				<Reset title="Reset"/>
+				<Cancel title="Cancel"/>
+			</Button>
+			<List>
+				<Name title="Name"/>
+				<Style title="Style"/>
+				<Size title="Size"/>
+			</List>
+			<Style>
+				<Plain title="Plian"/>
+				<Bold title="Bold"/>
+				<Italic title="Italic"/>
+				<BoldItalic title="BoldItalic"/>
+			</Style>
+		</Font>
+		
+		<BuildHash>
+			<Title title="Build Hash Code"/>
+			<OK title="Build"/>
+		</BuildHash>
+		<BuildEach>
+			<Title title="Build Each Signature"/>
+			<OK title="Build"/>
+		</BuildEach>
+		
+		<CheckEntityCharset title="Check Charset">
+			<warning title="Warning"> Choice a data file, please! </warning>
+			<exit>
+				<message title="Do You Want To Exit The Dialog? "/>
+			</exit>
+			
+			<panel>
+				<file title="Data File"/>
+			</panel>
+			
+			<list>
+				<file tooltip="Data File（CSV/TXT）"/>
+			</list>
+			
+			<file-chooser>
+				<title title="Text Data File"/>
+				<selected title="Choice"/>
+				<text>
+					<description title="Text File (*.text; *.txt)"/>
+					<extension title="text, txt"/>
+				</text>
+				<csv>
+					<description title="CSV File (*.csv)"/>
+					<extension title="csv"/>
+				</csv>
+			</file-chooser>
+			
+			<buttons>
+				<choose title="Choice"/>
+				<delete title="Delete"/>
+				<okay title="Okay"/>
+				<cancel title="Cancel"/>
+			</buttons>
+		</CheckEntityCharset>
+
+		<CheckEntityContent title="Check Content">
+			<warning title="Warning"> Parameter Missing! </warning>
+			<exit>
+				<message title="Do You Want To Exit The Dialog?"/>
+			</exit>
+			
+			<panel>
+				<file title="Disk File"/>
+				<param title="Parameter"/>
+			</panel>
+			
+			<list>
+				<file tooltip="Disk File"/>
+			</list>
+			
+			<file-chooser>
+				<title title="Text Data File"/>
+				<selected title="Choice"/>
+				<text>
+					<description title="Text File (*.text; *.txt)"/>
+					<extension title="text, txt"/>
+				</text>
+				<csv>	
+					<description title="CSV File (*.csv)"/>
+					<extension title="csv"/>
+				</csv>
+			</file-chooser>
+			
+			<label>
+				<table title="Table"/>
+				<type title="Type"/>
+				<charset title="Charset"/>
+			</label>
+			<buttons>
+				<choose title="Choice"/>
+				<delete title="Delete"/>
+				<okay title="Okay"/>
+				<cancel title="Cancel"/>
+			</buttons>
+		</CheckEntityContent>
+		
+		<ImportEntity title="Upload Data">
+			<warning title="Warning"> Parameter Missing! </warning>
+			<exit>
+				<message title="Do You Want To Exit The Dialog? "/>
+			</exit>
+			
+			<panel>
+				<file title="Diak File"/>
+				<param title="Parameters"/>
+			</panel>
+			
+			<list>
+				<file tooltip="Upload Data To The Cloud"/>
+			</list>
+			
+			<file-chooser>
+				<title title="Choice File"/>
+				<selected title="Choice"/>
+				<text>
+					<description title="Text File (*.text; *.txt)"/>
+					<extension title="text, txt"/>
+				</text>
+				<csv>	
+					<description title="CSV File (*.csv)"/>
+					<extension title="csv"/>
+				</csv>
+			</file-chooser>
+			
+			<label>
+				<table title="Table"/>
+				<type title="Type"/>
+				<charset title="Charset"/>
+				<line title="Number"/>
+			</label>
+			<buttons>
+				<choose title="Choice"/>
+				<delete title="Delete"/>
+				<okay title="Okay"/>
+				<cancel title="Cancel"/>
+			</buttons>
+		</ImportEntity>
+		
+		<ExportEntity title="Download Data">
+			<warning title="Warning"> Parameter Missing Or Content Error! </warning>
+			<exit>
+				<message title="Do You Want To Exit The Dialog?"/>
+			</exit>
+			<panel>
+				<file title="Disk File"/>
+				<param title="Parameters"/>
+			</panel>
+			
+			<path-chooser>
+				<title title="Choice Directory"/>
+				<selected title="Choice"/>
+			</path-chooser>
+			
+			<text-area>
+				<stubs tooltip=" "/>
+			</text-area>
+			
+			<list>
+				<file tooltip="Download Data From Cloud"/>
+			</list>
+			
+			<label>
+				<table title="Table"/>
+				<type title="Type"/>
+				<charset title="Charset"/>
+			</label>
+			
+			<buttons>
+				<path title="Directory"/>
+				<create title="Create"/>
+				<delete title="Delete"/>
+				<okay title="Okay"/>
+				<cancel title="Cancel"/>
+			</buttons>
+		</ExportEntity>
+		
+		<BuildCloudPackage>
+			<read-chooser>
+				<description_all title="All File (*.*)"/>
+				<extension_all title="*.*"/>
+				
+				<description_text title="Text File (*.txt; *.text)"/>
+				<extension_text title="txt,text"/>
+				
+				<description_script title="Script File (*.script) "/>
+				<extension_script title="script"/>
+				
+				<title title="Script File"/>
+				<selected title="Choice"/>
+			</read-chooser>
+
+			<Conduct dialogTitle="Build Conduct Package" borderTitle="Conduct">
+				<write-chooser>
+					<description title="Conduct Package, (*.cpk)"/>
+					<extension title="cpk"/>
+					<title title="Conduct"/>
+				</write-chooser>
+			</Conduct>
+			
+			<Establish dialogTitle="Build Establish Package" borderTitle="Establish">
+				<write-chooser>
+					<description title="Establish Package, (*.epk)"/>
+					<extension title="epk"/>
+					<title title="Establish"/>
+				</write-chooser>
+			</Establish>
+			
+			<Contact dialogTitle="Build Contact Package" borderTitle="Contact">
+				<write-chooser>
+					<description title="Contact Package, (*.spk)"/>
+					<extension title="spk"/>
+					<title title="Contact"/>
+				</write-chooser>
+			</Contact>
+			
+			<buttons>
+				<choice title="Choice"/>
+				<save title="Save"/>
+				<okay title="Okay"/>
+				<cancel title="Cancel"/>
+			</buttons>
+		</BuildCloudPackage>
+
+		<DeployCloudPackage>
+			<Conduct dialogTitle="Publish Conduct Package" borderTitle="Conduct">
+				<write-chooser>
+					<description title="Conduct Package, (*.cpk)"/>
+					<extension title="cpk"/>
+					<title title="Conduct"/>
+					<selected title="Choice"/>
+				</write-chooser>
+			</Conduct>
+			
+			<Establish dialogTitle="Publish Establish Package" borderTitle="Establish">
+				<write-chooser>
+					<description title="Establish Package, (*.epk)"/>
+					<extension title="epk"/>
+					<title title="Establish"/>
+					<selected title="Choice"/>
+				</write-chooser>
+			</Establish>
+			
+			<Contact dialogTitle="Publish Contact Package" borderTitle="Contact">
+				<write-chooser>
+					<description title="Contact Package, (*.spk)"/>
+					<extension title="spk"/>
+					<title title="Contact"/>
+					<selected title="Choice"/>
+				</write-chooser>
+			</Contact>
+			
+			<buttons>
+				<choice title="Distributed Software"/>
+				<local title="Only Local"/>
+				<okay title="Okay"/>
+				<cancel title="Cancel"/>
+			</buttons>
+		</DeployCloudPackage>
+
+		<!-- User Licence -->
+		<Licence dialogTitle="Distributed Software - Laxcus Distributed OS" borderTitle="User Licence">
+			<buttons>
+				<okay title="Accept"/>
+				<cancel title="Refuse"/>
+			</buttons>
+		</Licence>
+
+		<ImageTransform title="Image Transformer">
+			<exit>
+				<message title="Do You Want To Exit The Image Transformer? "/>
+			</exit>
+			
+			<failed title="Image Failed"> <![CDATA[ Cannot be transform! ]]></failed>
+			
+			<write>
+				<success title="Write to %s "/>
+				<failed title="Write failed!"/>
+			</write>
+			
+			<open-chooser>
+				<title title="Choice Image"/>
+				<choose title="Choice"/>
+				<jpeg>
+					<description title="JPEG File (*.jpeg; *.jpg)"/>
+					<extension title="jpeg, jpg"/>
+				</jpeg>
+				<gif>	
+					<description title="GIF File (*.gif)"/>
+					<extension title="gif"/>
+				</gif>
+				<png>	
+					<description title="PNG File (*.png)"/>
+					<extension title="png"/>
+				</png>
+			</open-chooser>
+			<save-chooser>
+				<title title="Save Image"/>
+				<save title="Save"/>
+				<jpeg>
+					<description title="JPEG File (*.jpeg; *.jpg)"/>
+					<extension title="jpeg, jpg"/>
+				</jpeg>
+				<gif>	
+					<description title="GIF File (*.gif)"/>
+					<extension title="gif"/>
+				</gif>
+				<png>	
+					<description title="PNG File (*.png)"/>
+					<extension title="png"/>
+				</png>
+			</save-chooser>
+			
+			<label>
+				<source title="Source Image"/>
+				<target title="Target Image"/>
+			</label>
+			<spinner>
+				<height title="Height"/>
+				<width title="Width"/>
+				<light title="Light"/>
+				<rate title="(...%)"/>
+			</spinner>
+			<buttons>
+				<rate title="Rate"/>
+				<open title="Open"/>
+				<translucent title="Translucent"/>
+				<save title="Save"/>
+				<transform title="Convert"/>
+				<exit title="Exit"/>
+			</buttons>
+		</ImageTransform>
+		
+		<ExchangeName title="Modify Software Name">
+			<label>
+				<name title="New Name"/>
+			</label>
+			<buttons>
+				<okay title="Okay"/>
+				<cancel title="Cancel"/>
+			</buttons>
+		</ExchangeName>
+		<ExchangeIcon title="Modify Software Icon">
+			<open-chooser>
+				<title title="Choice Icon"/>
+				<choose title="Choice"/>
+				<jpeg>
+					<description title="JPEG File (*.jpeg; *.jpg)"/>
+					<extension title="jpeg, jpg"/>
+				</jpeg>
+				<gif>	
+					<description title="GIF File (*.gif)"/>
+					<extension title="gif"/>
+				</gif>
+				<png>	
+					<description title="PNG File (*.png)"/>
+					<extension title="png"/>
+				</png>
+			</open-chooser>
+			<buttons>
+				<select title="Choice"/>
+				<okay title="Okay"/>
+				<cancel title="Cancel"/>
+			</buttons>
+		</ExchangeIcon>
+		<WareTag title="Software Information">
+			<software>
+				<product-name title="Name:"/>
+				<product-date title="Date:"/>
+				<version title="Version:"/>
+				<maker title="Developer:"/>
+				<comment title="Introduce:"/>
+			</software>
+			<buttons>
+				<okay title="Okay"/>
+			</buttons>
+		</WareTag>
+		
+		<!-- boot parameter -->
+		<GuideParameter title="Guide Task">
+			<buttons>
+				<okay title="Okay"/>
+				<cancel title="Cancel"/>
+			</buttons>
+			<missing title="Parameter Missing"> Entry to "%s", please!  </missing>
+			<param-error title="Object Error"> No Definition! %s </param-error>
+			<format-error title="Format Error"> Format Error! %s  </format-error>
+			
+			<confirm title="Confirm"> Do You Want To Execute This Operation? </confirm>
+			<cancel title="Cancel"> Do You Want To Giveup This Operation? </cancel>
+			<date> Data Standard Style: "Year-Month-Day" </date>
+			<time> Time Standard Style: "Hour:Minute:Second.Millisecond" </time>
+			<timestamp> Timestamp Standard Style: "Year-Month-Day Hour:Minute:Second Millisecond" </timestamp>
+			<stage> %s Stage </stage>
+		</GuideParameter>
+		
+		<CreateGuide title="Guide Script">
+			<exit>
+				<message title="Do You Want To Exit The Guide Dialog?"/>
+			</exit>
+			
+			<panel>
+				<ware title="Application Ware"/>
+				<guide title="Guide Ware"/>
+			</panel>
+			
+			<list tooltip="item list" row-height="32">
+				
+			</list>
+				
+			<label>
+				<ware>
+					<naming title="Naming" tooltip="software naming"/>
+					<version title="Version" tooltip="style: major.minor"/>
+					<product-name title="Name" tooltip="product name"/>
+					<product-date title="Date" tooltip="style:year-month-day "/>
+					<maker title="Developer" tooltip="developer name"/>
+					<comment title="Introduce" tooltip="software introduce"/>
+				</ware>
+				<guide>
+					<naming title="Naming" tooltip="guide naming"/>
+					<boot-class title="Startup Class" tooltip="startup class"/> 
+					<icon title="Icon Path" tooltip="icon path"/>
+					<caption title="Caption" tooltip="caption"/>
+					<tooltip title="Tooltip" tooltip="software tooltip"/>
+				</guide>
+			</label>
+
+			<buttons>
+				<append title="Clear"/>				
+				<import-unit title="Read"/>
+				<export-unit title="Write"/>
+				<delete title="Delete"/>
+				
+				<import-script title="Import"/>
+				<export-script title="Export"/>
+				
+				<exit title="Exit"/>
+			</buttons>
+			
+			<open-chooser>
+				<title title="Import Script"/>
+				<choose title="Choice"/>
+				<xml>	
+					<description title="XML File (*.xml)"/>
+					<extension title="xml"/>
+				</xml>
+			</open-chooser>
+			<save-chooser>
+				<title title="Export Script"/>
+				<save title="Save"/>
+				<xml>	
+					<description title="XML File (*.xml)"/>
+					<extension title="xml"/>
+				</xml>
+			</save-chooser>
+			<missing title="Warning"> Parameter Missing!  </missing>
+			<param-error title="Error"> Parameter Error, please retry! </param-error>
+			<duplicate title="Duplicate Name"> duplicate name "%s, please retry! </duplicate>
+			<override title="Overlap"> "%s" Exists, Overlap Write It? </override>
+			<override title="Overlap"> "%s" Exists, Overlap Write It? </override>
+			<write>
+				<success title="Successful"> Write To "%s"!  </success> 
+				<failed title="Script Failed"/>
+			</write>
+		</CreateGuide>
+		
+		<CreateTask title="Task Script">
+			<exit>
+				<message title="Do You Want To Exit The Task Dialog?"/>
+			</exit>
+			
+			<panel>
+				<sign title="Application Signature"/>
+				<ware title="Application Ware"/>
+				<task title="Task Ware"/>
+			</panel>
+			
+			<list tooltip="item list" row-height="32">
+				
+			</list>
+				
+			<label>
+				<sign>
+					<name title="Username" tooltip="text or signature"/>
+					<phase title="Stage" tooltip="stage name"/>
+				</sign>
+				<ware>
+					<naming title="Naming" tooltip="software naming "/>
+					<version title="Version" tooltip="style: major.minor "/>
+					<product-name title="Name" tooltip="product name"/>
+					<product-date title="Date" tooltip="style: year-month-day"/>
+					<maker title="Developer" tooltip="developer name"/>
+					<comment title="Introduce" tooltip="software introduce"/>
+				</ware>
+				<task>
+					<naming title="Task Naming" tooltip="task naming"/>
+					<boot-class title="Startup Class" tooltip="startup class"/> 
+					<project title="Project Class" tooltip="project class"/>
+					<resource title="Resource" tooltip="any text"/>
+				</task>
+			</label>
+
+			<buttons>
+				<append title="Clear"/>
+				<delete title="Delete"/>		
+				<import-unit title="Read"/>
+				<export-unit title="Write"/>
+				
+				<import-script title="Import"/>
+				<export-script title="Export"/>
+				
+				<exit title="Exit"/>
+			</buttons>
+			
+			<open-chooser>
+				<title title="Import Script"/>
+				<choose title="Choice"/>
+				<xml>	
+					<description title="XML File (*.xml)"/>
+					<extension title="xml"/>
+				</xml>
+			</open-chooser>
+			<save-chooser>
+				<title title="Export Script"/>
+				<save title="Choice"/>
+				<xml>	
+					<description title="XML File (*.xml)"/>
+					<extension title="xml"/>
+				</xml>
+			</save-chooser>
+			<missing title="Warning"> Parameter Missing! </missing>
+			<param-error title="Error"> Parameter Error, please retry!  </param-error>
+			<duplicate title="Duplicate Name"> duplicate name %s, please retry!  </duplicate>
+			<override title="Overlap"> "%s" Exists, Overlap Write It? </override>
+			
+			<write>
+				<success title="Successful"> Write To "%s" </success> 
+				<failed title="Script Failed!"/>
+			</write>
+		</CreateTask>
+		
+		<CreateWareScript>
+			<title>
+				<conduct> Build Contact Script </conduct>
+				<establish> Build Establish Script </establish>
+				<contact> Build Contact Script </contact>
+			</title>
+			
+			<label>
+				<icon tooltip="Logo Icon, 32*32 ">  Icon </icon>
+				<licence tooltip="Developer Licence"> Licence   </licence>
+				
+				<guide tooltip="gtc package"> Guide  </guide>
+				<task tooltip="dtc package"> Task  </task> 
+				<jar> JAR </jar>
+				<lib> DLL/SO  </lib>
+			</label>
+
+			<list row-height="32"> 
+				<tooltip>
+					<jar> attachment jar </jar>
+					<lib> Windows dll or Linux so  </lib>
+				</tooltip>
+			</list>
+			
+			<buttons>
+				<add> Add </add>
+				<remove> Delete </remove>
+				<select> Choice </select>
+				
+				<reset> Reset </reset>
+				<import> Import  </import>
+				<export> Export  </export>
+				<exit> Exit </exit>
+			</buttons>
+			<stage> %s Stage </stage>
+			<exit>
+				<message title="Do You Want To Exit This Script Dialog?"/>
+			</exit>
+			<write>
+				<success title="Successful"> Write To "%s"! </success> 
+				<failed title="Write Failed!"/>
+			</write>
+			<override title="Overrlap">  "%s" Exists, Overlap Write It? </override>
+			<missing title="Warning"> Parameter Missing! </missing>
+			<logo-warning title="Logo Icon"> Invalid Icon, Must Be 32*32 ,  Type: 'JPEG、GIF、PNG' </logo-warning>
+			<script-error title="Error">
+				<single> Script Error! "%s"</single>
+				<multi> Script Error! "%s", Stage "%s"! </multi>
+			</script-error>
+			
+			<save-chooser>
+				<title title="Save File"/>
+				<save title="Save"/>
+					<script>	
+					<description title="Script File (*.script, *.scp)"/>
+					<extension title="script, scp"/>
+				</script>
+			</save-chooser>
+
+			<open-chooser>
+				<title title="Choice File"/>
+				<choose title="Choice"/>
+
+				<image>	
+					<description title="Image File (*.png, *.gif, *.jpg, *.jpeg)"/>
+					<extension title="png, gif, jpeg, jpg"/>
+				</image>
+				<text>	
+					<description title="Text File (*.txt, *.text)"/>
+					<extension title="txt, text"/>
+				</text>
+				<dtc>	
+					<description title="Task File (*.dtc)"/>
+					<extension title="dtc"/>
+				</dtc>
+				<gtc>	
+					<description title="Guide File (*.gtc)"/>
+					<extension title="gtc"/>
+				</gtc>
+				<jar>	
+					<description title="Jar File (*.jar)"/>
+					<extension title="jar"/>
+				</jar>
+				<lib>	
+					<description title="Library File (*.so, *.dll)"/>
+					<extension title="so,dll"/>
+				</lib>
+			</open-chooser>
+			
+		</CreateWareScript>
+		
+		<!-- startup edge  -->
+		<RunTub title="Startup Edge Software">
+			<buttons>
+				<okay title="Okay"/>
+				<cancel title="Cancel"/>
+			</buttons>
+			<naming> Caption </naming>
+			<params> Parameters </params>
+
+			<confirm title="Edge Software"> Do You Want To Run This Operation? </confirm>
+			<cancel title="Edge Software"> Do You Want To Giveup This Operation? </cancel>
+		</RunTub>
+		
+		<!-- stop edge  -->
+		<StopTub title="Stop Edge Software">
+			<buttons>
+				<okay title="Okay"/>
+				<cancel title="Cancel"/>
+			</buttons>
+			<naming> Edge Name </naming>
+			<pid> Processor ID </pid>
+			<params>  Parameters </params>
+			
+			<missing title="Parameter Missing"> Parameter error, please retry! </missing>
+			<confirm title="Edge Software"> Do You Want To Run This Operation? </confirm>
+			<cancel title="Edge Software"> Do You Want To Giveup This Operation? </cancel>
+		</StopTub>
+		
+		<!-- show run edge -->
+		<PrintTub title="Edge Software">
+			<buttons>
+				<okay title="Okay"/>
+				<cancel title="Cancel"/>
+				<all title="All"/>
+			</buttons>
+			<naming> Edge Name </naming>
+			
+			<missing title="Parameter Missing"> Entry a name, please! </missing>
+			<confirm title="Edge Software"> Do You Want To Run This Operation? </confirm>
+			<cancel title="Edge Software"> Do You Want To Giveup This Operation? </cancel>
+		</PrintTub>
+		
+		<!-- show edge contains -->
+		<ShowTub title="Edge Software">
+			<buttons>
+				<okay title="Okay"/>
+				<cancel title="Cancel"/>
+				<all title="All"/>
+			</buttons>
+			<naming> Edge Name </naming>
+			
+			<missing title="Param Missing"> Entry a name, please! </missing>
+			<confirm title="Edge Software"> Do You Want To Run This Operation? </confirm>
+			<cancel title="Edge Software"> Do You Want To Giveup This Operation? </cancel>
+		</ShowTub>
+	</Dialog>
+
+	<MessageBox>
+		<Exit>
+			<Message title="Do You Want To Exit The Front.terminal - Laxcus Distributed OS?"/>
+			<Title title="Exit - Front.terminal"/>
+		</Exit>
+		
+		<CommandAuditor>
+			<Message title="Startup The Command?"/>
+			<Title title="Run - Front.Terminal"/>
+		</CommandAuditor>
+
+		<Forsake>
+			<Message title="Network Failure, Please Re-Login!"/>
+			<Title title="Failure - Front.terminal"/>
+		</Forsake>
+		
+		<Brower>
+			<URI title="http://www.laxcus.com"/>
+			<Message title="Cannot Be Support The Browser!"/>
+			<Title title="Warning - Front.terminal"/>
+		</Brower>
+	</MessageBox>
+
+	<MenuBar>
+		<Menu caption="Navigate" id="10" hotkey="N">
+			<MenuItem caption="Login" id="101" hotkey="L">
+				<ToolTip> register to server </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[login]]> </Method>
+			</MenuItem>
+
+			<MenuItem caption="Logout" id="103" hotkey="U">
+				<ToolTip> unregister from server</ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[logout]]> </Method>
+			</MenuItem>
+			
+			<MenuItem caption="Relogin" id="102" hotkey="R">
+				<ToolTip> logout and login </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[relogin]]> </Method>
+			</MenuItem>
+
+			<Separator/>
+
+			<MenuItem caption="Exit" id="108" hotkey="x">
+				<ToolTip> exit front terminal </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[exit]]> </Method>
+			</MenuItem>
+		</Menu>
+		
+		<Menu caption="Run" hotkey="R">
+			<MenuItem caption="Check Command" hotkey="C">
+				<ToolTip> check command syntax </ToolTip>
+				<ShortcutKey> F4 </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doCheckCommand  </Method>
+			</MenuItem>
+
+			<MenuItem caption="Run Command" hotkey="R">
+				<ToolTip> send command to server </ToolTip>
+				<ShortcutKey> F5 </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doLaunchCommand </Method>
+			</MenuItem>
+			
+			<Separator/>
+
+			<MenuItem caption="Refresh Cloud Service" hotkey="U">
+				<ToolTip> update resource from cloud </ToolTip>
+				<ShortcutKey> F7 </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doRefresh </Method>
+			</MenuItem>
+		</Menu>
+		
+		<Menu caption="View" hotkey="V">
+			<CheckBoxMenuItem caption="Menu Bar" hotkey="M" checkon="true">
+				<ToolTip> hide or show </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[doShowOrHideMenubar]]>  </Method>
+			</CheckBoxMenuItem>
+			
+			<CheckBoxMenuItem caption="Tool Bar" hotkey="T" checkon="true">
+				<ToolTip> hide and show </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[doShowOrHideToolbar]]>  </Method>
+			</CheckBoxMenuItem>
+			
+			<CheckBoxMenuItem caption="Status Bar" hotkey="S" checkon="true">
+				<ToolTip> hide and show </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doShowOrHideStatusbar  </Method>
+			</CheckBoxMenuItem>
+			
+			<Separator/>
+			
+			<Menu caption="Font" hotkey="F">
+				<MenuItem caption="Standard Front" hotkey="A">
+					<ToolTip> Environment Font  </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doSystemMenuFont  </Method>
+				</MenuItem>
+				
+				<MenuItem caption="Menu Font" hotkey="U">
+					<ToolTip> modify menu font </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doMainMenuFont  </Method>
+				</MenuItem>
+				
+				<MenuItem caption="Cloud Data Panel" hotkey="R">
+					<ToolTip> modify cloud data panel font </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doRemoteDataWindowFont  </Method>
+				</MenuItem>
+
+				<MenuItem caption="Cloud Software Panel" hotkey="R">
+					<ToolTip> modify cloud software panel font </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doRemoteSoftwareWindowFont  </Method>
+				</MenuItem>
+				
+				<MenuItem caption="Edge Software Panel" hotkey="E">
+					<ToolTip> modify edge software panel font </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doLocalBrowserWindowFont  </Method>
+				</MenuItem>
+				
+				<MenuItem caption="Option Panel" hotkey="O">
+					<ToolTip> modify option panel font </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doTabbedWindowFont  </Method>
+				</MenuItem>
+
+				<MenuItem caption="Command Panel" hotkey="C">
+					<ToolTip> modify command panel font</ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCommandWindowFont </Method>
+				</MenuItem>
+			
+				<MenuItem caption="Message Panel" hotkey="N">
+					<ToolTip> modify message panel font </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doPromptWindowFont </Method>
+				</MenuItem>
+			
+				<MenuItem caption="Report Panel" hotkey="T">
+					<ToolTip> modify report panel font </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doTableWindowFont </Method>
+				</MenuItem>
+				
+				<MenuItem caption="Graphics Panel" hotkey="G">
+					<ToolTip> modify graphics panel font </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doGraphWindowFont </Method>
+				</MenuItem>
+				
+				<MenuItem caption="Log Panel" hotkey="L">
+					<ToolTip> modify log panel font </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doLogWindowFont </Method>
+				</MenuItem>
+				
+				<MenuItem caption="Help Document" hotkey="H">
+					<ToolTip> modify help document font </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doHelpFont </Method>
+				</MenuItem>
+			</Menu>
+
+			<Separator/>
+		
+			<Menu caption="Log Mode" hotkey="O">
+				<RadioButtonMenuItem caption="Debug Log" hotkey="D" radioon="ON">
+					<ToolTip> switch to debug mode </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doDebug </Method>
+				</RadioButtonMenuItem>
+				<RadioButtonMenuItem caption="Info Log" hotkey="I" radioon="OFF">
+					<ToolTip> switch to info mode </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doInfo </Method>
+				</RadioButtonMenuItem>
+				<RadioButtonMenuItem caption="Warning Log" hotkey="W" radioon="OFF">
+					<ToolTip> switch to warning mode </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doWarning </Method>
+				</RadioButtonMenuItem>
+				<RadioButtonMenuItem caption="Error Log" hotkey="E" radioon="OFF">
+					<ToolTip> switch to error mode </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doError </Method>
+				</RadioButtonMenuItem>
+				<RadioButtonMenuItem caption="Fatal Error" hotkey="F" radioon="OFF">
+					<ToolTip> switch to fatal mode </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doFatal </Method>
+				</RadioButtonMenuItem>
+			</Menu>
+			
+			<Separator/>
+			
+			<!-- skin theme -->
+			<Menu caption="Skin Theme" hotkey="K" associate="SkinMenu">
+			
+			</Menu>
+			
+			<Separator/>
+		
+			<MenuItem caption="Clean Message" hotkey="M">
+				<ToolTip> clear all information </ToolTip>
+				<ShortcutKey> control M </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doClearNote </Method>
+			</MenuItem>
+
+			<MenuItem caption="Clean Report" hotkey="T">
+				<ToolTip> clear all information </ToolTip>
+				<ShortcutKey> control T </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doClearDetail </Method>
+			</MenuItem>
+			
+			<MenuItem caption="Clean Graphics" hotkey="G">
+				<ToolTip> clear all information </ToolTip>
+				<ShortcutKey> control G </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doClearGraph </Method>
+			</MenuItem>
+			
+			<MenuItem caption="Clean Log" hotkey="L">
+				<ToolTip> clear all information </ToolTip>
+				<ShortcutKey> control L </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doClearLog </Method>
+			</MenuItem>
+			
+			<Separator/>
+			<Menu caption="Display" hotkey="D">
+				<CheckBoxMenuItem caption="Full Screen" hotkey="F" checkon="false">
+					<ToolTip> full screen, yes or no </ToolTip>
+					<ShortcutKey> F11 </ShortcutKey>
+					<Icon> </Icon>
+					<Method> <![CDATA[doFullScreen]]>  </Method>
+				</CheckBoxMenuItem>
+				<CheckBoxMenuItem caption="Attach Screen" hotkey="A" checkon="false">
+					<ToolTip> attach screen, yes or no </ToolTip>
+					<ShortcutKey> F12 </ShortcutKey>
+					<Icon> </Icon>
+					<Method> <![CDATA[doAttachScreen]]>  </Method>
+				</CheckBoxMenuItem>
+			</Menu>
+		</Menu>
+		
+		<Menu caption="Application" hotkey="A">
+			<MenuItem caption="Check File Charset" hotkey="A">
+				<ToolTip> command: 'check entity charset'  </ToolTip>
+				<ShortcutKey>  </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doCheckEntityCharset </Method>
+			</MenuItem>
+			<MenuItem caption="Check File Content" hotkey="T">
+				<ToolTip> command: 'check entity content' </ToolTip>
+				<ShortcutKey>  </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doCheckEntityContent </Method>
+			</MenuItem>
+			<Separator/>
+
+			<MenuItem caption="Upload Data" hotkey="U">
+				<ToolTip> command: 'import entity' </ToolTip>
+				<ShortcutKey>  </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doImportEntity </Method>
+			</MenuItem>
+			<MenuItem caption="Download Data" hotkey="D">
+				<ToolTip> command: 'export entity' </ToolTip>
+				<ShortcutKey>  </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doExportEntity </Method>
+			</MenuItem>
+			<Separator/>
+			
+			<Menu caption="Distribute Software" hotkey="S">
+				<MenuItem caption="Build Conduct Script (1)" hotkey="1">
+					<ToolTip> create a conduct script  </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCreateConductScript  </Method>
+				</MenuItem>
+				<MenuItem caption="Build Conduct Package (2)" hotkey="2">
+					<ToolTip> create a conduct package  </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doBuildConductPackage  </Method>
+				</MenuItem>
+				<MenuItem caption="Publish Conduct Package (3)" hotkey="3">
+					<ToolTip> publish a conduct package to the cloud</ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doDeployConductPackage  </Method>
+				</MenuItem>
+				<Separator/>
+				<MenuItem caption="Build Establish Script (4)" hotkey="4">
+					<ToolTip> create a establish script </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCreateEstablishScript  </Method>
+				</MenuItem>
+				<MenuItem caption="Build Establish Package (5)" hotkey="5">
+					<ToolTip> create a establish package  </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doBuildEstablishPackage  </Method>
+				</MenuItem>
+				<MenuItem caption="Publish Establish Package (6)" hotkey="6">
+					<ToolTip> publish a establish package to the cloud </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doDeployEstablishPackage  </Method>
+				</MenuItem>
+				<Separator/>
+				<MenuItem caption="Build Contact Script (7)" hotkey="7">
+					<ToolTip> create a contact script </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCreateContactScript  </Method>
+				</MenuItem>
+				<MenuItem caption="Build Contact Package (8)" hotkey="8">
+					<ToolTip> create a contact package </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doBuildContactPackage  </Method>
+				</MenuItem>
+				<MenuItem caption="Publish Contact Package (9)" hotkey="9">
+					<ToolTip> publish a contact package to the cloud </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doDeployContactPackage  </Method>
+				</MenuItem>				
+			</Menu>
+			<Separator/>
+			
+			<Menu caption="Distribute Software Script" hotkey="P">
+				<MenuItem caption="Guide Script (1)" hotkey="1">
+					<ToolTip> build or modify GUIDE-INF/guides.xml </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCreateGuide  </Method>
+				</MenuItem>
+				<MenuItem caption="Task Script (2)" hotkey="2">
+					<ToolTip> build or modify TASK-INF/tasks.xml </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCreateTask  </Method>
+				</MenuItem>				
+			</Menu>
+			<Separator/>
+
+			<MenuItem caption="Build Each Signature" hotkey="E">
+				<ToolTip> build each signature </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doEachFile </Method>
+			</MenuItem>
+
+			<Menu caption="Build File Hash" hotkey="F">
+				<MenuItem caption="MD5 Hash Code (1)" hotkey="1">
+					<ToolTip> build md5 hashcode  </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doMD5File  </Method>
+				</MenuItem>
+				<MenuItem caption="SHA1 Hash Code (2)" hotkey="2">
+					<ToolTip> build sha1 hashcode </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doSHA1File </Method>
+				</MenuItem>
+				<MenuItem caption="SHA256 Hash Code (3)" hotkey="3">
+					<ToolTip> build sha256 hashcode </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doSHA256File </Method>
+				</MenuItem>
+				<MenuItem caption="SHA512 Hash Code (4)" hotkey="4">
+					<ToolTip> build sha512 hashcode </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doSHA512File </Method>
+				</MenuItem>
+			</Menu>
+
+			<Separator/>
+			<Menu caption="Other" hotkey="O">
+				<MenuItem caption="Command Mode (1)" hotkey="1">
+					<ToolTip> memory mode or disk mode </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCommandMode </Method>
+				</MenuItem>
+				<MenuItem caption="Command Timeout (2)" hotkey="2">
+					<ToolTip> command efficetive time  </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCommandTimeout </Method>
+				</MenuItem>
+				<MenuItem caption="Regex Syntax Validator (3)" hotkey="3">
+					<ToolTip> check regex syntax </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doRegex  </Method>
+				</MenuItem>
+				<MenuItem caption="Image Transformer (4)" hotkey="4">
+					<ToolTip> build a new image </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doImageTransform </Method>
+				</MenuItem>
+			</Menu>
+		</Menu>
+		
+		<Menu caption="Help" hotkey="H">
+			<MenuItem caption="Help" hotkey="H">
+				<ToolTip> open help document </ToolTip>
+				<ShortcutKey> F1 </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doHelp </Method>
+			</MenuItem>
+			<Separator/>
+			<MenuItem caption="About Front Terminal" hotkey="A">
+				<ToolTip> about front.terminal </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Method> doAbout </Method>
+			</MenuItem>
+		</Menu>
+
+	</MenuBar>
+
+	<!-- toolbar element -->
+	<ToolBar icon-width="24" icon-height="24" icon-brightness="10.0f">
+		<Button>
+			<ToolTip> Refresh Cloud Service </ToolTip>
+			<Icon> conf/front/terminal/image/toolbar/refresh.png </Icon>
+			<Method> doRefresh </Method>
+		</Button>
+		
+		<Separator/>
+		
+		<Button>
+			<ToolTip> Check Command Syntax </ToolTip>
+			<Icon> conf/front/terminal/image/toolbar/check.png </Icon>
+			<Method> doCheckCommand </Method>
+		</Button>
+		
+		<Button>
+			<ToolTip> Send Command  </ToolTip>
+			<Icon> conf/front/terminal/image/toolbar/launch.png </Icon>
+			<Method> doLaunchCommand </Method>
+		</Button>
+		
+		<Separator/>
+		
+		<Button>
+			<ToolTip> Laxcus Home  </ToolTip>
+			<Icon> conf/front/terminal/image/toolbar/home.png </Icon>
+			<Method> doHome </Method>
+		</Button>
+		
+		<Button>
+			<ToolTip> Laxcus Software Store  </ToolTip>
+			<Icon> conf/front/terminal/image/toolbar/store.png </Icon>
+			<Method> doStore </Method>
+		</Button>
+		
+		<Separator/>
+
+		<Button>
+			<ToolTip> Help(F1) </ToolTip>
+			<Icon> conf/front/terminal/image/toolbar/help.png </Icon>
+			<Method> doHelp </Method>
+		</Button>
+		
+		<Separator/>
+		
+		<Button>
+			<ToolTip> Exit Terminal </ToolTip>
+			<Icon> conf/front/terminal/image/toolbar/exit.png </Icon>
+			<Method> exit </Method>
+		</Button>
+		<Separator/>
+	</ToolBar>
+	
+</Root>

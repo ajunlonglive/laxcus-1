@@ -1,0 +1,35 @@
+<project default="build-shutdown-jar">
+
+	<target name="build-shutdown-jar">
+		<delete file="${basedir}/build/shutdown/shutdown.jar"/>
+		<jar destfile="${basedir}/build/shutdown/shutdown.jar" manifest="${basedir}/build/shutdown/META-INF/MANIFEST.MF">
+			<fileset dir="${basedir}/bin">
+
+				<include name="com/laxcus/shutdown/*.class"/>
+				<include name="com/laxcus/util/*.class"/>
+				<include name="com/laxcus/util/lock/*.class"/>
+				<include name="com/laxcus/util/charset/*.class"/>
+				<include name="com/laxcus/thread/*.class"/>
+
+				<include name="com/laxcus/util/net/Address.class"/>
+				<include name="com/laxcus/util/net/SiteHost.class"/>
+				<include name="com/laxcus/util/net/SocketHost.class"/>
+				<include name="com/laxcus/site/Node.class"/>
+				<include name="com/laxcus/site/SiteTag.class"/>
+				
+				<include name="com/laxcus/xml/XMLocal.class"/>
+				<include name="com/laxcus/security/*.class"/>
+				
+				<include name="com/laxcus/log/client/*.class"/>
+
+				<include name="com/laxcus/fixp/*.class"/>
+				<include name="com/laxcus/fixp/secure/*.class"/>
+				<exclude name="com/laxcus/fixp/Stream.class"/>
+				<include name="com/laxcus/fixp/client/*.class"/>
+				<exclude name="com/laxcus/fixp/client/FixpStreamClient.class"/>
+				
+			</fileset>
+		</jar>
+	</target>
+
+</project>

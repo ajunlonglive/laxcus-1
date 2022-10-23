@@ -1,0 +1,31 @@
+# NIMBUS界面，使用系统的全部默认定义，以下是自定义的颜色
+
+# 可视窗口，面板纯白
+# ScrollPane.background {255,255,255}
+# Viewport.background {255,255,255}
+
+# 集群节点运行时参数溢出（赤红），颜色在color.txt中定义，从ColorTemplate取！
+SiteRuntime.fullText {218,82,67}
+#SiteRuntime.fullText {"赤红"}
+
+# 消息面板，颜色趋向深色
+MessagePanel.CommentTextForeground ESL:{140,120,86}
+MessagePanel.WarningTextForeground ESL:{25,240,90}
+MessagePanel.FaultTextForeground ESL:{236,232,100}
+
+# 命令窗口
+CommandPane.textCommand ESL:{80,240,78}
+CommandPane.textKeyword ESL:{145,160,110}
+CommandPane.textType ESL:{18,240,110}
+CommandPane.textNormal {0,0,0}
+
+# 边框线
+Border.lineBackground {"controlDkShadow"}
+Border.textForeground {"controlText"}
+Border.lineShadow {"controlDkShadow"}
+Border.lineLight {"controlHighlight"}
+
+# HTML显示面板
+HTMLHelpPane.background {"Tree.background"}
+HTMLHelpPane.textForeground {51,51,51}
+HTMLHelpPane.textHerf {#4169E1}

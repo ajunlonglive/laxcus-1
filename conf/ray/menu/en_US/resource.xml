@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 包括启动菜单、弹出菜单、集成在JAR包的系统应用配置 -->
+
+<Root>
+	
+	<LaunchMenu>
+		<!-- 菜单左侧的条幅字 -->
+		<Flag> Laxcus Clusters Administrator </Flag> 
+
+		<MenuItem caption="在线帮助">
+				<ToolTip> </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon w="28" h="28"> conf/ray/image/menu/launch/help.png </Icon>
+				<Method> <![CDATA[doHelp]]> </Method>
+		</MenuItem>
+		<MenuItem caption="运行日志">
+				<ToolTip>  </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon w="28" h="28"> conf/ray/image/menu/launch/log.png </Icon>
+				<Method> <![CDATA[doOpenLogWindow]]> </Method>
+		</MenuItem>
+		<Separator/>
+
+		<Menu caption="云端应用软件" associate="DAS">
+			<ToolTip> 在本地启动和操控、在云端运行的分布式应用软件</ToolTip>
+			<ShortcutKey> </ShortcutKey>
+			<Icon w="28" h="28"> conf/ray/image/menu/launch/dapp.png </Icon>
+		</Menu>
+		<Menu caption="边缘应用软件" associate="EDGE">
+			<ToolTip> 显示和运行本地边缘应用 </ToolTip>
+			<ShortcutKey> </ShortcutKey>
+			<Icon w="28" h="28"> conf/ray/image/menu/launch/edge.png </Icon>
+		</Menu>
+		<Separator/>
+		
+		<Menu caption="工具" associate="TOOL">
+			<ToolTip>  </ToolTip>
+			<ShortcutKey> </ShortcutKey>
+			<Icon w="28" h="28"> conf/ray/image/menu/launch/tools.png </Icon>
+		</Menu>
+		
+		<Menu caption="服务" associate="SERVICE">
+			<ToolTip>  </ToolTip>
+			<ShortcutKey> </ShortcutKey>
+			<Icon w="28" h="28"> conf/ray/image/menu/launch/service.png </Icon>
+			
+			<MenuItem caption="制作应用软件">
+				<ToolTip> 将您开发的应用软件打包 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon w="16" h="16"> conf/ray/image/dialog/build/logo.png </Icon>
+				<Method> <![CDATA[ doBuildSoftware]]> </Method>
+			</MenuItem>
+			<MenuItem caption="安装应用软件">
+				<ToolTip> 从磁盘安装应用软件 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon w="16" h="16"> conf/ray/image/dialog/install/logo.png </Icon>
+				<Method> <![CDATA[ doInstallSoftware]]> </Method>
+			</MenuItem>
+			<MenuItem caption="删除应用软件">
+				<ToolTip> 删除磁盘上的应用软件 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon w="16" h="16"> conf/ray/image/dialog/uninstall/logo.png </Icon>
+				<Method> <![CDATA[ doUninstallSoftware]]> </Method>
+			</MenuItem>
+			<!--
+			<Separator/>
+			<MenuItem caption="应用商店">
+				<ToolTip> Laxcus应用商店，聚合全球分布式应用软件 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> conf/ray/image/dialog/store/logo.png </Icon>
+				<Method> <![CDATA[ ]]> </Method>
+			</MenuItem>
+			-->
+		</Menu>
+		
+		<Menu caption="设置" associate="SET">
+			<ToolTip>  </ToolTip>
+			<ShortcutKey> </ShortcutKey>
+			<Icon w="28" h="28"> conf/ray/image/menu/launch/set.png </Icon>
+			
+		</Menu>
+		
+		<Menu caption="连接" associate="CONNECT">
+			<ToolTip> 连接、断开、断开再连接LAXCUS计算机集群 </ToolTip>
+			<ShortcutKey> </ShortcutKey>
+			<Icon w="28" h="28"> conf/ray/image/menu/launch/navigate.png </Icon>
+			
+			<MenuItem caption="登录">
+				<ToolTip> 登录和注册到服务器 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> conf/ray/image/menu/launch/login.png </Icon>
+				<Method> <![CDATA[login]]> </Method>
+			</MenuItem>
+			<MenuItem caption="注销">
+				<ToolTip> 从当前服务器退出 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> conf/ray/image/menu/launch/logout.png </Icon>
+				<Method> <![CDATA[logout]]> </Method>
+			</MenuItem>
+			<Separator/>
+			<MenuItem caption="重新注册">
+				<ToolTip> 从当前服务器退出和再次注册 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> conf/ray/image/menu/launch/relogin.png </Icon>
+				<Method> <![CDATA[relogin]]> </Method>
+			</MenuItem>
+		</Menu>
+		
+		<MenuItem caption="运行" associate="RUN">
+			<ToolTip>  </ToolTip>
+			<ShortcutKey> </ShortcutKey>
+			<Icon w="28" h="28"> conf/ray/image/menu/launch/run.png </Icon>
+			<Method> <![CDATA[doRun]]> </Method>
+		</MenuItem>
+		
+		<Separator/>
+		
+		<MenuItem caption="关闭" associate="SHUTDOWN">
+			<ToolTip> 关闭网络连接和退出当前桌面环境 </ToolTip>
+			<ShortcutKey> </ShortcutKey>
+			<Icon w="28" h="28"> conf/ray/image/menu/launch/shutdown.png </Icon>
+			<Method> <![CDATA[exit]]> </Method>
+		</MenuItem>
+	</LaunchMenu>
+
+	<!-- 桌面弹出菜单 -->
+	<DesktopPopupMenu>
+		<Menu caption="排列图标[A]" hotkey="A" associate="IconAlignment">
+			<ToolTip> 按照不同的属性排列 </ToolTip>
+			<ShortcutKey> </ShortcutKey>
+			<!-- <Icon w="16" h="16"> conf/ray/image/window/launch/dapp.png </Icon> -->
+			
+			<MenuItem caption="按照名称排列">
+				<ToolTip> 以名称排列图标 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[doDesktopAlignmentByName]]> </Method>
+			</MenuItem>
+			<MenuItem caption="按照时间排列">
+				<ToolTip> 以生成时间排列图标 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon>  </Icon>
+				<Method> <![CDATA[doDesktopAlignmentByTime]]> </Method>
+			</MenuItem>
+		</Menu>
+		<CheckBoxMenuItem caption="锁定图标[K]" hotkey="K" checkon="false">
+				<ToolTip> 锁定图标按纽，不允许移动 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon w="16" h="16"> conf/ray/image/menu/popup/unlocked.png </Icon>
+				<Method> <![CDATA[doLockDesktop]]>  </Method>
+		</CheckBoxMenuItem>
+		<MenuItem caption="刷新界面[R]" hotkey="R">
+				<ToolTip> 刷新桌面窗口 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon w="16" h="16"> conf/ray/image/menu/popup/refresh.png </Icon>
+				<Method> <![CDATA[doRefreshDesktop]]> </Method>
+		</MenuItem>
+		<Separator/>
+		
+		<CheckBoxMenuItem caption="任务栏[S]" hotkey="S" checkon="true">
+				<ToolTip> 显示或者隐藏任务栏 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Method> <![CDATA[doShowOrHideStatusBar]]>  </Method>
+		</CheckBoxMenuItem>
+		<CheckBoxMenuItem caption="应用坞[O]" hotkey="O" checkon="true">
+				<ToolTip> 显示或者隐藏应用坞 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Method> <![CDATA[doShowOrHideDockBar]]>  </Method>
+		</CheckBoxMenuItem>
+
+		<Separator/>
+		<MenuItem caption="系统桌面[D]" hotkey="D">
+				<ToolTip> 显示和修改桌面属性 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon w="16" h="16"> conf/ray/image/dialog/properties/logo.png </Icon>
+				<Method> <![CDATA[doDesktopProperties]]> </Method>
+		</MenuItem>
+	</DesktopPopupMenu>
+	
+	<!-- 系统内部应用，在启动时加载  -->
+	<inner-applications>
+		<!--
+		<application> conf/ray/application/cluster.das </application>
+		<application> conf/ray/application/component.das </application>
+		-->
+		<application> conf/ray/application/console.das </application>
+		<application> conf/ray/application/notepad.das </application>
+	</inner-applications>
+	
+</Root>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!-- FRONT站点，客户端用公钥加密,服务器用私钥解密 -->
+
+<key-tokens>
+
+	<server check="none" mode="common">
+		<private-key>
+			<code>
+				<modulus>a4f005da16c440daa8932a8f3ca2b82b7c995c984954c750ee455eff4d2d1616b40662de4b9399d0875cec93dccfe304f21859f87211575aea453cf60b2833d75af7bbef2ed7839ed7eb271cc928ee4d0c0c0fea98e6ba0c686816ffeb3998a3ebda87c964201846a8f201921e033b103760846d6508ce6289ece6b5838d5327</modulus>
+				<exponent>609e765f1e4d12ccc4498979e504512cb04dca8f2f0de9c08003c5357b0939524d5d1c57aa2029cf9d2c132e3f00ccb51df8a3e3c536615cd1b58393824fa7a5c436a445aecb99cc562274251941568b9f1c1bfe10df7d23bd96112e67f5188ee98cb7fd509deb22299036c55674d461bac3d443b296b79b522466bdca3a1929</exponent>
+			</code>
+		</private-key>
+	</server>
+	
+	<client mode="common">
+		<public-key>
+			<code>
+				<modulus>a4f005da16c440daa8932a8f3ca2b82b7c995c984954c750ee455eff4d2d1616b40662de4b9399d0875cec93dccfe304f21859f87211575aea453cf60b2833d75af7bbef2ed7839ed7eb271cc928ee4d0c0c0fea98e6ba0c686816ffeb3998a3ebda87c964201846a8f201921e033b103760846d6508ce6289ece6b5838d5327</modulus>
+				<exponent>10001</exponent>
+			</code>
+		</public-key>
+	</client>
+	
+</key-tokens>

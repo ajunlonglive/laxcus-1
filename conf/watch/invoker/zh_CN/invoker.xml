@@ -1,0 +1,871 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<invokers>
+
+	<GAP>
+		<ITEM background="ESL:{146,140,210}"> Item </ITEM>
+	</GAP>
+	
+	<SUBGAP>
+		<ITEM background="ESL:{86,93,210}"> Item </ITEM>
+	</SUBGAP>
+
+	<!-- 自定义命令 -->
+	<CUSTOM-COMMAND>
+		<MESSAGE-BOX content="你确认要执行这个自定义命令吗？"/>
+	</CUSTOM-COMMAND>
+
+	<SHUTDOWN>
+		<STATUS title="状态" width="50"/>
+		<SITE title="节点" width="300"/>
+	</SHUTDOWN>
+	
+	<REFRESH-RESOURCE>
+		<STATUS title="状态" width="50"/>
+		<USERNAME title="用户" width="220"/>
+		<SITE title="节点地址" width="280">
+			<INVALID> 无效  </INVALID>
+		</SITE>
+	</REFRESH-RESOURCE>
+	
+	<REFRESH-LOGIN>
+		<STATUS title="状态" width="50"/>
+		<SITE title="节点地址" width="300"/>
+	</REFRESH-LOGIN>
+	
+	<RELEASE-MEMORY>
+		<STATUS title="状态" width="50"/>
+		<SITE title="节点地址" width="300"/>
+		
+		<LOCAL title="本地" width="280">
+			<FREE> 已经释放本地内存！</FREE>
+		</LOCAL>
+	</RELEASE-MEMORY>
+	
+	<RELEASE-MEMORY-INTERVAL>
+		<STATUS title="状态" width="50"/>
+		<SITE title="节点地址" width="300"/>
+
+		<LOCAL title="间隔时间" width="280">
+			<CANCELED> 取消内存释放检查 </CANCELED>
+		</LOCAL>
+	</RELEASE-MEMORY-INTERVAL>
+	
+	<RUSH>
+		<STATUS title="状态" width="50"/>
+		<TABLE title="数据表" width="130"/>
+		<SITE title="DATA节点" width="280"/>
+		<CODE title="返回码" width="80"/>		
+	</RUSH>
+	
+	<COMPACT>
+		<STATUS title="状态" width="50"/>
+		<SITE title="DATA节点" width="280"/>
+		<CODE title="返回码" width="80"/>		
+	</COMPACT>
+	
+	<SETDSMREDUCE>
+		<STATUS title="状态" width="50"/>
+		<TABLE title="数据表" width="150"/>
+		<MULTIPLE title="压缩倍率" width="50"/>
+		<SITE title="DATA节点" width="280"/>
+		<CODE title="返回码" width="80"/>		
+	</SETDSMREDUCE>
+
+	<!-- 扫描数据表 -->
+	<SCAN-TABLE>
+		<SITE title="地址" width="260"/>
+		<DATABASE title="数据库" width="100"/>
+		<TABLE title="表" width="100"/>
+		<STUBS title="数据块" width="100"/>
+		<ROWS title="总行数" width="80"/>
+		<AROWS title="有效行数" width="80"/>
+	</SCAN-TABLE>
+
+	<!-- 扫描数据块 -->
+	<SCAN-ENTITY>
+		<SITE title="地址" width="230"/>
+		<DATABASE title="数据库" width="100"/>
+		<TABLE title="表" width="100"/>
+		<STUBS title="数据块数目" width="100"/>
+		<SIZE title="容量" width="100"/>
+	</SCAN-ENTITY>
+	
+	<!-- 命令超时时间 -->
+	<COMMAND-TIMEOUT>
+		<TIME title="命令超时时间" width="200"/>
+	</COMMAND-TIMEOUT>
+	
+	<!-- 命令优先级 -->
+	<COMMAND-PRIORITY>
+		<TYPE title="命令优先级" width="160">
+			<NONE> 无定义 </NONE>
+			<MIN> 最小 </MIN>
+			<NORMAL> 普通 </NORMAL>
+			<MAX> 最大 </MAX>
+			<FAST> 极速处理 </FAST>
+		</TYPE>
+	</COMMAND-PRIORITY>
+
+	<!-- 本地密文超时时间 -->
+	<LOCAL-CIPHER-TIMEOUT>
+		<TIME title="本地密文超时时间" width="200"/>
+	</LOCAL-CIPHER-TIMEOUT>
+	<!-- 远程投递密文 -->
+	<CIPHER-TIMEOUT-REMOTE>
+		<STATUS title="状态" width="50"/>
+		<SITE title="节点" width="300"/>
+	</CIPHER-TIMEOUT-REMOTE>
+	
+	<!-- 本地异步缓存空间 -->
+	<LOCAL-MAX-ECHO-BUFFER>
+		<CAPACITY title="本地异步缓存空间" width="200"/>
+		<ANY> 不限制 </ANY>
+	</LOCAL-MAX-ECHO-BUFFER>
+
+	<!-- 远程投递异步缓存尺寸 -->
+	<MAX-ECHO-BUFFER-REMOTE>
+		<STATUS title="状态" width="50"/>
+		<SITE title="节点" width="300"/>
+	</MAX-ECHO-BUFFER-REMOTE>
+	
+	<!-- 设置调用器数目 -->
+	<MAX-INVOKER>
+		<COUNT> 集群节点 </COUNT>
+		<PROCESS-TIME> 处理时间 </PROCESS-TIME>
+		
+		<STATUS title="状态" width="80"/>
+		<SITE title="节点地址" width="300"/>
+		<INVOKERS title="调用器" width="80"/>
+		<CONFINE-TIME title="延时限制时间（秒）" width="120"/>
+		<CONFINE-TIME-MS title="延时限制时间（毫秒）" width="120"/>
+		
+		<LOCAL>
+			<INVOKERS title="调用器" width="80"/>
+			<CONFINE-TIME title="延时限制时间（秒）" width="120"/>
+			<CONFINE-TIME-MS title="延时限制时间（毫秒）" width="120"/>
+		</LOCAL>
+		
+		<ALWAY> 一直保持 </ALWAY>
+	</MAX-INVOKER>
+	
+	<!-- 计算散列命令 -->
+	<BUILD-HASH>
+		<CODE title="散列码" width="500"/>
+	</BUILD-HASH>
+	<!-- 计算EACH签名命令 -->
+	<BUILD-EACH>
+		<SIGN title="EACH签名" width="200"/>
+	</BUILD-EACH>
+	
+	<!-- 命令处理模式 -->
+	<COMMAND-MODE>
+		<MODE title="命令处理模式" width="430" foreground="青碧">
+			<DISK> 调整为磁盘存取，现在所有命令的数据存取都将以硬盘为存取介质。</DISK>
+			<MEMORY> 调整为内存存取，现在所有命令的数据存取都将以内存为存取介质。</MEMORY>
+		</MODE>
+	</COMMAND-MODE>
+
+	<!-- 检索分布任务组件 -->
+	<SEEK-TASK>
+		<SITE title="节点" width="260"/>
+		<PHASE title="阶段命名" width="600"/>
+	</SEEK-TASK>
+	
+	<!-- 设置日志级别 -->
+	<SET-LOGLEVEL>
+		<STATUS title="设置状态" width="50"/>
+		<SITE title="日志节点" width="300"/>
+	</SET-LOGLEVEL>
+	
+	<!-- 重新加载/发布自定义包 -->
+	<RELOAD-CUSTOM>
+		<STATUS title="状态" width="50"/>
+		<SITE title="目标节点" width="300"/>
+	</RELOAD-CUSTOM>
+	
+	<!-- 计算半截码命令 -->
+	<BUILD-HALF>
+		<TEXT title="结果" width="380"/>
+	</BUILD-HALF>
+	
+	<!-- 检索FRONT在线用户 -->
+	<SEEK-FRONT-USER>
+		<USERNAME title="用户签名" width="300"/>
+		<SERVER title="注册节点" width="230"/>
+		<CLIENT title="FRONT地址" width="230"/>
+	</SEEK-FRONT-USER>
+
+	<!-- SEEK USER SITE 用户名称|ALL ON 节点类型 | ALL-->
+	<SEEK-USERSITE>
+		<USERNAME title="用户名称" width="250"/>
+		<SITE title="节点" width="230"/>
+	</SEEK-USERSITE>
+
+	<!-- SEEK USER TABLE 用户名称 |ALL ON 节点类型|ALL -->
+	<SEEK-USERTABLE>
+		<USERNAME title="用户名称" width="250"/>
+		<SITE title="节点" width="230"/>
+		<SPACE title="表名" width="130"/>
+	</SEEK-USERTABLE>
+	
+	<!-- SEEK USER PHASE 用户名称|ALL ON 节点类型|ALL -->
+	<SEEK-USERPHASE>
+		<USERNAME title="用户名称" width="250"/>
+		<SITE title="节点" width="230"/>
+		<PHASE title="组件名称" width="260"/>
+	</SEEK-USERPHASE>
+
+	<!-- 显示用户授权状态，命令：PRINT GRANT DIAGRAM  -->
+	<GRANT-DIAGRAM>
+		<USERNAME title="用户名称" width="120">
+			<NOTFOUND>没有找到</NOTFOUND>
+			<EMPTY>空记录</EMPTY>
+		</USERNAME>
+		
+		<COMMAND title="命令" width="180"/>
+		<REMARK title="注释" width="180"/>
+		<RANK title="级别" width="100">
+			<USER>用户</USER>
+			<DATABASE>数据库 </DATABASE>
+			<TABLE>数据表</TABLE>
+		</RANK>
+	</GRANT-DIAGRAM>
+	
+	<!-- 显示注册用户状态，命令：PRINT USER DIAGRAM -->
+	<USER-DIAGRAM>
+		<ATTRIBUTE title="*" width="180"/>
+		<VALUE title="*" width="360"/>
+		
+		<USER title="用户名" width="122">
+			<STATUS title="状态">
+				<NOTFOUND>没有找到</NOTFOUND>
+			</STATUS>
+		</USER>
+		
+		<ITEM>
+			<SIGER title="用户名"/>
+			<CREATE-TIME title="建立时间"/>
+			
+			<EXPIRE-TIME title="使用期限">
+				<UNLIMIT>无限制</UNLIMIT>
+			</EXPIRE-TIME>
+			<USING title="账号状态">
+				<OPENING>开放中</OPENING>
+				<CLOSED>禁用</CLOSED>
+			</USING>
+
+			<CAPACITY title="最大磁盘空间">
+				<UNLIMIT>无限制</UNLIMIT>
+			</CAPACITY>
+			
+			<MEMBERS title="在线登录数目"/>
+			<JOBS title="在线任务数"/>
+
+			<GROUPS title="集群数目"/>
+			<GATEWAYS title="网关节点数目（CALL节点）"/>
+			<WORKERS  title="分布计算节点数目（WORK节点）"/>
+			<BUILDERS title="分布构建节点数目（BUILD节点）"/>
+			
+			<TABLE-SIZE title="最大表数目">
+				<UNLIMIT>无限制</UNLIMIT>
+			</TABLE-SIZE>
+			
+			<INDEX-SIZE title="表索引数目">
+				<UNLIMIT>无限制</UNLIMIT>
+			</INDEX-SIZE>
+			
+			<CHUNK-SIZE title="数据块尺寸"/>
+		</ITEM>
+	</USER-DIAGRAM>
+	
+	<!-- 数据库/数据表信息 -->
+	<RESOURCE-DIAGRAM>
+		<ATTRIBUTE title="*" width="100"/>
+		<VALUE title="*" width="280"/>
+		
+		<USER title="用户名" width="122">
+			<STATUS title="状态">
+				<NOTFOUND>没有找到</NOTFOUND>
+				<EMPTY>空记录</EMPTY>
+			</STATUS>
+		</USER>
+
+		<ITEM>
+			<DATABASE title="数据库名"/>
+			<TABLE title="表名"/>
+			<CREATE-TIME title="建立时间"/>
+			
+			<CAPACITY title="磁盘空间">
+				<UNLIMIT>无限制</UNLIMIT>
+			</CAPACITY>
+			
+			<TABLE-COUNT title="表数目"/>
+			<COLUMN-COUNT title="单元数"/>
+
+			<CHUNK-COPY title="备份数"/>
+			<CHUNK-SIZE title="数据块尺寸"/>
+			<PRIME-SITES title="主节点数"/>
+			<SM title="存储模型">
+				<NSM>行存储</NSM>
+				<DSM>列存储</DSM>
+				<MULTIPLE title="压缩倍数"/>
+			</SM>
+			<SITE-MODE title="节点模式">
+				<SHARE>共享</SHARE>
+				<EXCLUSIVE>独享</EXCLUSIVE>
+			</SITE-MODE>
+		</ITEM>
+	</RESOURCE-DIAGRAM>
+	
+	<!-- 检索用户日志 -->
+	<SCAN-USERLOG>
+		<USERNAME title="用户" width="200"/>
+		<SITE title="节点" width="260"/>
+		
+		<STATUS title="*" remark="状态" width="50"/>
+		<COMMAND title="*" remark="命令" width="220"/>
+		<MODE title=" " remark="模式" width="60">
+				<MEMORY>内存</MEMORY>
+				<DISK>磁盘</DISK>
+		</MODE>
+		<LAUNCH-TIME title=" " remark="开始时间" width="160">
+			<STYLE>yyyy-MM-dd HH:mm:ss.SSS</STYLE>
+		</LAUNCH-TIME>
+		
+		<USED-TIME title="*" remark="运行时间（秒）" width="100"/>
+		<RECE-FLOWS title="*" remark="接收（字节）" width="100"/>
+		<SEND-FLOWS title="*" remark="发送（字节）" width="100"/>		
+	</SCAN-USERLOG>
+
+	<!-- WATCH监视节点命令超时时间 -->
+	<OUTLOOK-INTERVAL>
+		<TIME title="节点诊断间隔时间" width="200" foreground="ESL:{150,240,60}"/>
+		<!-- <TIME title="节点诊断间隔时间" width="200" foreground="露草色"/> -->
+	</OUTLOOK-INTERVAL>
+
+	<!-- 检索在线命令 -->
+	<SEEK-ONLINE-COMMAND>
+		<COMMAND title="命令" width="100"/>
+		<ONLINE-TIME title="在线时间" width="130"/>
+		<SIGER title="签名" width="120">
+			<SYSTEM>系统</SYSTEM>
+		</SIGER>
+		<CABIN title="来源" width="280"/>
+		<STATUS title="状态" width="80">
+			<RUNNING>处理中</RUNNING>
+			<SUSPEND>挂起</SUSPEND>
+			<WAITING>等待</WAITING>
+		</STATUS>
+		<PRIORITY title="优先级" width="60"/>
+		<MODE title="存取模式" width="80">
+			<MEMORY>内存</MEMORY>
+			<DISK>硬盘</DISK>
+		</MODE>
+		<DIRECT title="单向处理" width="80">
+			<YES>是</YES>
+			<NO>否</NO>
+		</DIRECT>
+		<THREAD-ID title="线程编号" width="60"/>
+	</SEEK-ONLINE-COMMAND>
+	
+	<!-- 检索在线资源 -->
+	<SEEK-ONLINE-RESOURCE>
+		<T1 title="*" width="80"/>
+		<T2 title="*" width="600"/>
+
+		<SIGER foreground="0xFF0000"> 用户签名 </SIGER>
+		<TABLE foreground="0x3B7960"> 数据表  </TABLE>
+		<PHASE foreground="0x1C84A0"> 阶段命名  </PHASE>
+		
+		<SYSTEM-TASK foreground="0xFF0000"> 系统组件 </SYSTEM-TASK>
+	</SEEK-ONLINE-RESOURCE>
+	
+	<!-- 检索用户在集群的分布区域，Seek User Area -->
+	<SEEK-USER-AREA>
+		<T1 title="*" width="100"/>
+		<T2 title="*" width="600"/>
+
+		<SIGER foreground="0x0000FF"> 用户名 </SIGER>
+		<SITE foreground="0x3B7960" notfound="没有找到" register="注册" online="在线" register-online="注册/在线"> 节点地址 </SITE>
+	</SEEK-USER-AREA>
+	
+	<!-- 检索在线资源 -->
+	<SEEK-REGISTER-METADATA>
+		<T1 title="*" width="80"/>
+		<T2 title="*" width="300"/>
+		<T3 title="*" width="80"/>
+		<T4 title="*" width="230"/>
+
+		<SIGER foreground="0xFF0000"> 用户签名 </SIGER>
+		<SITE foreground="0xFF0000" notfound="没有找到"> 节点地址 </SITE>
+		
+		<TABLE foreground="0x3B7960"> 数据表  </TABLE>
+		<PHASE foreground="0x1C84A0"> 阶段命名  </PHASE>
+		
+		<REG-TABLE foreground="0x3B7960"> 注册表  </REG-TABLE>
+		<REG-PHASE foreground="0x1C84A0"> 注册阶段命名  </REG-PHASE>
+		<REG-SITE foreground="0xFF0000"> 来源节点 </REG-SITE>
+	</SEEK-REGISTER-METADATA>
+	
+	<!-- 加载动态链接库 -->
+	<RELOAD-LIBRARY>
+		<T1 title="*" width="180"/>
+		<T2 title="*" width="380"/>
+
+		<SITE foreground="0xFF0000" title="节点地址"/>
+		<LIBRARY foreground="0x3B7960" title="链接库"/>
+	</RELOAD-LIBRARY>
+	
+	<!-- 诊断用户间隔时间 -->
+	<SCANLINK-TIME>
+		<TIME title="触发间隔时间" width="300"/>
+		<ERROR title="操作失败！" foreground="0xFF0000"/>
+	</SCANLINK-TIME>
+
+	<!-- 重装加载安全许可协议 -->
+	<RELOAD-SECURITY-POLICY>
+		<STATUS title="状态" width="50"/>
+		<SITE title="节点" width="300"/>
+	</RELOAD-SECURITY-POLICY>
+
+	<!-- 发布许可证 -->
+	<PUBLISH-LICENCE>
+		<STATUS title="状态" width="50"/>
+		<SITE title="节点" width="300"/>
+	</PUBLISH-LICENCE>
+	
+	<!-- 重新加载许可证 -->
+	<RELOAD-LICENCE>
+		<STATUS title="状态" width="50"/>
+		<SITE title="节点" width="300"/>
+	</RELOAD-LICENCE>
+	
+	<!-- 扫描堆栈命令 -->
+	<SCAN-STACK-COMMAND>
+		<STATUS title="状态" width="50"/>
+		<SITE title="节点" width="300"/>
+	</SCAN-STACK-COMMAND>
+	
+	<!-- 流量测试 -->
+	<TRAFFIC>
+		<ATTRIBUTE title="名称" width="130"/>
+		<VALUE title="参数" width="280"/>
+		
+		<STATUS title="状态"/>
+		<FROM title="发送节点"/>
+		<TO title="接收节点"/>
+	
+		<LENGTH title="传输数据"/>
+		<RUNTIME title="传输计时" />	
+		<RATE title="速率（兆/秒）" />
+		<PACKETS title="发送数据包" />
+		<RETRIES title="重新发送数据包次数" />
+		<TIMEOUTS title="超时重传次数" />		
+	</TRAFFIC>
+	
+	<!-- 综合流量测试 -->
+	<MULTI-TRAFFIC>
+		<ATTRIBUTE title="名称" width="130"/>
+		<VALUE title="参数" width="280"/>
+		
+		<SERIAL title="编号"/>
+		<FAULTS title="错误"/>
+		<CORRECTS title="成功"/>
+	
+		<LENGTH title="传输数据"/>
+		<RUNTIME title="传输计时" />	
+		<RATE title="速率（兆/秒）" />
+		<PACKETS title="发送数据包" />
+		<RETRIES title="重新发送数据包次数" />
+		<TIMEOUTS title="超时重传次数" />		
+	</MULTI-TRAFFIC>
+	
+	<!-- 设置应答数据传输模式 -->
+	<REPLY-PACKET-MODE>
+		<SERIAL>串行 </SERIAL>
+		<PARALLEL>并行</PARALLEL>
+		
+		<STATUS title="状态" width="50"/>
+		<SITE title="节点地址" width="300"/>
+		<PACKET-MODE title="传输模式" width="100"/>
+		
+		<LOCAL>
+			<PACKET-MODE title="传输模式" width="190"/>
+		</LOCAL>
+	</REPLY-PACKET-MODE>
+
+	<!-- 运行状态设置FIXP包尺寸 -->
+	<REPLY-PACKET-SIZE>
+		<STATUS title="状态" width="50"/>
+		<SITE title="节点地址" width="300"/>
+		<PACKET-SIZE title="包尺寸" width="100"/>
+		<SUBPACKET-SIZE title="子包尺寸" width="100"/>
+		
+		<LOCAL>
+			<PACKET-SIZE title="FIXP包尺寸" width="120"/>
+			<SUBPACKET-SIZE title="FIXP子包尺寸" width="120"/>
+		</LOCAL>
+	</REPLY-PACKET-SIZE>
+	
+	<!-- 发送异步数据超时时间 -->
+	<REPLY-SEND-TIMEOUT>
+		<STATUS title="状态" width="50"/>
+		<SITE title="节点地址" width="300"/>
+		<DISABLE-TIMEOUT title="包失效时间(秒)" width="100"/>
+		<SUBPACKET-TIMEOUT title="子包超时(秒)" width="100"/>
+		<INTERVAL title="子包发送间隔(毫秒)" width="100"/>
+		
+		<LOCAL>
+			<DISABLE-TIMEOUT title="包失效时间(秒)" width="120"/>
+			<SUBPACKET-TIMEOUT title="子包超时(秒)" width="120"/>
+			<SUBPACKET-INTERVAL title="子包发送间隔(毫秒)" width="120"/>
+		</LOCAL>
+	</REPLY-SEND-TIMEOUT>
+	<!-- 发送异步数据超时时间 -->
+	<REPLY-RECEIVE-TIMEOUT>
+		<STATUS title="状态" width="50"/>
+		<SITE title="节点地址" width="300"/>
+		<DISABLE-TIMEOUT title="包失效时间(秒)" width="100"/>
+		<SUBPACKET-TIMEOUT title="子包超时(秒)" width="100"/>
+		
+		<LOCAL>
+			<DISABLE-TIMEOUT title="包失效时间(秒)" width="120"/>
+			<SUBPACKET-TIMEOUT title="子包超时(秒)" width="120"/>
+		</LOCAL>
+	</REPLY-RECEIVE-TIMEOUT>
+	
+	<!-- 设置应答数据流量控制参数 -->
+	<REPLY-FLOW-CONTROL>
+		<STATUS title="状态" width="50"/>
+		<SITE title="节点地址" width="300"/>
+		<BLOCK title="队列长度" width="100"/>
+		<TIMESLICE title="时间片（微秒）" width="100"/>
+		<SUBPACKET-CONTENTSIZE title="包尺寸" width="100"/>
+
+		<LOCAL>
+			<BLOCK title="队列长度" width="120"/>
+			<TIMESLICE title="时间片（微秒）" width="120"/>
+			<SUBPACKET-CONTENTSIZE title="包尺寸" width="100"/>
+		</LOCAL>
+	</REPLY-FLOW-CONTROL>
+	
+	<!-- 测试FIXP SOCKET服务器。颜色值在配置文件"color.txt"中定义。 -->
+	<RING>
+		<T1 title="参数" width="130"/>
+		<T2 title="报告" width="360"/>
+
+		<TIME foreground="ESL:{142,190,48}"> 用时(秒) </TIME>
+		<SERVER foreground="ESL:{142,190,58}"> 服务器地址 </SERVER>
+		<LOCAL foreground="ESL:{142,190,48}"> 本机绑定地址 </LOCAL>
+		<FROM foreground="ESL:{142,190,38}"> 本机出口地址 </FROM>
+		<NAT foreground="ESL:{142,190,38}"> NAT网络 </NAT>
+		<SUCCESS foreground="ESL:{120,80,70}"> 成功次数  </SUCCESS>
+		<FAIL foreground="红绯"> 失败次数  </FAIL>
+		<RATIO foreground="0x0"> 成功比例</RATIO>
+	</RING>
+
+	<!-- 发布用户到指定节点 -->
+	<DEPLOY-USER>
+		<STATUS title="状态" width="50"/>
+		<USERNAME title="用户" width="300"/>
+		<SITE title="节点地址" width="280"/>
+	</DEPLOY-USER>
+	
+	<!-- 从指定节点清除用户 -->
+	<ERASE-USER>
+		<STATUS title="状态" width="50"/>
+		<USERNAME title="用户" width="300"/>
+		<SITE title="节点地址" width="280"/>
+		
+		<ERASE-DATA-BOX> 此操作具有相当危险性，Data节点的磁盘数据被删除后将无法恢复，请确认是否继续？ </ERASE-DATA-BOX> 
+		<ERASE-SITE-BOX> 此操作具有一定危险性，将可能导致这个用户的集群业务出现故障，请确认是否继续？ </ERASE-SITE-BOX>
+	</ERASE-USER>
+	
+	<!-- 发布数据表到指定节点 -->
+	<DEPLOY-TABLE>
+		<STATUS title="状态" width="50"/>
+		<USERNAME title="用户签名" width="380"/>
+		<SITE title="节点地址" width="360"/>
+	</DEPLOY-TABLE>
+	
+	<!-- 数据块DATA主从复制 -->
+	<COPY-MASTER-MASS>
+		<STATUS title="结果" width="50"/>
+		<STUB title="数据块编码" width="260"/>
+	</COPY-MASTER-MASS>
+
+	<!-- 定位GATE节点模式 -->
+	<SHADOW-MODE>
+		<SITE title="Entrance节点" width="280"/>
+	</SHADOW-MODE>
+
+	<!-- GATE注册用户和GATE节点编号一致性检查 -->
+	<SHADOW-CONSISTENCY>
+		<SITE title="Gate节点" width="230"/>
+		<COUNT title="用户数" width="100"/>
+		<MEMBERS title="登录数" width="100"/>
+		<MATCHS title="匹配数" width="100"/>
+		<RATE title="完整率" width="100"/>
+	</SHADOW-CONSISTENCY>
+	
+	<!-- 节点最大CPU使用率限制 -->
+	<MOST-CPU>
+		<STATUS title="状态" width="80"/>
+		<SITE title="节点" width="300"/>
+		
+		<COUNT> 集群节点 </COUNT>
+		<LOCAL title="定义本地内存限制" width="200">
+			<SUCCESS> 成功 </SUCCESS>
+			<FAILED> 失败 </FAILED>
+		</LOCAL>
+	</MOST-CPU>
+
+	<!-- 节点最大虚拟机内存使用率限制 -->
+	<MOST-VMMEMORY>
+		<STATUS title="状态" width="80"/>
+		<SITE title="节点" width="300"/>
+		
+		<COUNT> 集群节点 </COUNT>
+		<LOCAL title="定义本地内存限制" width="200">
+			<SUCCESS> 成功 </SUCCESS>
+			<FAILED> 失败 </FAILED>
+		</LOCAL>
+	</MOST-VMMEMORY>
+	
+	<!-- 节点最少内存限制 -->
+	<LEAST-MEMORY>
+		<STATUS title="状态" width="80"/>
+		<SITE title="节点" width="300"/>
+		
+		<COUNT> 集群节点 </COUNT>
+		<LOCAL title="定义本地内存限制" width="200">
+			<SUCCESS> 成功 </SUCCESS>
+			<FAILED> 失败 </FAILED>
+		</LOCAL>
+	</LEAST-MEMORY>
+
+	<!-- 节点最少磁盘空间限制 -->
+	<LEAST-DISK>
+		<STATUS title="状态" width="80"/>
+		<SITE title="节点" width="300"/>
+		
+		<COUNT> 集群节点 </COUNT>
+		<LOCAL title="定义本地磁盘空间限制" width="200">
+			<SUCCESS> 成功 </SUCCESS>
+			<FAILED> 失败 </FAILED>
+		</LOCAL>
+	</LEAST-DISK>
+
+	<!-- 打印节点目录 -->
+	<CHECK-SITE-PATH>
+		<T1 title="*" width="180"/>
+		<T2 title="*" width="500"/>
+		
+		<ITEM>
+			<COUNT title="检测集群节点"/>
+			<SITE title="节点地址" foreground="ESL:{133,240,70}"/>
+			<OS title="操作系统" foreground="0x028760"/>
+			<PATH title="节点目录" foreground="0x0095D9"/>
+		</ITEM>
+	</CHECK-SITE-PATH>
+	
+	<!-- 分布超时命令/本地 -->
+	<DISTRIBUTED-TIMEOUT-LOCAL>
+		<TIME title="超时时间" unlimit="不限制" width="200"/>
+	</DISTRIBUTED-TIMEOUT-LOCAL>
+	<!-- 分布超时时间/远程 -->
+	<DISTRIBUTED-TIMEOUT-REMOTE>
+		<STATUS title="结果" width="50"/>
+		<SITE title="节点" width="300"/>
+	</DISTRIBUTED-TIMEOUT-REMOTE>
+	
+	<!-- 设置虚拟空间参数 -->
+	<VIRTUAL-CYBER>
+		<STATUS title="结果" width="50"/>
+		<SITE title="节点" width="300"/>
+	</VIRTUAL-CYBER>
+	
+	<!-- 检测集群虚拟空间 -->
+	<CHECK-USER-CYBER>
+		<T1 title="*" width="110"/>
+		<T2 title="*" width="280"/>
+		<T3 title="*" width="100"/>
+		
+		<COUNT foreground="0XC7284A"> 集群节点 </COUNT>
+
+		<SITE foreground="0XC7284A"> 节点 </SITE>
+		<SYS-MEMORY foreground="0X203562"> 系统内存  </SYS-MEMORY>
+		<VM-MEMORY foreground="0X203562"> 虚拟机内存  </VM-MEMORY>
+		<SYS-DISK foreground="0X0c3d8f"> 系统磁盘 </SYS-DISK>
+		<MEMBER-CYBER foreground="0x507689"> 承载量 </MEMBER-CYBER>
+		<FRONT-CYBER foreground="0x507689"> 在线量 </FRONT-CYBER>
+		
+		<FULL foreground="0xBC3829"> 空间满员 </FULL>
+		<MISSING foreground="0xE1A75A"> 空间不足 </MISSING>
+		<ENOUTH foreground="0x5D9C42"> 空间足够 </ENOUTH>
+	</CHECK-USER-CYBER>
+	
+	<!-- 日志显示数目 -->
+	<MAX-LOG-ELEMENTS>
+		<ELEMENTS title="GUI界面可视日志" width="200"/>
+	</MAX-LOG-ELEMENTS>
+	
+	<!-- 开放TIGGER操作类型 -->
+	<OPEN-TIGGER>
+		<STATUS title="状态" width="50"/>
+		<SITE title="节点" width="230"/>
+		<TYPE title="有效类型" width="300"/>
+		
+		<LOCAL title="修改本地Tigger类型" width="150">
+			<SUCCESS> 成功 </SUCCESS>
+			<FAILED> 失败 </FAILED>
+		</LOCAL>
+	</OPEN-TIGGER>
+	<!-- 关闭TIGGER操作类型 -->
+	<CLOSE-TIGGER>
+		<STATUS title="状态" width="50"/>
+		<SITE title="节点" width="230"/>
+		<TYPE title="有效类型" width="300"/>
+		
+		<LOCAL title="修改本地Tigger类型" width="150">
+			<SUCCESS> 成功 </SUCCESS>
+			<FAILED> 失败 </FAILED>
+		</LOCAL>
+	</CLOSE-TIGGER>
+	
+	<!-- 检查成员在集群的分布 -->
+	<CHECK-DISTRIBUTED-MEMBER>
+		<T1 title="*" width="90"/>
+		<T2 title="*" width="500"/>
+		
+		<USER foreground="0x507689"> 用户 </USER>
+		<REGISTER foreground="0XC7284A"> 注册节点 </REGISTER>
+		<ONLINE foreground="0X203562"> 在线节点  </ONLINE>
+		<FRONT foreground="0X203562"> 登录节点  </FRONT>
+		<REGISTER-OLINE foreground="0x507689"> 注册/在线节点  </REGISTER-OLINE>
+	</CHECK-DISTRIBUTED-MEMBER>
+	
+	<!-- 部署系统应用包 -->
+	<DEPLOY-SYSTEM-PACKAGE>
+		<STATUS title="状态" width="38"/>
+		<SITE title="节点地址" width="300"/>
+		<ELEMENTS title="分发数目" width="80"/>
+	</DEPLOY-SYSTEM-PACKAGE>
+
+	<!-- 删除云端应用软件包，命令：DROP CONDUCT PACKAGE, DROP ESTABLISH PACKAGE, DROP CONTACT PACKAGE -->
+	<DROP-CLOUD-PACKAGE>
+		<STATUS title="发布结果" width="80"/>
+		<COUNT title="删除次数" width="80"/>
+		<SOFTWARE title="应用软件" width="160"/>
+	</DROP-CLOUD-PACKAGE>
+	
+	<!-- 设置随机映射端口号：SET REFLECT PORT -->
+	<SET-REFLECT-PORT>
+		<STATUS title="状态" width="38"/>
+		<PORT title="映射端口" width="100"/>
+		<TYPE title="服务器类型" width="150">
+			<STREAM> 流控制信道服务器 </STREAM>
+			<PACKET> 包控制信道服务器 </PACKET>
+			<SUCKER> 数据输入信道服务器 </SUCKER>
+			<DISPATCHER> 数据输出信道服务器 </DISPATCHER>
+		</TYPE>
+	</SET-REFLECT-PORT>
+	
+	<!-- 检测服务器系统信息 -->
+	<CHECK-SYSTEM-INFO>
+		<T1 title="*" width="150"/>
+		<T2 title="*" width="500"/>
+
+		<COUNT> 全部集群节点 </COUNT>
+
+		<SITE foreground="ESL:{140,240,78}"> 节点 </SITE>
+		
+		<VERSION foreground="ESL:{138,240,100}">
+			<VERSION>节点版本 </VERSION>
+		</VERSION>
+
+		<CPU foreground="ESL:{120,80,70}">
+			<PROCESSOR>CPU数 </PROCESSOR>
+			<VENDOR>CPU生产商 </VENDOR>
+			<MODEL-NAME>产品序列</MODEL-NAME>
+			<MHZ>CPU主频</MHZ>
+			<CACHE-SIZE>CPU缓存</CACHE-SIZE>
+			<PHYSICAL>物理CPU </PHYSICAL>
+			<CORES>CPU核心 </CORES>
+		</CPU>
+		
+		<MEMORY foreground="ESL:{120,80,70}">
+			<TOTAL>内存容量 </TOTAL>
+			<FREE>可用内存 </FREE>
+			<USED>使用内存</USED>
+			<CACHED>内存缓存</CACHED>
+			<BUFFERS>内存缓冲</BUFFERS>
+			<RATE>使用率</RATE>
+		</MEMORY>
+		
+		<DISK foreground="ESL:{120,80,70}">
+			<TOTAL>磁盘空间 </TOTAL>
+			<FREE>可用磁盘 </FREE>
+			<USED>使用磁盘</USED>
+			<RATE>使用率</RATE>
+		</DISK>
+		
+		<JAVA foreground="ESL:{120,80,70}">
+			<VENDOR>JRE提供商</VENDOR>
+			<VERSION>JRE版本 </VERSION>
+			<VMNAME>JRE名称</VMNAME>
+			<ARCH>适配架构</ARCH>
+			<OSNAME>寄居系统</OSNAME>
+		</JAVA>
+	</CHECK-SYSTEM-INFO>
+
+	<CREATE-SECURE-TOKEN>
+		<COUNT> 节点统计 </COUNT>
+		<STATUS title="执行状态" width="100"/>
+		<SITE title="生成节点" width="300"/>
+	</CREATE-SECURE-TOKEN>
+	<FLUSH-SECURE-TOKEN>
+		<COUNT> 节点统计 </COUNT>
+		<STATUS title="执行状态" width="100"/>
+		<SITE title="写入节点" width="300"/>
+	</FLUSH-SECURE-TOKEN>
+	
+	<DROP-SECURE-TOKEN>
+		<T1 title="*" width="88"/>
+		<T2 title="*" width="268"/>
+		<T3 title="*" width="50"/>
+		<COUNT> 节点统计 </COUNT>
+		<SITE> 节点 </SITE>
+		<NAME> 令牌名称 </NAME>
+	</DROP-SECURE-TOKEN>
+	
+	<SHOW-SECURE-TOKEN>
+		<T1 title="*" width="98"/>
+		<T2 title="*" width="500"/>
+		
+		<COUNT> 节点统计 </COUNT>
+		<SITE> 节点 </SITE>
+		<NAME> 令牌名称 </NAME>
+		<CHECK> 安全检查 </CHECK>
+		<MODE> 处理模式 </MODE>
+		<RANGE> 地址范围 </RANGE>
+		<PRIVATE-KEY> 
+			<MODULUES> 私钥系数签名 </MODULUES>
+			<EXPONENT> 私钥指数签名 </EXPONENT>
+		 </PRIVATE-KEY>
+		<PUBLIC-KEY> 
+			<MODULUES> 公钥系数签名 </MODULUES>
+			<EXPONENT> 公钥指数签名 </EXPONENT>
+		 </PUBLIC-KEY>
+	</SHOW-SECURE-TOKEN>
+	
+	<SET-SECURE-SIZE>
+		<COUNT> 节点统计 </COUNT>
+		<STATUS title="结果" width="80"/>
+		<SITE title="节点" width="260"/>
+		<CLIENT title="客户机密钥长度（数位）" width="160"/>
+		<SERVER title="服务器密钥长度（数位）" width="160"/>
+	</SET-SECURE-SIZE>
+	
+</invokers>

@@ -1,0 +1,943 @@
+## 这是用于公共窗体，包括Dialog/Frame上显示的文本。以行为单位，前辈一个KEY，后面是VALUE，中间用逗号分隔
+## 语法规则：
+## 1. 参数是行为单位，前面是KEY值，后面是VALUE，中间用空格符（任意多个）把它们分开
+## 2. 前缀是“#”符，这一行忽略
+## 3. 文本必须是UTF-8编码
+## 4. 如果是图标，有一个前缀:"[ICON]", 或者是带尺寸的: "[ICON 16*16]" "[ICON 32*32]"
+
+Tree.closedIcon [ICON 10*10] conf/desktop/image/menu/popup/locked.png
+Tree.openIcon [ICON 10*10] conf/desktop/image/menu/popup/unlocked.png
+Tree.leafIcon [ICON 10*10] conf/desktop/image/menu/popup/unlocked.png
+
+## 异步调用器
+Invoker.SuccessIcon [ICON 10*10] conf/desktop/image/invoker/success.png
+Invoker.FailedIcon [ICON 10*10] conf/desktop/image/invoker/failed.png
+
+## 菜单左侧图标
+CheckBoxMenuItem.SelectedIcon [ICON 10*10] conf/desktop/image/menu/checkbox/selected.png
+RadioButtonMenuItem.SelectedIcon [ICON 8*8] conf/desktop/image/menu/radio/selected.png
+
+# 级别
+grade.administrator 阁下以集群管理员的身份登录LAXCUS集群
+grade.user 阁下以注册用户身份登录LAXCUS集群
+grade.undefined 校验失败，无法识别登录身份！
+
+# 桌面窗口
+DesktopWindow.Title	用户桌面 - LAXCUS分布式操作系统
+DesktopWindow.TitleIcon [ICON 32*32] conf/desktop/image/frame/desktop/logo.png
+DesktopWindow.AutoLogin.RetryText 重新登录中...
+DesktopWindow.AutoLogin.FailedText 登录失败
+DesktopWindow.AutoLogin.SuccessText 登录成功
+
+# DesktopWindow.StartErrorTitle 启动错误
+# DesktopWindow.StartErrorContent 启动应用程序失败，请检查应用软件包！
+
+DesktopWindow.StartFileUnknowTitle 不能识别的文件
+DesktopWindow.StartFileUnknowContent  “%s”文件系统不能识别，无法选择匹配的应用软件！
+DesktopWindow.StartFileNotfoundTitle 没有找到应用软件
+DesktopWindow.StartFileNotfoundContent  “%s”目前没有匹配的应用软件，构建Laxcus分布式应用软件生态需要您的参与！
+
+DesktopWindow.Forsake.Title 故障 - Laxcus分布式操作系统
+DesktopWindow.Forsake.Text 网络服务中断，请退出当前运行环境，重新启动登录！
+
+DesktopWindow.PopupMenu.LockedIcon [ICON 16*16] conf/desktop/image/menu/popup/locked.png
+DesktopWindow.PopupMenu.UnlockedIcon [ICON 16*16] conf/desktop/image/menu/popup/unlocked.png
+
+# DesktopButton.TextForeground [COLOR] {208,208,208}
+DesktopButton.PopupMenu.RunText 运行[R]
+DesktopButton.PopupMenu.RunMWord R
+DesktopButton.PopupMenu.RunMethodName doRun
+DesktopButton.PopupMenu.DeleteText 删除[D]
+DesktopButton.PopupMenu.DeleteMWord D
+DesktopButton.PopupMenu.DeleteMethodName doDelete
+DesktopButton.PopupMenu.RenameText 重命名[N]
+DesktopButton.PopupMenu.RenameMWord N
+DesktopButton.PopupMenu.RenameMethodName doRename
+DesktopButton.InputDialog.RenameTitle 新名称
+DesktopButton.InputDialog.RenameText 输入名称
+DesktopButton.DeleteTitle 删除桌面按纽
+DesktopButton.DeleteConfirmText 确认删除“%s”？
+DesktopButton.DeleteErrorTitle 删除故障
+DesktopButton.DeleteErrorContent 删除“%s”失败！
+
+# METAL界面的标题栏高度
+MetalTitleHeight 28
+MetalRestoreIcon [ICON 10*10] conf/desktop/image/frame/desktop/metal_restore.png
+MetalMaximizeIcon [ICON 10*10] conf/desktop/image/frame/desktop/metal_max.png
+MetalMinimizeIcon [ICON 10*10] conf/desktop/image/frame/desktop/metal_mini.png
+MetalCloseIcon [ICON 10*10] conf/desktop/image/frame/desktop/metal_close.png
+MetalRestoreText 恢复
+MetalMaximizeText 最大化
+MetalMinimizeText 最小化
+MetalCloseText 关闭窗口
+MetalTitleClickInterval 600
+
+MaxMetalTitleHeight 32
+MaxMetalRestoreIcon [ICON 15*15] conf/desktop/image/frame/desktop/metal_restore.png
+MaxMetalMaximizeIcon [ICON 15*15] conf/desktop/image/frame/desktop/metal_max.png
+MaxMetalMinimizeIcon [ICON 15*15] conf/desktop/image/frame/desktop/metal_mini.png
+MaxMetalCloseIcon [ICON 15*15] conf/desktop/image/frame/desktop/metal_close.png
+
+## METAL界面标题栏弹出菜单
+FlatTitlePane.PopupMenu.RestoreIcon [ICON 10*10] conf/desktop/image/frame/desktop/metal_restore.png
+FlatTitlePane.PopupMenu.RestoreText 恢复[R]
+FlatTitlePane.PopupMenu.RestoreMWord R
+FlatTitlePane.PopupMenu.RestoreMethod doPopupMenuRestore
+
+FlatTitlePane.PopupMenu.MiniIcon [ICON 10*10] conf/desktop/image/frame/desktop/metal_mini.png
+FlatTitlePane.PopupMenu.MiniText 最小化[S]
+FlatTitlePane.PopupMenu.MiniMWord S
+FlatTitlePane.PopupMenu.MiniMethod doPopupMenuMini
+
+FlatTitlePane.PopupMenu.MaxIcon [ICON 10*10] conf/desktop/image/frame/desktop/metal_max.png
+FlatTitlePane.PopupMenu.MaxText 最大化[M]
+FlatTitlePane.PopupMenu.MaxMWord M
+FlatTitlePane.PopupMenu.MaxMethod doPopupMenuMax
+
+FlatTitlePane.PopupMenu.CloseIcon [ICON 10*10] conf/desktop/image/frame/desktop/metal_close.png
+FlatTitlePane.PopupMenu.CloseText 关闭窗口[C]
+FlatTitlePane.PopupMenu.CloseMWord C
+FlatTitlePane.PopupMenu.CloseMethod doPopupMenuClose
+
+## METAL界面的SLIDER滑块图标
+MetalHorizontalThumbIcon [ICON 10*10] conf/desktop/image/frame/desktop/metal_slider.png
+MetalVerticalThumbIcon [ICON 10*10] conf/desktop/image/frame/desktop/metal_slider.png
+
+## 切换窗口
+CycleWindow.Width 368
+CycleWindow.Height 99
+
+# 字体可视测试
+FontRector.Hello 中文字体测试，Test CN Fonts
+
+## 这是字体选择对话框的配置文本
+FontDialog.Title  选择字体
+## 图标路径
+FontDialog.TitleIcon   [ICON 16*16] conf/desktop/image/dialog/font/font.png
+FontDialog.Hello  LAXCUS分布式操作系统
+FontDialog.CellHeight 28
+FontDialog.Plain  常规
+FontDialog.Bold   粗体
+FontDialog.Italic  斜体
+FontDialog.BoldItalic  粗斜体
+FontDialog.Name  字体
+FontDialog.Style  样式
+FontDialog.Size  尺寸
+FontDialog.OkayButtonText   确定[O]
+FontDialog.CancelButtonText  取消[C]
+FontDialog.ResetButtonText  重置[R]
+
+## 颜色对话框
+ColorDialog.Title 编辑颜色
+ColorDialog.TitleIcon   [ICON 16*16] conf/desktop/image/dialog/color/logo.png
+
+ColorDialog.BasicLabelText   基本颜色
+ColorDialog.CustomLabelText   已选择颜色
+#ColorDialog.PlateLabelText   调色板
+
+ColorDialog.ESLLabelText 三基色
+ColorDialog.ELabelText 色调[E]
+ColorDialog.SLabelText 饱和度[S]
+ColorDialog.LLabelText 亮度[L]
+
+ColorDialog.RGBLabelText 三原色
+ColorDialog.RLabelText 红色[R]
+ColorDialog.GLabelText 绿色[G]
+ColorDialog.BLabelText 兰色[B]
+
+ColorDialog.BasicColor 58,110,165;#f8b500;#028760;#2f5d50;#475950;#74325c;#7fc114;#c0a2c7;#478384;#406458;#8BB279;#D1CA14;#FAA008;#C67B32;#197B9B;#F55F2B;#DB3D60;#C7284A;#614E87;255,255,255;0,0,0;255,128,128; 255,255,128; 128,255,128; 0,255,128; 128,255,255; 0,128,255; 255,128,192; 255,128,255; 255,0,0; 255,255,0; 128,255,0; 0,255,64; 0,255,255; 0,128,192; 128,192,192; 255,0,255;128,64,64; 255,128,64;0,255,0;0,128,128;0,64,128;128,128,255;128,0,64;255,0,128;128,0,0;255,128,0;0,128,0;0,128,64;0,0,255;0,0,160;128,0,128;128,0,255;64,0,0;128,64,0;0,64,0;0,64,64;0,0,128;0,0,64;64,0,128;128,128,0;128,128,64;128,128,128;64,128,128;192,192,192;64,0,64; #d3381c; #783c1d; #4c6cb3;#2a83a2;#d7cf3a;#1e50a2;#006e54;#00a497;#895b8a;#333631;#426579;#a25768;#19448e;#164a84;#f8b862;#4a488e;#fef263;#3eb370;#674598;#595455;#745399;#65318e;#ebd842;#bb5548;#6e7955;
+
+ColorDialog.AppendButtonText   添加[A]
+ColorDialog.OkayButtonText   确定[O]
+ColorDialog.CancelButtonText  取消[C]
+
+ColorDialog.DuplicateColorTitle 颜色重复
+ColorDialog.DuplicateColorContent 当前颜色存在！每个颜色在“已选择颜色”面板里都是唯一的，请重新选择。
+
+# 输入对话框
+InputDialog.Title 输入参数
+InputDialog.TitleIcon   [ICON 16*16] conf/desktop/image/dialog/input/logo.png
+
+InputDialog.InputLabelText 请输入：
+InputDialog.OkayButtonText   确定[O]
+InputDialog.CancelButtonText  取消[C]
+
+## 磁盘目录对话框
+ChoiceDialog.Title 选择文件
+ChoiceDialog.TitleIcon   [ICON 16*16] conf/desktop/image/dialog/choice/logo.png
+
+ChoiceDialog.FileIcon  [ICON 16*16] conf/desktop/image/dialog/choice/file.png
+ChoiceDialog.DirectoryIcon  [ICON 16*16] conf/desktop/image/dialog/choice/directory.png
+
+ChoiceDialog.UpIcon  [ICON 16*16] conf/desktop/image/dialog/choice/up.png
+ChoiceDialog.NewFolderIcon  [ICON 16*16] conf/desktop/image/dialog/choice/newfolder.png
+ChoiceDialog.ListIcon  [ICON 16*16] conf/desktop/image/dialog/choice/list.png
+ChoiceDialog.TableIcon  [ICON 16*16] conf/desktop/image/dialog/choice/table.png
+ChoiceDialog.DesktopIcon  [ICON 16*16] conf/desktop/image/dialog/choice/desktop.png
+
+ChoiceDialog.UpTooltip  上级文件夹
+ChoiceDialog.NewFolderTooltip  创建新的文件夹
+ChoiceDialog.DesktopTooltip  宿主系统桌面
+ChoiceDialog.ListTooltip  列表
+ChoiceDialog.TableTooltip  详细
+
+ChoiceDialog.ListCellHeight 28
+ChoiceDialog.ListCellWidth 180
+
+ChoiceDialog.TableHeaderHeight  28
+ChoiceDialog.TableRowHeight 30
+ChoiceDialog.TableHeaderName 名称
+ChoiceDialog.TableHeaderTime 最后修改时间
+ChoiceDialog.TableHeaderLength 大小
+ChoiceDialog.TableHeaderType 类型
+ChoiceDialog.TableHeaderNameWidth 220
+ChoiceDialog.TableHeaderTimeWidth 130
+ChoiceDialog.TableHeaderLengthWidth 100
+ChoiceDialog.TableHeaderTypeWidth 150
+
+// 注意，正则表达式匹配全部的通配符，符号是：“.”
+ChoiceDialog.AllFileDescriptionText 全部文件
+ChoiceDialog.AllFileExtensionText .
+
+ChoiceDialog.LookLabelText 查看[V]
+ChoiceDialog.FileLabelText 文件[F]
+ChoiceDialog.TypeLabelText 类型[T]
+ChoiceDialog.EncodeLabelText 编码[E]
+
+ChoiceDialog.EncodeTypeDefaultText 默认
+ChoiceDialog.EncodeTypeGBKText GBK
+ChoiceDialog.EncodeTypeGB2312Text GB2312
+ChoiceDialog.EncodeTypeGB18030Text GB18030
+ChoiceDialog.EncodeTypeUTF8Text UTF-8
+ChoiceDialog.EncodeTypeUTF16Text UTF-16
+ChoiceDialog.EncodeTypeUTF16BEText UTF-16 BE
+ChoiceDialog.EncodeTypeUTF16LEText UTF-16 LE
+ChoiceDialog.EncodeTypeUTF32Text UTF-32
+ChoiceDialog.EncodeTypeUTF32BEText UTF-32 BE
+ChoiceDialog.EncodeTypeUTF32LEText UTF-32 LE
+
+ChoiceDialog.OpenButtonText 打开[O]
+ChoiceDialog.SaveButtonText 保存[S]
+ChoiceDialog.CancelButtonText 取消[C]
+
+ChoiceDialog.CreateNewFolderTitle 建立一个新的文件夹
+ChoiceDialog.InputFolderInvalidTitle 无效的文件夹
+ChoiceDialog.InputFolderInvalidContent 警告！请输入一个正确的文件夹名称！
+ChoiceDialog.InputFolderExistsTitle 文件夹存在
+ChoiceDialog.InputFolderExistsContent 警告！这个文件夹已经存在，请重新输入！
+ChoiceDialog.CreateFolderFailedTitle 文件夹失败
+ChoiceDialog.CreateFolderFailedContent 不能建立文件夹，请检查磁盘、系统环境，或者其它！
+ChoiceDialog.EnterNewFolderText 文件夹名称
+
+ChoiceDialog.OpenTypeEmptyTitle 没有选中
+ChoiceDialog.OpenTypeEmptyContent 请从磁盘中选择您的文件
+
+ChoiceDialog.SelectDirEmptyTitle 未知文件夹
+ChoiceDialog.SelectDirEmptyContent 请从列表中选择一个文件夹
+ChoiceDialog.EnterFileEmptyTitle 未知文件
+ChoiceDialog.EnterFileEmptyContent 请输入文件名，或者选择文件夹中的文件
+
+## 消息对话框
+MessageDialog.okayButtonText  确认[O]
+MessageDialog.yesButtonText  是[Y]
+MessageDialog.noButtonText  否[N]
+MessageDialog.cancelButtonText  取消[C]
+MessageDialog.questionIcon  [ICON 32*32] conf/desktop/image/dialog/message/question.png
+MessageDialog.informationIcon  [ICON 32*32] conf/desktop/image/dialog/message/info.png
+MessageDialog.errorIcon  [ICON 32*32] conf/desktop/image/dialog/message/error.png
+MessageDialog.warningIcon  [ICON 32*32] conf/desktop/image/dialog/message/warning.png
+
+## 运行应用对话框
+RunDialog.Title  运行应用软件
+RunDialog.LogoIcon  [ICON 16*16] conf/desktop/image/common/run.png
+RunDialog.runButtonText  运行[R]
+RunDialog.cancelButtonText  取消[C]
+RunDialog.openLabelText  打开[O]:
+RunDialog.contentText  请输入应用软件的命令和它携带的参数，桌面系统将为您打开它。
+RunDialog.contentIcon  [ICON 32*32] conf/desktop/image/common/run.png
+
+RunDialog.notfoundTitle 无效
+RunDialog.notfoundContent 没有找到匹配的应用
+RunDialog.invalidTitle 无效命令
+RunDialog.invalidContent 这是一个无效的命令，请重新输入！
+
+# RunDialog.startErrorTitle 启动失败
+# RunDialog.startErrorContent 应用软件启动失败，请检查命令、软件包和运行参数！
+# RunDialog.notfoundErrorTitle 没有找到应用
+# RunDialog.notfoundErrorContent 没有找到应用软件，请检查命令、软件包！
+
+RunDialog.MultiSelect.Title 选择一个应用
+RunDialog.MultiSelect.selectButtonText 选择[S]
+RunDialog.MultiSelect.cancelButtonText 取消[C]
+RunDialog.MultiSelect.ListCellHeight 48
+
+# 安装软件对话框
+InstallDialog.Title  安装应用软件
+InstallDialog.TitleIcon  [ICON 16*16] conf/desktop/image/dialog/install/logo.png
+InstallDialog.ExpandedIcon [ICON 10*10] conf/desktop/image/dialog/install/expanded.png
+InstallDialog.CollapsedIcon [ICON 10*10] conf/desktop/image/dialog/install/collapsed.png
+
+InstallDialog.tableTitleKeyWidth 108
+InstallDialog.tableTitleKeyText 名称
+InstallDialog.tableTitleValueWidth 230
+InstallDialog.tableTitleValueText 参数
+InstallDialog.tableColumnHeaderHeight 25
+InstallDialog.tableRowHeight 39
+InstallDialog.choiceButtonText  选择[S]
+InstallDialog.installButtonText  安装[I]
+InstallDialog.resetButtonText  重置[R]
+InstallDialog.exitButtonText  退出[X]
+InstallDialog.exitMessageText 您确认退出当前安装窗口？
+InstallDialog.yesDeployDesktopIconText 是
+InstallDialog.noDeployDesktopIconText 否
+InstallDialog.yesDeployDockIconText 是
+InstallDialog.noDeployDockIconText 否
+
+InstallDialog.installApplicationTitle 安装应用软件
+InstallDialog.installApplicationExists 应用软件“%s”已经存在！
+InstallDialog.installApplicationSuccessful 应用软件安装成功！ 
+InstallDialog.installApplicationFailed 应用软件安装失败！
+InstallDialog.moveApplicationFailed 移动应用软件包失败！
+InstallDialog.importSoftwareErrorTitle 应用软件错误
+InstallDialog.importSoftwareErrorContent 软件包“%s”解析异常，请检查软件包格式！
+InstallDialog.choiceSoftwareTitle 选择应用软件
+InstallDialog.choiceSoftwareButtonText 选择
+
+InstallDialog.tableCellTitleText 标题
+InstallDialog.tableCellIconText 图标
+InstallDialog.tableCellDeployDesktopText 部署到桌面
+InstallDialog.tableCellDeployDockText 部署到应用坞
+InstallDialog.tableCellAttachMenuText 部署到启动菜单
+
+InstallDialog.descriptionDASText 分布式应用软件 (*.das)
+InstallDialog.extensionDASText das
+InstallDialog.descriptionSASText 服务应用软件 (*.sas)
+InstallDialog.extensionSASText sas
+InstallDialog.descriptionEASText 边缘应用软件 (*.eas)
+InstallDialog.extensionEASText eas
+
+# 删除应用软件
+UninstallDialog.Title  删除应用软件
+UninstallDialog.TitleIcon  [ICON 16*16] conf/desktop/image/dialog/uninstall/logo.png
+UninstallDialog.ListCellHeight 50
+
+UninstallDialog.deleteButtonText 删除[D]
+UninstallDialog.exitButtonText 退出[X]
+UninstallDialog.exitMessageText 您确认退出当前删除软件窗口？
+
+UninstallDialog.deleteApplicationTitle 删除应用软件
+UninstallDialog.queryDeleteApplicationText  确认删除应用软件“%s”？
+UninstallDialog.successDeleteApplicationText  成功删除应用软件“%s”！
+UninstallDialog.failedDeleteApplicationText  删除应用软件“%s”失败！
+
+# 生成软件包对话框
+BuildDialog.Title 生成应用软件
+BuildDialog.TitleIcon [ICON 16*16] conf/desktop/image/dialog/build/logo.png
+BuildDialog.exitMessageText 您确认退出当前窗口？
+BuildDialog.buildButtonText 生成[C]
+BuildDialog.resetButtonText 重置[R]
+BuildDialog.exitButtonText 退出[X]
+BuildDialog.bootLabelText 引导文件
+BuildDialog.selectBootButtonText 选 择
+BuildDialog.jarLabelText JAR包
+BuildDialog.selectJarButtonText 选 择
+BuildDialog.deleteJarButtonText 删 除
+BuildDialog.libLabelText 链接库
+BuildDialog.selectLibButtonText 选 择
+BuildDialog.deleteLibButtonText 删 除
+BuildDialog.otherLabelText 其他
+BuildDialog.selectOtherButtonText 选 择
+BuildDialog.deleteOtherButtonText 删 除
+BuildDialog.ListJarImage [ICON 16*16] conf/desktop/image/dialog/build/jar.png
+BuildDialog.ListLibImage [ICON 16*16] conf/desktop/image/dialog/build/lib.png
+BuildDialog.ListIconImage [ICON 16*16] conf/desktop/image/dialog/build/icon.png
+BuildDialog.ListTextImage [ICON 16*16] conf/desktop/image/dialog/build/text.png
+BuildDialog.ListOtherImage [ICON 16*16] conf/desktop/image/dialog/build/other.png
+
+BuildDialog.listCellHeightText 28
+BuildDialog.titleBootText 选择脚本文件
+BuildDialog.descriptionBootText 脚本文件 (*.xml, *.xtml)
+BuildDialog.extensionBootText xml, xtml
+BuildDialog.titleJarText 选择Jar文件
+BuildDialog.descriptionJarText Jar文件 (*.jar)
+BuildDialog.extensionJarText jar
+BuildDialog.titleLibText 选择动态链接库文件
+BuildDialog.descriptionLibText 动态链接库文件 (*.dll, *.so)
+BuildDialog.extensionLibText dll, so
+BuildDialog.titleOtherText 选择其他文件
+// 适配全部文件的正则表达式，符号是：“.”，而不是：“*”
+BuildDialog.descriptionOtherText 全部文件 
+BuildDialog.extensionOtherText .
+BuildDialog.overrideTitleText 覆盖文件
+BuildDialog.overrideContentText 文件“%s”已经存在，是否覆盖？
+BuildDialog.buildSoftwareTitleText 生成分布式应用软件包
+BuildDialog.descriptionSoftwareText 分布式应用软件包 (*.das)
+BuildDialog.extensionSoftwareText das
+BuildDialog.missingTitleText 参数不足
+BuildDialog.missingContentText 录入的参数不足，请检查后重新输入！
+BuildDialog.buildResultTitleText 生成分布式应用软件包
+BuildDialog.buildResultSuccessful 成功生成分布式应用软件包！
+BuildDialog.buildResultFailed 分布式应用软件包“%s”生成失败，请检查文件！
+BuildDialog.saveButtonText 保存到
+BuildDialog.selectButtonText 选择
+
+# 属性对话框
+PropertiesDialog.Title 系统桌面
+PropertiesDialog.TitleIcon [ICON 16*16] conf/desktop/image/dialog/properties/logo.png
+PropertiesDialog.closeButtonText  关闭[O]
+PropertiesDialog.MaxFontSize 20
+PropertiesDialog.MinFontSize 12
+
+PropertiesDialog.backgroundIntroduceText 支持自定义的背景图片和背景颜色，若同时定义，优先显示背景图片
+PropertiesDialog.backgroundGifIcon [ICON 16*16] conf/desktop/image/dialog/properties/gif.png
+PropertiesDialog.backgroundPngIcon [ICON 16*16] conf/desktop/image/dialog/properties/png.png
+PropertiesDialog.backgroundJpegIcon [ICON 16*16] conf/desktop/image/dialog/properties/jpeg.png
+PropertiesDialog.backgroundNoneIcon [ICON 16*16] conf/desktop/image/dialog/properties/none.png
+PropertiesDialog.backgroundFullText  拉伸
+PropertiesDialog.backgroundCenterText  居中
+PropertiesDialog.backgroundMultiText  铺满
+PropertiesDialog.backgroundChoiceImageButtonText  浏览[B]
+PropertiesDialog.backgroundDeleteImageButtonText 删除[D]
+PropertiesDialog.backgroundActiveButtonText  应用[A]
+PropertiesDialog.backgroundColorChoiceText 颜色：
+PropertiesDialog.backgroundLayoutChoiceText 布局：
+PropertiesDialog.backgroundBackgroundText 背景：
+
+PropertiesDialog.backgroundChoiceTitle 选择磁盘上的图像文件
+PropertiesDialog.backgroundChoiceButtonText 选择图像
+PropertiesDialog.backgroundChoiceDescriptionJpegText JPEG文件
+PropertiesDialog.backgroundChoiceDescriptionPngText PNG文件 
+PropertiesDialog.backgroundChoiceDescriptionGifText GIF文件
+PropertiesDialog.backgroundChoiceExtensionJpegText jpeg, jpg
+PropertiesDialog.backgroundChoiceExtensionPngText  png
+PropertiesDialog.backgroundChoiceExtensionGifText  gif
+PropertiesDialog.backgroundChoiceDescriptionAllImageText 所有图像文件
+PropertiesDialog.backgroundChoiceExtensionAllImageText  JPG,JPEG,PNG,GIF
+PropertiesDialog.backgroundImageListNone 无
+
+PropertiesDialog.backgroundReadImageErrorTitle  读取图像错误
+PropertiesDialog.backgroundReadImageErrorContent 当前图像读取/转换失败，可能的原因包括：<br>1. 图像尺寸过大；<br>2. 图像格式故障；<br>3. 转换图像缓存空间不足。
+
+PropertiesDialog.backgroundImageFileExistTitle  图像文件重复
+PropertiesDialog.backgroundImageFileExistContent 图像文件“%s”已经在列表中！
+
+PropertiesDialog.themeIntroduceText 提供多种皮肤的图形界面和字体，您可以根据自己的需要进行个性化定制
+PropertiesDialog.themeThemeText 主题[T]：
+PropertiesDialog.themeButtonSystemFontText 系统字体[S]
+PropertiesDialog.themeButtonActiveText 应用[A]
+PropertiesDialog.themeExampleText 示例：
+
+PropertiesDialog.tabbedThemeText  主题
+PropertiesDialog.tabbedDesktopText 桌面
+PropertiesDialog.tabbedSystemInfo 系统信息
+PropertiesDialog.laxcusImageLogo [ICON] conf/desktop/image/dialog/properties/laxcus_logo.png
+
+PropertiesDialog.allCapacityText 全部
+PropertiesDialog.usedCapacityText 已用
+PropertiesDialog.leftCapacityText 剩余
+PropertiesDialog.aboutOSTitle 宿主系统
+PropertiesDialog.aboutCPUTitle 处理器
+PropertiesDialog.aboutPhysicalMemoryTitle 物理内存
+PropertiesDialog.aboutVMeoryTitle 虚内存
+PropertiesDialog.aboutDiskTitle 磁盘
+PropertiesDialog.aboutVersionTitle 版本
+PropertiesDialog.aboutVersionText 用户桌面 - LAXCUS分布式操作系统 6.0 RP2 标准版
+PropertiesDialog.aboutProducerTitle 研发机构
+PropertiesDialog.aboutProducerText LAXCUS人工智能技术实验室
+
+# 关闭系统窗口
+ShutdownDialog.width 460
+ShutdownDialog.height 238
+ShutdownDialog.showContentText 退出桌面 - LAXCUS分布式操作系统
+ShutdownDialog.shutdownButtonText 关闭
+ShutdownDialog.shutdownButtonTitle 退出桌面环境
+ShutdownDialog.shutdownButtonIcon [ICON 32*32] conf/desktop/image/dialog/shutdown/shutdown.png
+ShutdownDialog.cancelButtonText 取消
+ShutdownDialog.cancelButtonTitle 继续使用桌面环境
+ShutdownDialog.cancelButtonIcon [ICON 32*32] conf/desktop/image/dialog/shutdown/cancel.png
+ShutdownDialog.mealGrayBackgroundColor [COLOR] ESL:{120,10,100}
+
+# 启动应用
+#DesktopManager.systemErrorTitle 系统错误
+#DesktopManager.systemErrorContent 没有找到应用软件！
+#DesktopManager.startErrorTitle 运行故障
+#DesktopManager.startErrorContent 启动应用程序失败！
+
+# 应用程序启动错误
+ApplicationStart.notfoundTitle 系统错误
+ApplicationStart.notfoundContent 没有找到应用软件！
+ApplicationStart.startFaultTitle 运行故障
+ApplicationStart.startFaultContent 启动应用程序失败！
+
+# 日志窗口
+LogFrame.Title 运行日志
+LogFrame.TitleIcon [ICON 16*16] conf/desktop/image/menu/launch/log.png
+LogFrame.TitleBigIcon [ICON 32*32] conf/desktop/image/menu/launch/log.png
+LogFrame.ExitTitle 	退出 - 日志		
+LogFrame.ExitContent 您确定退出系统桌面的日志窗口 ？	
+LogFrame.PanelTooltip 桌面系统运行日志
+LogFrame.ForbidText 屏蔽记录
+LogFrame.NumberText 显示%d行记录
+LogFrame.RowHeight 26
+
+LogFrame.DebugIcon [ICON 16*16] conf/desktop/image/frame/log/debug.png
+LogFrame.InfoIcon [ICON 16*16] conf/desktop/image/frame/log/info.png
+LogFrame.WarningIcon [ICON 14*14] conf/desktop/image/frame/log/warning.png
+LogFrame.ErrorIcon [ICON 14*14] conf/desktop/image/frame/log/error.png
+LogFrame.FatalIcon [ICON 14*14] conf/desktop/image/frame/log/fatal.png
+LogFrame.SubDebugIcon [ICON 10*10] conf/desktop/image/frame/log/debug.png
+LogFrame.SubInfoIcon [ICON 10*10] conf/desktop/image/frame/log/info.png
+LogFrame.SubWarningIcon [ICON 10*10] conf/desktop/image/frame/log/warning.png
+LogFrame.SubErrorIcon [ICON 10*10] conf/desktop/image/frame/log/error.png
+LogFrame.SubFatalIcon [ICON 10*10] conf/desktop/image/frame/log/fatal.png
+
+LogFrame.SelectAllText 全部选择[A]
+LogFrame.CopyText 复制[C]
+LogFrame.FontText 字体[F]
+
+# 帮助窗口
+HelpFrame.Title 帮助
+HelpFrame.TitleIcon [ICON 16*16] conf/desktop/image/menu/launch/help.png
+HelpFrame.TitleBigIcon [ICON 32*32] conf/desktop/image/menu/launch/help.png
+# conf/desktop/image/frame/help/help.png
+HelpFrame.ExitTitle 退出 - 帮助
+HelpFrame.ExitContent 您确定退出系统桌面的帮助窗口 ？	
+
+HelpFrame.CloseIcon [ICON 16*16] conf/desktop/image/frame/help/close.png
+HelpFrame.OpenIcon [ICON 16*16] conf/desktop/image/frame/help/open.png
+HelpFrame.CommandIcon [ICON 16*16] conf/desktop/image/frame/help/command.png
+HelpFrame.SearchIcon [ICON 16*16] conf/desktop/image/frame/help/search.png
+HelpFrame.GoIcon [ICON 16*16] conf/desktop/image/frame/help/go.png
+
+
+# 登录对话框
+LoginDialog.Title 桌面登录 - LAXCUS分布式操作系统
+LoginDialog.UserIcon [ICON 32*32] conf/desktop/image/dialog/login/user.png
+LoginDialog.BallIcon [ICON 6*6] conf/desktop/image/dialog/login/ball.png
+LoginDialog.FailedIcon [ICON 32*32] conf/desktop/image/dialog/login/failed.png
+LoginDialog.WarningIcon [ICON 32*32] conf/desktop/image/dialog/login/warning.png
+
+LoginDialog.Licence.Title 许可证
+LoginDialog.Licence.SignTooltip 软件生产商提供，若空值启用默认配置，可选项
+
+LoginDialog.Account.Title 登录账号
+LoginDialog.Account.UsernameText 名称[U]
+LoginDialog.Account.PasswordText 密码[P]
+LoginDialog.Account.UsernameTooltip SHA256签名或者明文
+LoginDialog.Account.PasswordTooltip 任何字符
+
+LoginDialog.Server.Title 登录节点
+LoginDialog.Server.AddressText 地址[A]
+LoginDialog.Server.PortText 端口[O]
+LoginDialog.Server.AddressTooltip Entrance节点地址
+LoginDialog.Server.PortTooltip Entrance节点端口
+
+LoginDialog.Button.LicenceText 匿名[N]
+LoginDialog.Button.ResetText 恢复桌面至初始状态
+LoginDialog.Button.ResetTooltip 删除桌面应用软件，重置软件运行环境
+LoginDialog.Button.OkayText 登录[L]
+LoginDialog.Button.CancelText 取消[C]
+
+LoginDialog.Reset.Title 恢复到初始状态
+LoginDialog.Reset.QueryText 确认将桌面环境恢复到初始状态？
+LoginDialog.Reset.SuccessfulText 已经将桌面环境恢复到初始状态！
+LoginDialog.Reset.FailedText 重置桌面环境失败，请检查联系服务人员或检查环境参数！
+
+LoginDialog.Error.UsernameTitle 账号名称
+LoginDialog.Error.UsernameText 请输入您的账号名称！
+LoginDialog.Error.PasswordTitle 账号密码
+LoginDialog.Error.PasswordText 请输入您的账号密码！
+LoginDialog.Error.AccountTitle 登录账号
+LoginDialog.Error.AccountText 请保持登录账号的用户名称和密码一致！
+LoginDialog.Error.ServerTitle 登录节点地址
+LoginDialog.Error.ServerText 请输入您的Entrance节点地址！
+LoginDialog.Error.PortTitle 登录节点端口
+LoginDialog.Error.PortText 请输入您的Entrance节点端口！
+LoginDialog.Error.UnhostTitle 参数错误
+LoginDialog.Error.UnhostText 登录服务器主机地址错误！
+
+LoginDialog.Error.ConnectFiledTitle 登录失败  
+LoginDialog.Error.ConnectFailedText 登录 %s:%s 失败，请检查您的网络或者登录账号！ 
+LoginDialog.Error.RedirectFailedText  不能定位GATE服务器，请通知集群管理员检查LAXCUS集群！ 
+LoginDialog.Error.EntranceFailedText  不能登录LAXCUS集群，请通知集群管理员检查ENTRANCE服务器！
+LoginDialog.Error.GateFailedText  不能登录LAXCUS集群，请确认您的网络通信正常，或者通知集群管理员检查GATE服务器！ 
+LoginDialog.Error.NatFailedText 网络故障！或者系统已经对这个账号实施安全保护！请联系您的集群管理员，或者延时再试！ 
+LoginDialog.Error.MaxUserText  非常抱歉！您的在线共享登录名额已满！ 
+LoginDialog.Error.LoginTimeoutText  服务器繁忙，请稍后再试！ 
+LoginDialog.Error.ServiceMissingText  登录失败，请检查您的用户名称/密码，账号是否被禁用，或者联系集群管理员！ 
+LoginDialog.Error.ReflectFailedText  初始化定位检测失败，请检查您的登录地址或者网络！ 
+LoginDialog.Error.MaxRetryText  您连续登录已经达到系统规定极限，由于不能确认您的真实身份，账号已被系统锁定！如有疑问，请联系您的集群管理员！ 
+LoginDialog.Error.LicenceNatRefuseText  许可证限制在NAT网络中LAXCUS集群！如有需要，请联系系统管理员或者软件供应商。
+LoginDialog.Error.VersionNotmatchText  当前节点版本号与LAXCUS集群不一致，请联系管理员更新！
+
+LoginDialog.Error.Pitch.NoutFoundTitle 节点定位故障
+LoginDialog.Error.Pitch.NoutFoundText 无法定位服务器%s，请检查您的网络或者录入地址！
+
+# 状态条
+StatusBar.StartButtonIcon [ICON 28*28] conf/desktop/image/bar/status/go.png
+StatusBar.StartButtonText 开始
+StatusBar.StartButtonTitle 单击这里开始您的分布处理工作
+
+StatusBar.SwitchButtonIcon [ICON 16*16] conf/desktop/image/bar/status/switch.png
+StatusBar.SwitchButtonTitle 显示/隐藏桌面应用
+
+StatusBar.SoundTitle 桌面系统声音
+StatusBar.PlaySoundIcon [ICON 16*16] conf/desktop/image/bar/status/soundon.png
+StatusBar.StopSoundIcon [ICON 16*16] conf/desktop/image/bar/status/soundoff.png
+
+StatusBar.FlashLightIcon [ICON 16*16] conf/desktop/image/bar/status/light.png
+StatusBar.FlashDarkIcon [ICON 16*16] conf/desktop/image/bar/status/drak.png
+StatusBar.ConnectIcon [ICON 16*16] conf/desktop/image/bar/status/connect.png
+StatusBar.DisconnectIcon [ICON 16*16] conf/desktop/image/bar/status/disconnect.png
+StatusBar.InvokerLigthIcon [ICON 16*16] conf/desktop/image/bar/status/invoker_on.png
+StatusBar.InvokerDarkIcon [ICON 16*16] conf/desktop/image/bar/status/invoker_off.png
+StatusBar.AdministratorIcon [ICON 16*16] conf/desktop/image/bar/status/dba.png
+StatusBar.UserIcon [ICON 16*16] conf/desktop/image/bar/status/user.png
+StatusBar.UnbodyIcon [ICON 16*16] conf/desktop/image/bar/status/stop.png		
+StatusBar.TubIcon [ICON 16*16] conf/desktop/image/bar/status/tub.png
+StatusBar.ShowTrayIcon [ICON 16*16] conf/desktop/image/bar/status/trayon.png
+StatusBar.HideTrayIcon [ICON 16*16] conf/desktop/image/bar/status/trayoff.png
+
+StatusBar.LeftTooltipText 前一组
+StatusBar.RightTooltipText 后一组
+StatusBar.LeftIcon [ICON 16*16] conf/desktop/image/bar/status/left.png
+StatusBar.RightIcon [ICON 16*16] conf/desktop/image/bar/status/right.png
+
+StatusBar.InvokerTitle  %d个线程，%d个作业处理中，%d个作业已完成，接收%s，发送%s
+StatusBar.ShowTrayTitle 单击鼠标打开系统托盘
+StatusBar.HideTrayTitle 单击鼠标关闭系统托盘
+StatusBar.TubTitle  边缘容器服务器
+StatusBar.SoundTitle  声音
+StatusBar.DBATitle  集群管理员
+StatusBar.UserTitle  注册用户
+StatusBar.UnuserTitle  集群服务停止
+StatusBar.DisconnectTitle  连接中断
+StatusBar.DateStyleText  yyyy年M月d日
+StatusBar.TimeStyleText  H时m分
+
+StatusBar.Calendar.SUNDAY 星期天
+StatusBar.Calendar.MONDAY 星期一
+StatusBar.Calendar.TUESDAY 星期二
+StatusBar.Calendar.WEDNESDAY 星期三
+StatusBar.Calendar.THURSDAY 星期四
+StatusBar.Calendar.FRIDAY 星期五
+StatusBar.Calendar.SATURDAY 星期六
+
+StatusBar.Calendar.SUNDAY 周日
+StatusBar.Calendar.MONDAY 周一
+StatusBar.Calendar.TUESDAY 周二
+StatusBar.Calendar.WEDNESDAY 周三
+StatusBar.Calendar.THURSDAY 周四
+StatusBar.Calendar.FRIDAY 周五
+StatusBar.Calendar.SATURDAY 周六
+
+# 悬浮窗口的尺寸，默认是260*160
+StatusBar.FrameButton.SnapshotWindow.Width 300
+StatusBar.FrameButton.SnapshotWindow.Height 186
+StatusBar.FrameButton.SnapshotWindow.Round no
+StatusBar.FrameButton.SnapshotWindow.RoundARC 20
+
+# 状态栏按纽弹出菜单
+StatusBar.FrameButton.PopupMenu.SnapshotWindow.MenuText 悬浮窗口[W]
+StatusBar.FrameButton.PopupMenu.SnapshotWindow.HideMWord W
+
+StatusBar.FrameButton.PopupMenu.SnapshotWindow.ZoomText 等比例收缩[Z]
+StatusBar.FrameButton.PopupMenu.SnapshotWindow.ZoomMWord Z
+StatusBar.FrameButton.PopupMenu.SnapshotWindow.ZoomMethod doMenuZoomSWindow
+
+StatusBar.FrameButton.PopupMenu.SnapshotWindow.FillText 全尺寸收缩[F]
+StatusBar.FrameButton.PopupMenu.SnapshotWindow.FillMWord F
+StatusBar.FrameButton.PopupMenu.SnapshotWindow.FillMethod doMenuFillSWindow
+
+StatusBar.FrameButton.PopupMenu.SnapshotWindow.HideText 隐藏[H]
+StatusBar.FrameButton.PopupMenu.SnapshotWindow.HideMWord H
+StatusBar.FrameButton.PopupMenu.SnapshotWindow.HideMethod doMenuHideSWindow
+
+StatusBar.FrameButton.PopupMenu.RestoreIcon [ICON 10*10] conf/desktop/image/frame/desktop/metal_restore.png
+StatusBar.FrameButton.PopupMenu.RestoreText 恢复[R]
+StatusBar.FrameButton.PopupMenu.RestoreMWord R
+StatusBar.FrameButton.PopupMenu.RestoreMethod doMenuRestore
+
+StatusBar.FrameButton.PopupMenu.MiniIcon [ICON 10*10] conf/desktop/image/frame/desktop/metal_mini.png
+StatusBar.FrameButton.PopupMenu.MiniText 最小化[S]
+StatusBar.FrameButton.PopupMenu.MiniMWord S
+StatusBar.FrameButton.PopupMenu.MiniMethod doMenuMini
+
+StatusBar.FrameButton.PopupMenu.MaxIcon [ICON 10*10] conf/desktop/image/frame/desktop/metal_max.png
+StatusBar.FrameButton.PopupMenu.MaxText 最大化[M]
+StatusBar.FrameButton.PopupMenu.MaxMWord M
+StatusBar.FrameButton.PopupMenu.MaxMethod doMenuMax
+
+StatusBar.FrameButton.PopupMenu.CloseIcon [ICON 10*10] conf/desktop/image/frame/desktop/metal_close.png
+StatusBar.FrameButton.PopupMenu.CloseText 关闭窗口[C]
+StatusBar.FrameButton.PopupMenu.CloseMWord C
+StatusBar.FrameButton.PopupMenu.CloseMethod doMenuClose
+
+StatusBar.FrameButton.PopupMenu.ShowText 显示标题栏[V]
+StatusBar.FrameButton.PopupMenu.ShowMWord V
+StatusBar.FrameButton.PopupMenu.HideText 隐藏标题栏[H]
+StatusBar.FrameButton.PopupMenu.HideMWord H
+StatusBar.FrameButton.PopupMenu.ShowHideMethod doTitlePane
+
+## 应用软件坞
+DockBar.MinWidth 320
+DockBar.LeftTooltipText 前一组
+DockBar.RightTooltipText 后一组
+DockBar.LeftIcon [ICON 16*16] conf/desktop/image/bar/dock/left.png
+DockBar.RightIcon [ICON 16*16] conf/desktop/image/bar/dock/right.png
+
+## 应用坞弹出菜单
+DockBar.MenuStartAppText 启动应用软件[S]
+DockBar.MenuStartAppMWord S
+DockBar.MenuStartAppMethod doMenuStart
+DockBar.MenuRemoveAppText 移除应用软件[R]
+DockBar.MenuRemoveAppMWord R
+DockBar.MenuRemoveAppMethod doMenuRemove
+
+DockBar.MenuMoveToTopText 移到上方[T]
+DockBar.MenuMoveToTopMWord T
+DockBar.MenuMoveToTopMethod doMoveToTop
+DockBar.MenuMoveToTopFullText 移到上方并平铺[Y]
+DockBar.MenuMoveToTopFullMWord Y
+DockBar.MenuMoveToTopFullMethod doMoveToTopFull
+DockBar.MenuMoveToMiddleText 左右对齐[M]
+DockBar.MenuMoveToMiddleMWord M
+DockBar.MenuMoveToMiddleMethod doMoveToMiddle
+DockBar.MenuMoveToBottomText 移到下方[U]
+DockBar.MenuMoveToBottomMWord U
+DockBar.MenuMoveToBottomMethod doMoveToBottom
+DockBar.MenuMoveToBottomAndFullText 移到下方并平铺[I]
+DockBar.MenuMoveToBottomAndFullMWord I
+DockBar.MenuMoveToBottomAndFullMethod doMoveToBottomFull
+
+DockBar.MenuMoveToFrontText 将应用坞置于前端[F]
+DockBar.MenuMoveToFrontMWord F
+DockBar.MenuMoveToFrontMethod doMenuFrontBack
+DockBar.MenuMoveToBackText 将应用坞置于后端[B]
+DockBar.MenuMoveToBackMWord B
+DockBar.MenuMoveToBackMethod doMenuFrontBack
+
+DockBar.MenuHideDockerText 隐藏应用坞[H]
+DockBar.MenuHideDockerMWord H
+DockBar.MenuHideDockerMethod doMenuHideDocker
+
+DockBar.MenuHideEdgeText 隐藏系统区[Q]
+DockBar.MenuHideEdgeMWord Q
+DockBar.MenuHideEdgeMethod doMenuShowHideEdge
+DockBar.MenuShowEdgeText 显示系统区[W]
+DockBar.MenuShowEdgeMWord W
+DockBar.MenuShowEdgeMethod doMenuShowHideEdge
+
+## 应用坞背景颜色图片
+DockBar.WallWhiteIcon [ICON 100*56] conf/desktop/image/bar/dock/bg/white.gif
+DockBar.WallDarkIcon [ICON 100*56] conf/desktop/image/bar/dock/bg/dark.png
+DockBar.WallBronzIcon [ICON 100*56] conf/desktop/image/bar/dock/bg/bronz.gif
+DockBar.WallCyanoIcon [ICON 100*56] conf/desktop/image/bar/dock/bg/cyano.png
+
+DockBar.Error.NotfoundTitleText 没有找到
+DockBar.Error.StartFailedText 启动应用失败，请检查您的应用软件包！
+DockBar.Message.DeleteTitleText 删除快捷方式
+DockBar.Message.DeleteContentText 确认删除应用坞上的软件快捷方式？
+DockBar.Error.DeleteTitleText 删除失败
+DockBar.Error.DeleteContentText 删除软件失败，请检查您的应用软件包！
+
+DockBar.ShutdownIcon [ICON 32*32] conf/desktop/image/bar/dock/shutdown.png
+DockBar.RunIcon [ICON 32*32] conf/desktop/image/common/run.png
+DockBar.ShutdownTooltip 关闭系统
+DockBar.RunTooltip 运行应用
+
+#DockBar.SunIcon [ICON 32*32] conf/desktop/image/bar/dock/sun.png
+#DockBar.FishIcon [ICON 32*32] conf/desktop/image/bar/dock/fish.png
+#DockBar.AppsIcon [ICON 32*32] conf/desktop/image/bar/dock/apps.png
+#DockBar.BugIcon [ICON 32*32] conf/desktop/image/bar/dock/bug.png
+#DockBar.ComputerIcon [ICON 32*32] conf/desktop/image/bar/dock/computer.png
+#DockBar.LabelIcon [ICON 32*32] conf/desktop/image/bar/dock/label.png
+#DockBar.WirelessIcon [ICON 32*32] conf/desktop/image/bar/dock/wireless.png
+#DockBar.ClockIcon [ICON 32*32] conf/desktop/image/bar/dock/clock.png
+#DockBar.EarthIcon [ICON 32*32] conf/desktop/image/bar/dock/earth.png
+#DockBar.PhoneIcon [ICON 32*32] conf/desktop/image/bar/dock/phone.png
+#DockBar.BlueIcon [ICON 32*32] conf/desktop/image/bar/dock/blue.png
+
+#DockBar.HeloIcon [ICON 32*32] conf/desktop/image/bar/dock/helo.png
+#DockBar.PadIcon [ICON 32*32] conf/desktop/image/bar/dock/pad.png
+#DockBar.SdiskIcon [ICON 32*32] conf/desktop/image/bar/dock/sdisk.png
+#DockBar.GoodIcon [ICON 32*32] conf/desktop/image/bar/dock/good.png
+#DockBar.SmileIcon [ICON 32*32] conf/desktop/image/bar/dock/smile.png
+#DockBar.BookIcon [ICON 32*32] conf/desktop/image/bar/dock/book.png
+
+#DockBar.ToolsIcon [ICON 32*32] conf/desktop/image/bar/dock/tools.png
+#DockBar.BoxIcon [ICON 32*32] conf/desktop/image/bar/dock/box.png
+#DockBar.ZipIcon [ICON 32*32] conf/desktop/image/bar/dock/zip.png
+#DockBar.WaterIcon [ICON 32*32] conf/desktop/image/bar/dock/water.png
+
+#DockBar.64Icon [ICON 32*32] conf/desktop/image/bar/dock/64.png
+#DockBar.ChatIcon [ICON 32*32] conf/desktop/image/bar/dock/chat.png
+#DockBar.SoundIcon [ICON 32*32] conf/desktop/image/bar/dock/sound.png
+#DockBar.SoundxIcon [ICON 32*32] conf/desktop/image/bar/dock/soundx.png
+
+#DockBar.FireIcon [ICON 32*32] conf/desktop/image/bar/dock/fire.png
+#DockBar.FlowerIcon [ICON 32*32] conf/desktop/image/bar/dock/flower.png
+#DockBar.BallIcon [ICON 32*32] conf/desktop/image/bar/dock/ball.png
+#DockBar.DatabaseIcon [ICON 32*32] conf/desktop/image/bar/dock/database.png
+#DockBar.SupportIcon [ICON 32*32] conf/desktop/image/bar/dock/support.png
+
+## 系统信息通知
+NotifyDialog.Title 运行时
+NotifyDialog.TitleIcon [ICON 16*16] conf/desktop/image/dialog/notify/logo.png
+NotifyDialog.ExitTitle 关闭 - 运行时
+NotifyDialog.ExitContent 您确定关闭运行时窗口 ？	
+NotifyDialog.CloseIcon [ICON 14*14] conf/desktop/image/dialog/notify/close.png
+
+NotifyDialog.MenuitemCopyMessageText 复制 [C]
+NotifyDialog.MenuitemDeleteMessageText 清除 [D]
+NotifyDialog.MenuitemSelectAllMessageText 选择全部 [A]
+NotifyDialog.MenuitemAutoShowText 显示运行时 [S]
+NotifyDialog.MenuitemExitText 关闭窗口 [X]
+NotifyDialog.MenuitemCopyTableText 复制 [C]
+NotifyDialog.MenuitemDeleteTableText 清除 [D]
+NotifyDialog.MenuitemSelectAllTableText 选择全部 [A]
+NotifyDialog.MenuitemCopyGraphicText 复制 [C]
+NotifyDialog.MenuitemDeleteGraphicText 清除 [D]
+NotifyDialog.MenuitemSelectAllGraphicText 选择全部 [A]
+
+NotifyDialog.MessagePanelText 系统消息
+NotifyDialog.InformationIcon [ICON 8*8] conf/desktop/image/dialog/notify/info.png
+NotifyDialog.WarningIcon [ICON 16*16] conf/desktop/image/dialog/notify/warning.png
+NotifyDialog.ErrorIcon [ICON 16*16] conf/desktop/image/dialog/notify/error.png
+NotifyDialog.MessageCellHeight 38
+
+NotifyDialog.TablePanelText 系统记录
+NotifyDialog.TableHeadHeight 30
+NotifyDialog.TableRowHeight 38
+
+NotifyDialog.GraphPanelText 系统描述
+
+## 云端目录对话框
+CloudChoiceDialog.Title 在云端文件
+CloudChoiceDialog.TitleIcon   [ICON 16*16] conf/desktop/image/dialog/cloud/choice/logo.png
+
+CloudChoiceDialog.SiteIcon  [ICON 16*16] conf/desktop/image/dialog/cloud/choice/site.png
+
+CloudChoiceDialog.FileIcon  [ICON 16*16] conf/desktop/image/dialog/cloud/choice/file.png
+CloudChoiceDialog.DirectoryIcon  [ICON 16*16] conf/desktop/image/dialog/cloud/choice/directory.png
+
+CloudChoiceDialog.UpIcon  [ICON 16*16] conf/desktop/image/dialog/cloud/choice/up.png
+CloudChoiceDialog.NewFolderIcon  [ICON 16*16] conf/desktop/image/dialog/cloud/choice/newfolder.png
+CloudChoiceDialog.ListIcon  [ICON 16*16] conf/desktop/image/dialog/cloud/choice/list.png
+CloudChoiceDialog.TableIcon  [ICON 16*16] conf/desktop/image/dialog/cloud/choice/table.png
+CloudChoiceDialog.DesktopIcon  [ICON 16*16] conf/desktop/image/dialog/cloud/choice/top.png
+
+CloudChoiceDialog.UpTooltip  上级目录
+CloudChoiceDialog.NewFolderTooltip  创建新的文件夹
+CloudChoiceDialog.DesktopTooltip  根目录
+CloudChoiceDialog.ListTooltip  列表
+CloudChoiceDialog.TableTooltip  详细
+
+CloudChoiceDialog.ListCellHeight 28
+CloudChoiceDialog.ListCellWidth 180
+
+CloudChoiceDialog.TableHeaderHeight  28
+CloudChoiceDialog.TableRowHeight 30
+CloudChoiceDialog.TableHeaderName 名称
+CloudChoiceDialog.TableHeaderTime 最后修改时间
+CloudChoiceDialog.TableHeaderLength 大小
+CloudChoiceDialog.TableHeaderType 类型
+CloudChoiceDialog.TableHeaderNameWidth 220
+CloudChoiceDialog.TableHeaderTimeWidth 130
+CloudChoiceDialog.TableHeaderLengthWidth 100
+CloudChoiceDialog.TableHeaderTypeWidth 150
+
+// 注意，正则表达式匹配全部的通配符，符号是：“.”
+CloudChoiceDialog.AllFileDescriptionText 全部文件
+CloudChoiceDialog.AllFileExtensionText .
+
+CloudChoiceDialog.LookLabelText 云端[V]
+CloudChoiceDialog.FileLabelText 文件[F]
+CloudChoiceDialog.TypeLabelText 类型[T]
+CloudChoiceDialog.EncodeLabelText 编码[E]
+
+CloudChoiceDialog.EncodeTypeDefaultText 默认
+CloudChoiceDialog.EncodeTypeGBKText GBK
+CloudChoiceDialog.EncodeTypeGB2312Text GB2312
+CloudChoiceDialog.EncodeTypeGB18030Text GB18030
+CloudChoiceDialog.EncodeTypeUTF8Text UTF-8
+CloudChoiceDialog.EncodeTypeUTF16Text UTF-16
+CloudChoiceDialog.EncodeTypeUTF16BEText UTF-16 BE
+CloudChoiceDialog.EncodeTypeUTF16LEText UTF-16 LE
+CloudChoiceDialog.EncodeTypeUTF32Text UTF-32
+CloudChoiceDialog.EncodeTypeUTF32BEText UTF-32 BE
+CloudChoiceDialog.EncodeTypeUTF32LEText UTF-32 LE
+
+CloudChoiceDialog.OpenButtonText 打开[O]
+CloudChoiceDialog.SaveButtonText 保存[S]
+CloudChoiceDialog.CancelButtonText 取消[C]
+
+CloudChoiceDialog.ScanSiteText 读取云服务器“%s”记录
+CloudChoiceDialog.CreateDirectoryText 生成云端目录 “%s”
+CloudChoiceDialog.RefuseSubmitText 拒绝投递命令到%s 
+CloudChoiceDialog.NotScanSiteResource 检索云端资源失败！
+
+CloudChoiceDialog.CreateNewFolderTitle 建立云存储文件夹
+CloudChoiceDialog.CreateNewFolder.NotSiteTitle 没有选择存储节点
+CloudChoiceDialog.CreateNewFolder.NotSiteContent 请从当前列表中选择一个云存储节点和文件夹！
+CloudChoiceDialog.InputFolderInvalidTitle 无效的云存储文件夹名称
+CloudChoiceDialog.InputFolderInvalidContent 警告！云存储文件夹名称包含限制字符，目前仅允许英文，请重新输入！
+CloudChoiceDialog.InputFolderExistsTitle 云存储文件夹存在
+CloudChoiceDialog.InputFolderExistsContent 警告！这个云存储文件夹已经存在，请重新输入！
+CloudChoiceDialog.CreateFolderFailedTitle 文件夹失败
+CloudChoiceDialog.CreateFolderFailedContent 不能建立文件夹，请联系计算机集群管理员，检查云端系统环境、磁盘，或者其它！
+CloudChoiceDialog.EnterNewFolderText 云存储文件夹名称
+
+CloudChoiceDialog.OpenTypeEmptyTitle 没有选中
+CloudChoiceDialog.OpenTypeEmptyContent 请从磁盘中选择您的文件
+
+CloudChoiceDialog.SelectDirEmptyTitle 未知文件夹
+CloudChoiceDialog.SelectDirEmptyContent 请从列表中选择一个文件夹
+CloudChoiceDialog.EnterFileEmptyTitle 未知文件
+CloudChoiceDialog.EnterFileEmptyContent 请输入文件名，或者选择文件夹中的文件
+
+## 选择应用程序打开文件 
+StartDialog.LogoIcon [ICON 16*16] conf/desktop/image/dialog/start/logo.png
+StartDialog.Title 打开方式
+
+StartDialog.RemarkIcon [ICON 32*32] conf/desktop/image/dialog/start/list.png
+StartDialog.RemakeText 选择想要打开此文件的应用程序
+
+StartDialog.AlwayCheckboxText 总是使用选择的应用程序打开这种文件
+StartDialog.ListTitle 应用程序
+
+StartDialog.SelectButtonText 选择[S]
+StartDialog.CancelButtonText 取消[C]
+
+## 处理“RUN TASK”命令时的显示
+RunTask.Guide.ErrorText  错误：“%s”
+RunTask.Guide.NotfoundTaskText  没有找到“%s”关联的启动程序
+RunTask.Guide.ThrowableText  执行过程异常，详细信息请检查日志记录！
+RunTask.Guide.StartupFailedText  启动应用软件“%s”失败！
+RunTask.Guide.CancelText  撤销本次分布式处理任务
+RunTask.Guide.InvalidHandler 无效的处理句柄
+RunTask.Guide.CommandAccepted 系统正在启动应用软件、分配资源，请稍候...
+RunTask.Guide.CommandRefused 系统拒绝执行本次分布式处理！
+
+## GUIDE 启动参数，用在“RUN TASK”时显示参数
+DefaultGuideParamDialog.Title 录入应用参数
+DefaultGuideParamDialog.ButtonOkayText  确定[O]
+DefaultGuideParamDialog.ButtonCancelText  取消[C]
+
+DefaultGuideParamDialog.MissingTitle 参数不足
+DefaultGuideParamDialog.MissingContent  “%s”是必选项，请输入合适的参数！
+
+DefaultGuideParamDialog.ParamErrorTitle  对象错误
+DefaultGuideParamDialog.ParamErrorContnet  “%s”对象没有定义！
+
+DefaultGuideParamDialog.FormatErrorTitle  格式错误
+DefaultGuideParamDialog.FormatErrorContent  “%s”格式错误，请按照正确的要求填写！
+
+DefaultGuideParamDialog.ConfirmTitle  计算执行确认
+DefaultGuideParamDialog.ConfirmContent  参数正确，确认执行本次操作？
+DefaultGuideParamDialog.CancelTitle  撤销操作
+DefaultGuideParamDialog.CancelContent  确认放弃本次操作？
+DefaultGuideParamDialog.DateContent 日期标准格式：“年-月-日”
+DefaultGuideParamDialog.TimeContent  时间标准格式：“时:分:秒 毫秒”
+DefaultGuideParamDialog.TimestampContent  时间戳标准格式：“年-月-日 时:分:秒 毫秒”
+DefaultGuideParamDialog.StateContent   %s 阶段

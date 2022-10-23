@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<echo>
+	
+	<default no="0"> <![CDATA[ default minor code ]]>  </default>
+	
+	<failed no="-1"> <![CDATA[ System failed ]]> </failed>
+	
+	<echo_error no="-2"> <![CDATA[ Echo Error ]]>  </echo_error>
+	<echo_timeout no="-3"> <![CDATA[ Echo Timeout ]]>  </echo_timeout>
+	<refuse no="-4"> <![CDATA[ System Refuse ]]>  </refuse>
+	<notfound no="-5"> <![CDATA[ Not found ]]>  </notfound>
+	<duplex no="-6"> <![CDATA[ over define ]]>  </duplex>
+	
+	<IMPLEMENT_FAILED no="-7"> <![CDATA[ implement failed ]]>  </IMPLEMENT_FAILED>
+	<CLIENT_ERROR no="-8"> <![CDATA[ client error ]]>  </CLIENT_ERROR>
+	
+	<COMMUNICATION_ERROR no="-9"> <![CDATA[ network failed ]]>  </COMMUNICATION_ERROR>
+	<SITE_MISSING no="-10"> <![CDATA[ site missing ]]>  </SITE_MISSING>
+	<SITE_NOTFOUND no="-11"> <![CDATA[ cannot be find site ]]>  </SITE_NOTFOUND>
+	<PERMISSION_DENIED no="-12"> <![CDATA[ Permission Denied! ]]>  </PERMISSION_DENIED>
+	<MEMORY_MISSING no="-13"> <![CDATA[ Memory Missing! ]]>  </MEMORY_MISSING>
+	<CAPACITY_MISSING no="-14"> <![CDATA[ Capacity Missing! ]]>  </CAPACITY_MISSING>
+
+	<GRANT_ERROR no="-20"> <![CDATA[ grant error ]]>  </GRANT_ERROR>
+	<CANNOT_PUBLISH no="-21"> <![CDATA[ system refuse, cannot be publish! ]]>  </CANNOT_PUBLISH>
+	<INVOKER_TIMEOUT no="-22"> <![CDATA[ invoker timeouted!  ]]>  </INVOKER_TIMEOUT>
+	
+	<UNSUPPORT no="-100"> <![CDATA[ cannot be support]]>  </UNSUPPORT>
+	<LIMIT_FORBID no="-111"> <![CDATA[ limit forbied ]]>  </LIMIT_FORBID>
+	<SELF_INTERRUPTED no="-122"> <![CDATA[ job interrupted ]]>  </SELF_INTERRUPTED>
+	<JNI_ERROR no="-123"> <![CDATA[ JNI failed ]]>  </JNI_ERROR>
+	
+	<FILE_NOTFOUND no="-125"> <![CDATA[ cannot be find file]]>  </FILE_NOTFOUND>
+	<USER_NOTFOUND no="-126"> <![CDATA[ cannot be find user]]>  </USER_NOTFOUND>
+	
+	<CREATE_TABLE_FAILED no="-127"> <![CDATA[ cannot be create table]]>  </CREATE_TABLE_FAILED>
+	
+	<MAX_JOBSOUT no="-128"> <![CDATA[ jobs out ]]>  </MAX_JOBSOUT>
+	
+	<ESTABLISH_ERROR no="-200"> <![CDATA[ Establish failed! ]]>  </ESTABLISH_ERROR>
+	<CONDUCT_ERROR no="-250"> <![CDATA[ Conduct failed! ]]>  </CONDUCT_ERROR>
+	
+	<CANNOT_CREATE_FORBID no="-300"> <![CDATA[ cannot be create forbid! ]]>  </CANNOT_CREATE_FORBID>
+	
+	<TASK_NOTFOUND no="-2011"> <![CDATA[ cannot be find task]]>  </TASK_NOTFOUND>
+	<CHUNK_NOTFOUND no="-2012"> <![CDATA[ cannot be find chunk ]]>  </CHUNK_NOTFOUND>
+
+</echo>

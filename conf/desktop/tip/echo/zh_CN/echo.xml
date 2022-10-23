@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<echo>
+	
+	<default no="0"> <![CDATA[ 无定义 ]]>  </default>
+	
+	<failed no="-1"> <![CDATA[ 系统故障 ]]> </failed>
+	
+	<echo_error no="-2"> <![CDATA[ 回显操作错误 ]]>  </echo_error>
+	<echo_timeout no="-3"> <![CDATA[ 回显超时 ]]>  </echo_timeout>
+	<refuse no="-4"> <![CDATA[ 系统拒绝 ]]>  </refuse>
+	<notfound no="-5"> <![CDATA[ 没有找到 ]]>  </notfound>
+	<duplex no="-6"> <![CDATA[ 重复定义 ]]>  </duplex>
+	
+	<IMPLEMENT_FAILED no="-7"> <![CDATA[ 执行失败 ]]>  </IMPLEMENT_FAILED>
+	<CLIENT_ERROR no="-8"> <![CDATA[ 客户端错误  ]]>  </CLIENT_ERROR>
+	
+	<COMMUNICATION_ERROR no="-9"> <![CDATA[ 网络通信故障 ]]>  </COMMUNICATION_ERROR>
+	<SITE_MISSING no="-10"> <![CDATA[ 站点不足 ]]>  </SITE_MISSING>
+	<SITE_NOTFOUND no="-11"> <![CDATA[ 站点没有找到 ]]>  </SITE_NOTFOUND>
+	<PERMISSION_DENIED no="-12"> <![CDATA[ 权限不足被拒绝 ]]>  </PERMISSION_DENIED>
+	<MEMORY_MISSING no="-13"> <![CDATA[ 内存资源不足 ]]>  </MEMORY_MISSING>
+	<CAPACITY_MISSING no="-14"> <![CDATA[ 空间资源不足 ]]>  </CAPACITY_MISSING>
+	
+	<GRANT_ERROR no="-20"> <![CDATA[ 授权故障]]>  </GRANT_ERROR>
+	<CANNOT_PUBLISH no="-21"> <![CDATA[ 系统不允许发布组件  ]]>  </CANNOT_PUBLISH>
+	<INVOKER_TIMEOUT no="-22"> <![CDATA[ 异步调用器工作超时！  ]]>  </INVOKER_TIMEOUT>
+	
+	<UNSUPPORT no="-100"> <![CDATA[ 不能支持 ]]>  </UNSUPPORT>
+	<LIMIT_FORBID no="-111"> <![CDATA[ 限制操作被拒绝  ]]>  </LIMIT_FORBID>
+	<SELF_INTERRUPTED no="-122"> <![CDATA[ 用户工作业务中断 ]]>  </SELF_INTERRUPTED>
+	<JNI_ERROR no="-123"> <![CDATA[ JNI操作故障  ]]>  </JNI_ERROR>
+	
+	<FILE_NOTFOUND no="-125"> <![CDATA[ 文件没有找到]]>  </FILE_NOTFOUND>
+	<USER_NOTFOUND no="-126"> <![CDATA[ 用户没有找到]]>  </USER_NOTFOUND>
+	
+	<CREATE_TABLE_FAILED no="-127"> <![CDATA[ 建表失败 ]]>  </CREATE_TABLE_FAILED>
+	
+	<MAX_JOBSOUT no="-128"> <![CDATA[ 并行工作量太大，数量溢 出 ]]>  </MAX_JOBSOUT>
+	
+	<ESTABLISH_ERROR no="-200"> <![CDATA[ 数据构造故障 ]]>  </ESTABLISH_ERROR>
+	<CONDUCT_ERROR no="-250"> <![CDATA[ 分布计算故障 ]]>  </CONDUCT_ERROR>
+	
+	<CANNOT_CREATE_FORBID no="-300"> <![CDATA[ 不能建立禁止操作，请检查运行资源，判断冲突！ ]]>  </CANNOT_CREATE_FORBID>
+	
+	<TASK_NOTFOUND no="-2011"> <![CDATA[ 分布任务组件没有找到]]>  </TASK_NOTFOUND>
+	<CHUNK_NOTFOUND no="-2012"> <![CDATA[ 数据块没有找到 ]]>  </CHUNK_NOTFOUND>
+
+</echo>

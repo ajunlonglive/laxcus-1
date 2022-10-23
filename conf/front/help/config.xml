@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 帮助文档配置文本 -->
+
+<config>
+
+	<resource language="zh" country="CN"> <![CDATA[ conf/front/help/zh_CN/commands.xml ]]> </resource>
+	<resource language="en" country="US"> <![CDATA[ conf/front/help/en_US/commands.xml ]]> </resource>
+	<resource language="default" country="default">  <![CDATA[ conf/front/help/en_US/commands.xml ]]> </resource>
+
+</config>

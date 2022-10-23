@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<tokens>
+
+	<color command="0xB16A" keyword="0x14A2D4" type="0xbb5520" normal="0x80"/>
+
+	<!-- 以下用在桌面的控制台上 -->
+	<!-- 清除界面上的文本 -->
+	<token>
+		<command> CLEAR </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	<!-- 退出控制台 -->
+	<token>
+		<command> EXIT </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	<!-- 打开帮助文本  -->
+	<token>
+		<command> HELP </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	<!-- 软件版本信息 -->
+	<token>
+		<command> VERSION </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	<!-- 设置行数 -->
+	<token>
+		<command> SET ROWS </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	<!-- 显示行号 -->
+	<token>
+		<command> SET NUMBER, SET NUM </command>
+		<keywords> YES,NO,Y,N </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 以下是常规命令 -->
+	<token>
+		<command> SET COMMAND MODE</command>
+		<keywords> MEMORY,DISK </keywords>
+		<types> </types>
+	</token>
+
+	<token>
+		<command> SET COMMAND PRIORITY</command>
+		<keywords>  NONE,MIN,NORMAL,MAX,FAST </keywords>
+		<types> </types>
+	</token>
+	
+	<token>
+		<command> SET COMMAND TIMEOUT</command>
+		<keywords> UNLIMIT </keywords>
+		<types> [0-9]+\s*(?i)(H|M|S|HOUR|HOURS|MINUTE|MINUTES|SECOND|SECONDS|MS|MILLISECONDS|MILLISECOND|时|小时|分|分钟|秒|毫秒) </types>
+	</token>
+	
+	<!-- 密钥超时  -->
+	<token>
+		<command> SET CIPHER TIMEOUT</command>
+		<keywords>  TO, ALL, LOCAL </keywords>
+		<types> [0-9]+\s*(?i)(H|M|S|HOUR|HOURS|MINUTE|MINUTES|SECOND|SECONDS|MS|MILLISECONDS|MILLISECOND|时|小时|分|分钟|秒|毫秒) </types>
+	</token>
+	
+	<!-- 最大异步缓存空间 -->
+	<token>
+		<command> SET ECHO BUFFER </command>
+		<keywords>  TO, LOCAL, ALL </keywords>
+		<types> [0-9]+\s*(?i)(K|KB|M|MB|G|GB) </types>
+	</token>
+	<!-- 调用器参数  -->
+	<token>
+		<command> SET MAX INVOKER</command>
+		<keywords> -M, -CT, ALWAYS, TO, ALL, LOCAL </keywords>
+		<types> [0-9]+\s*(?i)(H|M|S|HOUR|HOURS|MINUTE|MINUTES|SECOND|SECONDS|MS|MILLISECONDS|MILLISECOND|小时|时|分钟|分|秒|毫秒) </types>
+	</token>
+	
+	<!-- 生成散列码 -->
+	<token>
+		<command> BUILD SHA1 </command>
+		<keywords> NOT,CASE </keywords>
+		<types> </types>
+	</token>
+	<token>
+		<command> BUILD SHA256 </command>
+		<keywords>  NOT,CASE </keywords>
+		<types> </types>
+	</token>
+	<token>
+		<command> BUILD SHA512 </command>
+		<keywords>  NOT,CASE </keywords>
+		<types> </types>
+	</token>
+	<token>
+		<command>  BUILD MD5 </command>
+		<keywords> NOT,CASE </keywords>
+		<types> </types>
+	</token>
+	
+	<!-- EACH签名 -->
+	<token>
+		<command> BUILD EACH  </command>
+		<keywords>  NOT,CASE, ENCODE , BY , UTF8, UTF16, UTF32</keywords>
+		<types> </types>
+	</token>
+	
+	<!-- 强制转换数据块状态 -->
+	<token>
+		<command> RUSH </command>
+		<keywords> TO </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 清除缓存数据块过期数据 -->
+	<token>
+		<command> COMPACT </command>
+		<keywords> TO </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 设置DSM表压缩倍率  -->
+	<token>
+		<command> SET DSM REDUCE </command>
+		<keywords> TO </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 远程关闭分布站点，WATCH站点使用 -->
+	<token>
+		<command> SHUTDOWN </command>
+		<keywords> ALL,-DELAY,-D </keywords>
+		<types> [0-9]+\s*(?i)(H|M|S|HOUR|HOURS|MINUTE|MINUTES|SECOND|SECONDS|MS|MILLISECONDS|MILLISECOND|时|小时|分|分钟|秒|毫秒) </types>
+	</token>
+	
+	<!-- 重新加载各站点本地的安全配置，WATCH站点使用 -->
+	<!--
+	<token>
+		<command> RELOAD SECURE SERVICE </command>
+		<keywords> TO,ALL </keywords>
+		<types>  </types>
+	</token>
+	-->
+	
+	<!-- 重新加载目标站点的动态链接库，WATCH站点使用 -->
+	<token>
+		<command> RELOAD DYNAMIC LIBRARY </command>
+		<keywords> TO,ALL </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 刷新注册用户 -->
+	<token>
+		<command> REFRESH USER </command>
+		<keywords>  SIGN </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 刷新元数据 -->
+	<token>
+		<command> REFRESH METADATA </command>
+		<keywords>  SIGN </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 设置扫描用户和节点之间关联的间隔时间  -->
+	<token>
+		<command> SET SCAN LINK TIME </command>
+		<keywords>  REFRESH </keywords>
+		<types> [0-9]+\s*(?i)(H|M|S|HOUR|HOURS|MINUTE|MINUTES|SECOND|SECONDS|MS|MILLISECONDS|MILLISECOND|时|小时|分|分钟|秒|毫秒) </types>
+	</token>
+	
+	<!-- 强制站点重新注册 -->
+	<token>
+		<command> REFRESH LOGIN </command>
+		<keywords>  TO, ALL </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 释放节点内存 -->
+	<token>
+		<command> RELEASE MEMORY </command>
+		<keywords> TO, ALL, LOCAL </keywords>
+		<types>  </types>
+	</token>
+	<!-- 释放节点内存间隔时间 -->
+	<token>
+		<command> SET RELEASE MEMORY INTERVAL </command>
+		<keywords>  TO, ALL, LOCAL </keywords>
+		<types> [0-9]+\s*(?i)(H|M|S|HOUR|HOURS|MINUTE|MINUTES|SECOND|SECONDS|MS|MILLISECONDS|MILLISECOND|时|小时|分|分钟|秒|毫秒) </types>
+	</token>
+
+	<!-- 根据站点，获取GATE/CALL站点上的登录用户和相关信息 -->
+	<token>
+		<command> SEEK FRONT SITE </command>
+		<keywords>  TO, ALL </keywords>
+		<types> </types>
+	</token>
+	<!-- 依据签名，获取某个GATE站点上的FRONT账号和相关信息 -->
+	<token>
+		<command> SEEK FRONT USER</command>
+		<keywords>  ALL, SIGN </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 检索用户站点分布 -->
+	<token>
+		<command> SEEK USER SITE</command>
+		<keywords>  ALL, ON, SIGN, HOME,ACCOUNT,GATE,CALL,DATA,WORK,BUILD,PRIME DATA,SLAVE DATA </keywords>
+		<types>  </types>
+	</token>
+	<!-- 检索用户数据表分布 -->
+	<token>
+		<command> SEEK USER TABLE</command>
+		<keywords>  ALL, ON, SIGN, HOME,ACCOUNT,GATE,CALL,DATA,WORK,BUILD,PRIME DATA,SLAVE DATA </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 检索用户阶段命名分布 -->
+	<token>
+		<command> SEEK USER TASK</command>
+		<keywords>  ALL, ON, SIGN, HOME,ACCOUNT,GATE,CALL,DATA,WORK,BUILD,PRIME DATA,SLAVE DATA </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 扫描数据表资源 -->
+	<token>
+		<command> SCAN TABLE </command>
+		<keywords>  TO, ALL </keywords>
+		<types> </types>
+	</token>
+
+	<!-- 扫描数据库资源  -->
+	<token>
+		<command> SCAN DATABASE </command>
+		<keywords>  TO, ALL </keywords>
+		<types> </types>
+	</token>
+
+	<!-- 扫描数据块 -->
+	<token>
+		<command> SCAN ENTITY </command>
+		<keywords>  TO, ALL </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 发布多个分布任务组件 -->
+	<token>
+		<command> PUBLISH TASK COMPONENT</command>
+		<keywords>  </keywords>
+		<!-- <keywords> PUBLISH, TASK, COMPONENT </keywords> -->
+		<types> </types>
+	</token>
+	
+	<!-- 发布分布任务组件附件, TYPE见PublishTaskAxes -->
+	<token>
+		<command> PUBLISH TASK ASSIST COMPONENT </command>
+		<keywords>  TO </keywords>
+		<!-- <keywords> PUBLISH, TASK, ASSIST, COMPONENT, TO </keywords> -->
+		<types> CONDUCT.INIT,CONDUCT.FROM,CONDUCT.TO,CONDUCT.BALANCE,ESTABLISH.ISSUE,ESTABLISH.SCAN,ESTABLISH.SIFT,ESTABLISH.RISE,ESTABLISH.ASSIGN, CONTACT.FORK,CONTACT.MERGE,CONTACT.DISTANT </types>
+	</token>
+	
+	<!-- 发布分布任务组件链接库, TYPE 见PublishTaskAxes -->
+	<token>
+		<command> PUBLISH TASK LIBRARY COMPONENT </command>
+		<keywords>  TO </keywords>
+		<!-- <keywords> PUBLISH, TASK, LIBRARY, COMPONENT, TO </keywords> -->
+		<types> CONDUCT.INIT,CONDUCT.FROM,CONDUCT.TO,CONDUCT.BALANCE,ESTABLISH.ISSUE,ESTABLISH.SCAN,ESTABLISH.SIFT,ESTABLISH.RISE,ESTABLISH.ASSIGN, CONTACT.FORK,CONTACT.MERGE,CONTACT.DISTANT </types>
+	</token>
+	
+	<!-- 检索分布任务组件，只能由WATHC站点的管理员执行 -->
+	<token>
+		<command> SEEK TASK </command>
+		<keywords>  ALL, ON, SIGN </keywords>
+		<types> </types>
+	</token>
+	
+	<!-- 设置日志站点 -->
+	<token>
+		<command> SET LOG LEVEL </command>
+		<keywords> TO, ALL, DEBUG,INF,INFO,INFOR,INFORMATION,WARN,WARNING,ERR,ERROR,FATAL </keywords>
+		<types> </types>
+	</token>
+
+	<!-- 重新加载和发布自定义包，WATCH站点使用，被分发到各站点 -->
+	<token>
+		<command> RELOAD CUSTOM PACKAGE </command>
+		<keywords> TO,ALL </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 半截符编码  -->
+	<token>
+		<command> ENCODE HALF  </command>
+		<keywords>  NOT , CASE </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 半截符解码  -->
+	<token>
+		<command> DECODE HALF  </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 显示注册用户图谱，包括自己  -->
+	<token>
+		<command>PRINT USER DIAGRAM</command>
+		<keywords> FROM </keywords>
+		<types> </types>
+	</token>
+	<!-- 显示注册用户授权图谱 -->
+	<token>
+		<command>PRINT GRANT DIAGRAM</command>
+		<keywords> FROM </keywords>
+		<types> </types>
+	</token>
+
+	<!-- 打印数据库图谱 -->
+	<token>
+		<command> PRINT DATABASE DIAGRAM  </command>
+		<keywords>  ALL, FROM </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 打印数据表图谱  -->
+	<token>
+		<command> PRINT TABLE DIAGRAM  </command>
+		<keywords>  ALL, FROM </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 扫描用户日志 -->
+	<token>
+		<command> SCAN USER LOG  </command>
+		<keywords>  SIGN, FROM, TO </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 被WATCH监视的站点刷新时间 -->
+	<token>
+		<command> SET OUTLOOK INTERVAL</command>
+		<keywords>  </keywords>
+		<types> [0-9]+\s*(?i)(H|M|S|HOUR|HOURS|MINUTE|MINUTES|SECOND|SECONDS|MS|MILLISECONDS|MILLISECOND|时|小时|分|分钟|秒|毫秒) </types>
+	</token>
+
+	<!-- 检索在线命令 -->
+	<token>
+		<command> SEEK ONLINE COMMAND</command>
+		<keywords>  TO, LOCAL</keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 检索在线资源 -->
+	<token>
+		<command> SEEK ONLINE RESOURCE</command>
+		<keywords>  TO </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 检索用户在线注册元数据 -->
+	<token>
+		<command> SEEK REGISTER METADATA </command>
+		<keywords>  SIGN </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 检索用户分布区域 -->
+	<token>
+		<command> SEEK USER AREA </command>
+		<keywords> SIGN </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 重新设置节点的安全策略 -->
+	<token>
+		<command> RELOAD SECURITY POLICY </command>
+		<keywords>  TO, ALL </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 发布许可证 -->
+	<token>
+		<command> PUBLISH LICENCE </command>
+		<keywords>  TO, ALL, -IE </keywords>
+		<types>  </types>
+	</token>
+	<!-- 重新加载许可证 -->
+	<token>
+		<command> RELOAD LICENCE </command>
+		<keywords>  TO, ALL </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 打开堆栈命令扫描 -->
+	<token>
+		<command> OPEN COMMAND STACK  </command>
+		<keywords>  TO, ALL </keywords>
+		<types> [0-9]+\s*(?i)(H|M|S|HOUR|HOURS|MINUTE|MINUTES|SECOND|SECONDS|MS|MILLISECONDS|MILLISECOND|时|小时|分|分钟|秒|毫秒) </types>
+	</token>
+
+	<!-- 关闭堆栈命令扫描 -->
+	<token>
+		<command> CLOSE COMMAND STACK  </command>
+		<keywords>  FROM, ALL </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 网络传输流量测试 -->
+	<token>
+		<command> SWARM </command>
+		<keywords> TO,HUB</keywords>
+		<types> [0-9]+\s*(?i)(M|MB|K|KB|MS|毫秒) </types>
+	</token>
+	
+	<!-- 网络传输流量持续测试 -->
+	<token>
+		<command> MULTI SWARM </command>
+		<keywords> TO,HUB</keywords>
+		<types> [0-9]+\s*(?i)(M|MB|K|KB|MS|毫秒) </types>
+	</token>
+
+	<!-- 并行流量测试 -->
+	<token>
+		<command> PARALLEL MULTI SWARM </command>
+		<keywords> TO,HUB,ITERATE</keywords>
+		<types> [0-9]+\s*(?i)(M|MB|K|KB|MS|毫秒) </types>
+	</token>
+
+	<!-- 网络传输流量测试 -->
+	<token>
+		<command> GUST </command>
+		<keywords> FROM, TO </keywords>
+		<types> [0-9]+\s*(?i)(M|MB|K|KB|MS|毫秒) </types>
+	</token>
+
+	<!-- 多节点间流量测试 -->
+	<token>
+		<command> MULTI GUST </command>
+		<keywords>  FROM, TO </keywords>
+		<types> [0-9]+\s*(?i)(M|MB|K|KB|MS|毫秒) </types>
+	</token>
+
+	<!-- 并行流量测试 -->
+	<token>
+		<command> PARALLEL MULTI GUST </command>
+		<keywords> FROM,TO,ITERATE</keywords>
+		<types> [0-9]+\s*(?i)(M|MB|K|KB|MS|毫秒) </types>
+	</token>
+	
+	<!-- 设置应答包传输模式 -->
+	<token>
+		<command> SET REPLY PACKET MODE </command>
+		<keywords> SERIAL, PARALLEL, TO, ALL, LOCAL </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 设置应答包尺寸 -->
+	<token>
+		<command> SET REPLY PACKET SIZE </command>
+		<keywords>  TO, ALL, LOCAL , ON, WIDE</keywords>
+		<types> [0-9]+\s*(?i)(M|MB|K|KB) </types>
+	</token>
+	<token>
+		<command> SET REPLY SEND TIMEOUT</command>
+		<keywords> TO, ALL, LOCAL </keywords>
+		<types> [0-9]+\s*(?i)(H|M|S|HOUR|HOURS|MINUTE|MINUTES|SECOND|SECONDS|MS|MILLISECONDS|MILLISECOND|时|小时|分|分钟|秒|毫秒) </types>
+	</token>
+	<token>
+		<command> SET REPLY RECEIVE TIMEOUT</command>
+		<keywords> TO, ALL, LOCAL </keywords>
+		<types> [0-9]+\s*(?i)(H|M|S|HOUR|HOURS|MINUTE|MINUTES|SECOND|SECONDS|MS|MILLISECONDS|MILLISECOND|时|小时|分|分钟|秒|毫秒) </types>
+	</token>
+	
+	<token>
+		<command> SET REPLY FLOW CONTROL </command>
+		<keywords> -BLOCK, -B, -TIMESLICE, -TS, -T, -UNIT, -U, TO, ALL, LOCAL </keywords>
+		<types> [0-9]+\s*(?i)(MILLISECOND|MILLISECONDS|MS|毫秒|MICROSECOND|MICROSECONDS|MMS|微秒|KB|K) </types>
+	</token>
+	
+	<!-- 连接与FIXP服务器的SOCKET连接 -->
+	<token>
+		<command> RING </command>
+		<keywords> TO, -SECURE, -S, -COUNT, -C, -TIMEOUT, -T, -DELAY, -D </keywords>
+		<types> Y,YES,N,NO,是,否,[0-9]+\s*(?i)(H|M|S|HOUR|HOURS|MINUTE|MINUTES|SECOND|SECONDS|MS|MILLISECONDS|MILLISECOND|时|小时|分|分钟|秒|毫秒)  </types>
+	</token>
+
+	<!-- 发布用户到指定节点  -->
+	<token>
+		<command> DEPLOY USER </command>
+		<keywords> SIGN, TO </keywords>
+		<types> </types>
+	</token>
+	
+	<!-- 从指定节点清除用户  -->
+	<token>
+		<command> ERASE USER </command>
+		<keywords>  SIGN, FROM </keywords>
+		<types> </types>
+	</token>
+	
+	<!-- 发布数据表到指定节点  -->
+	<token>
+		<command> DEPLOY TABLE </command>
+		<keywords> TO </keywords>
+		<types> </types>
+	</token>
+	
+	<!-- DATA主节点复制数据到DATA从节点  -->
+	<token>
+		<command> COPY MASTER MASS </command>
+		<keywords> FROM,TO </keywords>
+		<types> </types>
+	</token>
+	
+	<!-- 定位分配GATE站点资源模式  -->
+	<token>
+		<command> SET SHADOW MODE </command>
+		<keywords> HASH, ASSERT </keywords>
+		<types> </types>
+	</token>
+
+	<!-- 检查GATE站点注册用户与站点编号一致性  -->
+	<token>
+		<command> CHECK SHADOW CONSISTENCY </command>
+		<keywords>  TO, ALL </keywords>
+		<types> </types>
+	</token>
+	
+	<!-- 节点最大CPU占用比率  -->
+	<token>
+		<command> SET MOST CPU </command>
+		<keywords> TO, LOCAL, ALL </keywords>
+		<types> [0-9]+\s*(?i)(%) </types>
+	</token>
+
+	<!-- 节点最大虚拟机内存占用比率  -->
+	<token>
+		<command> SET MOST VM MEMORY </command>
+		<keywords>  TO, LOCAL, ALL </keywords>
+		<types> [0-9]+\s*(?i)(%) </types>
+	</token>
+	
+	<!-- 节点的最少内存值，低于规定数报警  -->
+	<token>
+		<command> SET LEAST MEMORY </command>
+		<keywords>  TO, LOCAL, ALL, UNLIMIT </keywords>
+		<types> [0-9]+\s*(?i)(M|MB|K|KB|G|GB|%) </types>
+		<!-- <types> GB,MB,KB,G,M,K,% </types> -->
+	</token>
+
+	<!-- 节点的最少磁盘空间值，低于规定数报警  -->
+	<token>
+		<command> SET LEAST DISK </command>
+		<keywords>  TO, LOCAL, ALL, UNLIMIT </keywords>
+		<types> [0-9]+\s*(?i)(M|MB|K|KB|G|GB|%) </types>
+	</token>
+
+	<!-- 打印检测目录  -->
+	<token>
+		<command> CHECK SITE PATH </command>
+		<keywords> TO, LOCAL, ALL </keywords>
+		<types>  </types>
+	</token>
+
+	<token>
+		<command> OPEN WARNING MESSAGE </command>
+		<keywords>  ALL </keywords>
+		<types>  </types>
+	</token>
+	
+	<token>
+		<command> OPEN FAULT MESSAGE </command>
+		<keywords>  ALL </keywords>
+		<types>  </types>
+	</token>
+	
+	<token>
+		<command> CLOSE WARNING MESSAGE </command>
+		<keywords>  ALL </keywords>
+		<types>  </types>
+	</token>
+	
+	<token>
+		<command> CLOSE FAULT MESSAGE </command>
+		<keywords>  ALL </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 分布计算工作超时 -->
+	<token>
+		<command> SET DISTRIBUTED COMMAND TIMEOUT</command>
+		<keywords>  UNLIMIT, TO, ALL, LOCAL </keywords>
+		<types> [0-9]+\s*(?i)(H|M|S|HOUR|HOURS|MINUTE|MINUTES|SECOND|SECONDS|MS|MILLISECONDS|MILLISECOND|时|小时|分|分钟|秒|毫秒) </types>
+	</token>
+	<token>
+		<command> SET DISTRIBUTED INVOKER TIMEOUT</command>
+		<keywords> UNLIMIT, TO, ALL, LOCAL </keywords>
+		<types> [0-9]+\s*(?i)(H|M|S|HOUR|HOURS|MINUTE|MINUTES|SECOND|SECONDS|MS|MILLISECONDS|MILLISECOND|时|小时|分|分钟|秒|毫秒) </types>
+	</token>
+	
+	<!-- 虚拟空间参数 -->
+	<token>
+		<command> SET MEMBER CYBER </command>
+		<keywords>  TO, ALL </keywords>
+		<types>  </types>
+	</token>
+	<token>
+		<command> SET FRONT CYBER </command>
+		<keywords>  TO, ALL </keywords>
+		<types>  </types>
+	</token>
+	<token>
+		<command> CHECK USER CYBER </command>
+		<keywords>  TO, ALL </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 图形界面日志可显示数目 -->
+	<token>
+		<command> SET LOG ELEMENTS </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 开放TIGGER类型 -->
+	<token>
+		<command> OPEN TIGGER </command>
+		<keywords> COMMAND, INVOKER, MESSAGE, WARNING, ERROR, FATAL, TO, LOCAL, ALL </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 关闭TIGGER类型 -->
+	<token>
+		<command> CLOSE TIGGER </command>
+		<keywords>  COMMAND, INVOKER, MESSAGE, WARNING, ERROR, FATAL, FROM, LOCAL, ALL </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 检测成员在集群节点的分布！ -->
+	<token>
+		<command> CHECK DISTRIBUTED MEMBER </command>
+		<keywords>  ALL </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 部署系统应用软件到云端 -->
+	<token>
+		<command> DEPLOY CONDUCT PACKAGE </command>
+		<keywords> TO  </keywords>
+		<types>  </types>
+	</token>
+	<token>
+		<command> DEPLOY ESTABLISH PACKAGE </command>
+		<keywords>  TO </keywords>
+		<types>  </types>
+	</token>
+	<token>
+		<command> DEPLOY CONTACT PACKAGE </command>
+		<keywords> TO </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 删除云端应用软件 -->
+	<token>
+		<command> DROP CONDUCT PACKAGE </command>
+		<keywords> SYSTEM  </keywords>
+		<types>  </types>
+	</token>
+	<token>
+		<command> DROP ESTABLISH PACKAGE </command>
+		<keywords>  SYSTEM </keywords>
+		<types>  </types>
+	</token>
+	<token>
+		<command> DROP CONTACT PACKAGE </command>
+		<keywords> SYSTEM </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 设置映射端口号  -->
+	<token>
+		<command> SET REFLECT PORT </command>
+		<keywords>  ON, TO </keywords>
+		<types> STREAM SERVER, PACKET SERVER, SUCKER SERVER, DISPATCHER SERVER  </types>
+	</token>
+
+	<!-- 检测服务器系统信息，包括CPU、内存、磁盘 -->
+	<token>
+		<command> CHECK SYSTEM INFO</command>
+		<keywords> TO, ALL, LOCAL </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 建立密钥令牌 -->
+	<token>
+		<command> CREATE SECURE TOKEN </command>
+		<keywords> TO, ALL, -NAME, -N, -CHECK, -C, -MODE, -M, -ADDRESS, -A, -PASSWORD, -PWD, -P, -KEYSIZE, -KS </keywords>
+		<types> NONE,ADDRESS,CIPHER,DUPLEX,COMMON,SPECIAL  </types>
+	</token>
+	
+	<!-- 删除密钥令牌 -->
+	<token>
+		<command> DROP SECURE TOKEN </command>
+		<keywords> FROM, ALL </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 显示节点上的密钥令牌 -->
+	<token>
+		<command> SHOW SECURE TOKEN </command>
+		<keywords> FROM, ALL </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 输出密钥令牌到指定的节点 -->
+	<token>
+		<command> FLUSH SECURE TOKEN </command>
+		<keywords> TO, ALL </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 设置对称密钥长度 -->
+	<token>
+		<command> SET SECURE SIZE </command>
+		<keywords> TO, LOCAL, ALL, -CLIENT, -C, -SERVER, -S </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 检测用户资源消耗 -->
+	<token>
+		<command> CHECK USER COST </command>
+		<keywords>  -USERS, -U, -SITES, -S, -COMMANDS, -C, -BEGIN, -B, -END, -E </keywords>
+		<types> Top,Home,Data,Work,Call,Build,Bank,Entrance,Gate,Hash,Account,[0-9]+\s*(?i)(H|M|S|HOUR|HOURS|MINUTE|MINUTES|SECOND|SECONDS|MS|MILLISECONDS|MILLISECOND|时|小时|分|分钟|秒|毫秒)  </types>
+	</token>
+
+</tokens>

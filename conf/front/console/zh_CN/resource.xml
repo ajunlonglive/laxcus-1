@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- FRONT控制台显示文本 -->
+
+<root>
+	<console>
+		<welcome> <![CDATA[ 欢迎登录LAXCUS分布式操作系统<br>主页：www.laxcus.com<br>故障/建议：bbs.laxcus.com<br>请输入登录命令... ]]> </welcome>
+		<username>用户名称：</username>
+		<password>登录密码：</password>
+		
+		<exit>退出LAXCUS集群，释放用户虚拟空间...</exit>
+		<cancel> 命令撤销</cancel>
+		<doit>语法正确，确认执行这个命令？（键入‘Y’或者‘N’）</doit>
+		<loginto>登录到：%s %s</loginto>
+		<login-successful>登录成功，耗时：%.3f 秒 </login-successful>
+		
+		<pitch-not-found>无法定位服务器%s，请检查您的网络或者录入地址！</pitch-not-found>
+		<entrance-failed>不能登录LAXCUS集群，请检查ENTRANCE服务器！</entrance-failed>
+		<redirect-failed> 不能定位GATE服务器，请通知集群管理员检查LAXCUS集群！ </redirect-failed>
+		<gate-failed> 不能登录LAXCUS集群，请确认您的网络通信正常，或者通知集群管理员检查GATE服务器！ </gate-failed>
+		<nat-failed> 网络故障！或者系统已经对这个账号实施安全保护！请联系您的集群管理员，或者延时再试！ </nat-failed>
+		<connect-failed>无法连接LAXCUS集群，请检查您的网络！ </connect-failed>
+		<max-user> 非常抱歉！您的在线共享登录名额已满！ </max-user>
+		<login-timeout> 服务器繁忙，登录超时，请稍后再试！ </login-timeout> 
+		<service-missing> 登录失败，请检查您的用户名称/密码，账号是否被禁用，或者联系集群管理员！ </service-missing>
+		<reflect-failed> 初始化定位检测失败，请检查您的登录地址或者网络！ </reflect-failed>
+		<max-retry> 您连续登录已经达到系统规定极限，由于不能确认您的真实身份，账号已被系统锁定！如有疑问，请联系您的集群管理员！ </max-retry>
+		<licence-nat-refuse> 许可证不支持在NAT网络中LAXCUS集群！如有需要，请联系系统管理员或者软件供应商。 </licence-nat-refuse>
+		<version-notmatch> Front.Console节点版本号与集群不一致，请联系管理员更新！</version-notmatch>
+
+		<disconnect>网络服务中断，请退出当前运行环境，重新启动登录...</disconnect>
+		
+		<affirm>确认退出当前作业？（键入‘Y’或者‘N’）</affirm>
+		
+		<syntax-error>语法错误！格式：OPEN 主机地址(域名) 端口 </syntax-error>
+		
+		<address-error>地址错误，请重新注册...</address-error>
+		<illegal-port>无效的端口号，请重新注册...</illegal-port>
+		
+		<not-found-command>没有找到匹配的命令</not-found-command>
+		
+		<grade>
+			<administrator>阁下的身份是LAXCUS集群管理员</administrator>
+			<user> 阁下的身份是LAXCUS集群注册用户 </user>
+			<undefined> 校验失败，无法识别登录身份！ </undefined>
+		</grade>
+		
+		<command-out> 命令不足或者溢出，当前命令数目是：%d </command-out>
+		
+		<illegal-command> 无效命令！ </illegal-command>
+		
+		<version><![CDATA[控制台 - LAXCUS分布式操作系统<br>6.0 RP2 标准版 <br>LAXCUS人工智能技术实验室 <br>2009-2022 全部版权所有 ]]></version>
+		
+		<licence>是否接受用户许可协议？（键入‘Y’或者‘N’）</licence>
+		
+		<guide>
+			<missing> “%s”是必选项，请输入合适的参数！ </missing>
+			<param-error> “%s”对象没有定义！ </param-error>
+			<format-error> “%s”格式错误，请按照正确的要求填写！ </format-error>
+			<error> 错误：“%s” </error>
+			<notfound-task> 没有找到“%s”关联的启动程序  </notfound-task>
+			<startup-failed> 启动应用软件“%s”失败！  </startup-failed>
+			<throwable> 执行过程异常，详细信息请检查日志记录！  </throwable>
+			<stage> %s 阶段 </stage>
+		</guide>
+
+		<!-- 自动登录提示 -->
+		<auto-login>
+			<retry> 重新登录中...</retry>
+			<failed> 登录失败 </failed>
+			<successful> 登录成功 </successful>
+		</auto-login>
+	</console>
+
+</root>

@@ -1,0 +1,75 @@
+# 深墨芝兰！
+
+# 在暗黑模式里，Viewport.background由TextField.background来决定 ， 两侧双引号是关键字，表示这是一个代理样式！
+Viewport.background {"TextField.background"}
+
+# 集群节点参数溢出颜色（红色！)
+SiteRuntime.fullText {"纯红色"}
+
+# 消息面板，CommentTextForeground ，匹配List.foreground的“198,198,198"
+#MessagePanel.CommentTextForeground {"List.foreground"}
+#MessagePanel.WarningTextForeground {250,160,8}
+#MessagePanel.FaultTextForeground {232,57,41}
+
+#CommandPane.textCommand {#8BB279}
+#CommandPane.textKeyword {#4CA3D2}
+#CommandPane.textType {#F07966}
+#CommandPane.textNormal {188,188,188}
+
+# 消息面板
+MessagePanel.CommentTextForeground {"List.foreground"}
+MessagePanel.WarningTextForeground ESL:{28,240,100}
+MessagePanel.FaultTextForeground ESL:{5,240,110}
+
+# 命令面板
+CommandPane.textCommand ESL:{80,240,55}
+CommandPane.textKeyword ESL:{140,240,95}
+CommandPane.textType ESL:{25,240,100}
+CommandPane.textNormal ESL:{160,0,162}
+
+# 边框颜色! 指向加黑和文本色
+Border.lineBackground {"controlDkShadow"}
+Border.textForeground {"controlText"}
+Border.lineShadow {0,62,117}
+Border.lineLight {0,62,117}
+
+# HTML面板颜色
+HTMLHelpPane.background {"Tree.background"}
+HTMLHelpPane.textForeground {168,168,168}
+HTMLHelpPane.textHerf {138,138,138}
+
+## 深兰主题，采用ESL颜色样式
+#cyano.primary1 ESL:{139,240,30}
+#cyano.primary2 ESL:{139,240,35}
+#cyano.primary3 ESL:{139,240,40}
+#cyano.secondary1 ESL:{139,240,40}
+#cyano.secondary2 ESL:{139,240,35}
+#cyano.secondary3 ESL:{139,240,15}
+#cyano.white ESL:{139,240,12}
+
+# P2:滚动条把手
+#cyano.primary2 ESL:{139,240,38}
+# P3文本高亮
+#cyano.primary3 ESL:{139,240,40}
+
+# TAB选项卡，非激活背景颜色
+#cyano.secondary2 ESL:{139,240,8}
+# 控件颜色
+#cyano.secondary3 ESL:{139,240,18}
+
+# 基础色
+#cyano.white ESL:{139,240,15}
+# 文本颜色
+#cyano.black {168,168,168}
+
+## 新深兰主题颜色，采用ESL样式
+cyano.primary1 ESL:{133,130,30}
+cyano.primary2 ESL:{133,130,38}
+cyano.primary3 ESL:{133,130,40}
+cyano.secondary1 ESL:{133,130,40}
+cyano.secondary2 ESL:{133,130,8}
+cyano.secondary3 ESL:{133,130,18}
+# 基础色
+cyano.white ESL:{133,130,15}
+# 文本颜色
+cyano.black {172,172,172}

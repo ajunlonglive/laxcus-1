@@ -1,0 +1,1032 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Root>
+
+	<MessageDialog>
+		<Button>
+			<Okay>Okay</Okay>
+			<Yes>Yes</Yes>
+			<No>No</No>
+			<Cancel>Cancel</Cancel>
+		</Button>
+	</MessageDialog>
+	<FileChooser>
+		<Button>
+			<Save>Save</Save>
+			<Open>Open</Open>
+			<Help>Help</Help>
+			<Cancel>Cancel</Cancel>
+			<Update>Update</Update>
+		</Button>
+	</FileChooser>
+	
+	<ToolTip>
+		<Members title="All accounts %d, online accounts %d, online users %d"/>
+		<Sites title="Cluster sites %d"/>
+		<Sound title="Sound"/>
+		<Disconnect title="Network disconnect"/>
+		<Invoker title="Threads: %d, Processing Jobs:%d, Processed Jobs:%d. Received:%s, Sent:%s"/>
+	</ToolTip>
+
+	<Window>
+		<Frame title="Watch site - Laxcus Distributed OS"/>
+
+		<BrowserTab>
+			<Site title="Cluster Sites" />
+			<Member title="Cluster Users" />
+		</BrowserTab>
+		<SiteBrowser title="Laxcus Cluster Sites">
+			<Top title="Top Sites"/>
+			<Log title="Log Sites"/>
+
+			<Home title="Home Sites"/>
+			<Call title="Call Sites"/>
+			<Data title="Data Sites"/>
+			<Work title="Work Sites"/>
+			<Build title="Build Sites"/>
+			
+			<Bank title="Bank Sites"/>
+			<Account title="Account Sites"/>
+			<Hash title="Hash Sites"/>
+			<Gate title="Gate Sites"/>
+			<Entrance title="Entrance Sites"/>
+			
+			<Watch title="Watch Sites"/>
+			<Front title="Front Sites"/>
+		</SiteBrowser>
+		<SiteBrowserDetailPanel title="Site Values" key-width="108" value-width="168" header-height="25" row-height="30">
+			<Header>
+				<Key title="Properites"/>
+				<Value title="Records"/>
+			</Header>
+
+			<Site title="Site" />
+			<Time title="Time" />
+			<CPU title="CPU" />
+			
+			<VM-Memory title="Site Memory" />
+			<Sys-Memory title="Environment Memory" />
+			<Sys-Disk title="Environment Disk"/>
+			
+			<RegisterMembers title="Register Users"/>
+			<OnlineMembers title="Online Users"/>
+			
+			<Threads title="Active Threads"/>
+			<Commands title="Idel Jobs"/>
+			<Invokers title="Run Jobs"/>
+			
+			<Command-TCP-Buffer title="Stream Channel Buffer (Receive/Send)"/>
+			<Command-TCP-Port title="Stream Channel Port"/>
+			<Command-UDP-Buffer title="Packet Channel Buffer (Receive/Send)"/>
+			<Command-UDP-Port title="Packet Channel Port"/>
+			
+			<Data-Sucker-Port title="Data Suck Port"/>
+			<Data-Dispatcher-Port title="Data Dispatch Port"/>
+			<Data-Sucker-MI title="Data MI Channels" tooltip="Massive MI Channels"/>
+			<Data-Dispatcher-MO title="Data MO Channels" tooltip="Massive MO Channels"/>
+			<Data-Sucker-Buffer title="Data Suck Buffer (Receive/Send)"/>
+			<Data-Dispatcher-Buffer title="Data Dispatch Buffer (Receive/Send)"/>
+			
+			<OS-Type title="OS" tooltip="OS Type"/>
+			<CPU-Type title="CPU" tooltip="CPU Type"/>
+		</SiteBrowserDetailPanel>
+		
+		<MemberBrowserListPanel title="Laxcus Cluster User">
+			<Register title="Register Users"/>
+			<Online title="Online Users"/>
+		</MemberBrowserListPanel>
+		<MemberBrowserDetailPanel title="Register/Details" key-width="80" value-width="268" header-height="25" row-height="30">
+			<Header>
+				<Key title="Types"/>
+				<Value title="User Values"/>
+			</Header>
+			<Siger title="Siger" />
+			<Persons title="Persions" />
+			<Register title="Register" />
+			<Register-Online title="Register/Online" />
+			<Online title="Online" />
+			<Front title="Front" />
+		</MemberBrowserDetailPanel>
+
+		<Tab>
+			<Prompt title="Message"/>
+			<Table title="Report"/>
+			<Site title="Cluster"/>
+			<Log title="Log"/>
+		</Tab>
+		
+		<CommandPanel title="Watch Command Panel" />
+		
+		<MessagePanel title="Message Panel">
+			
+		</MessagePanel>
+		
+		<TablePanel title="Report Panel" header-height="28" row-height="30"/>
+		
+		<LogPanel title="Log Panel" row-height="30">
+			<Forbid title="Forbid"/>
+			<Number title="%d Rows"/>
+		</LogPanel>
+		
+		<RuntimePanel title="Cluster Site Panel" header-height="28" row-height="32">
+			<Address title="Site" width="55"/>
+			<CPURate title="CPU" width="80"/>
+			
+			<SysUsedMemory title="Environment Memory" width="82"/>
+			<SysMaxMemory title="Max Environment Memory" width="82"/>
+			<SysMemoryRate title="Environment Memory Rate" width="82"/>
+			
+			<VmUsedMemory title="Site Memory" width="98"/>
+			<VmMaxMemory title="Max Site Memory" width="98"/>
+			<VmMemoryRate title="Site Memory Rate" width="98"/>
+			
+			<UsedDisk title="Environment Disk" width="80"/>
+			<MaxDisk title="Max Environment Disk" width="80"/>
+			<DiskRate title="Environment Disk Rate" width="80"/>
+			
+			<Members title="Members" width="70"/>
+			<Threads title="Active Threads" width="70"/>
+			<Commands title="Idel Jobs" width="70"/>
+			<Invokers title="Run Jobs" width="70"/>
+			
+			<OS title="OS" width="80"/>
+			<CPU title="CPU" width="80"/>
+		</RuntimePanel>
+		
+		<!-- auto login -->
+		<auto-login>
+			<retry> Relogin... </retry>
+			<failed> Login failed </failed>
+			<successful> Login successful </successful>
+		</auto-login>
+	</Window>
+
+	<Dialog>
+		<Login title="Watch Monitor - Laxcus Distributed OS">
+			<Server title="Manager Site">
+				<Address title="Address" tooltip="Site Address, Required"/>
+				<Port title="Port" tooltip="Site Port, Required"/>
+			</Server>
+			<Account title="Account">
+				<Username title="Username" tooltip="SHA256 Signature Or Other Text, Required"/>
+				<Password title="Password" tooltip="Any Words, Required"/>
+			</Account>
+			<Licence title="Licence">
+				<Sign tooltip="Any word"/>
+			</Licence>
+			<Button>
+				<Licence title = "Anonymous"/>
+				<Okay title = "Login"/>
+				<Cancel title="Cancel"/>
+			</Button>
+			
+			<error>
+				<username title="Username"> entry a username, please! </username>
+				<password title="Password"> entry a password, please! </password>
+				<account title="Account"> sorry, invalid account, please try again! </account>
+				<server title="Site address">entry a address, please!</server>
+				<port title="Site port"> entry a port, please! </port>
+				<unhost title="Parameter error">address error! </unhost>
+				
+				<check-failed title="server failure"> %s:%s server failed! check network or server, please! </check-failed>
+				<connect-failed title="network failure"> %s:%s, connect failed! check network, please! </connect-failed>
+				<version-failed title="version failure"> version limit, update it, please! </version-failed>
+				<login-failed title="login failure"> %s:%s, login failed! check account or network, please! </login-failed>
+				
+				<pitch>
+					<not-found title="pitch site failure"> cannot be find %d, check ip or network, please! </not-found>
+					<nat-error title="refuse nat"> security refuse! not support nat network!  </nat-error>
+					<not-match title="pitch site failure"> check failure! </not-match>
+				</pitch>
+			</error>
+		</Login>
+
+		<Help title="Watch Commands - Laxcus Distributed OS">
+		</Help>
+		
+		<about title="Watch About - Laxcus Distributed OS">
+			<okay title="Okay"/>
+		</about>
+		
+		<regex title="Regex Syntax Validator">
+			<close title="Regex Syntax Validator"> Are you exit validator? </close>
+		
+			<texts title="Regex Syntax">
+				<syntax title="Style">
+					<okay> Correct syntax! </okay>
+					<error> Incorrect syntax! </error>
+				</syntax>
+				<content title="Content"/>
+			</texts>
+			<result title="Test Result"/>
+
+			<buttons>
+				<test title="Test"/>
+				<reset title="Reset"/>
+				<exit title="Exit"/>
+			</buttons>
+			
+		</regex>
+		
+		<dba title="Adminstrator Account Generator">
+			<account title="Account"/>
+			<username title="Username:" sign="username signature"/>
+			<password title="Password:" sign="password signature"/>
+			<again title="Again:"/>
+			<members title="Online Members:"/>
+		
+			<name_sign title="Username Sign"/>
+			<pwd_sign title="Password Sign"/>
+			
+			<buttons>
+				<build title="Build"/>
+				<reset title="Reset"/>
+				<exit title="Exit"/>
+			</buttons>
+			
+			<close title="Close Dialog"> Are you exit generator ? </close>
+			
+			<directory title="Choose Directory" button="Confirm"/>
+			
+			<result>
+				<okay title="Successful"> Save to %s, okay!</okay>
+				<failed title="Failed"> Save failed!</failed>
+			</result>
+
+			<error>
+				<param-missing title="Parameter Missing">
+					<username>enter a username, please!  </username>
+					<password>enter a password, please!  </password>
+					<members>enter a number, please!  </members>
+				</param-missing>
+				
+				<password title="Password Error"> not match! </password>
+			</error>
+		</dba>
+		
+		<rsa title="Security Key Generator">
+			<close title="Close Dialog"> Are you exit generator ? </close>
+
+			<button>
+				<build title="Build"/>
+				<save title="Save"/>
+				<reset title="Reset"/>
+				<exit title="Exit"/>
+			</button>
+
+			<encrypt title="Encrypt">
+				<bits title="Bits"/>
+				<password title="Password"/>
+			</encrypt>
+
+			<public-key title="Public Key">
+				<modulus title="Modulus"/> 
+				<exponent title="Exponent"/>
+			</public-key>
+
+			<private-key title="Private Key">
+				<modulus title="Modulus"/> 
+				<exponent title="Exponent"/>
+			</private-key>
+
+			<build>
+				<okay title="Successful"> build successful! </okay>
+				<failed title="Failed"> build failed! </failed>
+			</build>
+			
+			<save>
+				<okay title="Successful"> save to %s, successfuly! </okay>
+				<failed title="Failed"> save failed! </failed>
+			</save>
+			
+			<directory title="Choose Directory" button="Confirm"/>
+		</rsa>
+		
+		<script title="Build Start/Stop Script File">
+			<warning title="Missing Warning"> sorry, parameter missing! </warning>
+			<override title="Override"> %s existed. override it? </override>
+			<confirm title="Build Script File"> build runos.sh/stopos.sh? </confirm>
+			<finished title="Write Script File"> runos.sh/stopos.sh written to "%s"! </finished>
+
+			<tooltip>
+				<remark> <![CDATA[  ]]> </remark>
+			</tooltip>
+			
+			<exit>
+				<message title="Are you exist generator?"/>
+			</exit>
+			<directory title="Choose Directory" button="Confirm"/>
+			<panel>
+				<directory title="Site Directory"/>
+				<site title="Site"/>
+			</panel>
+
+			<text-field >
+				<path title="Linux Directory"/>
+
+				<echo title="linux directory"/>
+				<log title="linux directory"/>
+				<tig title="linux directory"/>
+				<resource title="linux directory"/>
+				<store title="linux directory"/>
+				<middle title="linux directory"/>
+				<deploy title="linux directory"/>
+				
+				<start-time title="start interval"/>
+				<stop-time title="stop interval"/>
+			</text-field>
+			
+			<button>
+				<save title="Save To"/>
+				<build title="Build"/>
+				<reset title="Reset"/>
+				<exit title="Exit"/>
+				<all title="All"/>
+			</button>
+			
+			<label>
+				<echo title="Site Buffer Directory"/>
+				<resource title="Site Resource Directory"/>
+				<log title="Log Directory"/>
+				<tig title="Tig Directory"/>
+				<middle title="Distribute Buffer Directory"/>
+				<store title="Distribute Storage Directory"/>
+				<deploy title="Software Deploy Directory"/>
+				
+				<start-time title="Start Interval(second)"/>
+				<stop-time title="Stop Interval(second)"/>
+				
+				<top-cluster title="Top Cluster"/>
+				<bank-cluster title="Bank Cluster"/>
+				<home-cluster title="Home Cluster"/>
+			</label>
+			
+			<checkbox>
+				<top title="Top Site"/>
+				<top1 title="Top1 Backup Site"/>
+				<top2 title="Top2 Backup Site"/>
+				<top-log title="Top Log Site"/>
+				
+				<bank title="Bank Site"/>
+				<bank1 title="Bank1 Backup Site"/>
+				<bank2 title="Bank2 Backup Site"/>
+				<bank-log title="Bank Log Site"/>
+				<account title="Account Site"/>
+				<hash title="Hash Site"/>
+				<gate title="Gate Site"/>
+				<entrance title="Entrance Site"/>
+				
+				<home title="Home Site"/>
+				<home1 title="Home1 Backup Site"/>
+				<home2 title="Home2 Backup Site"/>
+				<home-log title="Home Log Site"/>
+				<data-master title="Data Master Site"/>
+				<data-slave title="Data Slave Site"/>
+				<build title="Build Site"/>
+				<work title="Work Site"/>
+				<call title="Call Site"/>
+			</checkbox>
+
+		</script>
+		
+		<address title="Build Address Script File">
+			<warning title="Missing Warning"> sorry, parameter missing! </warning>
+			<repeat-port title="Incorrect Port"> duplicate port %d, entry a new port, please! </repeat-port>
+			
+			<override title="Override"> %s existed, override it? </override>
+			<confirm title="Build Script File"> build "address.sh / check.sh / checkport.sh"? </confirm>
+			<finished title="Write Script File"> "address.sh check.sh checkport.sh" written to "%s"! </finished>
+
+			<tooltip>
+				<remark> <![CDATA[  ]]> </remark>
+			</tooltip>
+			
+			<exit>
+				<message title="Are you exit generator?"/>
+			</exit>
+			
+			<import-chooser>
+				<title title="Choose Shell"/>
+				<selected title="Choose"/>
+				<description title="Linux Shell, (*.sh)"/>
+				<extension title="sh"/>
+			</import-chooser>
+			<export-chooser title="Save Directory" button="Confirm"/>
+
+			<panel>
+				<network title="Network Grid"/>
+				<top-cluster title="Top Cluster (domain)"/>
+				<bank-cluster title="Bank Cluster (sub domain)"/>
+				<home-cluster title="Home Cluster (sub domain)"/>
+			</panel>
+
+			<text-field>
+				<ip title="IPv4 or IPv6"/>
+				<port title="TCP or UDP"/>
+			</text-field>
+			
+			<button>
+				<import title="Import Shell"/>
+				<export title="Save To"/>
+				<build title="Build"/>
+				<reset title="Reset"/>
+				<exit title="Exit"/>
+				<all title="All"/>
+			</button>
+			
+			<label>
+				<private title="Common Site IP"/>
+				<gateway title="Common Gateway IP"/>
+				
+				<gate-sucker-port title="MI Port"/>
+				<gate-dispatcher-port title="MO Port"/>
+				
+				<entrance-sucker-port title="MI Port"/>
+				<entrance-dispatcher-port title="MO Port"/>
+				
+				<call-sucker-port title="MI Port"/>
+				<call-dispatcher-port title="MO Port"/>
+			</label>
+			
+			<checkbox>
+				<top title="Top Site"/>
+				<top1 title="Top1 Backup Site"/>
+				<top2 title="Top2 Backup Site"/>
+				
+				<top-log title="Log Port"/>
+				<top-log-tig-bank title="Bank Log Port"/>
+				<top-log-tig-home title="Home Log Port"/>
+
+				<bank title="Bank Site"/>
+				<bank1 title="Bank1 Backup Site"/>
+				<bank2 title="Bank2 Backup Site"/>
+				
+				<bank-log title="Log Port"/>
+				<bank-log-tig-account title="Account Log Port"/>
+				<bank-log-tig-hash title="Hash Log Port"/>
+				<bank-log-tig-gate title="Gate Log Port"/>
+				<bank-log-tig-entrance title="Entrance Log Port"/>
+				
+				<account title="Account Port"/>
+				<hash title="Hash Port"/>
+				<gate title="Gate Port"/>
+				<entrance title="Entrance Port"/>
+				
+				<home title="Home Site"/>
+				<home1 title="Home1 Backup Site"/>
+				<home2 title="Home2 Backup Site"/>
+				<home-log title="Log Port"/>
+				<home-log-tig-data title="Data Log Port"/>
+				<home-log-tig-build title="Build Log Port"/>
+				<home-log-tig-work title="Work Log Port"/>
+				<home-log-tig-call title="Call Log Port"/>
+				
+				<data-master title="Master Data Port"/>
+				<data-slave title="Slave Data Port"/>
+				<build title="Build Port"/>
+				<work title="Work Port"/>
+				<call title="Call Port"/>
+			</checkbox>
+
+		</address>
+		
+		<CommandMode title="Command Mode">
+			<mode title="Command Mode">
+				<memory title="Memory Mode"/>
+				<disk title="Disk Mode"/>
+			</mode>
+			<buttons>
+				<okay title="Okay"/>
+				<cancel title="Cancel"/>
+			</buttons>
+		</CommandMode>
+		
+		<CommandTimeout title="Command Timeout">
+			<warning title="Warning"> incorrect time, refuse!</warning>
+			
+			<time title="Time">
+				<hour title="Hour"/>
+				<minute title="Minute"/>
+				<second title="Second"/>
+			</time>
+			<buttons>
+				<okay title="Okay"/>
+				<cancel title="Cancel"/>
+			</buttons>
+		</CommandTimeout>
+		
+		<OutlookInterval title="Site Refresh Time">
+			<warning title="Warning">  incorrect time, refuse!</warning>
+			
+			<time title="Time">
+				<hour title="Hour"/>
+				<minute title="Minute"/>
+				<second title="Second"/>
+			</time>
+			<buttons>
+				<okay title="Okay"/>
+				<cancel title="Cancel"/>
+			</buttons>
+		</OutlookInterval>
+		
+		<Font>
+			<Title title="Font - Laxcus Distributed OS"/>
+			<Welcome title="How do you do?"/>
+			<Button>
+				<Okay title="Okay"/>
+				<Reset title="Reset"/>
+				<Cancel title="Cancel"/>
+			</Button>
+			<List>
+				<Name title="Name"/>
+				<Style title="Style"/>
+				<Size title="Size"/>
+			</List>
+			<Style>
+				<Plain title="Plian"/>
+				<Bold title="Bold"/>
+				<Italic title="Italic"/>
+				<BoldItalic title="BoldItalic"/>
+			</Style>
+		</Font>
+
+		<BuildHash>
+			<Title title="Build Hash Code"/>
+			<OK title="Build"/>
+		</BuildHash>
+
+		<BuildEach>
+			<Title title="Build Each Signature"/>
+			<OK title="Build"/>
+		</BuildEach>
+		
+		<DeployCloudPackage>
+			<Conduct dialogTitle="Publish System Conduct Package" borderTitle="Contact">
+				<write-chooser>
+					<description title="Conduct Package, (*.cpk)"/>
+					<extension title="cpk"/>
+					<title title="Conduct Package"/>
+					<selected title="Choose"/>
+				</write-chooser>
+			</Conduct>
+			
+			<Establish dialogTitle="Publish System Establish Package" borderTitle="Establish">
+				<write-chooser>
+					<description title="Establish Package (*.epk)"/>
+					<extension title="epk"/>
+					<title title="Establish Package"/>
+					<selected title="Choose"/>
+				</write-chooser>
+			</Establish>
+			
+			<Contact dialogTitle="Publish System Contact Package" borderTitle="Contact">
+				<write-chooser>
+					<description title="Contact Package (*.spk)"/>
+					<extension title="spk"/>
+					<title title="Contact Package"/>
+					<selected title="Choose"/>
+				</write-chooser>
+			</Contact>
+			
+			<buttons>
+				<choice title="Choose Distribute Application"/>
+				<okay title="Okay"/>
+				<cancel title="Cancel"/>
+			</buttons>
+		</DeployCloudPackage>
+	</Dialog>
+
+	<MessageBox>
+		<Exit>
+			<Message title="Do You Want To Exit Watch Monitor - Laxcus Distributed OS?"/>
+			<Title title="Exit - Watch Monitor"/>
+		</Exit>
+		
+		<SwitchHub>
+			<Message title="Server failure, switch to a new site: "/>
+			<Title title="Relogin - Watch Monitor"/>
+		</SwitchHub>
+		
+		<CommandAuditor>
+			<Message title="Do You Want To Startup This Command?"/>
+			<Title title="Watch Monitor"/>
+		</CommandAuditor>
+	</MessageBox>
+	
+	<MenuBar>
+		<Menu caption="Navigate" id="10" hotkey="N">
+
+			<MenuItem caption="Login" id="101" hotkey="L">
+				<ToolTip> register to server </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[login]]> </Method>
+			</MenuItem>
+
+			<MenuItem caption="Logout" id="103" hotkey="O">
+				<ToolTip> unregister from server </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[logout]]> </Method>
+			</MenuItem>
+
+			<MenuItem caption="Relogin" id="102" hotkey="R">
+				<ToolTip> logout and login </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[relogin]]> </Method>
+			</MenuItem>
+			
+			<Separator/>
+		
+			<MenuItem caption="Exit" id="108" hotkey="X">
+				<ToolTip> exit watch site </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[exit]]> </Method>
+			</MenuItem>
+		</Menu>
+		
+		<Menu caption="Run" hotkey="R">
+		
+			<MenuItem caption="Check Command" hotkey="C">
+				<ToolTip> check command syntax </ToolTip>
+				<ShortcutKey> F4 </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doCheckCommand  </Method>
+			</MenuItem>
+
+			<MenuItem caption="Run Command" hotkey="L">
+				<ToolTip> send command to server </ToolTip>
+				<ShortcutKey> F5 </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doLaunchCommand </Method>
+			</MenuItem>
+			
+			<Separator/>
+						
+			<MenuItem caption="Update Resource" hotkey="R">
+				<ToolTip> update all resource </ToolTip>
+				<ShortcutKey> F7 </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doRefresh </Method>
+			</MenuItem>
+
+		</Menu>
+		
+		<Menu caption="View" hotkey="V">
+			<CheckBoxMenuItem caption="Menu Bar" hotkey="M" checkon="true">
+				<ToolTip> hide or show </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[doShowOrHideMenubar]]>  </Method>
+			</CheckBoxMenuItem>
+			
+			<CheckBoxMenuItem caption="Tool Bar" hotkey="T" checkon="true">
+				<ToolTip> hide or show </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[doShowOrHideToolbar]]>  </Method>
+			</CheckBoxMenuItem>
+			
+			<CheckBoxMenuItem caption="Status Bar" hotkey="S" checkon="true">
+				<ToolTip> hide or show </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doShowOrHideStatusbar  </Method>
+			</CheckBoxMenuItem>
+
+			<Separator/>
+			
+			<Menu caption="Font" hotkey="F">
+				<MenuItem caption="Standard Font" hotkey="A">
+					<ToolTip> modify environment font </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doSystemMenuFont </Method>
+				</MenuItem>
+				
+				<MenuItem caption="Menu Font" hotkey="U">
+					<ToolTip> modify menu font </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doMainMenuFont  </Method>
+				</MenuItem>
+				
+				<MenuItem caption="Site Browse Panel" hotkey="S">
+					<ToolTip> site browse font </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doSiteWindowFont  </Method>
+				</MenuItem>
+			
+				<MenuItem caption="User Browse Panel" hotkey="M">
+					<ToolTip> user browse font </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doMemberWindowFont  </Method>
+				</MenuItem>
+				
+				<MenuItem caption="Option Panel" hotkey="O">
+					<ToolTip> modify option panel font </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doTabbedWindowFont  </Method>
+				</MenuItem>
+				
+				<MenuItem caption="Command Panel" hotkey="C">
+					<ToolTip> modify command font </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCommandWindowFont </Method>
+				</MenuItem>
+			
+				<MenuItem caption="Message Panel" hotkey="N">
+					<ToolTip> modify message font </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doNoticeWindowFont </Method>
+				</MenuItem>
+
+				<MenuItem caption="Report Panel" hotkey="T">
+					<ToolTip> modify report font </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doTableWindowFont </Method>
+				</MenuItem>
+				
+				<MenuItem caption="Site Runtime Panel" hotkey="N">
+					<ToolTip> modify cluster font </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doRuntimeWindowFont </Method>
+				</MenuItem>
+				
+				<MenuItem caption="Log Panel" hotkey="L">
+					<ToolTip> modify log font </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doLogWindowFont </Method>
+				</MenuItem>
+				
+				<MenuItem caption="Help Document" hotkey="H">
+					<ToolTip> modify help document font </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doHelpFont </Method>
+				</MenuItem>
+			</Menu>
+			
+			<Separator/>
+		
+			<Menu caption="Log Mode" hotkey="O">
+				<RadioButtonMenuItem caption="Debug Log" hotkey="D" radioon="ON">
+					<ToolTip> switch to debug mode </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doDebug </Method>
+				</RadioButtonMenuItem>
+				<RadioButtonMenuItem caption="Information Log" hotkey="I" radioon="OFF">
+					<ToolTip> switch to informaton mode </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doInfo </Method>
+				</RadioButtonMenuItem>
+				<RadioButtonMenuItem caption="Warning Log" hotkey="W" radioon="OFF">
+					<ToolTip> switch to warning mode </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doWarning </Method>
+				</RadioButtonMenuItem>
+				<RadioButtonMenuItem caption="Error Log" hotkey="E" radioon="OFF">
+					<ToolTip> switch to error mode </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doError </Method>
+				</RadioButtonMenuItem>
+				<RadioButtonMenuItem caption="Fatal Log" hotkey="F" radioon="OFF">
+					<ToolTip> switch to fatal mode </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doFatal </Method>
+				</RadioButtonMenuItem>
+			</Menu>
+			
+			<Separator/>
+			
+			<Menu caption="Skin Theme" hotkey="K" associate="SkinMenu">
+			
+			</Menu>
+			
+			<Separator/>
+		
+			<MenuItem caption="Clean Message" hotkey="M">
+				<ToolTip> clear all information </ToolTip>
+				<ShortcutKey> control M </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doClearNote </Method>
+			</MenuItem>
+			<MenuItem caption="Clean Report" hotkey="T">
+				<ToolTip> clear all information </ToolTip>
+				<ShortcutKey> control T </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doClearTable </Method>
+			</MenuItem>
+			<MenuItem caption="Clean Log" hotkey="L">
+				<ToolTip> clear all information </ToolTip>
+				<ShortcutKey> control L </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doClearLog </Method>
+			</MenuItem>
+			
+			<Separator/>
+			<Menu caption="Display" hotkey="D">
+				<CheckBoxMenuItem caption="Full Screen" hotkey="F" checkon="false">
+					<ToolTip> full screen, yes or no </ToolTip>
+					<ShortcutKey> F11 </ShortcutKey>
+					<Icon> </Icon>
+					<Method> <![CDATA[doFullScreen]]>  </Method>
+				</CheckBoxMenuItem>
+				<CheckBoxMenuItem caption="Attach Screen" hotkey="A" checkon="false">
+					<ToolTip> attach screen, yes or no </ToolTip>
+					<ShortcutKey> F12 </ShortcutKey>
+					<Icon> </Icon>
+					<Method> <![CDATA[doAttachScreen]]>  </Method>
+				</CheckBoxMenuItem>
+			</Menu>
+		</Menu>
+		
+		<Menu caption="Application" hotkey="A">
+			<Menu caption="Publish System Software" hotkey="D">
+				<MenuItem caption="Publish Conduct Software (1)" hotkey="1">
+					<ToolTip> distribute conduct package </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doDeployConductPackage  </Method>
+				</MenuItem>
+				<MenuItem caption="Publish Establish Software (2)" hotkey="2">
+					<ToolTip> distribute establish package </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doDeployEstablishPackage  </Method>
+				</MenuItem>
+				<MenuItem caption="Publish Contact Software (3)" hotkey="3">
+					<ToolTip> distribute contact  package </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doDeployContactPackage  </Method>
+				</MenuItem>								
+			</Menu>
+			
+			<Separator/>
+			<Menu caption="Tools" hotkey="U">
+				<MenuItem caption="Cluster Account Generator (1)" hotkey="1">
+					<ToolTip> administrator account file </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doDBAKey </Method>
+				</MenuItem>
+				<MenuItem caption="Cluster Security Key Generator (2)" hotkey="2">
+					<ToolTip> cluster security file </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doRSAKey </Method>
+				</MenuItem>
+				<MenuItem caption="Site Script Generator (3)" hotkey="3">
+					<ToolTip> start script and stop script </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCreateRunStopScript </Method>
+				</MenuItem>
+				<MenuItem caption="Address Script Generator (4)" hotkey="4">
+					<ToolTip> cluster address script </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCreateAddressScript </Method>
+				</MenuItem>
+			</Menu>
+			
+			<Separator/>
+			<MenuItem caption="Build Each Signature" hotkey="E">
+				<ToolTip> build each signature </ToolTip>
+				<ShortcutKey> control E </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doEachFile </Method>
+			</MenuItem>
+			
+			<Menu caption="Build File Hash" hotkey="C">
+				<MenuItem caption="MD5 Hash Code (1)" hotkey="1">
+					<ToolTip> build md5 hashcode </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doMD5File  </Method>
+				</MenuItem>
+				<MenuItem caption="SHA1 Hash Code (2)" hotkey="2">
+					<ToolTip> build sha1 hashcode </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doSHA1File </Method>
+				</MenuItem>
+				<MenuItem caption="SHA256 Hash Code (3)" hotkey="3">
+					<ToolTip> build sha256 hashcode </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doSHA256File </Method>
+				</MenuItem>
+				<MenuItem caption="SHA512 Hash Code (4)" hotkey="4">
+					<ToolTip> build sha512 hashcode </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doSHA512File </Method>
+				</MenuItem>
+			</Menu>
+
+			<Separator/>
+			<Menu caption="Other" hotkey="O">
+				<MenuItem caption="Command Mode (1)" hotkey="1">
+					<ToolTip> memory mode or disk mode </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCommandMode </Method>
+				</MenuItem>
+				<MenuItem caption="Command Timeout (2)" hotkey="2">
+					<ToolTip> command effective time </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCommandTimeout </Method>
+				</MenuItem>
+				<MenuItem caption="Outlook Interval (3)" hotkey="3">
+					<ToolTip> check site interval </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doOutlookInterval  </Method>
+				</MenuItem>
+				<MenuItem caption="Regex Syntax Validator (4)" hotkey="4">
+					<ToolTip> check regex syntax  </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doRegex  </Method>
+				</MenuItem>
+			</Menu>
+		</Menu>
+
+		<Menu caption="Help" hotkey="H">
+			
+			<MenuItem caption="Help" hotkey="U">
+				<ToolTip> open help dialog </ToolTip>
+				<ShortcutKey> F1 </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doHelp </Method>
+			</MenuItem>
+			
+			<Separator/>
+			
+			<MenuItem caption="About Watch" hotkey="A">
+				<ToolTip> about watch site </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Method> doAbout </Method>
+			</MenuItem>
+		</Menu>
+	</MenuBar>
+
+	<!-- toolbar -->
+	<ToolBar icon-width="24" icon-height="24" icon-brightness="10.0f">
+		<Button>
+			<ToolTip> update all resource </ToolTip>
+			<Icon> conf/watch/image/window/toolbar/refresh.png </Icon>
+			<Method> doRefresh </Method>
+		</Button>
+		
+		<Separator/>
+		
+		<Button>
+			<ToolTip> check command syntax</ToolTip>
+			<Icon> conf/watch/image/window/toolbar/check.png </Icon>
+			<Method> doCheckCommand </Method>
+		</Button>	
+		
+		<Button>
+			<ToolTip> run command </ToolTip>
+			<Icon> conf/watch/image/window/toolbar/launch.png </Icon>
+			<Method> doLaunchCommand </Method>
+		</Button>
+		
+		<Separator/>
+		
+		<Button>
+			<ToolTip> open help dialog </ToolTip>
+			<Icon> conf/watch/image/window/toolbar/help.png </Icon>
+			<Method> doHelp </Method>
+		</Button>
+		
+		<Separator/>
+		
+		<Button>
+			<ToolTip> exit watch </ToolTip>
+			<Icon> conf/watch/image/window/toolbar/exit.png </Icon>
+			<Method> exit </Method>
+		</Button>
+		<Separator/>
+	</ToolBar>
+	
+</Root>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 自定义命令/调用器集合数据  -->
+
+<custom-command-set>
+
+	<!-- 自定义命令解析器类文件名(全类路径名) -->
+	<command-cracker> <![CDATA[ com.laxcus. ]]> </command-cracker>
+
+	<!-- 自定义命令/调用器对。 同一个命令，不同站点的调用会不同。 -->
+	<custom-item>
+		<!-- 自定义命令类文件名(全类路径名) -->
+		<command> </command>
+		<!-- 自定义调用器类文件名(全类路径名)-->
+		<invoker> </invoker>
+	</custom-item>
+
+</custom-command-set>

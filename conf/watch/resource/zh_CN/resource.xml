@@ -1,0 +1,1055 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Root>
+
+	<MessageDialog>
+		<Button>
+			<Okay>确定[O]</Okay>
+			<Yes>是[Y]</Yes>
+			<No>否[N]</No>
+			<Cancel>取消[C]</Cancel>
+		</Button>
+	</MessageDialog>
+	<FileChooser>
+		<Button>
+			<Save>保存[S]</Save>
+			<Open>打开[O]</Open>
+			<Help>帮助[H]</Help>
+			<Cancel>取消[C]</Cancel>
+			<Update>更新[U]</Update>
+		</Button>
+	</FileChooser>
+	
+	<ToolTip>
+		<Members title="集群注册账号%d　在线账号%d　在线用户%d"/>
+		<Sites title="集群注册节点 %d"/>
+		<Sound title="声音"/>
+		<Disconnect title="网络断开"/>
+		<Invoker title="%d个线程，%d个作业处理中，%d个作业已完成，接收%s，发送%s"/>
+	</ToolTip>
+
+	<Window>
+		<Frame title="管理员 - LAXCUS分布式操作系统"/>
+
+		<BrowserTab>
+			<Site title="集群节点" />
+			<Member title="集群用户" />
+		</BrowserTab>
+		<SiteBrowser title="LAXCUS集群节点">
+			<Top title="集群主控节点"/>
+			<Log title="记录服务节点"/>
+
+			<Home title="业务管理节点"/>
+			<Call title="任务分派节点"/>
+			<Data title="数据存取节点"/>
+			<Work title="数据计算节点"/>
+			<Build title="数据构建节点"/>
+			
+			<Bank title="用户管理节点"/>
+			<Account title="账号服务节点"/>
+			<Hash title="分发服务节点"/>
+			<Gate title="托管服务节点"/>
+			<Entrance title="入口服务节点"/>
+			
+			<Watch title="远程监控节点"/>
+			<Front title="前端用户节点"/>
+		</SiteBrowser>
+		<SiteBrowserDetailPanel title="节点运行参数" key-width="108" value-width="168" header-height="25" row-height="30">
+			<Header>
+				<Key title="节点属性"/>
+				<Value title="运行记录"/>
+			</Header>
+			
+			<Site title="当前节点" />
+			<Time title="记录时间" />
+			<CPU title="处理器" />
+			
+			<VM-Memory title="节点内存" />
+			<Sys-Memory title="环境内存" />
+			<Sys-Disk title="磁盘"/>
+			
+			<RegisterMembers title="注册成员"/>
+			<OnlineMembers title="在线成员"/>
+			
+			<Threads title="活跃线程"/>
+			<Commands title="等待任务"/>
+			<Invokers title="运行任务"/>
+			
+			<Command-TCP-Buffer title="流控制信道缓存（接收/发送）"/>
+			<Command-TCP-Port title="流控制信道监听端口"/>
+			<Command-UDP-Buffer title="包控制信道缓存（接收/发送）"/>
+			<Command-UDP-Port title="包控制信道监听端口"/>
+			
+			<Data-Sucker-Port title="数据输入信道监听端口"/>
+			<Data-Dispatcher-Port title="数据输出信道监听端口"/>
+			<Data-Sucker-MI title="数据输入信道单元" tooltip="Massive MI信道单元数目"/>
+			<Data-Dispatcher-MO title="数据输出信道单元" tooltip="Massive MO信道单元数目"/>
+			<Data-Sucker-Buffer title="数据输入信道缓存（接收/发送）"/>
+			<Data-Dispatcher-Buffer title="数据输出信道缓存（接收/发送）"/>
+			
+			<OS-Type title="操作系统" tooltip="操作系统信息"/>
+			<CPU-Type title="中央处理器" tooltip="CPU信息"/>
+		</SiteBrowserDetailPanel>
+		
+		<MemberBrowserListPanel title="LAXCUS集群用户">
+			<Register title="注册用户"/>
+			<Online title="在线用户"/>
+		</MemberBrowserListPanel>
+		<MemberBrowserDetailPanel title="用户注册/登录明细" key-width="80" value-width="268" header-height="25" row-height="30">
+			<Header>
+				<Key title="类型"/>
+				<Value title="用户参数"/>
+			</Header>
+			<Siger title="用户" />
+			<Persons title="人数" />
+			<Register title="注册" />
+			<Register-Online title="注册/在线" />
+			<Online title="在线" />
+			<Front title="登录" />
+		</MemberBrowserDetailPanel>
+
+		<Tab>
+			<Prompt title="通　知"/>
+			<Table title="报　告"/>
+			<Site title="集　群"/>
+			<Log title="记　录"/>
+		</Tab>
+		
+		<CommandPanel title="命令输入器" />
+		
+		<MessagePanel title="通知面板">
+			<!-- <Color message="0x2C724E" warning="0xFAA008" fault="0xe83929"/> -->
+		</MessagePanel>
+		<TablePanel title="报告面板" header-height="28" row-height="30"/>
+		
+		<LogPanel title="记录面板" row-height="30">
+			<Forbid title="屏蔽记录"/>
+			<Number title="显示%d行记录"/>
+		</LogPanel>
+		
+		<RuntimePanel title="集群节点面板" header-height="28" row-height="32">
+			<Address title="节点" width="55"/>
+			<CPURate title="处理器使用" width="80"/>
+			
+			<SysUsedMemory title="环境在用内存" width="82"/>
+			<SysMaxMemory title="环境最大内存" width="82"/>
+			<SysMemoryRate title="环境内存占比" width="82"/>
+			
+			<VmUsedMemory title="节点在用内存" width="98"/>
+			<VmMaxMemory title="节点最大内存" width="98"/>
+			<VmMemoryRate title="节点内存占比" width="98"/>
+			
+			<UsedDisk title="已用磁盘" width="80"/>
+			<MaxDisk title="最大磁盘" width="80"/>
+			<DiskRate title="磁盘使用" width="80"/>
+			
+			<Members title="成员" width="70"/>
+			<Threads title="活跃线程" width="70"/>
+			<Commands title="等待任务" width="70"/>
+			<Invokers title="运行任务" width="70"/>
+			
+			<OS title="操作系统" width="80"/>
+			<CPU title="中央处理器" width="80"/>
+		</RuntimePanel>
+		
+		<!-- 自动登录提示 -->
+		<auto-login>
+			<retry> 重新登录中... </retry>
+			<failed> 登录失败 </failed>
+			<successful> 登录成功 </successful>
+		</auto-login>
+	</Window>
+
+	<Dialog>
+		<Login title="管理员登录 - LAXCUS分布式操作系统">
+			<Server title="集群管理节点">
+				<Address title="地址[A]" tooltip="管理节点地址，必选项！"/>
+				<Port title="端口[O]" tooltip="管理节点端口，必选项！"/>
+			</Server>
+			<Account title="账号">
+				<Username title="名称[U]" tooltip="SHA25签名或者明文，必选项！"/>
+				<Password title="密码[P]" tooltip="任何字符，必选项！"/>
+			</Account>
+			<Licence title="许可证">
+				<Sign tooltip="操作系统软件商提供，若空值启用默认配置，可选项。"/>
+			</Licence>
+			<Button>
+				<Licence title = "匿名[N]"/>
+				<Okay title = "登录[L]"/>
+				<Cancel title="取消[C]"/>
+			</Button>
+			
+			<error>
+				<username title="账号名称"> 请输入账号用户名称！</username>
+				<password title="账号密码"> 请输入账号密码！</password>
+				<account title="登录账号"> 请保持登录账号的用户名称和密码一致！</account>
+				<server title="登录节点地址">请输入登录节点地址！</server>
+				<port title="登录节点端口"> 请输入登录节点端口！</port>
+				<unhost title="参数错误">登录服务器主机地址错误！ </unhost>
+				
+				<check-failed title="检测服务器节点失败"> 服务器节点 %s:%s 诊断失败！请检查您的计算机网络或者服务器节点！ </check-failed>
+				<connect-failed title="网络连接失败"> 连接 %s:%s 失败，请检查您的计算机网络！ </connect-failed>
+				<version-failed title="版本号不匹配"> Watch节点版本号与服务器节点不一致，请更新到相同的软件版本！ </version-failed>
+				<login-failed title="登录失败"> 登录 %s:%s 失败，请检查您的账号或者网络连接！ </login-failed>
+				
+				<pitch>
+					<not-found title="节点定位故障"> 无法定位服务器节点%s，请检查您的网络或者录入地址！ </not-found>
+					<nat-error title="拒绝NAT网络"> WATCH属于内网节点，由于安全限制，不允许使用NAT转义地址，请保证网络支持与登录节点的直接连接。谢谢！ </nat-error>
+					<not-match title="节点定位故障"> 服务器定位地址与当前节点不匹配！ </not-match>
+				</pitch>
+			</error>
+		</Login>
+
+		<Help title="管理员命令 - LAXCUS分布式操作系统">
+		</Help>
+		
+		<about title="管理员 - LAXCUS分布式操作系统">
+			<okay title="确定[O]"/>
+		</about>
+		
+		<regex title="正则表达式语法测试器">
+			<close title="关闭窗口"> 确定退出正则表达式语法测试器？</close>
+		
+			<texts title="正则表达式语法校验">
+				<syntax title="样式(S)">
+					<okay>语法正确！</okay>
+					<error>语法错误！</error>
+				</syntax>
+				<content title="内容(C)"/>
+			</texts>
+			<result title="测试结果"/>
+
+			<buttons>
+				<test title="测试[T]"/>
+				<reset title="重置[R]"/>
+				<exit title="退出[X]"/>
+			</buttons>
+			
+		</regex>
+		
+		<dba title="集群管理员账号生成器">
+			<account title="账号"/>
+			<username title="名称：" sign="账号名称签名"/>
+			<password title="密码：" sign="账号密码签名"/>
+			<again title="再输入一次："/>
+			<members title="同时在线："/>
+		
+			<name_sign title="签名[S]"/>
+			<pwd_sign title="签名[P]"/>
+			
+			<buttons>
+				<build title="生成[B]"/>
+				<reset title="重置[S]"/>
+				<exit title="退出[X]"/>
+			</buttons>
+			
+			<close title="关闭窗口"> 您确定退出集群管理员账号生成器？</close>
+			
+			<directory title="选择一个保存集群管理员账号文件目录" button="确定这个目录"/>
+			
+			<result>
+				<okay title="成功"> 保存账号成功！位置在：%s </okay>
+				<failed title="失败"> 保存账号失败！ </failed>
+			</result>
+
+			<error>
+				<param-missing title="参数不足">
+					<username>请录入账号用户名称 </username>
+					<password>请录入账号用户名称 </password>
+					<members>请录入账号成员数 </members>
+				</param-missing>
+				
+				<password title="密码错误"> 两组密码不一致！ </password>
+			</error>
+		</dba>
+		
+		<rsa title="集群安全密钥生成器">
+			<close title="关闭窗口"> 您确定退出集群安全密钥生成器？</close>
+		
+			<button>
+				<build title="生成[B]"/>
+				<save title="保存[S]"/>
+				<reset title="重置[R]"/>
+				<exit title="退出[X]"/>
+			</button>
+			
+			<encrypt title="加密">
+				<bits title="数位"/>
+				<password title="密码"/>
+			</encrypt>
+
+			<public-key title="公钥">
+				<modulus title="系数"/> 
+				<exponent title="指数"/>
+			</public-key>
+
+			<private-key title="私钥">
+				<modulus title="系数"/> 
+				<exponent title="指数"/>
+			</private-key>
+			
+			<build>
+				<okay title="成功"> 已经生成集群安全密钥！ </okay>
+				<failed title="失败"> 没有生成集群安全密钥！ </failed>
+			</build>
+			
+			<save>
+				<okay title="成功"> 集群安全密钥已经保存！位置在：%s </okay>
+				<failed title="失败"> 保存集群安全密钥！ </failed>
+			</save>
+			
+			<directory title="选择一个保存集群安全密钥文件目录" button="确定这个目录"/>
+		</rsa>
+		
+		<script title="生成集群节点启动停止脚本文件">
+			<warning title="参数不足警告">  参数不足，不能生成脚本文件，请完整添写！谢谢！</warning>
+			<override title="覆盖文件">  文件"%s"已经存在，请确认是否覆盖？</override>
+			<confirm title="生成脚本文件"> 参数正确，确认生成“runos.sh、stopos.sh”文件吗？</confirm>
+			<finished title="写入脚本文件"> 脚本文件“runos.sh、stopos.sh”已经写入“%s”目录，请复制到集群根目录下运行。</finished>
+
+			<tooltip>
+				<remark> <![CDATA[ <html>说明：<br>1. 针对一台计算机上节点的启动和停止。<br>2. 开放输入栏为必填项。<br>3. 目录路径格式和生成文件适配Linux平台。</html> ]]> </remark>
+			</tooltip>
+			
+			<exit>
+				<message title="您确认退出集群节点启动停止脚本生成器？"/>
+			</exit>
+			<directory title="选择一个保存脚本文件目录" button="确定目录"/>
+			<panel>
+				<directory title="集群节点目录"/>
+				<site title="集群节点"/>
+			</panel>
+
+			<text-field >
+				<path title="Linux目录格式"/>
+				
+				<echo title="保存缓冲数据，Linux目录格式"/>
+				<log title="保存Log记录，Linux目录格式"/>
+				<tig title="保存Tig记录，Linux目录格式"/>
+				<resource title="保存节点资源数据，Linux目录格式"/>
+				<store title="保存大数据和数据库记录，Linux目录格式"/>
+				<middle title="存取分布计算产生的中间数据，Linux目录格式"/>
+				<deploy title="保存分布式应用软件，Linux目录格式"/>
+				
+				<start-time title="节点之间的启动间隔时间，以“秒”为单位。"/>
+				<stop-time title="节点之间的停止间隔时间，以“秒”为单位。"/>
+			</text-field>
+			
+			<button>
+				<save title="导出目录[S]"/>
+				<build title="生成[B]"/>
+				<reset title="重置[R]"/>
+				<exit title="退出[X]"/>
+				<all title="全选[A]"/>
+			</button>
+			
+			<label>
+				<echo title="节点缓存目录"/>
+				<resource title="节点资源目录"/>
+				<log title="LOG记录目录"/>
+				<tig title="TIG记录目录"/>
+				<middle title="分布计算缓存目录"/>
+				<store title="分布数据存储目录"/>
+				<deploy title="应用部署目录"/>
+				
+				<start-time title="启动间隔时间（秒）"/>
+				<stop-time title="停止间隔时间（秒）"/>
+				
+				<top-cluster title="TOP集群"/>
+				<bank-cluster title="BANK集群"/>
+				<home-cluster title="HOME集群"/>
+			</label>
+			
+			<checkbox>
+				<top title="Top节点"/>
+				<top1 title="Top1备用节点"/>
+				<top2 title="Top2备用节点"/>
+				<top-log title="Top记录节点"/>
+				
+				<bank title="Bank节点"/>
+				<bank1 title="Bank1备用节点"/>
+				<bank2 title="Bank2备用节点"/>
+				<bank-log title="Bank记录节点"/>
+				<account title="Account节点"/>
+				<hash title="Hash节点"/>
+				<gate title="Gate节点"/>
+				<entrance title="Entrance节点"/>
+				
+				<home title="Home节点"/>
+				<home1 title="Home1备用节点"/>
+				<home2 title="Home2备用节点"/>
+				<home-log title="Home记录节点"/>
+				<data-master title="Data主节点"/>
+				<data-slave title="Data从节点"/>
+				<build title="Build节点"/>
+				<work title="Work节点"/>
+				<call title="Call节点"/>
+			</checkbox>
+
+		</script>
+		
+		<address title="生成集群地址配置脚本文件">
+			<warning title="参数录入警告">  参数不足或者错误，不能生成地址配置脚本文件，请正确添写！谢谢！</warning>
+			<repeat-port title="端口号错误"> 端口号“%d”重复，不能生成脚本文件，请正确添写！谢谢！</repeat-port>
+			
+			<override title="覆盖文件">  文件"%s"已经存在，请确认是否覆盖？</override>
+			<confirm title="生成脚本文件"> 参数正确！确认生成“address.sh、check.sh checkport.sh”文件吗？</confirm>
+			<finished title="写入脚本文件"> 文件“address.sh、check.sh checkport.sh”已经写入“%s”目录，请复制到集群根目录下运行。</finished>
+			
+			<tooltip>
+				<remark> <![CDATA[ <html>说明：<br>1. 此为一台计算机上的节点配置参数。<br>2. 开放输入栏为必填项。<br>3. 端口号不能重复。<br>4. 节点遵循上下级依赖关系，下级节点绑定上级节点。<br>5. Top节点是顶层节点，无依赖关系。<br>6. 生成文件适配Linux平台。</html> ]]> </remark>
+			</tooltip>
+			
+			<exit>
+				<message title="您确认退出集群地址配置脚本生成器？"/>
+			</exit>
+			
+			<import-chooser>
+				<title title="选择集群配置脚本文件"/>
+				<selected title="选中脚本文件"/>
+				<description title="Linux脚本文件, (*.sh)"/>
+				<extension title="sh"/>
+			</import-chooser>
+			<export-chooser title="选择一个保存脚本文件目录" button="确定目录"/>
+
+			<panel>
+				<network title="网段"/>
+				<top-cluster title="TOP集群（主域）"/>
+				<bank-cluster title="BANK集群（子域）"/>
+				<home-cluster title="HOME集群（子域）"/>
+			</panel>
+
+			<text-field>
+				<ip title="IPv4或者IPv6地址格式"/>
+				<port title="TCP和UDP端口号"/>
+			</text-field>
+			
+			<button>
+				<import title="导入脚本文件[I]"/>
+				<export title="导出目录[S]"/>
+				<build title="生成[B]"/>
+				<reset title="重置[R]"/>
+				<exit title="退出[X]"/>
+				<all title="全选[A]"/>
+			</button>
+			
+			<label>
+				<private title="公共节点IP"/>
+				<gateway title="公共网关IP"/>
+				
+				<gate-sucker-port title="MI数据端口"/>
+				<gate-dispatcher-port title="MO数据端口"/>
+				
+				<entrance-sucker-port title="MI数据端口"/>
+				<entrance-dispatcher-port title="MO数据端口"/>
+				
+				<call-sucker-port title="MI数据端口"/>
+				<call-dispatcher-port title="MO数据端口"/>
+			</label>
+			
+			<checkbox>
+				<top title="Top节点"/>
+				<top1 title="Top1备用节点"/>
+				<top2 title="Top2备用节点"/>
+				
+				<top-log title="Top集群记录通信端口"/>
+				<top-log-tig-bank title="Bank节点“日志/操作”服务端口"/>
+				<top-log-tig-home title="Home节点“日志/操作”服务端口"/>
+				
+				<bank title="Bank节点"/>
+				<bank1 title="Bank1备用节点"/>
+				<bank2 title="Bank2备用节点"/>
+				
+				<bank-log title="Bank集群记录通信端口"/>
+				<bank-log-tig-account title="Account节点“日志/操作”服务端口"/>
+				<bank-log-tig-hash title="Hash节点“日志/操作”服务端口"/>
+				<bank-log-tig-gate title="Gate节点“日志/操作”服务端口"/>
+				<bank-log-tig-entrance title="Entrance节点“日志/操作”服务端口"/>
+				
+				<account title="Account节点通信端口"/>
+				<hash title="Hash节点通信端口"/>
+				<gate title="Gate节点通信端口"/>
+				<entrance title="Entrance节点通信端口"/>
+				
+				<home title="Home节点"/>
+				<home1 title="Home1备用节点"/>
+				<home2 title="Home2备用节点"/>
+				<home-log title="Home集群记录通信端口"/>
+				<home-log-tig-data title="Data节点“日志/操作”服务端口"/>
+				<home-log-tig-build title="Build节点“日志/操作”服务端口"/>
+				<home-log-tig-work title="Work节点“日志/操作”服务端口"/>
+				<home-log-tig-call title="Call节点“日志/操作”服务端口"/>
+				
+				<data-master title="Data主节点通信端口"/>
+				<data-slave title="Data从节点通信端口"/>
+				<build title="Build节点通信端口"/>
+				<work title="Work节点通信端口"/>
+				<call title="Call节点通信端口"/>
+			</checkbox>
+
+		</address>
+		
+		<CommandMode title="设置命令处理模式">
+			<mode title="命令处理模式">
+				<memory title="内存模式"/>
+				<disk title="硬盘模式"/>
+			</mode>
+			<buttons>
+				<okay title="确定[O]"/>
+				<cancel title="取消[C]"/>
+			</buttons>
+		</CommandMode>
+		
+		<CommandTimeout title="设置命令超时时间">
+			<warning title="参数警告"> 当前的命令超时时间过小，系统拒绝接受！</warning>
+			
+			<time title="命令超时时间">
+				<hour title="小时(H)"/>
+				<minute title="分钟(M)"/>
+				<second title="秒(S)"/>
+			</time>
+			<buttons>
+				<okay title="确定[O]"/>
+				<cancel title="取消[C]"/>
+			</buttons>
+		</CommandTimeout>
+		
+		<OutlookInterval title="设置节点诊断刷新间隔">
+			<warning title="参数警告"> 当前的诊断刷新间隔时间过小，系统拒绝接受！</warning>
+			
+			<time title="节点诊断间隔时间">
+				<hour title="小时(H)"/>
+				<minute title="分钟(M)"/>
+				<second title="秒(S)"/>
+			</time>
+			<buttons>
+				<okay title="确定[O]"/>
+				<cancel title="取消[C]"/>
+			</buttons>
+		</OutlookInterval>
+		
+		<Font>
+			<Title title="选择字体  - LAXCUS分布式操作系统"/>
+			<Welcome title="HI，哥儿们！"/>
+			<Button>
+				<Okay title="确定[O]"/>
+				<Reset title="重置[R]"/>
+				<Cancel title="取消[C]"/>
+			</Button>
+			<List>
+				<Name title="字体"/>
+				<Style title="样式"/>
+				<Size title="大小"/>
+			</List>
+			<Style>
+				<Plain title="常规"/>
+				<Bold title="粗体"/>
+				<Italic title="斜体"/>
+				<BoldItalic title="粗斜体"/>
+			</Style>
+		</Font>
+
+		<BuildHash>
+			<Title title="计算文件散列码"/>
+			<OK title="计算散列码"/>
+		</BuildHash>
+
+		<BuildEach>
+			<Title title="计算文件的EACH算法数字签名"/>
+			<OK title="计算EACH数字签名"/>
+		</BuildEach>
+		
+		<DeployCloudPackage>
+			<Conduct dialogTitle="发布系统分布计算应用软件包" borderTitle="分布计算">
+				<write-chooser>
+					<description title="分布计算包, (*.cpk)"/>
+					<extension title="cpk"/>
+					<title title="分布计算文件"/>
+					<selected title="选择分布计算文件"/>
+				</write-chooser>
+			</Conduct>
+			
+			<Establish dialogTitle="发布系统分布构建应用软件包" borderTitle="分布数据构建">
+				<write-chooser>
+					<description title="分布构建包, (*.epk)"/>
+					<extension title="epk"/>
+					<title title="分布构建文件"/>
+					<selected title="选择分布构建文件"/>
+				</write-chooser>
+			</Establish>
+			
+			<Contact dialogTitle="发布系统分布迭代应用软件包" borderTitle="分布迭代计算">
+				<write-chooser>
+					<description title="分布迭代包, (*.spk)"/>
+					<extension title="spk"/>
+					<title title="分布迭代文件"/>
+					<selected title="选择分布迭代文件"/>
+				</write-chooser>
+			</Contact>
+			
+			<buttons>
+				<choice title="选择分布式应用"/>
+				<okay title="确定[O]"/>
+				<cancel title="取消[C]"/>
+			</buttons>
+		</DeployCloudPackage>
+	</Dialog>
+
+	<MessageBox>
+		<Exit>
+			<Message title="您确定是要退出管理员监视器 - LAXCUS分布式操作系统？"/>
+			<Title title="退出 - 管理员监视器"/>
+		</Exit>
+		
+		<SwitchHub>
+			<Message title="原管理站点故障，请登录到新的管理站点："/>
+			<Title title="请登录到新的节点 - 管理员"/>
+		</SwitchHub>
+		
+		<CommandAuditor>
+			<Message title="您确认需要执行这个命令？"/>
+			<Title title="执行 - 管理员"/>
+		</CommandAuditor>
+	</MessageBox>
+	
+	<MenuBar>
+		<Menu caption="导航[N]" id="10" hotkey="N">
+
+			<MenuItem caption="登录(L)" id="101" hotkey="L">
+				<ToolTip> 登录到服务器 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[login]]> </Method>
+			</MenuItem>
+
+			<MenuItem caption="注销(O)" id="103" hotkey="O">
+				<ToolTip> 从当前服务器退出并且重新登录 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[logout]]> </Method>
+			</MenuItem>
+
+			<MenuItem caption="重新登录(R)" id="102" hotkey="R">
+				<ToolTip> 从当前服务器退出 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[relogin]]> </Method>
+			</MenuItem>
+			
+			<Separator/>
+		
+			<MenuItem caption="退出(X)" id="108" hotkey="X">
+				<ToolTip> 退出管理员监视器 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[exit]]> </Method>
+			</MenuItem>
+		</Menu>
+		
+		<Menu caption="运行[R]" hotkey="R">
+		
+			<MenuItem caption="检查命令(C)" hotkey="C">
+				<ToolTip> 检查命令语法 </ToolTip>
+				<ShortcutKey> F4 </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doCheckCommand  </Method>
+			</MenuItem>
+
+			<MenuItem caption="执行命令(L)" hotkey="L">
+				<ToolTip> 发送命令到服务器 </ToolTip>
+				<ShortcutKey> F5 </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doLaunchCommand </Method>
+			</MenuItem>
+			
+			<Separator/>
+
+			<MenuItem caption="更新集群资源(R)" hotkey="R">
+				<ToolTip> 更新集群节点和用户记录 </ToolTip>
+				<ShortcutKey> F7 </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doRefresh </Method>
+			</MenuItem>
+		</Menu>
+		
+		<Menu caption="视图[V]" hotkey="V">
+			<CheckBoxMenuItem caption="菜单栏(M)" hotkey="M" checkon="true">
+				<ToolTip> 显示或者隐藏菜单栏 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[doShowOrHideMenubar]]>  </Method>
+			</CheckBoxMenuItem>
+			
+			<CheckBoxMenuItem caption="工具栏(T)" hotkey="T" checkon="true">
+				<ToolTip> 显示或者隐藏工具栏 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[doShowOrHideToolbar]]>  </Method>
+			</CheckBoxMenuItem>
+
+			<CheckBoxMenuItem caption="状态栏(S)" hotkey="S" checkon="true">
+				<ToolTip> 显示或者隐藏状态栏 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doShowOrHideStatusbar  </Method>
+			</CheckBoxMenuItem>
+
+			<Separator/>
+			
+			<Menu caption="字体[F]" hotkey="F">
+				<MenuItem caption="系统环境字体(A)" hotkey="A">
+					<ToolTip> 修改管理员监视器系统环境字体 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doSystemMenuFont  </Method>
+				</MenuItem>
+				
+				<MenuItem caption="菜单字体(U)" hotkey="U">
+					<ToolTip> 修改菜单界面字体 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doMainMenuFont  </Method>
+				</MenuItem>
+				
+				<MenuItem caption="集群节点窗口(S)" hotkey="S">
+					<ToolTip> 修改集群节点窗口字体 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doSiteWindowFont  </Method>
+				</MenuItem>
+			
+				<MenuItem caption="集群成员窗口(M)" hotkey="M">
+					<ToolTip> 修改集群成员窗口字体 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doMemberWindowFont  </Method>
+				</MenuItem>
+				
+				<MenuItem caption="选项卡窗口(I)" hotkey="I">
+					<ToolTip> 修改选项卡窗口字体 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doTabbedWindowFont  </Method>
+				</MenuItem>
+				
+				<MenuItem caption="命令窗口(C)" hotkey="C">
+					<ToolTip> 修改命令窗口字体 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCommandWindowFont </Method>
+				</MenuItem>
+			
+				<MenuItem caption="通知窗口(N)" hotkey="N">
+					<ToolTip> 修改通知窗口字体</ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doNoticeWindowFont </Method>
+				</MenuItem>
+
+				<MenuItem caption="报告窗口(T)" hotkey="T">
+					<ToolTip> 修改报告窗口字体</ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doTableWindowFont </Method>
+				</MenuItem>
+				
+				<MenuItem caption="集群窗口(N)" hotkey="N">
+					<ToolTip> 修改集群窗口字体</ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doRuntimeWindowFont </Method>
+				</MenuItem>
+				
+				<MenuItem caption="记录窗口(L)" hotkey="L">
+					<ToolTip> 修改记录窗口字体 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doLogWindowFont </Method>
+				</MenuItem>
+				
+				<MenuItem caption="帮助文档字体(H)" hotkey="H">
+					<ToolTip> 调整帮助文档字体 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doHelpFont </Method>
+				</MenuItem>
+			</Menu>
+			
+			<Separator/>
+		
+			<Menu caption="记录状态[O]" hotkey="O">
+				<RadioButtonMenuItem caption="调试记录(D)" hotkey="D" radioon="ON">
+					<ToolTip> 调整记录到测试追踪状态 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doDebug </Method>
+				</RadioButtonMenuItem>
+				<RadioButtonMenuItem caption="标准记录(I)" hotkey="I" radioon="OFF">
+					<ToolTip> 调整记录到正常追踪状态 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doInfo </Method>
+				</RadioButtonMenuItem>
+				<RadioButtonMenuItem caption="警告记录(W)" hotkey="W" radioon="OFF">
+					<ToolTip> 调整记录到警告追踪状态 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doWarning </Method>
+				</RadioButtonMenuItem>
+				<RadioButtonMenuItem caption="错误记录(E)" hotkey="E" radioon="OFF">
+					<ToolTip> 调整记录到错误追踪状态 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doError </Method>
+				</RadioButtonMenuItem>
+				<RadioButtonMenuItem caption="故障记录(F)" hotkey="F" radioon="OFF">
+					<ToolTip> 调整记录到故障追踪状态 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doFatal </Method>
+				</RadioButtonMenuItem>
+			</Menu>
+			
+			<Separator/>
+			
+			<!-- associate中的名称必须保证唯一性 -->
+			<Menu caption="界面主题[K]" hotkey="K" associate="SkinMenu">
+			
+			</Menu>
+			
+			<Separator/>
+		
+			<MenuItem caption="清除通知(M)" hotkey="N">
+				<ToolTip> 清除窗口上的通知内容 </ToolTip>
+				<ShortcutKey> control M </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doClearNote </Method>
+			</MenuItem>
+			
+			<MenuItem caption="清除报告(T)" hotkey="T">
+				<ToolTip> 清除窗口上的报告内容 </ToolTip>
+				<ShortcutKey> control T </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doClearTable </Method>
+			</MenuItem>
+			
+			<MenuItem caption="清除记录(L)" hotkey="L">
+				<ToolTip> 清除窗口上的记录内容 </ToolTip>
+				<ShortcutKey> control L </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doClearLog </Method>
+			</MenuItem>
+			
+			<Separator/>
+			
+			<Menu caption="显示屏幕(D)" hotkey="D">
+				<CheckBoxMenuItem caption="全屏显示(F)" hotkey="F" checkon="false">
+					<ToolTip> 全屏显示或者否 </ToolTip>
+					<ShortcutKey> F11 </ShortcutKey>
+					<Icon> </Icon>
+					<Method> <![CDATA[doFullScreen]]>  </Method>
+				</CheckBoxMenuItem>
+				<CheckBoxMenuItem caption="磁贴屏幕(A)" hotkey="A" checkon="false">
+					<ToolTip> 贴住屏幕或者否 </ToolTip>
+					<ShortcutKey> F12 </ShortcutKey>
+					<Icon> </Icon>
+					<Method> <![CDATA[doAttachScreen]]>  </Method>
+				</CheckBoxMenuItem>
+			</Menu>
+		</Menu>
+
+		<Menu caption="应用[A]" hotkey="A">
+			<Menu caption="发布系统应用" hotkey="D">
+				<!--
+				<MenuItem caption="发布系统分布式任务组件(1)" hotkey="1">
+					<ToolTip> 发布系统分布式任务组件到LAXCUS集群 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doPublishMultiTaskComponent  </Method>
+				</MenuItem>
+				<MenuItem caption="发布系统分布式任务应用附件(2)" hotkey="2">
+					<ToolTip> 发布系统分布式任务应用附件到LAXCUS集群 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doPublishMultiTaskAssistComponent  </Method>
+				</MenuItem>
+				<MenuItem caption="发布系统分布式任务动态链接库(3)" hotkey="3">
+					<ToolTip> 发布系统分布式任务动态链接库到LAXCUS集群 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doPublishMultiTaskLibraryComponent  </Method>
+				</MenuItem>
+				-->
+				
+				<MenuItem caption="发布系统分布计算应用软件包(1)" hotkey="3">
+					<ToolTip> 系统分布计算应用在云端部署、运行、计算 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doDeployConductPackage  </Method>
+				</MenuItem>
+				<MenuItem caption="发布系统分布数据构建应用软件包(2)" hotkey="6">
+					<ToolTip> 系统分布数据构建应用在云端部署、运行、计算</ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doDeployEstablishPackage  </Method>
+				</MenuItem>
+				<MenuItem caption="发布系统分布迭代计算应用软件包(3)" hotkey="9">
+					<ToolTip> 系统分布迭代计算应用在云端部署、运行、计算 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doDeployContactPackage  </Method>
+				</MenuItem>								
+			</Menu>
+			
+			<Separator/>
+			<Menu caption="集群管理工具" hotkey="U">
+				<MenuItem caption="集群管理员账号生成器 (1)" hotkey="1">
+					<ToolTip> 生成集群管理员账号文件 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doDBAKey </Method>
+				</MenuItem>
+				<MenuItem caption="集群安全密钥生成器 (2)" hotkey="2">
+					<ToolTip> 生成集群安全密钥文件 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doRSAKey </Method>
+				</MenuItem>
+				<MenuItem caption="集群运行脚本文件生成器 (3)" hotkey="3">
+					<ToolTip> 生成Linux平台的Laxcus集群"启动/停止"脚本文件 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCreateRunStopScript </Method>
+				</MenuItem>
+				<MenuItem caption="集群地址脚本文件生成器 (4)" hotkey="4">
+					<ToolTip> 生成Linux平台的网络地址配置脚本文件和地址/端口检测脚本文件 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCreateAddressScript </Method>
+				</MenuItem>
+			</Menu>
+			
+			<Separator/>
+			<MenuItem caption="生成文件EACH签名(E)" hotkey="E">
+				<ToolTip> 使用EACH算法，生成一个文件数字签名 </ToolTip>
+				<ShortcutKey> control E </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doEachFile </Method>
+			</MenuItem>
+			
+			<Menu caption="生成文件散列码" hotkey="C">
+				<MenuItem caption="MD5散列码 (1)" hotkey="1">
+					<ToolTip> 生成文件的MD5散列码 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doMD5File  </Method>
+				</MenuItem>
+				<MenuItem caption="SHA1散列码 (2)" hotkey="2">
+					<ToolTip> 生成文件的SHA1散列码 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doSHA1File </Method>
+				</MenuItem>
+				<MenuItem caption="SHA256散列码 (3)" hotkey="3">
+					<ToolTip> 生成文件的SHA256散列码</ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doSHA256File </Method>
+				</MenuItem>
+				<MenuItem caption="SHA512散列码 (4)" hotkey="4">
+					<ToolTip> 生成文件的SHA512散列码 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doSHA512File </Method>
+				</MenuItem>
+			</Menu>
+
+			<Separator/>
+			<Menu caption="其它" hotkey="O">
+				<MenuItem caption="命令处理模式 (1)" hotkey="1">
+					<ToolTip> 选择内存或者硬盘做为数据存取介质（内存计算或者硬盘计算） </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCommandMode </Method>
+				</MenuItem>
+				<MenuItem caption="命令超时时间 (2)" hotkey="2">
+					<ToolTip> 命令在集群中的有效生存时间 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCommandTimeout </Method>
+				</MenuItem>
+				<MenuItem caption="节点诊断间隔时间(3)" hotkey="3">
+					<ToolTip> 定时检查节点运行状态的间隔时间 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doOutlookInterval  </Method>
+				</MenuItem>
+				<MenuItem caption="正则表达式语法测试器(4)" hotkey="4">
+					<ToolTip> 检查正则表达式的正确性 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doRegex  </Method>
+				</MenuItem>
+			</Menu>
+		</Menu>
+
+		<Menu caption="帮助[H]" hotkey="H">
+			
+			<MenuItem caption="帮助(U)" hotkey="U">
+				<ToolTip> 打开帮助文本 </ToolTip>
+				<ShortcutKey> F1 </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doHelp </Method>
+			</MenuItem>
+			
+			<Separator/>
+			
+			<MenuItem caption="关于管理员监视器" hotkey="A">
+				<ToolTip> 关于管理员监视器 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Method> doAbout </Method>
+			</MenuItem>
+		</Menu>
+	</MenuBar>
+	
+	<!-- toolbar element，图标的宽度和高度 -->
+	<ToolBar icon-width="24" icon-height="24" icon-brightness="10.0f">
+		<Button>
+			<ToolTip> 更新集群节点和用户记录</ToolTip>
+			<Icon> conf/watch/image/window/toolbar/refresh.png </Icon>
+			<Method> doRefresh </Method>
+		</Button>
+		
+		<Separator/>
+		
+		<Button>
+			<ToolTip> 检查命令语法 </ToolTip>
+			<Icon> conf/watch/image/window/toolbar/check.png </Icon>
+			<Method> doCheckCommand </Method>
+		</Button>	
+		
+		<Button>
+			<ToolTip> 执行命令 </ToolTip>
+			<Icon> conf/watch/image/window/toolbar/launch.png </Icon>
+			<Method> doLaunchCommand </Method>
+		</Button>
+		
+		<Separator/>
+		
+		<Button>
+			<ToolTip> 帮助 </ToolTip>
+			<Icon> conf/watch/image/window/toolbar/help.png </Icon>
+			<Method> doHelp </Method>
+		</Button>
+		
+		<Separator/>
+		
+		<Button>
+			<ToolTip> 退出管理员监视器 </ToolTip>
+			<Icon> conf/watch/image/window/toolbar/exit.png </Icon>
+			<Method> exit </Method>
+		</Button>
+		<Separator/>
+	</ToolBar>
+	
+</Root>

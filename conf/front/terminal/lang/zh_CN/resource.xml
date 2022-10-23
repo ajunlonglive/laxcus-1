@@ -1,0 +1,1497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 要求每一个标记都是唯一 -->
+
+<Root>
+
+	<grade>
+		<administrator>阁下现在的身份是LAXCUS集群管理员</administrator>
+		<user> 阁下现在的身份是LAXCUS集群注册用户 </user>
+		<undefined> 校验失败，无法识别登录身份！ </undefined>
+	</grade>
+	
+	<MessageDialog>
+		<Button>
+			<Okay>确认[O]</Okay>
+			<Yes>是[Y]</Yes>
+			<No>否[N]</No>
+			<Cancel>取消[C]</Cancel>
+		</Button>
+	</MessageDialog>
+	<FileChooser>
+		<Button>
+			<Save>保存[S]</Save>
+			<Open>打开[O]</Open>
+			<Help>帮助[H]</Help>
+			<Cancel>取消[C]</Cancel>
+			<Update>更新[U]</Update>
+		</Button>
+	</FileChooser>
+
+	<ToolTip>
+		<Invoker title="%d个线程，%d个作业处理中，%d个作业已完成，接收%s，发送%s"/>
+		<Tub title="容器服务器"/>
+		<Sound title="声音"/>
+		
+		<DBA title="集群管理员"/>
+		<User title="注册用户"/>
+		<Unuser title="没有定义"/>
+		<Disconnect title="连接中断"/>
+	</ToolTip>
+	
+	<Window>
+		<Frame title="终端 - LAXCUS分布式操作系统" /> <!-- eg: Window/Frame/title -->
+		
+		<BrowserDataListPanel title="云端数据"> 
+			<SchemaRoot title="我的数据"/>
+			<TaskRoot title="我的软件"/>
+			<CrossTable title="共享数据"/>
+		</BrowserDataListPanel>
+		<RemoteSoftwareListPanel title="云端应用软件" row-height="40"> 			
+			<TaskRoot title="我的软件"/>
+			<error title="应用软件故障">
+				<notfound-task> 没有找到“%s”关联的启动程序  </notfound-task>
+				<notfound-waretag> 没有找到“%s”软件信息 </notfound-waretag>
+				<startup-failed> 启动应用软件“%s”失败！  </startup-failed>
+				<throwable> 执行过程异常，详细信息请检查日志记录！  </throwable>
+				<local-mssing> 没有在本地找到应用软件包，请重新发布本地应用！ </local-mssing>
+			</error>			
+			<popup-menu title="弹出菜单">
+				<run title="运行软件[R]" tooltip="运行云应用软件"/>
+				<name title="修改名称[N]" tooltip="自定义新的名称"/>
+				<icon title="修改图标[I]" tooltip="从磁盘选择一个新的图标"/>
+				<delete title="卸载[D]" tooltip="删除云应用软件"/>
+				<refresh title="刷新[E]" tooltip="刷新云本地应用"/>
+				<about title="属性[P]" tooltip="云应用软件信息"/>
+			</popup-menu>
+			<delete title="卸载分布式应用软件"> <![CDATA[ 确认删除这个分布式应用软件在云端和本地的全部关联应用？<br>请注意，删除后若要恢复需重新安装！ ]]></delete>
+		</RemoteSoftwareListPanel>
+		
+		<RemoteDataDetailPanel title="云端数据明细" key-width="80" value-width="188" header-height="25" row-height="30">
+			<Header>
+				<Key title="属性"/>
+				<Value title="记录"/>
+			</Header>
+			
+			<Authorizer title="授权人" />
+			<AuthorizerOperator title="授权项" />
+			<Table title="数据表" />
+			<CreateTime title="建立时间" />
+			<Position title="位置"/>
+			
+			<!--
+			<CloudTask title="云端应用" />
+			<LocalTask title="本地应用"/> 
+			<NotFound title="没有找到"/>
+			-->
+		</RemoteDataDetailPanel>
+		
+		<RemoteSoftwareDetailPanel title="云端应用软件明细" key-width="80" value-width="188" header-height="25" row-height="30">
+			<Header>
+				<Key title="属性"/>
+				<Value title="记录"/>
+			</Header>
+			
+			<Authorizer title="授权人" />
+			<AuthorizerOperator title="授权项" />
+			<Table title="数据表" />
+			<CreateTime title="建立时间" />
+			<CloudTask title="云端应用" />
+			<LocalTask title="本地应用"/>
+			<Position title="位置"/>
+			<NotFound title="没有找到"/>
+		</RemoteSoftwareDetailPanel>
+		
+		<LocalTubListPanel title="边缘应用软件" row-height="40"> 	
+			<popup-menu title="弹出菜单">
+				<run title="启动边缘应用[R]" tooltip="启动一个边缘应用软件"/>
+				<stop title="停止边缘应用[S]" tooltip="停止一个边缘应用服务"/>
+				<print title="显示运行服务[I]" tooltip="显示处于运行状态的边缘应用服务"/>
+				<show title="显示边缘应用[D]" tooltip="显示全部存在的边缘应用"/>
+			</popup-menu>
+
+			<!--
+			<TaskRoot title="我的软件"/>
+			<error title="应用软件故障">
+				<notfound-task> 没有找到“%s”关联的启动程序  </notfound-task>
+				<notfound-waretag> 没有找到“%s”软件信息 </notfound-waretag>
+				<startup-failed> 启动应用软件“%s”失败！  </startup-failed>
+				<throwable> 执行过程异常，详细信息请检查日志记录！  </throwable>
+				<local-mssing> 没有在本地找到应用软件包，请重新发布本地应用！ </local-mssing>
+			</error>
+			<popup-menu title="弹出菜单">
+				<run title="运行软件[R]" tooltip="运行云应用软件"/>
+				<name title="修改名称[N]" tooltip="自定义新的名称"/>
+				<icon title="修改图标[I]" tooltip="从磁盘选择一个新的图标"/>
+				<delete title="卸载[D]" tooltip="删除云应用软件"/>
+				<refresh title="刷新[E]" tooltip="刷新云本地应用"/>
+				<about title="属性[P]" tooltip="云应用软件信息"/>
+			</popup-menu>
+			<delete title="卸载分布式应用软件"> <![CDATA[ 确认删除这个分布式应用软件在云端和本地的全部关联应用？<br>请注意，删除后若要恢复需重新安装！ ]]></delete>
+			-->
+		</LocalTubListPanel>
+		
+		<LocalHubDetailPanel title="边缘容器应用明细" key-width="80" value-width="188" header-height="25" row-height="30">
+			<Header>
+				<Key title="属性"/>
+				<Value title="参数"/>
+			</Header>
+			<Tub>
+				<Name title="命名" />
+				<Caption title="标题" />
+				<Class title="启动接口" />
+				<Count title="运行统计" />
+				<PID title="进程号" />
+			</Tub>
+		</LocalHubDetailPanel>
+
+		<Tab>
+			<Prompt title="通　知"/>
+			<Table title="报　告"/>
+			<Graph title="智能图表"/>
+			<Log title="记　录"/>
+			
+			<Cloud title="云端数据"/>
+			<Software title="云端应用"/>
+			<Local title="边缘应用"/>
+		</Tab>
+
+		<CommandPanel title="终端命令输入器" />
+		<PromptPanel title="通知面板" row-height="32">
+			<Color message="0x2C724E" warning="0xFAA008" fault="0xe83929"/>
+		</PromptPanel>
+		<TablePanel title="报告面板" header-height="25" row-height="30"/>
+		<GraphPanel title="智能图表面板"/>
+		<LogPanel title="记录面板" row-height="30">
+			<Forbid title="屏蔽记录"/>
+			<Number title="显示%d行记录"/>
+		</LogPanel>
+		
+		<!-- 自动登录提示 -->
+		<auto-login>
+			<retry> 重新登录中...</retry>
+			<failed> 登录失败 </failed>
+			<successful> 登录成功 </successful>
+		</auto-login>
+	</Window>
+
+	<Dialog>
+		<Login title="终端登录 - LAXCUS分布式操作系统">
+			<Server title="登录节点">
+				<Address title="地址[A]" tooltip="entrance节点地址"/>
+				<Port title="端口[O]" tooltip="entrance节点端口"/>
+			</Server>
+			<Account title="账号">
+				<Username title="名称[U]" tooltip="SHA256签名或者明文"/>
+				<Password title="密码[P]" tooltip="任何字符"/>
+			</Account>
+			<Licence title="许可证">
+				<Sign tooltip="操作系统软件商提供，若空值启用默认配置，可选项。"/>
+			</Licence>
+			<Button>
+				<Licence title = "匿名[N]"/>
+				<Okay title = "登录[L]"/>
+				<Cancel title="取消[C]"/>
+			</Button>
+			<error>
+				<username title="账号名称"> 请输入您的账号名称！</username>
+				<password title="账号密码"> 请输入您的账号密码！</password>
+				<account title="登录账号"> 请保持登录账号的用户名称和密码一致！</account>
+				<server title="登录节点地址">请输入您的Entrance节点地址！</server>
+				<port title="登录节点端口"> 请输入您的Entrance节点端口！</port>
+				<unhost title="参数错误">登录服务器主机地址错误！ </unhost>
+				
+				<connect-failed title="登录失败"> 登录 %s:%s 失败，请检查您的网络或者登录账号！ </connect-failed>
+				<redirect-failed> 不能定位GATE服务器，请通知集群管理员检查LAXCUS集群！ </redirect-failed>
+				<entrance-failed> 不能登录LAXCUS集群，请通知集群管理员检查ENTRANCE服务器！</entrance-failed>
+				<gate-failed> 不能登录LAXCUS集群，请确认您的网络通信正常，或者通知集群管理员检查GATE服务器！ </gate-failed>
+				<nat-failed>网络故障！或者系统已经对这个账号实施安全保护！请联系您的集群管理员，或者延时再试！ </nat-failed>
+				<max-user> 非常抱歉！您的在线共享登录名额已满！ </max-user>
+				<login-timeout> 服务器繁忙，请稍后再试！ </login-timeout>
+				<service-missing> 登录失败，请检查您的用户名称/密码，或者联系集群管理员！ </service-missing>
+				<reflect-failed> 初始化定位检测失败，请检查您的登录地址或者网络！ </reflect-failed>
+				<max-retry> 您连续登录已经达到系统规定极限，由于不能确认您的真实身份，账号已被系统锁定！如有疑问，请联系您的集群管理员！ </max-retry>
+				<licence-nat-refuse> 许可证限制在NAT网络中LAXCUS集群！如有需要，请联系系统管理员或者软件供应商。 </licence-nat-refuse>
+				<version-notmatch> Front.Terminal节点版本号与集群不一致，请联系管理员更新！</version-notmatch>
+				
+				<pitch>
+					<not-found title="节点定位故障"> 无法定位服务器%s，请检查您的网络或者录入地址！ </not-found>
+				</pitch>
+			</error>
+		</Login>
+		
+		<Help title="命令 - LAXCUS分布式操作系统">
+		</Help>
+		
+		<about title="终端 - LAXCUS分布式操作系统">
+			<okay title="确定[O]"/>
+		</about>
+		
+		<CommandMode title="设置命令处理模式">
+			<mode title="命令处理模式">
+				<memory title="内存模式"/>
+				<disk title="硬盘模式"/>
+			</mode>
+			<buttons>
+				<okay title="确定[O]"/>
+				<cancel title="取消[C]"/>
+			</buttons>
+		</CommandMode>
+		
+		<CommandTimeout title="设置命令超时时间">
+			<warning title="参数警告"> 当前的命令超时时间过小，系统拒绝接受！</warning>
+			
+			<time title="命令超时时间">
+				<hour title="小时(H)"/>
+				<minute title="分钟(M)"/>
+				<second title="秒(S)"/>
+			</time>
+			<buttons>
+				<okay title="确定[O]"/>
+				<cancel title="取消[C]"/>
+			</buttons>
+		</CommandTimeout>
+		
+		<regex title="正则表达式语法测试器">
+			<close title="关闭窗口"> 确定退出正则表达式语法测试器？</close>
+		
+			<texts title="正则表达式语法校验">
+				<syntax title="样式(S)">
+					<okay>语法正确！</okay>
+					<error>语法错误！</error>
+				</syntax>
+				<content title="内容(C)"/>
+			</texts>
+			<result title="测试结果"/>
+
+			<buttons>
+				<test title="测试[T]"/>
+				<reset title="重置[R]"/>
+				<exit title="退出[X]"/>
+			</buttons>
+			
+		</regex>
+		
+		<Font>
+			<Title title="选择字体 - LAXCUS分布式操作系统"/>
+			<Welcome title="HI，哥儿们！"/>
+			<Button>
+				<Okay title="确定[O]"/>
+				<Reset title="重置[R]"/>
+				<Cancel title="取消[C]"/>
+			</Button>
+			<List>
+				<Name title="字体"/>
+				<Style title="样式"/>
+				<Size title="大小"/>
+			</List>
+			<Style>
+				<Plain title="常规"/>
+				<Bold title="粗体"/>
+				<Italic title="斜体"/>
+				<BoldItalic title="粗斜体"/>
+			</Style>
+		</Font>
+		
+		<BuildHash>
+			<Title title="计算文件散列码"/>
+			<OK title="计算散列码"/>
+		</BuildHash>
+		<BuildEach>
+			<Title title="计算文件的EACH算法数字签名"/>
+			<OK title="计算EACH数字签名"/>
+		</BuildEach>
+		
+		<CheckEntityCharset title="检测数据文件字符集">
+			<warning title="参数警告"> 请选择文本格式的数据文件！</warning>
+			<exit>
+				<message title="确认放弃本次操作，退出当前窗口吗？"/>
+			</exit>
+			
+			<panel>
+				<file title="数据文件"/>
+			</panel>
+			
+			<list>
+				<file tooltip="磁盘上文本格式的数据文件（CSV/TXT）"/>
+			</list>
+			
+			<file-chooser>
+				<title title="选择文本格式的数据文件"/>
+				<selected title="选中数据文件"/>
+				<text>
+					<description title="文本文件 (*.text; *.txt)"/>
+					<extension title="text, txt"/>
+				</text>
+				<csv>	
+					<description title="CSV文件 (*.csv)"/>
+					<extension title="csv"/>
+				</csv>
+			</file-chooser>
+			
+			<buttons>
+				<choose title="选择文件"/>
+				<delete title="删除文件"/>
+				<okay title="确定[O]"/>
+				<cancel title="取消[C]"/>
+			</buttons>
+		</CheckEntityCharset>
+
+		<CheckEntityContent title="检测磁盘数据文件">
+			<warning title="参数警告"> 已经选择的参数不足以生成命令！</warning>
+			<exit>
+				<message title="确认放弃本次操作，退出当前窗口吗？"/>
+			</exit>
+			
+			<panel>
+				<file title="磁盘文件"/>
+				<param title="文件参数"/>
+			</panel>
+			
+			<list>
+				<file tooltip="磁盘数据文件"/>
+			</list>
+			
+			<file-chooser>
+				<title title="选择检测的数据文件"/>
+				<selected title="选中数据文件"/>
+				<text>
+					<description title="文本文件 (*.text; *.txt)"/>
+					<extension title="text, txt"/>
+				</text>
+				<csv>	
+					<description title="CSV文件 (*.csv)"/>
+					<extension title="csv"/>
+				</csv>
+			</file-chooser>
+			
+			<label>
+				<table title="数据表"/>
+				<type title="文件类型"/>
+				<charset title="文件编码"/>
+			</label>
+			<buttons>
+				<choose title="选择文件"/>
+				<delete title="删除文件"/>
+				<okay title="确定[O]"/>
+				<cancel title="取消[C]"/>
+			</buttons>
+		</CheckEntityContent>
+		
+		<ImportEntity title="上传数据文件到云端">
+			<warning title="参数警告"> 已经选择的参数不足以生成命令！</warning>
+			<exit>
+				<message title="确认放弃本次操作，退出当前窗口吗？"/>
+			</exit>
+			
+			<panel>
+				<file title="磁盘文件"/>
+				<param title="文件参数"/>
+			</panel>
+			
+			<list>
+				<file tooltip="上传到云端的数据文件"/>
+			</list>
+			
+			<file-chooser>
+				<title title="选择上传云端的数据文件"/>
+				<selected title="选中数据文件"/>
+				<text>
+					<description title="文本文件 (*.text; *.txt)"/>
+					<extension title="text, txt"/>
+				</text>
+				<csv>	
+					<description title="CSV文件 (*.csv)"/>
+					<extension title="csv"/>
+				</csv>
+			</file-chooser>
+			
+			<label>
+				<table title="数据表"/>
+				<type title="文件类型"/>
+				<charset title="文件编码"/>
+				<line title="单次写入行数"/>
+			</label>
+			<buttons>
+				<choose title="选择文件"/>
+				<delete title="删除文件"/>
+				<okay title="确定[O]"/>
+				<cancel title="取消[C]"/>
+			</buttons>
+		</ImportEntity>
+		
+		<ExportEntity title="从云端下载数据文件">
+			<warning title="参数警告"> 被选中的参数不足，或者数据内容错误，不能生成命令！</warning>
+			<exit>
+				<message title="确认放弃本次操作，退出当前窗口吗？"/>
+			</exit>
+			<panel>
+				<file title="磁盘文件"/>
+				<param title="文件参数"/>
+			</panel>
+			
+			<path-chooser>
+				<title title="选择保存数据的目录"/>
+				<selected title="确认目录"/>
+			</path-chooser>
+			
+			<text-area>
+				<stubs tooltip="数据块编号，是16或者10进制数字，16进制以0x开头。多个数据块编号之间以空格、逗号、换行做为分隔符"/>
+			</text-area>
+			
+			<list>
+				<file tooltip="从云端下载到本地磁盘的数据文件"/>
+			</list>
+			
+			<label>
+				<table title="数据表"/>
+				<type title="文件类型"/>
+				<charset title="文件编码"/>
+			</label>
+			
+			<buttons>
+				<path title="选择目录"/>
+				<create title="生成文件"/>
+				<delete title="删除文件"/>
+				<okay title="确定[O]"/>
+				<cancel title="取消[C]"/>
+			</buttons>
+		</ExportEntity>
+		
+		<BuildCloudPackage>
+			<read-chooser>
+				<description_all title="全部文件 (*.*)"/>
+				<extension_all title="*.*"/>
+				
+				<description_text title="文本文件  (*.txt; *.text)"/>
+				<extension_text title="txt,text"/>
+				
+				<description_script title="云端应用脚本文件 (*.script) "/>
+				<extension_script title="script"/>
+				
+				<title title="脚本文件"/>
+				<selected title="选择脚本文件"/>
+			</read-chooser>
+
+			<Conduct dialogTitle="生成分布计算应用软件包" borderTitle="分布计算">
+				<write-chooser>
+					<description title="分布计算包文件, (*.cpk)"/>
+					<extension title="cpk"/>
+					<title title="分布计算"/>
+				</write-chooser>
+			</Conduct>
+			
+			<Establish dialogTitle="生成分布构建应用软件包" borderTitle="分布数据构建">
+				<write-chooser>
+					<description title="分布构建包文件, (*.epk)"/>
+					<extension title="epk"/>
+					<title title="分布构建"/>
+				</write-chooser>
+			</Establish>
+			
+			<Contact dialogTitle="生成分布迭代应用软件包" borderTitle="分布迭代">
+				<write-chooser>
+					<description title="分布迭代包文件, (*.spk)"/>
+					<extension title="spk"/>
+					<title title="分布迭代"/>
+				</write-chooser>
+			</Contact>
+			
+			<buttons>
+				<choice title="选择脚本文件"/>
+				<save title="保存到"/>
+				<okay title="确定[O]"/>
+				<cancel title="取消[C]"/>
+			</buttons>
+		</BuildCloudPackage>
+
+		<DeployCloudPackage>
+			<Conduct dialogTitle="发布分布计算应用软件包" borderTitle="分布计算">
+				<write-chooser>
+					<description title="分布计算包, (*.cpk)"/>
+					<extension title="cpk"/>
+					<title title="分布计算文件"/>
+					<selected title="选择分布计算文件"/>
+				</write-chooser>
+			</Conduct>
+			
+			<Establish dialogTitle="发布分布构建应用软件包" borderTitle="分布数据构建">
+				<write-chooser>
+					<description title="分布构建包, (*.epk)"/>
+					<extension title="epk"/>
+					<title title="分布构建文件"/>
+					<selected title="选择分布构建文件"/>
+				</write-chooser>
+			</Establish>
+			
+			<Contact dialogTitle="发布分布迭代应用软件包" borderTitle="分布迭代">
+				<write-chooser>
+					<description title="分布迭代包, (*.spk)"/>
+					<extension title="spk"/>
+					<title title="分布迭代文件"/>
+					<selected title="选择分布迭代文件"/>
+				</write-chooser>
+			</Contact>
+			
+			<buttons>
+				<choice title="选择分布式应用"/>
+				<local title="只在本地部署"/>
+				<okay title="确定[O]"/>
+				<cancel title="取消[C]"/>
+			</buttons>
+		</DeployCloudPackage>
+
+		<!--  用户许可协议 -->
+		<Licence dialogTitle="分布式用户软件 - LAXCUS分布式操作系统" borderTitle="用户许可协议">
+			<buttons>
+				<okay title="接受[A]"/>
+				<cancel title="拒绝[R]"/>
+			</buttons>
+		</Licence>
+
+		<ImageTransform title="图像转换器">
+			<exit>
+				<message title="确认已经完成工作，退出当前窗口吗？"/>
+			</exit>
+			
+			<failed title="图像转换失败"> <![CDATA[当前图像读取/转换失败，可能的原因包括：<br>1. 图像尺寸过大；<br>2. 图像格式故障；<br>3. 转换图像缓存空间不足。 ]]></failed>
+			
+			<write>
+				<success title="图像文件已经写入%s"/>
+				<failed title="图像文件写入失败"/>
+			</write>
+			
+			<open-chooser>
+				<title title="选择图像文件"/>
+				<choose title="选择图像"/>
+				<jpeg>
+					<description title="JPEG文件 (*.jpeg; *.jpg)"/>
+					<extension title="jpeg, jpg"/>
+				</jpeg>
+				<gif>	
+					<description title="GIF文件 (*.gif)"/>
+					<extension title="gif"/>
+				</gif>
+				<png>	
+					<description title="PNG文件 (*.png)"/>
+					<extension title="png"/>
+				</png>
+			</open-chooser>
+			<save-chooser>
+				<title title="保存图像文件"/>
+				<save title="保存图像"/>
+				<jpeg>
+					<description title="JPEG文件 (*.jpeg; *.jpg)"/>
+					<extension title="jpeg, jpg"/>
+				</jpeg>
+				<gif>	
+					<description title="GIF文件 (*.gif)"/>
+					<extension title="gif"/>
+				</gif>
+				<png>	
+					<description title="PNG文件 (*.png)"/>
+					<extension title="png"/>
+				</png>
+			</save-chooser>
+			
+			<label>
+				<source title="源图像"/>
+				<target title="目标图像"/>
+			</label>
+			<spinner>
+				<height title="新图像高度[H]"/>
+				<width title="新图像宽度[W]"/>
+				<rate title="新图像比例(%)"/>
+			</spinner>
+			<buttons>
+				<rate title="按比例转换[R]"/>
+				<open title="选择图像[O]"/>
+				<translucent title="背景透明[T]"/>
+				<save title="保存图像[S]"/>
+				<transform title="转换图像[C]"/>
+				<exit title="退出[X]"/>
+			</buttons>
+		</ImageTransform>
+		
+		<ExchangeName title="修改软件名称">
+			<label>
+				<name title="新名称"/>
+			</label>
+			<buttons>
+				<okay title="确定[O]"/>
+				<cancel title="取消[S]"/>
+			</buttons>
+		</ExchangeName>
+		<ExchangeIcon title="修改软件图标">
+			<open-chooser>
+				<title title="选择软件图标"/>
+				<choose title="选择图标"/>
+				<jpeg>
+					<description title="JPEG文件 (*.jpeg; *.jpg)"/>
+					<extension title="jpeg, jpg"/>
+				</jpeg>
+				<gif>	
+					<description title="GIF文件 (*.gif)"/>
+					<extension title="gif"/>
+				</gif>
+				<png>	
+					<description title="PNG文件 (*.png)"/>
+					<extension title="png"/>
+				</png>
+			</open-chooser>
+			<buttons>
+				<select title="选择[S]"/>
+				<okay title="确定[O]"/>
+				<cancel title="取消[C]"/>
+			</buttons>
+		</ExchangeIcon>
+		<WareTag title="软件信息">
+			<software>
+				<product-name title="软件名称："/>
+				<product-date title="版本日期："/>
+				<version title="版本："/>
+				<maker title="开发商："/>
+				<comment title="介绍："/>
+			</software>
+			<buttons>
+				<okay title="确定[O]"/>
+			</buttons>
+		</WareTag>
+		
+		<!-- 引导参数 -->
+		<GuideParameter title="启动程序录入参数">
+			<buttons>
+				<okay title="确定[O]"/>
+				<cancel title="取消[C]"/>
+			</buttons>
+			<missing title="参数不足"> “%s”是必选项，请输入合适的参数！ </missing>
+			<param-error title="对象错误"> “%s”对象没有定义！ </param-error>
+			<format-error title="格式错误"> “%s”格式错误，请按照正确的要求填写！ </format-error>
+			
+			<confirm title="计算执行确认"> 参数正确，确认执行本次操作？ </confirm>
+			<cancel title="撤销操作"> 确认放弃本次操作？ </cancel>
+			<date> 日期标准格式：“年-月-日” </date>
+			<time> 时间标准格式：“时:分:秒 毫秒” </time>
+			<timestamp> 时间戳标准格式：“年-月-日 时:分:秒 毫秒” </timestamp>
+			<stage> %s 阶段 </stage>
+		</GuideParameter>
+		
+		<CreateGuide title="启动任务脚本">
+			<exit>
+				<message title="确认退出当前启动脚本配置窗口？"/>
+			</exit>
+			
+			<panel>
+				<ware title="应用软件"/>
+				<guide title="启动任务入口"/>
+			</panel>
+			
+			<list tooltip="启动项目列表" row-height="32">
+				
+			</list>
+				
+			<label>
+				<ware>
+					<naming title="软件命名" tooltip="软件命名，供内部使用。"/>
+					<version title="版本号" tooltip="数字组成的软件版本号，格式：主版本号.次版本号。"/>
+					<product-name title="软件名称" tooltip="软件名称，用户可见。"/>
+					<product-date title="发布日期" tooltip="产品发布日期，格式：年-月-日"/>
+					<maker title="开发者" tooltip="开发者的署名和介绍"/>
+					<comment title="介绍" tooltip="关于软件产品的介绍"/>
+				</ware>
+				<guide>
+					<naming title="启动命名" tooltip="启动任务命名，供内部使用！"/>
+					<boot-class title="启动类" tooltip="启动任务类接口，类似于C语言main函数。"/> 
+					<icon title="图标路径" tooltip="启动任务图标在gtc包的路径，展示在GUI界面上。"/>
+					<caption title="标题" tooltip="启动任务名称，展示在GUI界面上。"/>
+					<tooltip title="提示" tooltip="启动任务提示信息，展示在GUI界面上。"/>
+				</guide>
+			</label>
+
+			<buttons>
+				<append title="清除[C]"/>				
+				<import-unit title="读取[R]"/>
+				<export-unit title="写入[W]"/>
+				<delete title="删除[D]"/>
+				
+				<import-script title="导入脚本[I]"/>
+				<export-script title="导出脚本[E]"/>
+				
+				<exit title="退出[X]"/>
+			</buttons>
+			
+			<open-chooser>
+				<title title="导入脚本文件"/>
+				<choose title="导入脚本"/>
+				<xml>	
+					<description title="XML文件 (*.xml)"/>
+					<extension title="xml"/>
+				</xml>
+			</open-chooser>
+			<save-chooser>
+				<title title="输出脚本文件"/>
+				<save title="输出脚本"/>
+				<xml>	
+					<description title="XML文件 (*.xml)"/>
+					<extension title="xml"/>
+				</xml>
+			</save-chooser>
+			<missing title="参数不足"> 录入参数不足，请输入合适的参数！ </missing>
+			<param-error title="参数错误"> 录入参数错误，请输入合适的参数！ </param-error>
+			<duplicate title="命名重复"> 名称"%s"重复，请输入合适的命名！ </duplicate>
+			<override title="覆盖文件">  文件"%s"已经存在，请确认是否覆盖？</override>
+			<override title="覆盖文件">  文件"%s"已经存在，请确认是否覆盖？</override>
+			<write>
+				<success title="写入成功"> 脚本数据已经写入文件"%s" </success> 
+				<failed title="脚本数据写入失败！"/>
+			</write>
+		</CreateGuide>
+		
+		<CreateTask title="计算任务脚本">
+			<exit>
+				<message title="确认退出当前任务脚本配置窗口？"/>
+			</exit>
+			
+			<panel>
+				<sign title="应用署名"/>
+				<ware title="应用软件"/>
+				<task title="计算任务入口"/>
+			</panel>
+			
+			<list tooltip="计算任务列表集" row-height="32">
+				
+			</list>
+				
+			<label>
+				<sign>
+					<name title="用户名称" tooltip="字符串明文或者SHA256签名的64个16进制数字"/>
+					<phase title="阶段类型" tooltip="系统定义的分布式任务执行阶段名称"/>
+				</sign>
+				<ware>
+					<naming title="软件命名" tooltip="软件命名，供内部使用。"/>
+					<version title="版本号" tooltip="数字组成的软件版本号，格式：主版本号.次版本号。"/>
+					<product-name title="软件名称" tooltip="软件产品名称，用户可见。"/>
+					<product-date title="发布日期" tooltip="产品发布日期，格式：年-月-日"/>
+					<maker title="开发者" tooltip="开发者的署名和介绍"/>
+					<comment title="介绍" tooltip="关于软件产品的介绍"/>
+				</ware>
+				<task>
+					<naming title="任务命名" tooltip="计算任务命名，供内部使用。格式：主命名或者主命名.次命名"/>
+					<boot-class title="任务类" tooltip="负责启动计算的类接口，类似C语言main函数。"/> 
+					<project title="项目类" tooltip="分布式任务项目类接口"/>
+					<resource title="资源" tooltip="用户自定义的辅助数据，任意文本格式。"/>
+				</task>
+			</label>
+
+			<buttons>
+				<append title="清除[C]"/>
+				<delete title="删除[D]"/>		
+				<import-unit title="读取[R]"/>
+				<export-unit title="写入[W]"/>
+				
+				<import-script title="导入脚本[I]"/>
+				<export-script title="导出脚本[E]"/>
+				
+				<exit title="退出[X]"/>
+			</buttons>
+			
+			<open-chooser>
+				<title title="从磁盘导入脚本文件"/>
+				<choose title="读取脚本"/>
+				<xml>	
+					<description title="XML文件 (*.xml)"/>
+					<extension title="xml"/>
+				</xml>
+			</open-chooser>
+			<save-chooser>
+				<title title="写脚本文件到磁盘"/>
+				<save title="写入脚本"/>
+				<xml>	
+					<description title="XML文件 (*.xml)"/>
+					<extension title="xml"/>
+				</xml>
+			</save-chooser>
+			<missing title="参数异常"> 录入参数不足或者格式错误，请输入正确的参数！ </missing>
+			<param-error title="参数错误"> 录入参数错误，请输入正确的参数！ </param-error>
+			<duplicate title="命名重复"> 名称"%s"重复，请输入合适的命名！ </duplicate>
+			<override title="覆盖文件">  文件"%s"已经存在，请确认是否覆盖？</override>
+			
+			<write>
+				<success title="写入成功"> 脚本数据已经写入文件"%s" </success> 
+				<failed title="脚本数据写入失败！"/>
+			</write>
+		</CreateTask>
+		
+		<CreateWareScript>
+			<title>
+				<conduct> 生成分布计算应用包脚本文件 </conduct>
+				<establish> 生成数据构建应用包脚本文件 </establish>
+				<contact> 生成迭代计算应用包脚本文件 </contact>
+			</title>
+			
+			<label>
+				<icon tooltip="软件LOGO图标，应用商店展示使用。要求32*32像素的PNG、GIF、JPEG格式。"> 图标 </icon>
+				<licence tooltip="许可证是开发者提供，用户使用部署前必须同意开发者许可证的各项规定，使用过程亦需样遵守"> 许可证  </licence>
+				
+				<guide tooltip="是gtc后缀软件包"> 启动包 </guide>
+				<task tooltip="是dtc后缀软件包"> 计算包 </task> 
+				<jar> JAR包 </jar>
+				<lib> 链接库  </lib>
+			</label>
+
+			<list row-height="32"> 
+				<tooltip>
+					<jar> 关联附件JAR包 </jar>
+					<lib> Windows、Linux动态链接库  </lib>
+				</tooltip>
+			</list>
+			
+			<buttons>
+				<add> 增加 </add>
+				<remove> 删除 </remove>
+				<select> 选择 </select>
+				
+				<reset> 重置参数[R] </reset>
+				<import> 导入脚本[I] </import>
+				<export> 导出脚本[E] </export>
+				<exit> 退出[X] </exit>
+			</buttons>
+			<stage> %s 阶段 </stage>
+			<exit>
+				<message title="确认退出当前编写脚本窗口？"/>
+			</exit>
+			<write>
+				<success title="写入成功"> 脚本数据已经写入文件"%s" </success> 
+				<failed title="脚本数据写入失败！"/>
+			</write>
+			<override title="覆盖文件">  文件"%s"已经存在，请确认是否覆盖？</override>
+			<missing title="参数不足"> 录入参数不足，请填写完整！ </missing>
+			<logo-warning title="无效LOGO图标"> 当前LOGO图标尺寸无效，必须是32*32像素的PNG、GIF、JPEG格式图标。或可使用内置的图像转换器调整图标尺寸或者格式。 </logo-warning>
+			<script-error title="解析失败">
+				<single>脚本文件"%s"解析出错！</single>
+				<multi>脚本文件"%s"解析出错，阶段位置：%s！</multi>
+			</script-error>
+			
+			<save-chooser>
+				<title title="写脚本文件到磁盘"/>
+				<save title="写入脚本"/>
+					<script>	
+					<description title="脚本文件 (*.script, *.scp)"/>
+					<extension title="script, scp"/>
+				</script>
+			</save-chooser>
+
+			<open-chooser>
+				<title title="从磁盘读取适配文件"/>
+				<choose title="读文件"/>
+
+				<image>	
+					<description title="图像文件 (*.png, *.gif, *.jpg, *.jpeg)"/>
+					<extension title="png, gif, jpeg, jpg"/>
+				</image>
+				<text>	
+					<description title="文本文件 (*.txt, *.text)"/>
+					<extension title="txt, text"/>
+				</text>
+				<dtc>	
+					<description title="计算任务 (*.dtc)"/>
+					<extension title="dtc"/>
+				</dtc>
+				<gtc>	
+					<description title="启动任务 (*.gtc)"/>
+					<extension title="gtc"/>
+				</gtc>
+				<jar>	
+					<description title="JAR公共包 (*.jar)"/>
+					<extension title="jar"/>
+				</jar>
+				<lib>	
+					<description title="动态链接库 (*.so, *.dll)"/>
+					<extension title="so,dll"/>
+				</lib>
+			</open-chooser>
+			
+		</CreateWareScript>
+		
+		<!-- 启动边缘应用 -->
+		<RunTub title="启动边缘应用">
+			<buttons>
+				<okay title="确定[O]"/>
+				<cancel title="取消[C]"/>
+			</buttons>
+			<naming> 应用标题 </naming>
+			<params> 启动参数 </params>
+
+			<confirm title="执行确认"> 参数有效，确认执行本次操作？ </confirm>
+			<cancel title="撤销操作"> 确认放弃本次操作？ </cancel>
+		</RunTub>
+		
+		<!-- 停止边缘应用 -->
+		<StopTub title="停止边缘应用">
+			<buttons>
+				<okay title="确定[O]"/>
+				<cancel title="取消[C]"/>
+			</buttons>
+			<naming> 应用标题 </naming>
+			<pid> 进程号　 </pid>
+			<params> 停止参数 </params>
+			
+			<missing title="参数不足"> 请输入合适的参数！ </missing>
+			<confirm title="执行确认"> 参数有效，确认执行本次操作？ </confirm>
+			<cancel title="撤销操作"> 确认放弃本次操作？ </cancel>
+		</StopTub>
+		
+		<!-- 显示运行中的边缘应用 -->
+		<PrintTub title="显示运行中的边缘应用">
+			<buttons>
+				<okay title="确定[O]"/>
+				<cancel title="取消[C]"/>
+				<all title="全部[A]"/>
+			</buttons>
+			<naming> 应用命名 </naming>
+			
+			<missing title="参数不足"> 请输入边缘应用名称！ </missing>
+			<confirm title="执行确认"> 参数有效，确认执行本次操作？ </confirm>
+			<cancel title="撤销操作"> 确认放弃本次操作？ </cancel>
+		</PrintTub>
+		
+		<!-- 显示边缘应用，不论是否运行 -->
+		<ShowTub title="显示已经存在的边缘应用">
+			<buttons>
+				<okay title="确定[O]"/>
+				<cancel title="取消[C]"/>
+				<all title="全部[A]"/>
+			</buttons>
+			<naming> 应用命名 </naming>
+			
+			<missing title="参数不足"> 请输入边缘应用名称！ </missing>
+			<confirm title="执行确认"> 参数有效，确认执行本次操作？ </confirm>
+			<cancel title="撤销操作"> 确认放弃本次操作？ </cancel>
+		</ShowTub>
+	</Dialog>
+
+	<MessageBox>
+		<Exit>
+			<Message title="您确定是要退出终端 - LAXCUS分布式操作系统 ？"/>
+			<Title title="退出 - 终端"/>
+		</Exit>
+		
+		<CommandAuditor>
+			<Message title="您确定需要执行这个命令？"/>
+			<Title title="执行 - 终端"/>
+		</CommandAuditor>
+		
+		<Forsake>
+			<Message title="网络服务中断，请退出当前运行环境，重新启动登录！"/>
+			<Title title="故障 - 终端"/>
+		</Forsake>
+		
+		<Brower>
+			<URI title="http://www.laxcus.com"/>
+			<Message title="当前系统环境不支持网页浏览器！"/>
+			<Title title="警告 - 终端"/>
+		</Brower>
+	</MessageBox>
+
+	<MenuBar>
+		<Menu caption="导航[N]" id="10" hotkey="N">
+		
+			<MenuItem caption="登录(L)" id="101" hotkey="L">
+				<ToolTip> 登录和注册到服务器 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[login]]> </Method>
+			</MenuItem>
+
+			<MenuItem caption="注销(O)" id="103" hotkey="U">
+				<ToolTip> 从当前服务器退出 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[logout]]> </Method>
+			</MenuItem>
+			
+			<MenuItem caption="重新注册(R)" id="102" hotkey="R">
+				<ToolTip> 从当前服务器退出和再次注册 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[relogin]]> </Method>
+			</MenuItem>
+
+			<Separator/>
+		
+			<MenuItem caption="退出(X)" id="108" hotkey="x">
+				<ToolTip> 退出终端 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[exit]]> </Method>
+			</MenuItem>
+		</Menu>
+		
+		<Menu caption="运行[R]" hotkey="R">
+		
+			<MenuItem caption="检查命令(C)" hotkey="C">
+				<ToolTip> 检查命令语法，发现其中的错误 </ToolTip>
+				<ShortcutKey> F4 </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doCheckCommand  </Method>
+			</MenuItem>
+
+			<MenuItem caption="执行命令(R)" hotkey="R">
+				<ToolTip> 发送命令到服务器 </ToolTip>
+				<ShortcutKey> F5 </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doLaunchCommand </Method>
+			</MenuItem>
+			
+			<Separator/>
+
+			<MenuItem caption="刷新账号记录(U)" hotkey="U">
+				<ToolTip> 从服务器下载账号数据并且更新本地资源配置 </ToolTip>
+				<ShortcutKey> F7 </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doRefresh </Method>
+			</MenuItem>
+
+		</Menu>
+		
+		<Menu caption="视图[V]" hotkey="V">
+			<CheckBoxMenuItem caption="菜单栏(M)" hotkey="M" checkon="true">
+				<ToolTip> 显示或者隐藏菜单栏 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[doShowOrHideMenubar]]>  </Method>
+			</CheckBoxMenuItem>
+
+			<CheckBoxMenuItem caption="工具条(T)" hotkey="T" checkon="true">
+				<ToolTip> 显示或者隐藏工具条 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[doShowOrHideToolbar]]>  </Method>
+			</CheckBoxMenuItem>
+			
+			<CheckBoxMenuItem caption="状态栏(S)" hotkey="S" checkon="true">
+				<ToolTip> 显示或者隐藏状态栏 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doShowOrHideStatusbar  </Method>
+			</CheckBoxMenuItem>
+			
+			<Separator/>
+			
+			<Menu caption="字体(F)" hotkey="F">
+				<MenuItem caption="系统环境字体(A)" hotkey="A">
+					<ToolTip> 修改终端系统环境字体（不支持标准主题界面！） </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doSystemMenuFont  </Method>
+				</MenuItem>
+				
+				<MenuItem caption="菜单字体(U)" hotkey="U">
+					<ToolTip> 修改菜单界面字体 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doMainMenuFont  </Method>
+				</MenuItem>
+				
+				<MenuItem caption="云端数据窗口(D)" hotkey="R">
+					<ToolTip> 修改云端数据窗口字体 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doRemoteDataWindowFont  </Method>
+				</MenuItem>
+				
+				<MenuItem caption="云端应用窗口(R)" hotkey="R">
+					<ToolTip> 修改云端应用软件窗口字体 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doRemoteSoftwareWindowFont  </Method>
+				</MenuItem>
+				
+				<MenuItem caption="边缘应用窗口(E)" hotkey="E">
+					<ToolTip> 修改本地边缘应用窗口字体 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doLocalBrowserWindowFont  </Method>
+				</MenuItem>
+				
+				<MenuItem caption="选项卡窗口(I)" hotkey="I">
+					<ToolTip> 修改选项卡窗口字体 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doTabbedWindowFont  </Method>
+				</MenuItem>
+			
+				<MenuItem caption="命令窗口(C)" hotkey="C">
+					<ToolTip> 修改命令窗口字体 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCommandWindowFont </Method>
+				</MenuItem>
+			
+				<MenuItem caption="通知窗口(N)" hotkey="N">
+					<ToolTip> 修改通知窗口字体 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doPromptWindowFont </Method>
+				</MenuItem>
+			
+				<MenuItem caption="报告窗口(T)" hotkey="T">
+					<ToolTip> 修改报告窗口字体 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doTableWindowFont </Method>
+				</MenuItem>
+				
+				<MenuItem caption="智能图表窗口(G)" hotkey="G">
+					<ToolTip> 修改智能图表窗口字体 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doGraphWindowFont </Method>
+				</MenuItem>
+				
+				<MenuItem caption="记录窗口(L)" hotkey="L">
+					<ToolTip> 修改记录窗口字体 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doLogWindowFont </Method>
+				</MenuItem>
+				
+				<MenuItem caption="帮助文档字体(H)" hotkey="H">
+					<ToolTip> 修改帮助文档字体 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doHelpFont </Method>
+				</MenuItem>
+			</Menu>
+
+			<Separator/>
+		
+			<Menu caption="记录状态(O)" hotkey="O">
+				<RadioButtonMenuItem caption="测试记录(D)" hotkey="D" radioon="ON">
+					<ToolTip> 调整记录到测试追踪状态 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doDebug </Method>
+				</RadioButtonMenuItem>
+				<RadioButtonMenuItem caption="正常记录(I)" hotkey="I" radioon="OFF">
+					<ToolTip> 调整记录到正常追踪状态 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doInfo </Method>
+				</RadioButtonMenuItem>
+				<RadioButtonMenuItem caption="警告记录(W)" hotkey="W" radioon="OFF">
+					<ToolTip> 调整记录到警告追踪状态 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doWarning </Method>
+				</RadioButtonMenuItem>
+				<RadioButtonMenuItem caption="错误记录(E)" hotkey="E" radioon="OFF">
+					<ToolTip> 调整记录到错误追踪状态 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doError </Method>
+				</RadioButtonMenuItem>
+				<RadioButtonMenuItem caption="故障状态(F)" hotkey="F" radioon="OFF">
+					<ToolTip> 调整记录到故障追踪状态 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doFatal </Method>
+				</RadioButtonMenuItem>
+			</Menu>
+			
+			<Separator/>
+			
+			<!-- associate中的名称必须保证唯一性 -->
+			<Menu caption="界面主题[K]" hotkey="K" associate="SkinMenu">
+			
+			</Menu>
+			
+			<Separator/>
+		
+			<MenuItem caption="清除通知(M)" hotkey="M">
+				<ToolTip> 清除窗口上的通知内容 </ToolTip>
+				<ShortcutKey> control M </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doClearNote </Method>
+			</MenuItem>
+
+			<MenuItem caption="清除报告(T)" hotkey="T">
+				<ToolTip> 清除窗口上的表格内容 </ToolTip>
+				<ShortcutKey> control T </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doClearDetail </Method>
+			</MenuItem>
+			
+			<MenuItem caption="清除智能图表(G)" hotkey="G">
+				<ToolTip> 清除窗口上的图表内容 </ToolTip>
+				<ShortcutKey> control G </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doClearGraph </Method>
+			</MenuItem>
+			
+			<MenuItem caption="清除记录(L)" hotkey="L">
+				<ToolTip> 清除窗口上的记录内容 </ToolTip>
+				<ShortcutKey> control L </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doClearLog </Method>
+			</MenuItem>
+			
+			<Separator/>
+			<Menu caption="显示屏幕(D)" hotkey="D">
+				<CheckBoxMenuItem caption="全屏显示(F)" hotkey="F" checkon="false">
+					<ToolTip> 全屏显示或者否 </ToolTip>
+					<ShortcutKey> F11 </ShortcutKey>
+					<Icon> </Icon>
+					<Method> <![CDATA[doFullScreen]]>  </Method>
+				</CheckBoxMenuItem>
+				<CheckBoxMenuItem caption="磁贴屏幕(A)" hotkey="A" checkon="false">
+					<ToolTip> 贴住屏幕或者否 </ToolTip>
+					<ShortcutKey> F12 </ShortcutKey>
+					<Icon> </Icon>
+					<Method> <![CDATA[doAttachScreen]]>  </Method>
+				</CheckBoxMenuItem>
+			</Menu>
+		</Menu>
+
+		<Menu caption="应用[A]" hotkey="A">
+			<MenuItem caption="校验文件字符集(A)" hotkey="A">
+				<ToolTip> Check Entity Charset 命令 </ToolTip>
+				<ShortcutKey>  </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doCheckEntityCharset </Method>
+			</MenuItem>
+			<MenuItem caption="检测数据文件(T)" hotkey="T">
+				<ToolTip> Check Entity Content 命令 </ToolTip>
+				<ShortcutKey>  </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doCheckEntityContent </Method>
+			</MenuItem>
+			<Separator/>
+
+			<MenuItem caption="上传数据文件到云端(U)" hotkey="U">
+				<ToolTip> Import Entity 命令 </ToolTip>
+				<ShortcutKey>  </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doImportEntity </Method>
+			</MenuItem>
+			<MenuItem caption="从云端下载数据文件(D)" hotkey="D">
+				<ToolTip> Export Entity 命令 </ToolTip>
+				<ShortcutKey>  </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doExportEntity </Method>
+			</MenuItem>
+			<Separator/>
+
+			<Menu caption="分布式应用软件" hotkey="S">
+				<MenuItem caption="编写分布计算应用脚本文件(1)" hotkey="1">
+					<ToolTip> 分布计算应用脚本文件，"script"后缀 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCreateConductScript  </Method>
+				</MenuItem>
+				<MenuItem caption="生成分布计算应用软件包(2)" hotkey="2">
+					<ToolTip> 分布计算应用软件包在本地生成，您可以赠送/出售给第三方用户 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doBuildConductPackage  </Method>
+				</MenuItem>
+				<MenuItem caption="发布分布计算应用软件包(3)" hotkey="3">
+					<ToolTip> 分布计算应用分别在本地和云端部署、运行、计算 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doDeployConductPackage  </Method>
+				</MenuItem>
+				<Separator/>
+				<MenuItem caption="编写分布构建应用脚本文件(4)" hotkey="4">
+					<ToolTip> 分布构建应用脚本文件，"script"后缀 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCreateEstablishScript  </Method>
+				</MenuItem>
+				<MenuItem caption="生成分布构建应用软件包(5)" hotkey="5">
+					<ToolTip> 分布构建应用软件包在本地生成，您可以赠送/出售给第三方用户 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doBuildEstablishPackage  </Method>
+				</MenuItem>
+				<MenuItem caption="发布分布构建应用软件包(6)" hotkey="6">
+					<ToolTip> 分布构建应用分别在本地和云端部署、运行、计算</ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doDeployEstablishPackage  </Method>
+				</MenuItem>
+				<Separator/>
+				<MenuItem caption="编写分布迭代应用脚本文件(7)" hotkey="7">
+					<ToolTip> 分布迭代应用脚本文件，"script"后缀 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCreateContactScript  </Method>
+				</MenuItem>
+				<MenuItem caption="生成分布迭代应用软件包(8)" hotkey="8">
+					<ToolTip> 分布迭代应用软件包在本地生成，您可以赠送/出售给第三方用户 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doBuildContactPackage  </Method>
+				</MenuItem>
+				<MenuItem caption="发布分布迭代应用软件包(9)" hotkey="9">
+					<ToolTip> 分布迭代应用分别在本地和云端部署、运行、计算 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doDeployContactPackage  </Method>
+				</MenuItem>				
+			</Menu>
+			<Separator/>
+			
+			<Menu caption="分布式应用软件脚本(P)" hotkey="P">
+				<MenuItem caption="生成启动任务配置文件(1)" hotkey="1">
+					<ToolTip> 生成、修改GUIDE-INF/guides.xml配置文件 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCreateGuide  </Method>
+				</MenuItem>
+				<MenuItem caption="生成计算任务配置文件(2)" hotkey="2">
+					<ToolTip> 生成、修改TASK-INF/tasks.xml配置文件 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCreateTask  </Method>
+				</MenuItem>				
+			</Menu>
+			<Separator/>
+				
+			<MenuItem caption="生成文件EACH签名(E)" hotkey="E">
+				<ToolTip> 使用EACH算法，生成一个文件数字签名 </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doEachFile </Method>
+			</MenuItem>
+
+			<Menu caption="生成文件散列码" hotkey="C">
+				<MenuItem caption="MD5散列码 (1)" hotkey="1">
+					<ToolTip> 生成文件的MD5散列码 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doMD5File  </Method>
+				</MenuItem>
+				<MenuItem caption="SHA1散列码 (2)" hotkey="2">
+					<ToolTip> 生成文件的SHA1散列码 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doSHA1File </Method>
+				</MenuItem>
+				<MenuItem caption="SHA256散列码 (3)" hotkey="3">
+					<ToolTip> 生成文件的SHA256散列码</ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doSHA256File </Method>
+				</MenuItem>
+				<MenuItem caption="SHA512散列码 (4)" hotkey="4">
+					<ToolTip> 生成文件的SHA512散列码 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doSHA512File </Method>
+				</MenuItem>
+			</Menu>
+			
+			<Separator/>
+			<Menu caption="其它" hotkey="O">
+				<MenuItem caption="命令处理模式 (1)" hotkey="1">
+					<ToolTip> 选择内存或者硬盘做为数据存取介质（内存计算或者硬盘计算） </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCommandMode </Method>
+				</MenuItem>
+				<MenuItem caption="命令超时时间 (2)" hotkey="2">
+					<ToolTip> 命令在集群中的有效生存时间 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doCommandTimeout </Method>
+				</MenuItem>
+				<MenuItem caption="正则表达式语法测试器(3)" hotkey="3">
+					<ToolTip> 检查正则表达式的正确性 </ToolTip>
+					<ShortcutKey>  </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doRegex  </Method>
+				</MenuItem>
+				<MenuItem caption="图像转换器 (4)" hotkey="4">
+					<ToolTip> 转换图像格式和尺寸 </ToolTip>
+					<ShortcutKey> </ShortcutKey>
+					<Icon> </Icon>
+					<Method> doImageTransform </Method>
+				</MenuItem>
+			</Menu>
+		</Menu>
+		
+		<Menu caption="帮助[H]" hotkey="H">
+			
+			<MenuItem caption="帮助(E)" hotkey="e">
+				<ToolTip> 打开帮助 </ToolTip>
+				<ShortcutKey> F1 </ShortcutKey>
+				<Icon> </Icon>
+				<Method> doHelp </Method>
+			</MenuItem>
+			
+			<Separator/>
+			
+			<MenuItem caption="关于终端(A)" hotkey="A">
+				<ToolTip> 关于终端</ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Method> doAbout </Method>
+			</MenuItem>
+		</Menu>
+	</MenuBar>
+	
+	<!-- toolbar element -->
+	<ToolBar icon-width="24" icon-height="24" icon-brightness="10.0f">
+		<Button>
+			<ToolTip> 刷新云端记录 </ToolTip>
+			<Icon> conf/front/terminal/image/toolbar/refresh.png </Icon>
+			<Method> doRefresh </Method>
+		</Button>
+		
+		<Separator/>
+		
+		<Button>
+			<ToolTip> 检查命令语法 </ToolTip>
+			<Icon> conf/front/terminal/image/toolbar/check.png </Icon>
+			<Method> doCheckCommand </Method>
+		</Button>
+		
+		<Button>
+			<ToolTip> 发送命令到服务器 </ToolTip>
+			<Icon> conf/front/terminal/image/toolbar/launch.png </Icon>
+			<Method> doLaunchCommand </Method>
+		</Button>
+		
+		<Separator/>
+		
+		<Button>
+			<ToolTip> LAXCUS社区  </ToolTip>
+			<Icon> conf/front/terminal/image/toolbar/home.png </Icon>
+			<Method> doHome </Method>
+		</Button>
+		
+		<Button>
+			<ToolTip> LAXCUS应用软件商店  </ToolTip>
+			<Icon> conf/front/terminal/image/toolbar/store.png </Icon>
+			<Method> doStore </Method>
+		</Button>
+		
+		<Separator/>
+
+		<Button>
+			<ToolTip> 打开帮助信息(F1) </ToolTip>
+			<Icon> conf/front/terminal/image/toolbar/help.png </Icon>
+			<Method> doHelp </Method>
+		</Button>
+		
+		<Separator/>
+		
+		<Button>
+			<ToolTip> 退出终端 </ToolTip>
+			<Icon> conf/front/terminal/image/toolbar/exit.png </Icon>
+			<Method> exit </Method>
+		</Button>
+		<Separator/>
+	</ToolBar>
+	
+</Root>

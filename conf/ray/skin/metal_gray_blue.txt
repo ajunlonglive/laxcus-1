@@ -1,0 +1,97 @@
+# 青兰！
+
+# Viewport.background由TextField.background来决定，两侧双引号是关键字，表示这是一个代理样式！
+Viewport.background {"TextField.background"}
+
+# 集群节点参数溢出颜色（红色！)
+SiteRuntime.fullText {218,82,67}
+
+# 消息面板
+MessagePanel.CommentTextForeground {"List.foreground"}
+MessagePanel.WarningTextForeground ESL:{28,240,100}
+MessagePanel.FaultTextForeground ESL:{5,240,110}
+
+# 命令面板
+CommandPane.textCommand ESL:{80,240,55}
+CommandPane.textKeyword ESL:{140,240,95}
+CommandPane.textType ESL:{25,240,100}
+CommandPane.textNormal ESL:{160,0,162}
+CommandPane.textNormal {"controlText"}
+CommandPane.textWarning ESL:{28,240,100}
+CommandPane.textFault ESL:{5,240,110}
+CommandPane.background {"TextField.background"}
+CommandPane.cursor ESL:{160,0,235}
+
+# 边框颜色! 指向加黑和文本色
+Border.lineBackground {"controlDkShadow"}
+Border.textForeground {"controlText"}
+Border.lineShadow {0,62,117}
+Border.lineLight {0,62,117}
+
+# HTML面板颜色
+HTMLHelpPane.background {"Tree.background"}
+HTMLHelpPane.textForeground {168,168,168}
+HTMLHelpPane.textHerf {138,138,138}
+
+# 桌面背景
+grayblue.desktop ESL:{132,152,32}
+
+## 青兰主题颜色，采用ESL样式
+grayblue.primary1 ESL:{132,152,28}
+grayblue.primary2 ESL:{132,152,32}
+grayblue.primary3 ESL:{132,152,48}
+grayblue.secondary1 ESL:{132,152,56}
+grayblue.secondary2 ESL:{132,152,8}
+grayblue.secondary3 ESL:{132,152,18}
+# 基础色
+grayblue.white ESL:{132,152,13}
+# 文本颜色
+grayblue.black ESL:{0, 0, 190}
+
+# 标题栏激活状态下的前景/背景
+grayblue.windowTitleForeground ESL:{0, 0, 200}
+grayblue.windowTitleBackground ESL:{133, 130, 68}
+# 标题栏非激活状态下的前景/背景
+grayblue.windowTitleInactiveForeground ESL:{0, 0, 130}
+grayblue.windowTitleInactiveBackground ESL:{133, 130, 12}
+
+
+### 新的
+# 桌面颜色
+grayblue.desktop ESL:{136,70,90}
+
+## 标准色
+grayblue.primary1 ESL:{120, 10, 148}
+grayblue.primary2 ESL:{120, 10, 158}
+grayblue.primary3 ESL:{120, 10, 168}
+
+grayblue.primary1 ESL:{138, 108, 178}
+grayblue.primary2 ESL:{138, 108, 188}
+grayblue.primary3 ESL:{138, 108, 198}
+
+grayblue.primary1 ESL:{131, 13, 148}
+grayblue.primary2 ESL:{131, 13, 158}
+grayblue.primary3 ESL:{131, 13, 168}
+
+## 文本色
+grayblue.secondary1 {128,128,128}
+grayblue.secondary2 {179,179,179}
+grayblue.secondary3 {214,217,223}
+
+## 白/黑色，标题
+grayblue.black ESL:{0, 0, 20}
+grayblue.white ESL:{0, 0, 230}
+
+# 菜单失效颜色
+grayblue.menuDisabledForeground {108,108,108}
+
+# 标题栏激活状态下的前景/背景
+grayblue.windowTitleForeground ESL:{0, 0, 238}
+grayblue.windowTitleBackground ESL:{120, 12, 150}
+# 标题栏非激活状态下的前景/背景
+grayblue.windowTitleInactiveForeground ESL:{0, 0, 90}
+grayblue.windowTitleInactiveBackground ESL:{147, 30, 193}
+
+## 桌面按纽在激活/未激活状态下的文本颜色
+DesktopButton.TextActiveForeground  ESL:{0, 0, 240}
+DesktopButton.TextInactiveForeground ESL:{0, 0, 210}

@@ -1,0 +1,1260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<commands>
+
+	<!-- HTML文档的格式化模板 -->
+	
+	<!-- 普通分辨率 windows/linux -->
+	<template font-family="新宋体">
+		<command title-font-size="18.0000pt" />
+		<remark title="命令说明" title-font-size="15.0000pt" content-font-size="13.0000pt"/>
+		<syntax title="语法格式" title-font-size="15.0000pt" content-font-size="13.0000pt"/>
+		<params title="参数" title-font-size="15.0000pt" content-font-size="13.0000pt"/>
+	</template>
+
+	<!-- 高分辨率 windows/linux -->
+	<max-template font-family="新宋体">
+		<command title-font-size="22.0000pt" />
+		<remark title="命令说明" title-font-size="18.0000pt" content-font-size="16.0000pt"/>
+		<syntax title="语法格式" title-font-size="18.0000pt" content-font-size="16.0000pt"/>
+		<params title="参数" title-font-size="18.0000pt" content-font-size="16.0000pt"/>
+	</max-template>
+	
+	<!--
+	<item title=" ">
+		<remark> <![CDATA[  ]]> </remark>
+		<syntax> <![CDATA[  ]]> </syntax>
+		<params> <![CDATA[  ]]> </params>
+	</item>
+	-->
+
+	<!-- 包括：标题、备注、语法、参数 -->
+	
+	<group no="1" title="账号命令">
+		<item title="Create User">
+			<remark> <![CDATA[ 由集群管理员或者等同集群管理员身份的注册用户建立一个账号。用户名称一旦建立不可修改，密码允许修改。  ]]>  </remark>	<!-- 补充说明 -->
+			<syntax> <![CDATA[ CREATE USER 用户名称 PASSWORD ‘密码’ [MAXSIZE {digit}M|G|T|P] [MEMBERS {digit}] [JOBS {digit}] [CHUNKSIZE {digit}M] [MAXTABLES {digit}] [GATEWAYS {digit}] [WORKERS {digit}] [BUILDERS {digit}] [BASES {digit}] [SUBBASES {digit}] [EXPIRE TIME {使用到期时间}] [CLUSTERS {HOME节点数目}] [ DEPLY TO {HOME节点地址1， ...}] ]]>  </syntax> 
+			<params> <![CDATA[ 用户名称: 除ASCII控制字符和空格字符之外，任何语言语种文字的组合。
+密码: 除ASCII控制字符和空格字符之外，任何语言语种文字的组合。
+MAXSIZE：分配给用户使用的最大磁盘空间尺寸。如果不定义，默认无限大。
+MEMBERS：一个账号在线可登录数目
+JOBS：并行任务数目。
+CHUNKSIZE：数据块尺寸，以M为单位，默认64M。
+MAXTABLES：最多表数目。
+GATEWAYS： CALL节点网关地址，允许多个，中间用逗号分隔。
+WORKERS： WORK节点数目。
+BUILDERS： BUILD节点数目。
+BASES：DATA主节点数目。
+SUBBASES：DATA从节点数目。
+EXPIRE TIME：使用期限时间，采用LAXCUS集群操作系统标准时间格式，被单引号包围，“UNLIMIT”关键字表示不限制。
+CLUSTERS：注册的HOME节点数目。
+DEPLOY TO: 注册用户被发送到HOME节点，允许有多个，中间用逗号分隔。DEPLOY TO和CLUSTERS在参数中二选一。 ]]> </params> 
+		</item>
+
+		<item title="Drop User">
+			<remark> <![CDATA[ 由集群管理员或者等同集群管理员身份的注册用户删除一个账号，包括其下属的所有数据库、表、分布式应用软件、码位计算器。删除账号后不可恢复！  ]]> </remark>
+			<syntax> <![CDATA[ DROP USER 用户名称  \n DROP USER 用户签名 ]]> </syntax>
+			<params> <![CDATA[ 用户名称: 除ASCII控制、符号字符之外的任意语言字符串，忽略字符串两侧空格。\r\n
+用户签名：以“SIGN”为前缀的64个16进制字符组合。用户签名可以通过“BUILD SHA256”命令来获得。 ]]> </params>
+		</item>
+		
+		<item title="Close User">
+			<remark> <![CDATA[ 关闭和禁用一个注册用户。只能由集群管理员，或者等同由集群管理员身份的注册用户操作。关闭后，用户将不能登录LAXCUS大数据集群，下属所有数据库、表、分布式应用软件也将不可用。  ]]> </remark>
+			<syntax> <![CDATA[ CLOSE USER 用户名称  \n CLOSE USER 用户签名 ]]> </syntax>
+			<params> <![CDATA[ 用户名称: 除ASCII控制、符号字符之外的任意语言字符串，忽略字符串两侧空格。\r\n
+用户签名：以“SIGN”为前缀的64个16进制字符组合。用户签名可以通过“BUILD SHA256”命令来获得。 ]]> </params>
+		</item>
+		
+		<item title="Open User">
+			<remark> <![CDATA[ 解除和恢复一个注册用户。只能由集群管理员，或者等同由集群管理员身份的注册用户操作，是“CLOSE USER”命令的反向操作。解禁后，将恢复用户登录LAXCUS大数据集群，下属所有数据库、表、分布式应用软件也将恢复至可用状态。 ]]> </remark>
+			<syntax> <![CDATA[ OPEN USER 用户名称  \n OPEN USER 用户签名 ]]> </syntax>
+			<params> <![CDATA[ 用户名称: 除ASCII控制、符号字符之外的任意语言字符串，忽略字符串两侧空格。\r\n
+用户签名：以“SIGN”为前缀的64个16进制字符组合。用户签名可以通过“BUILD SHA256”命令来获得。 ]]> </params>
+		</item>
+		
+		<item title="Alter User">
+			<remark> <![CDATA[ 注册用户自己、集群管理员、等同集群管理员身份的注册用户修改账号密码。  ]]> </remark>
+			<syntax> <![CDATA[ ALTER USER 用户名称 PASSWORD‘新的账号密码’\r\nALTER USER 用户签名 PASSWORD‘新的账号密码’ ]]> </syntax>
+			<params> <![CDATA[ 用户名称：除ASCII控制、符号字符之外的任意语言的字符串，忽略字符串两侧空格。
+用户签名 ：以SIGN为前缀的64个16进制字符，是用户名称的SHA256编码。
+新的账号密码：除ASCII控制字符和空格字符之外，任何语言语种文字的组合。 ]]> </params>
+		</item>
+		<item title="Assert User">
+			<remark> <![CDATA[ 判断用户名称存在或者否。只允许集群管理员、以及等同集群管理员身份的注册用户操作。  ]]> </remark>
+			<syntax> <![CDATA[ ASSERT USER 用户名称\r\nASSERT USER 用户签名 ]]> </syntax>
+			<params> <![CDATA[ 用户名称：除ASCII控制、符号字符之外的任意语言的字符串，忽略字符串两侧空格。\r\n用户签名 ：以SIGN为前缀的64个16进制字符，是用户名称的SHA256编码。 ]]> </params>
+		</item>
+		
+		<item title="Print User Diagram  ">
+			<remark> <![CDATA[ 注册用户显示注册自己的账号资源。  ]]> </remark>
+			<syntax> <![CDATA[ PRINT USER DIAGRAM FROM ME ]]> </syntax>
+			<params> <![CDATA[ ME ：关键字，表示注册用户自己 ]]> </params>
+		</item>
+		<item title=" Grant  ">
+			<remark> <![CDATA[赋予注册用户操作命令权限。由集群管理员、以及等同集群管理员身份的注册用户操作。  ]]> </remark>
+			<syntax> <![CDATA[ GRANT 操作权限 TO 用户名称
+GRANT 操作权限 ON DATABASE 数据库名 TO 用户名称
+GRANT 操作权限 ON TABLE 数据表名 TO 用户名称 ]]> </syntax>
+			<params> <![CDATA[ 用户名称：除ASCII控制字符之外的任意语言任意长度的字符串，忽略字符串两侧空格。多个用户名称之间用逗号（，）分隔。
+数据库名：已经定义的数据库名称。多个数据库名用逗号（，）分隔。
+数据表名：已经定义的数据表名称，格式：数据库.数据表。多个数据表名逗号（，）分隔。
+操作权限：ASCII字符名称序列，多个操作权限用逗号（,）分隔。关键字包括"DBA、ALL、MEMBER、SELECT、INSERT INTO、INJECT INTO、DELETE、UPDATE、CONDUCT、CONTACT、ESTABLISH、IMPORT ENTITY、EXPORT ENTITY、CREATE TABLE、DROP TABLE、GRANT、REVOKE、CREATE USER、DROP USER、ALTER USER、CREATE DATABASE、DROP DATABASE、PUBLISH TASK COMPONENT、PUBLISH TASK LIBRARY COMPONENT、LOAD INDEX、LOAD ENTITY、EXCLUSIVE、OPEN RESOURCE、CLOSE RESOURCE、CREATE FAULT、DROP FAULT、CREATE LIMIT、DROP LIMIT" ]]> </params>
+		</item>
+		
+		<item title=" Revoke ">
+			<remark> <![CDATA[ 撤销用户操作命令的权限。由集群管理员、以及等同集群管理员身份的注册用户操作。 ]]> </remark>
+			<syntax> <![CDATA[ REVOKE 操作权限 FROM 用户名称
+REVOKE 操作权限 ON DATABASE 数据库名 FROM 用户名称
+REVOKE 操作权限 ON TABLE 数据表名 FROM 用户名称 ]]> </syntax>
+			<params> <![CDATA[ 用户名称 ：除ASCII控制字符之外的任意语言任意长度的字符串，忽略字符串两侧空格。多个用户名称之间用逗号（，）分隔。
+数据库名 ：已经定义的数据库名称。多个数据库名用逗号（，）分隔。
+数据表名 ：已经定义的数据表名称，格式：数据库.数据表。多个数据表名逗号（，）分隔。
+操作权限：ASCII字符名称序列，多个操作权限用逗号（,）分隔。见GRANT命令中的操作权限定义。 ]]> </params>
+		</item>
+		
+		<item title=" Print Grant Diagram ">
+			<remark> <![CDATA[ 显示注册用户被授权命令。注册用户只能操作自己和显示自己的授权命令，检索其他用户时提示故障。 ]]> </remark>
+			<syntax> <![CDATA[PRINT GRANT DIAGRAM FROM ME  ]]> </syntax>
+			<params> <![CDATA[ ME ：关键字，表示注册用户自己。 ]]> </params>
+		</item>
+		
+		<item title="Refresh Cyber">
+			<remark> <![CDATA[ 登录用户同步LAXCUS大数据集群上的最新账号数据，并更新到本地。当LAXCUS大数据集群和FRONT节点的元数据不匹配，或者一个账号多个登录点之间的元数据之间需要协调一致时，应该使用刷新操作。]]> </remark>
+			<syntax> <![CDATA[ REFRESH CYBER ]]> </syntax>
+			<params> <![CDATA[  ]]> </params>
+		</item>
+	</group>
+	
+	<group no="2" title="数据命令">
+		<item title="Create Database">
+			<remark> <![CDATA[ 注册用户建立一个属于自己的数据库，数据库名保证集群内唯一。 ]]> </remark>
+			<syntax> <![CDATA[ CREATE DATABASE 数据库名 [MAXSIZE={digit}M|G|T|P] ]]> </syntax>
+			<params> <![CDATA[ 数据库名：除ASCII控制符号字符之外，1-20个任意语言字符。\n
+MAXSIZE：数据库最大可用空间，以M、G、T、P为数据单位。不能超过超过账号已经定义的最大使用空间。 ]]> </params>
+		</item>
+		
+		<item title="Drop Database">
+			<remark> <![CDATA[ 注册用户删除自己的数据库，以及数据库下属所有表。数据库删除后不可恢复，用户谨慎使用。 ]]> </remark>
+			<syntax> <![CDATA[ DROP DATABASE 数据库名 ]]> </syntax>
+			<params> <![CDATA[ 数据库名：除ASCII控制符号字符之外，1-20个任意语言的字符串。 ]]> </params>
+		</item>
+		
+		<item title="Assert Database">
+			<remark> <![CDATA[ 判断数据库存在。不同于传统的数据库管理系统，LAXCUS集群操作系统采用了“全局数据库”的设计，集群中只允许一个同名数据库，并归属某个用户使用。这项检查只允许注册用户操作。 ]]> </remark>
+			<syntax> <![CDATA[ ASSERT DATABASE 数据库名 ]]> </syntax>
+			<params> <![CDATA[ 数据库名：除ASCII控制符号字符之外，1-20个任意语言的字符串。 ]]> </params>
+		</item>
+
+		<item title=" Show Database ">
+			<remark> <![CDATA[ 注册用户显示自己的数据库及数据库下属所有表属性参数 ]]> </remark>
+			<syntax> <![CDATA[ SHOW DATABASE 数据库名 \n SHOW DATABASE ALL]]> </syntax>
+			<params> <![CDATA[ 数据库名：除ASCII控制符号字符之外，1-20个任意语言字符。多个数据库名之间用逗号（，）分隔。 \n ALL：全部数据库 ]]> </params>
+		</item>
+		<item title=" Count Database ">
+			<remark> <![CDATA[ 统计账号下的数据库数目 ]]> </remark>
+			<syntax> <![CDATA[ COUNT DATABASE  ]]> </syntax>
+			<params> <![CDATA[  ]]> </params>
+		</item>
+		<item title="Scan Database  ">
+			<remark> <![CDATA[ 扫描数据库下属的数据表在集群的分布状态。 ]]> </remark>
+			<syntax> <![CDATA[ SCAN DATABASE 数据库名
+SCAN DATABASE 数据库名 TO DATA节点地址 ]]> </syntax>
+			<params> <![CDATA[ 数据库名：除ASCII控制符号字符之外，1-20个任意语言的字符串。多个数据库名之间用逗号（，）隔开。
+DATA节点地址：LAXCUS节点标准格式，多个DATA节点地址之间用逗号（,）隔开。如果不指定DATA节点地址，将扫描全部与指定数据库有关的DATA节点数据。 ]]> </params>
+		</item>
+		
+		<item title="Print Database Diagram  ">
+			<remark> <![CDATA[ 显示注册用户的数据库基础属性信息。 ]]> </remark>
+			<syntax> <![CDATA[ PRINT DATABASE DIAGRAM 数据库名 FROM ME
+PRINT DATABASE DIAGRAM ALL FROM ME ]]> </syntax>
+			<params> <![CDATA[ 数据库名：除ASCII控制符号字符之外，1-20个任意语言字符。多个数据库名之间用逗号（，）分隔。
+ALL：全部数据库 ]]> </params>
+		</item>
+		
+		<item title=" Create Table ">
+			<remark> <![CDATA[ 在指定的数据库下面，建立一个数据表。由于大数据分布处理量极大，修改表结构代价极高，所以Laxcus要求在建表时定义好全部参数。运行过程中不允许修改表结构。 ]]> </remark>
+			<syntax> <![CDATA[ CREATE TABLE [SM=DSM|NSM] [PRIMEHOSTS={digit}] [HOSTMODE=SHARE|EXCLUSIVE] [CHUNKSIZE={digit}M] [CHUNKCOPY={digit}] 数据库名.表名 (列名 列数据类型 [NULL|NOT NULL] [CASE|NOT CASE] [LIKE|NOT LIKE] [PRIME KEY|SLAVE KEY] [DEFAULT 数值|函数] [COMMENT ‘列注释信息’] [PACKING  压缩算法 AND 加密算法 密码 ] , 列名...) ]]> </syntax>
+			<params> <![CDATA[ 数据库名：除ASCII控制符号字符外，1-20任意语言字符组合。
+表名：除ASCII控制符号字符外，1-20任意语言字符组合。
+列名：除ASCII控制符号字符外，1-20任意语言字符组合。
+SM : 存储模型
+DSM : 列存储模型
+NSM : 行存储模型
+MULTIPLE : DSM表压缩倍数。用户设置，最终由系统决定。
+PRIMIEHOSTS :　DATA主节点数目
+HOSTMODE : 数据表在DATA节点的存在模式
+SHARE : 共享模式（多个表共享一台DATA节点资源）
+EXCLUSIVE ：独享模式（一个表在独占一台DATA节点资源）
+CHUNKSIZE : 数据块尺寸，以M为单位。
+CHUNKCOPY : 数据块备份数目。数据备份由系统正动完成。
+列数据类型：关键字包括RAW、CHAR、WCHAR、HCHAR、SHORT、INT、LONG、FLOAT、DOUBLE、DATA、TIME、TIMESTAMP、IMAGE、DOCUMENT、AUDIO、VIDEO。
+NULL : 这个列允许空值，在生成时检查。
+NOT NULL : 这个列不允许空值，在生成时检查。
+CASE : 针对字符类型，大小写敏感。
+NOT CASE : 针对字符类型，大小写不敏感。
+LIKE : 针对字符类型，允许模糊查询。
+NOT LIKE : 针对字符类型，不允许模糊查询。
+PRIME KEY : 当前列为主键（主键一个表只有一个）。
+SLAVE KEY : 当前列为从键，从键允许任意多个。
+DEFAULT : 默认值，可以预定义或者从函数中产生。
+COMMENT : 列的注释，用户自主定义，字数范围在1024字符以内。
+PACKING : 可变长列封装模式，预定义压缩加密算法、密码，针对RAW、CHAR、WCHAR、HCHAR、IMAGE、DOCUMENT、AUDIO、VIDEO类型。此项定义后，列数据生成时，将进行压缩和加密。 ]]> </params>
+		</item>	
+		
+		<item title=" Drop Table ">
+			<remark> <![CDATA[ 删除一个数据表，以及这个表下属的全部数据。用户执行后，删除的数据不可恢复。 ]]> </remark>
+			<syntax> <![CDATA[ DROP TABLE 数据库名.表名  ]]> </syntax>
+			<params> <![CDATA[ 数据库名：除ASCII控制、符号字符之外，1-20任意语言字符组合。
+表名：除ASCII控制、符号字符之外，1-20任意语言字符组合。 ]]> </params>
+		</item>	
+		<item title="Show Table">
+			<remark> <![CDATA[ 显示注册用户的数据表参数。 ]]> </remark>
+			<syntax> <![CDATA[ SHOW TABLE 数据库名.表名 \n SHOW TABLE ALL ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制符号字符之外，1-20任意语言字符组合。多个数据表名之间用逗号（，）分隔。 \n ALL：全部数据表 ]]> </params>
+		</item>	
+		<item title=" Scan Table ">
+			<remark> <![CDATA[ 注册用户扫描自己的数据表在集群中的资源分布情况。 ]]> </remark>
+			<syntax> <![CDATA[ SCAN TABLE 数据表名
+SCAN TABLE 数据表名 TO DATA站点 ]]> </syntax>
+			<params> <![CDATA[ 数据库名名：采用“数据库.表”格式，除ASCII控制符号字符之外，1-20任意语言字符组合。多个之间用逗号（，）分隔。
+DATA节点地址：LAXCUS节点标准格式。 ]]> </params>
+		</item>	
+		<item title=" Print Table Diagram ">
+			<remark> <![CDATA[ 显示注册用户的数据表属性。 ]]> </remark>
+			<syntax> <![CDATA[ PRINT TABLE DIAGRAM 数据库名.表名 FROM ME
+PRINT TABLE DIAGRAM ALL FROM ME ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制符号字符之外，1-20任意语言字符组合。多个数据表名之间用逗号（，）分隔。
+ALL：全部数据表 ]]> </params>
+		</item>	
+		
+		
+		<item title=" Select ">
+			<remark> <![CDATA[ 检索数据表，兼容SQL。与SQL不同的是，LAXCUS要求SELECT语句必须带“WHERE”子句。 ]]> </remark>
+			<syntax> <![CDATA[ SELECT 列名 FROM 数据库名.表名WHERE 检索条件 ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制符号字符外，1-20任意语言字符组合。
+列名：除ASCII控制符号字符外，1-20任意语言字符组合。
+检索条件：逻辑判断语句，兼容SQL。 ]]> </params>
+		</item>
+		
+		<item title=" Insert Into ">
+			<remark> <![CDATA[ 向数据表插入一条记录，兼容SQL。 ]]> </remark>
+			<syntax> <![CDATA[ INSERT INTO  数据库名.表名 (列名1, 列名2, ...) VALUES (列值1, 列值2, ...) ]]> </syntax>
+			<params> <![CDATA[ 列名：除ASCII控制符号字符外，1-20个任意语言字符组合，忽略大小写。
+列值：对应列名。如果是字符或者日期类型，需要ASCII单引号包裹。 ]]> </params>
+		</item>
+		<item title=" Inject Into ">
+			<remark> <![CDATA[ 向数据表插入多条记录。此命令为LAXCUS独有，非SQL语句。 ]]> </remark>
+			<syntax> <![CDATA[ INJECT INTO  数据库名.表名 (列名1, 列名2, ...) VALUES (列值1, 列值2, ...), (列值1, 列值2, ...) ,  (列值1, 列值2, ...) ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制符号字符外，1-20个任意语言字符组合，忽略大小写。
+列名：除ASCII控制符号字符外，1-20个任意语言字符组合，忽略大小写。
+列值：对应列名。如果是字符或者日期类型，需要ASCII单引号包裹。 ]]> </params>
+		</item>
+		<item title=" Delete ">
+			<remark> <![CDATA[ 删除数据库记录，兼容SQL。 ]]> </remark>
+			<syntax> <![CDATA[ DELETE FROM 数据库名.表名 WHERE 检索条件 ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制符号字符外，1-20个任意语言字符组合，忽略大小写。
+检索条件：逻辑判断语句，兼容SQL。 ]]> </params>
+		</item>		
+		<item title=" Update ">
+			<remark> <![CDATA[更新数据记录，兼容SQL。  ]]> </remark>
+			<syntax> <![CDATA[ UPDATE 数据库名.表名 SET (列名=列值, 列名=列值, ....) WHERE 检索条件 ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制符号字符外，1-20个任意语言字符组合，忽略大小写。
+列名：除ASCII控制符号字符外，1-20个任意语言字符组合，忽略大小写。
+列值：如果是字符或者日期类型，需要ASCII单引号包裹。
+检索条件：逻辑判断语句，兼容SQL。 ]]> </params>
+		</item>			
+	</group>
+
+	<group no="3" title="资源命令">
+		<item title="Check Entity Consistency">
+			<remark> <![CDATA[ 检查表数据在集群的分布状态，和表数据在主、从节点一致性。 ]]> </remark>
+			<syntax> <![CDATA[ CHECK ENTITY CONSISTENCY 数据库名.表名 \n CHECK ENTITY CONSISTENCY 数据库名.表名 DETAIL ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名，是除ASCII控制符号字符外，1-20任意语言字符组合。 \n DETAIL：数据表数据在集群分布的详细信息 ]]> </params>
+		</item>
+		
+		<item title=" Recover Entity Consistency ">
+			<remark> <![CDATA[将表数据恢复到一致性状态。此操作通常是用户通过“Check Entity Consistency”命令，发现主从节点数据不一致的情况下执行。  ]]> </remark>
+			<syntax> <![CDATA[ RECOVER ENTITY CONSISTENCY 数据库名.表名 ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制符号字符外，1-20任意语言字符组合。 ]]> </params>
+		</item>			
+
+		<item title="Check Remote Table">
+			<remark> <![CDATA[ 检索在Front站点注册且已经分布在Call节点的数据表。 ]]> </remark>
+			<syntax> <![CDATA[ CHECK REMOTE TABLE
+CHECK REMOTE TABLE 数据表名]]> </syntax>
+			<params> <![CDATA[ 数据表名 ：除ASCII控制符号字符外，1-20个任意语言字符组合，忽略大小写。如果有多个数据表名，之间用逗号分开。如果忽略，显示全部数据表。 ]]> </params>
+		</item>
+		
+		<item title="Check Remote Site">
+			<remark> <![CDATA[ 检索当前FRONT节点已经注册和登录的LAXCUS集群节点，包括Entrance、Gate、Call三类节点。 ]]> </remark>
+			<syntax> <![CDATA[ CHECK REMOTE SITE]]> </syntax>
+			<params> <![CDATA[  ]]> </params>
+		</item>
+		<item title="Check Job Site">
+			<remark> <![CDATA[ 检索与当前账号关联的LAXCUS集群作业节点，包括Data、Work、Build、Call四类节点。 ]]> </remark>
+			<syntax> <![CDATA[ CHECK JOB SITE]]> </syntax>
+			<params> <![CDATA[  ]]> </params>
+		</item>
+
+		<item title="Check Remote Task">
+			<remark> <![CDATA[ 检索在Front站点注册且已经分布在Call节点的分布式应用软件。 ]]> </remark>
+			<syntax> <![CDATA[ CHECK REMOTE TASK [-FULL]
+CHECK REMOTE TASK 分布任务名称 [-FULL] ]]> </syntax>
+			<params> <![CDATA[ -FULL | -F 显示完整的分布任务名称，关键字：YES、NO、是、否。
+分布任务名称：由软件名称和组件名称组成。名称是除ASCII控制、符号字符之外的任意字符。组件名称由用户定义，系统检查名称唯一性。多个分布任务名之间用逗号隔开。格式如：”Soft1.Task1, Soft2.Task2”。 ]]> </params>
+		</item>
+		
+		<item title="Check Local Task">
+			<remark> <![CDATA[检测和显示FRONT节点上运行的分布式应用软件，即PUT/END/NEAR阶段任务组件。]]> </remark>
+			<syntax> <![CDATA[CHECK LOCAL TASK [-FULL]
+CHECK LOCAL TASK 分布任务名称 [-FULL] ]]> </syntax>
+			<params> <![CDATA[ -FULL | -F 显示完整的分布任务名称，关键字：YES、NO、是、否。
+分布任务名称：由软件名称和组件名称组成。名称是除ASCII控制、符号字符之外的任意字符。组件名称由用户定义，系统检查名称唯一性。多个分布任务名之间用逗号隔开。格式如：”Soft1.Task1, Soft2.Task2”。 ]]> </params>
+		</item>
+		
+		<item title="Check Pock Channel">
+			<remark> <![CDATA[ 检测和显示Front节点与Laxcus集群的网络通信信道。当Front节点位于内部网络，连接公共网络上的Laxcus集群，或者Front节点与Laxcus集群跨越网段通信，需要使用转义地址时，这个命令将显示Front节点的出口转义地址和Laxcus集群服务端节点地址。Laxcus集群通信信道包括命令控制信道和数据传输信道。 ]]> </remark>
+			<syntax> <![CDATA[ CHECK POCK CHANNEL ]]> </syntax>
+			<params> <![CDATA[ ]]> </params>
+		</item>
+		<item title="Check Massive Mimo">
+			<remark> <![CDATA[ 为了获得更高效的分布式存储和分布式计算效果，减少等待和中间处理时间，需要持续加速网络间的数据传输。Laxcus分布式操作系统运用专有通信协议，将数据传输效率提高数倍到数十倍，实现了超大规模的数据传输，但是受限于底层物理网络环境，并不是所有网络环境都能支持这种能力。Check Massive Mimo命令提供了这样一种检测手段，判断用户所处网络环境是否支持超大规模数据传输。这个命令目前用来检测用户的Front节点与Gate、Entrance、Call节点之间的网络环境。]]> </remark>
+			<syntax> <![CDATA[ CHECK MASSIVE MIMO TO 节点地址]]> </syntax>
+			<params> <![CDATA[ 节点地址 ：LAXCUS节点标准格式，分别是Gate、Entrance、Call节点中的一种。]]> </params>
+		</item>
+		
+		<item title="Seek Online Command">
+			<remark> <![CDATA[ 检索本地正在运行的命令，命令包括等待、挂起、处理中三种状态。 ]]> </remark>
+			<syntax> <![CDATA[ SEEK ONLINE COMMAND TO LOCAL]]> </syntax>
+			<params> <![CDATA[ LOCAL ：关键字，当前FRONT节点。 ]]> </params>
+		</item>
+		
+		<item title="Scan Sketch">
+			<remark> <![CDATA[ 检查表数据在集群的分布状态。此操作具有强一致和实时性的特点，任何一个节点处理出现故障，都将返回错误。这是与其它“SCAN ...”类命令根本的区别。通常在执行“REGULATE”或者“MODULATE”等数据优化类命令前执行这个操作。 ]]> </remark>
+			<syntax> <![CDATA[SCAN SKETCH 数据库名.表名  ]]> </syntax>
+			<params> <![CDATA[数据库名和表名：除ASCII控制符号字符外，1-20任意语言字符组合，忽略大小写。  ]]> </params>
+		</item>			
+		<item title=" Load Index ">
+			<remark> <![CDATA[将数据表的全部索引，加载到内存中。这项操作可以提高数据检索速度。LAXCUS存储设计与关系数据库完全不同，LAXCUS数据存储不存在真正意义上的索引。这里指称的索引，实际是数据分支位序，它占用的内存空间极小。采用“索引”这个名词，是出于兼容用户使用习惯的原因。  ]]> </remark>
+			<syntax> <![CDATA[ LOAD INDEX 数据库名.表名
+LOAD INDEX 数据库名.表名 TO DATA节点地址 ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制符号字符外，1-20任意语言字符组合，忽略大小写。
+DATA节点地址：LAXCUS节点标准格式，多个DATA节点地址之间用逗号隔开。不指定DATA节点，将加载全部表索引。 ]]> </params>
+		</item>
+		
+		<item title=" Stop Index ">
+			<remark> <![CDATA[ 释放内存中的表索引。是LOAD INDEX的反向操作。 ]]> </remark>
+			<syntax> <![CDATA[ STOP INDEX 数据库名.表名
+STOP INDEX 数据库名.表名 FROM DATA节点地址 ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制符号字符外，1-20任意语言字符组合，忽略大小写。
+DATA节点地址：LAXCUS节点标准格式，多个DATA节点地址之间用逗号隔开。不指定DATA节点，将释放表在DATA节点的全部索引。 ]]> </params>
+		</item>			
+		<item title=" Load Entity ">
+			<remark> <![CDATA[ 这个命令是把整块数据导入内存。此项操作完成后，实际是把数据的磁盘读写转到内存完成。此项操作会极大消耗内存，需要慎重使用。加载过程中，系统会判断计算机内存余量，如果超过将停止加载。 ]]> </remark>
+			<syntax> <![CDATA[ LOAD ENTITY 数据库名.表名
+LOAD ENTITY 数据库名.表名 TO DATA节点地址 ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制符号字符外，1-20任意语言字符组合，忽略大小写。
+DATA节点地址：LAXCUS节点标准格式，多个DATA节点地址之间用逗号隔开。不指定DATA节点，将加载全部表数据。 ]]> </params>
+		</item>			
+		<item title=" Stop Entity ">
+			<remark> <![CDATA[ 释放内存中的数据块。是LOAD ENTITY的反向操作。 ]]> </remark>
+			<syntax> <![CDATA[ STOP ENTITY 数据库名.表名
+STOP ENTITY 数据库名.表名 FROM DATA节点地址  ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制符号字符外，1-20任意语言字符组合，忽略大小写。
+DATA节点地址：LAXCUS节点标准格式，多个DATA节点地址之间用逗号隔开。不指定DATA节点，将释放内存中的全部表数据。 ]]> </params>
+		</item>			
+		<item title=" Set Entity Size ">
+			<remark> <![CDATA[ 设置数据块尺寸。单个数据块尺寸通常以M计量，不允许超过2G。 ]]> </remark>
+			<syntax> <![CDATA[ SET ENTITY SIZE 数据库名.表名 数字 M|G ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制符号字符外，1-20任意语言字符组合，忽略大小写。 ]]> </params>
+		</item>			
+		<item title=" Show Entity Size ">
+			<remark> <![CDATA[ 显示数据块尺寸  ]]> </remark>
+			<syntax> <![CDATA[ SHOW ENTITY SIZE 数据库名.表名 ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制符号字符外，1-20任意语言字符组合，忽略大小写。 ]]> </params>
+		</item>			
+		<item title=" Scan Entity ">
+			<remark> <![CDATA[ 扫描和统计指定数据表下的全部数据块，包括缓存块和固定块数量，以及数据总长度。 ]]> </remark>
+			<syntax> <![CDATA[ SCAN ENTITY 数据库名.表名 ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制、符号字符外，1-20任意语言字符组合，忽略大小写。 ]]> </params>
+		</item>
+		<item title=" Git Entity Stubs ">
+			<remark> <![CDATA[ 获取指定数据表下属的全部数据块编号，包括缓存块和固定块。 ]]> </remark>
+			<syntax> <![CDATA[ GIT ENTITY STUBS 数据库名.表名 ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制、符号字符外，1-20任意语言字符组合，忽略大小写。 ]]> </params>
+		</item>
+		<item title=" Print Entity Stubs Diagram ">
+			<remark> <![CDATA[ 获取指定数据表关联数据块在集群的分布图谱，包括缓存块、缓存映像块、存储块。 ]]> </remark>
+			<syntax> <![CDATA[ PRINT ENTITY STUBS DIAGRAM 数据库名.表名 ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制、符号字符外，1-20任意语言字符组合，忽略大小写。 ]]> </params>
+		</item>
+		<item title=" Export Entity ">
+			<remark> <![CDATA[ 从集群中导出任意数目的数据块，包括缓存块和固定块，输出位置是本地磁盘文件。 ]]> </remark>
+			<syntax> <![CDATA[ EXPORT ENTITY 数据库名.表名 数据块编号 TO 磁盘目录 TYPE 文件内容格式 CHARSET 文件内容编码
+EXPORT ENTITY 数据库名.表名 数据块编号 TO 磁盘文件 TYPE 文件内容格式 CHARSET 文件内容编码 ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制、符号字符外，1-20任意语言字符组合，忽略大小写。
+数据块编号：采用10进制或者16进制描述，16进制数字前面加“0x”注明。多个数据块编号之间用逗号分隔。
+磁盘目录：本地目录，必须保证存在，且只有一个。文件名由系统根据磁盘目录和数据块编号自动生成。
+磁盘文件：本地文件路径，多个文件之间用逗号分隔，且保证与数据块编号数目一致。在数据写入前，所有文件不能存在。写入的文件不携带BOM码。
+文件内容格式，目前支持CSV和TXT两种，默认CSV格式。
+文件内容编码，目前支持GBK、GB18030、GB2312、UTF-8、UTF-16BE、UTF-16LE、UTF-32BE、UTF-32LE。如果不定义，默认采用UTF-8编码。 ]]> </params>
+		</item>
+		<item title=" Import Entity ">
+			<remark> <![CDATA[ 将位于磁盘的任意数量数据文件导入计算机集群。 ]]> </remark>
+			<syntax> <![CDATA[ IMPORT ENTITY 数据库名.表名 FROM 磁盘文件 TYPE 文件内容格式 CHARSET 文件内容编码 SECTION 单次读取行数 ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制、符号字符外，1-20任意语言字符组合，忽略大小写。
+磁盘文件：本地文件路径，磁盘文件必须保证存在，多个文件之间用逗号分隔。
+文件内容格式：目前支持CSV和TXT两种。
+文件内容编码：目前支持GBK、GB18030、GB2312、UTF-8、UTF-16BE、UTF-16LE、UTF-32BE、UTF-32LE。如果不定义，系统将主动识别（主动识别不保证绝对正确）。
+单次读取行数：每次从磁盘文件读取的行数。如果忽略，默认单次计取1000行记录。 ]]> </params>
+		</item>
+		<item title=" Copy Entity ">
+			<remark> <![CDATA[ 在同一个数据表的两个DATA节点之间复制数据块。 ]]> </remark>
+			<syntax> <![CDATA[ COPY ENTITY 数据库名.表名 数据块编号 FROM 数据源DATA节点地址 TO 数据目标DATA节点地址 ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制、符号字符外，1-20任意语言字符组合，忽略大小写。
+数据块编号：采用10进制或者16进制描述，16进制数字前面加“0x”注明。多个数据块编号之间用逗号分隔。
+数据源DATA节点地址：LAXCUS节点标准格式，有且必须只有一个。
+数据目标DATA节点地址：LAXCUS节点标准格式，有且必须只有一个。 ]]> </params>
+		</item>
+		<item title=" Check Entity Content">
+			<remark> <![CDATA[ 检查磁盘文件中的数据记录，通常在执行“Import Entity”命令前进行。 ]]> </remark>
+			<syntax> <![CDATA[ CHECK ENTITY CONTENT 数据库名.表名FROM 磁盘文件 TYPE 文件内容格式 CHARSET 文件内容编码 ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制、符号字符外，1-20任意语言字符组合，忽略大小写。
+磁盘文件：本地文件路径，文件在读取时必须保证存在。
+文件内容格式：目前支持CSV和TXT两种。
+文件内容编码：目前支持GBK、GB18030、GB2312、UTF-8、UTF-16BE、UTF-16LE、UTF-32BE、UTF-32LE。如果不定义，系统将主动识别（主动识别不保证绝对正确）。 ]]> </params>
+		</item>
+		<item title="Check Entity Charset">
+			<remark> <![CDATA[ 判断全部字符集和磁盘文件匹配关系，按照误码数从低到高排列，检测结果不保证绝对准确。字符集包括LAXCUS集群操作系统内置的Unicode和GBK系列编码，以及操作系统的字符集。此结果不是“Import Entity”命令“Charset”参数选项的必要依据，仍以用户决定为主。]]> </remark>
+			<syntax> <![CDATA[ CHECK ENTITY CHARSET 磁盘文件路径 ]]> </syntax>
+			<params> <![CDATA[ 磁盘文件路径：本地文件路径，多个文件之间用逗号隔开。路径格式遵循所属平台（WINDOWS/LINUX）规范，文件在读取时必须保证存在。 ]]> </params>
+		</item>
+
+		<item title=" Set Max Size ">
+			<remark> <![CDATA[ 设置注册用户最大最大磁盘空间。用户数据在磁盘存储最大容量限制，包括主块和从块。这个命令由集群管理员和等同集群管理员身份的注册用户操作。 ]]> </remark>
+			<syntax> <![CDATA[ SET MAX SIZE 数字 M|G|T|P TO 用户名称
+SET MAX SIZE 数字 M|G|T|P TO 用户签名 ]]> </syntax>
+			<params> <![CDATA[ 数字：以M、G、T、P为单位的磁盘空间数目。
+用户名称 ：任意语言的字符组合，多个用户名称之间用逗号分开，忽略大小写。
+用户签名 ：以SIGN为前缀的64个16进制字符，是用户名称的SHA256编码。多个用户签名之间用逗号分开。用户名称和用户签名可以混合使用。 ]]> </params>
+		</item>
+		<item title="Set Expire Time">
+			<remark> <![CDATA[ 设置注册用户使用LAXCUS大数据集群的到期时间。 ]]> </remark>
+			<syntax> <![CDATA[SET EXPIRE TIME 到期时间 TO 用户名称 \n SET EXPIRE TIME 到期时间 TO 用户签名 ]]> </syntax>
+			<params> <![CDATA[ 到期时间：LAXCUS集群操作系统标准时间格式。“UNLIMIT”关键字是无限期使用。\r\n
+用户名称 ：任意语言的字符组合，多个用户名称之间用逗号分开，忽略大小写。\r\n
+用户签名 ：以SIGN为前缀的64个16进制字符，是用户名称的SHA256编码。多个用户签名之间用逗号分开。用户名称和用户签名可以混合使用。 ]]> </params>
+		</item>	
+		<item title=" Set Max Groups ">
+			<remark> <![CDATA[ 设置注册用户同时存在的HOME子域集群数目。一个注册用户能同时存在的HOME子域集群数目。这个命令由集群管理员和等同集群管理员身份的注册用户操作。  ]]> </remark>
+			<syntax> <![CDATA[ SET MAX GROUPS 数字 TO 用户名称
+SET MAX GROUPS 数字 TO 用户签名 ]]> </syntax>
+			<params> <![CDATA[ 数字：子域集群数目。
+用户名称 ：任意语言的字符组合，多个用户名称之间用逗号分开，忽略大小写。
+用户签名 ：以SIGN为前缀的64个16进制字符，是用户名称的SHA256编码。多个用户签名之间用逗号分开。用户名称和用户签名可以混合使用。 ]]> </params>
+		</item>		
+		<item title="Set Max Gateways  ">
+			<remark> <![CDATA[ 设置注册用户同时存在的网关CALL节点数目。一个注册用户能同时存在的网关CALL节点数目。这个命令由集群管理员和等同集群管理员身份的注册用户操作。 ]]> </remark>
+			<syntax> <![CDATA[ SET MAX GATEWAYS 数字 TO 用户名称
+SET MAX GATEWAYS 数字 TO 用户签名 ]]> </syntax>
+			<params> <![CDATA[ 数字：网关CALL节点数目。
+用户名称 ：任意语言的字符组合，多个用户名称之间用逗号分开，忽略大小写。
+用户签名 ：以SIGN为前缀的64个16进制字符，是用户名称的SHA256编码。多个用户签名之间用逗号分开。用户名称和用户签名可以混合使用。 ]]> </params>
+		</item>		
+		<item title=" Set Max Members ">
+			<remark> <![CDATA[ 设置注册用户最大连接数目。连接数目是指一个账号可以同时登录集群的数目。这个命令只能由集群管理员和等同集群管理员身份的注册用户操作。 ]]> </remark>
+			<syntax> <![CDATA[ SET MAX MEMBERS 数字 TO 用户名称
+SET MAX MEMBERS 数字 TO 用户签名 ]]> </syntax>
+			<params> <![CDATA[ 数字：用户同时登录集群的数目
+用户名称 ：任意语言的字符组合，多个用户名称之间用逗号分开，忽略大小写。
+用户签名 ：以SIGN为前缀的64个16进制字符，是用户名称的SHA256编码。多个用户签名之间用逗号分开。用户名称和用户签名可以混合使用。 ]]> </params>
+		</item>		
+		
+		<item title=" Set Max Jobs ">
+			<remark> <![CDATA[ 设置一个用户的最大并行任务数目。最大并行任务数目是一个账号多个注册点可同时执行数据处理的数目。这个命令只能由集群管理员和等同集群管理员身份的注册用户操作。 ]]> </remark>
+			<syntax> <![CDATA[SET MAX JOBS 数字 TO 用户名称
+SET MAX JOBS 数字 TO 用户签名  ]]> </syntax>
+			<params> <![CDATA[ 数字：用户并发执行任务的数目
+用户名称 ：任意语言的字符组合，多个用户名称之间用逗号分开，忽略大小写。
+用户签名 ：以SIGN为前缀的64个16进制字符，是用户名称的SHA256编码。多个用户签名之间用逗号分开。用户名称和用户签名可以混合使用。 ]]> </params>
+		</item>		
+					
+		<item title=" Set Max Workers ">
+			<remark> <![CDATA[ 设置注册用户可以使用的WORK节点数目。 ]]> </remark>
+			<syntax> <![CDATA[SET MAX WORKERS 数字 TO 用户名称
+SET MAX WORKERS 数字 TO 用户签名  ]]> </syntax>
+			<params> <![CDATA[ 数字：WORK节点数目。
+用户名称 ：任意语言的字符组合，多个用户名称之间用逗号分开，忽略大小写。
+用户签名 ：以SIGN为前缀的64个16进制字符，是用户名称的SHA256编码。多个用户签名之间用逗号分开。用户名称和用户签名可以混合使用。 ]]> </params>
+		</item>
+
+		<item title=" Set Max Builders ">
+			<remark> <![CDATA[ 设置注册用户可以使用的BUILD节点数目。 ]]> </remark>
+			<syntax> <![CDATA[SET MAX BUILDERS 数字 TO 用户名称
+SET MAX BUILDERS 数字 TO 用户签名  ]]> </syntax>
+			<params> <![CDATA[ 数字：BUILD节点数目。
+用户名称 ：任意语言的字符组合，多个用户名称之间用逗号分开，忽略大小写。
+用户签名 ：以SIGN为前缀的64个16进制字符，是用户名称的SHA256编码。多个用户签名之间用逗号分开。用户名称和用户签名可以混合使用。 ]]> </params>
+		</item>
+		
+		<item title="Set Max Applications  ">
+			<remark> <![CDATA[ 设置一个用户可发布的最多分布式应用软件数目。这个命令只能由集群管理员和等同集群管理员身份的注册用户操作。 ]]> </remark>
+			<syntax> <![CDATA[ SET MAX APPLICATIONS 数字 TO 用户名称
+SET MAX APPLICATIONS 数字 TO 用户签名 ]]> </syntax>
+			<params> <![CDATA[ 数字：分布式应用软件数目
+用户名称 ：任意语言的字符组合，多个用户名称之间用逗号分开，忽略大小写。
+用户签名 ：以SIGN为前缀的64个16进制字符，是用户名称的SHA256编码。多个用户签名之间用逗号分开。用户名称和用户签名可以混合使用。 ]]> </params>
+		</item>
+
+		<item title=" Set Max Regulates ">
+			<remark> <![CDATA[设置一个用户可使用的最多定时优化表数据数目。即用户通过“CREATE REGULATE TIME”命令实现定时优化表的数目。这个命令只能由集群管理员和等同集群管理员身份的注册用户操作。  ]]> </remark>
+			<syntax> <![CDATA[SET MAX REGULATES 数字 TO 用户名称
+SET MAX REGULATES 数字 TO 用户签名  ]]> </syntax>
+			<params> <![CDATA[ 数字：优化数目
+用户名称 ：任意语言的字符组合，多个用户名称之间用逗号分开，忽略大小写。
+用户签名 ：以SIGN为前缀的64个16进制字符，是用户名称的SHA256编码。多个用户签名之间用逗号分开。用户名称和用户签名可以混合使用。 ]]> </params>
+		</item>	
+		
+		<item title=" Set Max Tables ">
+			<remark> <![CDATA[ 设置一个用户可发布的最大表数目。使用“CREATE TABLE”命令建表数目统计。这个命令只能由集群管理员和等同集群管理员身份的注册用户操作。 ]]> </remark>
+			<syntax> <![CDATA[ SET MAX TABLES 数字 TO 用户名称
+SET MAX TABLES 数字 TO 用户签名 ]]> </syntax>
+			<params> <![CDATA[ 数字：表数目
+用户名称 ：任意语言的字符组合，多个用户名称之间用逗号分开，忽略大小写。
+用户签名 ：以SIGN为前缀的64个16进制字符，是用户名称的SHA256编码。多个用户签名之间用逗号分开。用户名称和用户签名可以混合使用。 ]]> </params>
+		</item>		
+		<item title=" Set Max Indexes ">
+			<remark> <![CDATA[ 设置一个表可发布的最大索引数目。使用“CREATE TABLE”命令建表时，包含的索引数目。这个命令只能由集群管理员和等同集群管理员身份的注册用户操作。 ]]> </remark>
+			<syntax> <![CDATA[ SET MAX INDEXES 数字 TO 用户名称
+SET MAX INDEXES 数字 TO 用户签名 ]]> </syntax>
+			<params> <![CDATA[数字：索引数目
+用户名称 ：任意语言的字符组合，多个用户名称之间用逗号分开，忽略大小写。
+用户签名 ：以SIGN为前缀的64个16进制字符，是用户名称的SHA256编码。多个用户签名之间用逗号分开。用户名称和用户签名可以混合使用。  ]]> </params>
+		</item>
+		<item title=" Set Cloud Size ">
+			<remark> <![CDATA[ 设置用户的云存储空间尺寸。系统为每个注册用户默认分配一个100M的云存储空间，如果空间不足或者空间过多时，可以通过这个命令调整。这个命令只能由系统管理员或者等同系统管理员身份的注册用户操作。 ]]> </remark>
+			<syntax> <![CDATA[ SET CLOUD SIZE [数字] M|G TO 用户名称
+SET CLOUD SIZE [数字] M|G TO 用户签名 ]]> </syntax>
+			<params> <![CDATA[用户名称 ：任意语言的字符组合，多个用户名称之间用逗号分开，忽略大小写。
+用户签名 ：以SIGN为前缀的64个16进制字符，是用户名称的SHA256编码。多个用户签名之间用逗号分开。用户名称和用户签名可以混合使用。 ]]> </params>
+		</item>
+		<item title=" Set User Priority ">
+			<remark> <![CDATA[ 设置用户业务的优先权。命令生效后，用户在云端的分布式命令或者分布式应用软件，将根据权级定义，获得优先执行的权利。本命令只能由系统管理员或者等同系统管理员身份的注册用户操作。 ]]> </remark>
+			<syntax> <![CDATA[ SET USER PRIORITY [命令权级] TO 用户名称
+SET USER PRIORITY [命令权级] TO 用户签名 ]]> </syntax>
+			<params> <![CDATA[用户名称 ：任意语言的字符组合，多个用户名称之间用逗号分开，忽略大小写。
+用户签名 ：以SIGN为前缀的64个16进制字符，是用户名称的SHA256编码。多个用户签名之间用逗号分开。用户名称和用户签名可以混合使用。
+命令权级 ：从小到大，包括NONE、MIN、NORMAL、MAX四种类型。 ]]> </params>
+		</item>
+		<item title=" Set Max DSM Reduce ">
+			<remark> <![CDATA[ 设置列存储模型表的数据压缩倍数。压缩倍数与数据占用的磁盘空间呈反比，即压缩倍数越大，数据占用的磁盘空间越小。在数据输出过程，列存储数据将转成行存储数据，这个转换会使用较多的内存。这个命令只能由管理员，或者等同管理员身份的注册用户操作。 ]]> </remark>
+			<syntax> <![CDATA[ SET MAX DSM REDUCE 用户名称 数据库名.表名 压缩倍数 
+SET MAX DSM REDUCE 用户签名 数据库名.表名 压缩倍数 ]]> </syntax>
+			<params> <![CDATA[用户名称：任意语言的字符组合。
+用户签名：带SIGN前缀的64个16进制字符组合。
+数据库名和表名：除ASCII控制、符号字符之外，1-20个任意语言的字符串，忽略大小写。
+压缩倍数：正整数，必须大于0。  ]]> </params>
+		</item>
+		<item title="Set Middle Buffer">
+			<remark> <![CDATA[ 设置注册用户可使用的中间数据缓冲区尺寸。中间数据是分布计算过程中产生的数据，通过调整这个参数，可以有效改善分布计算效率。通常在同等尺寸情况下，基于内存的IO效率将比磁盘IO提高一个量级。]]> </remark>
+			<syntax> <![CDATA[ SET MIDDLE BUFFER 【数字】K|M|G TO 用户名称
+SET MIDDLE BUFFER 【数字】K|M|G TO 用户签名 ]]> </syntax>
+			<params> <![CDATA[用户名称 ：任意语言的字符组合，多个用户名称之间用逗号分开，忽略大小写。
+用户签名 ：以SIGN为前缀的64个16进制字符，是用户名称的SHA256编码。多个用户签名之间用逗号分开。用户名称和用户签名可以混合使用。 ]]> </params>
+		</item>
+		<item title=" Set Command Mode ">
+			<remark> <![CDATA[ 设置命令在集群中的数据存取模式，包括内存存取和磁盘存取两种。此命令设置生效后，所有从FRONT节点发出的命令，它的中间数据存取方式，将选择内存存取或者磁盘存取的一种。如果命令是分布计算的一种，当整个分布计算过程都采用内存存取，实质就是内存/流计算。FRONT节点默认是磁盘存取。 ]]> </remark>
+			<syntax> <![CDATA[ SET COMMAND MODE MEMORY 
+SET COMMAND MODE DISK ]]> </syntax>
+			<params> <![CDATA[MEMORY 内存模式
+DISK 磁盘模式  ]]> </params>
+		</item>		
+		<item title=" Set Command Timeout ">
+			<remark> <![CDATA[ 设置命令超时时间。此命令生效后，所有从FRONT节点发出的命令，都将默认使用这个超时时间。达到超时时间后，系统将立即结束它的工作，并释放分布资源，并返回超时错误通知。]]> </remark>
+			<syntax> <![CDATA[ SET COMMAND TIMEOUT UNLIMIT
+SET COMMAND TIMEOUT 超时时间 ]]> </syntax>
+			<params> <![CDATA[UNLIMIT : 取消超时限制。
+超时时间：ASCII字符的0-9，与“小时、时、分、秒、HOUR、MINUTE、SECOND、H、M、S”时间单位的组合。关键字“UNLIMIT”表示不限制。  ]]> </params>
+		</item>		
+
+		<item title=" Set Cipher Timeout ">
+			<remark> <![CDATA[设置FRONT节点FIXP密钥超时时间。FIXP保存客户机投递的通信密钥，如果FIXP客户机超时不使用，FIXP服务器将主动清除密钥。这样有助于保护网络和集群安全。此命令只在FRONT节点生效，不影响集群的其它节点。  ]]> </remark>
+			<syntax> <![CDATA[ SET CIPHER TIMEOUT 超时时间 TO LOCAL]]> </syntax>
+			<params> <![CDATA[ 超时时间：ASCII字符的0-9，与“小时、时、分、秒、HOUR、MINUTE、SECOND、H、M、S”时间单位的组合。
+LOCAL：当前FRONT节点。 ]]> </params>
+		</item>
+		
+		<item title="Set Distributed Invoker Timeout">
+			<remark> <![CDATA[FRONT节点用户规定自己节点上的命令和调用器超时时间。与WATCH节点不同，在FRONT节点上，这个命令与“SET COMMAND TIMEOUT”命令拥有相同的权级。 ]]> </remark>
+			<syntax> <![CDATA[ SET DISTRIBUTED INVOKER TIMEOUT 超时时间 TO LOCAL ]]> </syntax>
+			<params> <![CDATA[ 超时时间：ASCII字符的0-9，与“小时、时、分、秒、HOUR、MINUTE、SECOND、H、M、S”时间单位的组合。关键字“UNLIMIT”表示不限制。
+LOCAL：当前FRONT节点。 ]]> </params>
+		</item>
+		
+		<item title="Check System Info">
+			<remark> <![CDATA[检测FRONT硬件基础信息，这些硬件包括CPU、内存、磁盘。 ]]> </remark>
+			<syntax> <![CDATA[ CHECK SYSTEM INFO TO LOCAL]]> </syntax>
+			<params> <![CDATA[ LOCAL : 关键字。当前FRONT节点。 ]]> </params>
+		</item>
+		
+		<item title="Set Max Invoker">
+			<remark> <![CDATA[ FRONT节点用户设置本地调用器参数，包括最大调用器成员数和最大限制时间。 ]]> </remark>
+			<syntax> <![CDATA[ SET MAX INVOKER [-M -CT] TO LOCAL ]]> </syntax>
+			<params> <![CDATA[ -M：调用器最大运行数，ASCII字符的0-9组成的数字。
+-CT：ASCII字符的0-9，与“小时、时、分、秒、HOUR、MINUTE、SECOND、H、M、S”时间单位的组合。
+LOCAL：当前WATCH节点。]]> </params>
+		</item>
+		<item title="Set Echo Buffer">
+			<remark> <![CDATA[ FRONT节点用户设置本地异步缓冲区空间尺寸。 ]]> </remark>
+			<syntax> <![CDATA[ SET ECHO BUFFER 缓冲区尺寸 TO LOCAL ]]> </syntax>
+			<params> <![CDATA[ 缓冲区尺寸：ASCII字符的0-9，与“K、M、G”等内存单位的组合。如果是0，表示不限制内存使用量。
+LOCAL：当前FRONT节点。]]> </params>
+		</item>
+
+		<item title="Set Log Elements">
+			<remark> <![CDATA[ 设置界面日志显示数目。系统显示限制在0 - 2000行范围，完整记录请查阅磁盘上的日志文件。只限FRONT.TERMINAL界面有效。 ]]> </remark>
+			<syntax> <![CDATA[ SET LOG ELEMENTS 显示数目 ]]> </syntax>
+			<params> <![CDATA[ 显示数目 ：数字。 ]]> </params>
+		</item>
+
+		<item title=" Create Limit ">
+			<remark> <![CDATA[ 建立一个限制操作规则。属于可调CAP策略命令集，对应CP策略。是注册用户规定自己的数据故障后预定义控制命令。当数据处理发生“写操作”故障后，为保证数据一致性，系统将自动启动它进行限制操作，相关数据资源将被锁定，直到这些数据资源被解锁。这个命令主要针对交易、生产等关键领域。分为三个级别，包括“用户级、数据库级、数据表级”，上一级覆盖下一级的全部权限。 ]]> </remark>
+			<syntax> <![CDATA[ CREATE LIMIT READ,WRITE ON USER
+CREATE LIMIT READ,WRITE ON DATABASE 数据库名
+CREATE LIMIT READ,WRITE ON TABLE 数据库名.表名 ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制符号字符外，1-20个任意语言字符组合，忽略大小写。多个数据库名和表名之间，用逗号分开。
+READ 故障发生后，限制读操作。
+WRITE 故障发生后，限制写操作。
+ON USER 用户级别。故障发生后，限制用户操作。
+ON DATABASE 数据库级别。故障发生后，限制关联的数据库及下表表操作。
+ON TABLE 数据表级别。故障发生后，限制关联的表操作。 ]]> </params>
+		</item>		
+		<item title=" Drop Limit ">
+			<remark> <![CDATA[ 解除一个限制操作。是CREATE LIMIT命令的反向操作。 ]]> </remark>
+			<syntax> <![CDATA[ DROP LIMIT READ,WRITE ON USER
+DROP LIMIT READ,WRITE ON DATABASE 数据库名
+DROP LIMIT READ,WRITE ON TABLE 数据库名.表名 ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制符号字符外，1-20个任意语言字符组合，忽略大小写。多个数据库名和表名之间，用逗号分开。
+READ 解除读操作限制。
+WRITE 解除写操作限制。
+ON USER 解除用户级别限制。
+ON DATABASE 解除数据库级别限制。
+ON TABLE 解除数据表级别限制。 ]]> </params>
+		</item>		
+		<item title=" Show Limit ">
+			<remark> <![CDATA[ 显示已经定义的限制规则。 ]]> </remark>
+			<syntax> <![CDATA[ SHOW LIMIT ]]> </syntax>
+			<params> <![CDATA[  ]]> </params>
+		</item>		
+		<item title=" Create Fault ">
+			<remark> <![CDATA[ 建立并向系统提交一个故障规则。“CREATE FAULT”命令被系统接受后，结合之前定义的“CREATE LIMIT”命令，相关的资源将被锁定，直到用户使用“DROP FAULT”命令撤销，相关资源的数据处理后才能恢复。此命令是当数据处理发生故障、系统提交故障之外，向用户开放的另一个提交故障接口、是用户手动处置。 ]]> </remark>
+			<syntax> <![CDATA[ CREATE FAULT ON USER
+CREATE FAULT ON DATABAE 数据库名
+CREATE FAULT ON TABLE 数据库名.表名 ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制符号字符外，1-20个任意语言字符组合，忽略大小写。多个数据库名和表名之间，用逗号分开。
+ON USER ：匹配“CREATE LIMIT”命令的用户级及以下级别
+ON DATABASE：匹配“CREATE LIMIT”命令的数据库级及以下级别
+ON TABLE ：匹配“CREATE LIMIT”命令的数据表级别 ]]> </params>
+		</item>		
+		<item title=" Drop Fault ">
+			<remark> <![CDATA[ 从系统中撤销一个故障规则。是“CREATE FAULT”命令的反向操作。DROP FAULT命令被系统接受后，之前通过“CREATE FAULT”命令，结合“CREATE LIMIT”命令启动的数据处理限制将被撤销，数据处理恢复为可用状态。 ]]> </remark>
+			<syntax> <![CDATA[ DROP FAULT ON USER
+DROP FAULT ON DATABASE 数据库名
+DROP FAULT ON TABLE 数据表名 ]]> </syntax>
+			<params> <![CDATA[数据库名和数据表名：除ASCII控制符号字符外，1-20个任意语言字符组合，忽略大小写。如果有多个数据库名或者数据表名，之间用逗号分开。
+ON USER ：匹配CREATE LIMIT和CREATE FAULT命令，撤销用户级及以下级别故障。
+ON DATABASE：匹配CREATE LIMIT和CREATE FAULT命令，撤销数据库级及以下级别故障。
+ON TABLE ：匹配CREATE LIMIT和CREATE FAULT命令，撤销数据表级别故障。  ]]> </params>
+		</item>		
+		<item title=" Show Fault ">
+			<remark> <![CDATA[ 显示用户或者系统通过“CREATE FAULT”命令提交的故障。 ]]> </remark>
+			<syntax> <![CDATA[SHOW FAULT  ]]> </syntax>
+			<params> <![CDATA[  ]]> </params>
+		</item>		
+		<item title=" Show Forbid ">
+			<remark> <![CDATA[ 显示禁止操作单元。用户设置“CREATE LIMIT”命令后，数据处理发生故障系统自动提交，用户手动提交“CREATE FAULT”命令，系统通过匹配对比，产生和锁定的限制操作单元。只有当执行“DROP FAULT”命令后，这些限制操作单元将才被撤销。 ]]> </remark>
+			<syntax> <![CDATA[ SHOW FORBID ]]> </syntax>
+			<params> <![CDATA[  ]]> </params>
+		</item>		
+		<item title=" Show Lock Rule ">
+			<remark> <![CDATA[ 显示处于运行和等待中的分布锁规则。分布锁规则兼顾避免资源竟用和支持资源共享两种作用，保证数据处理的正确性。分布锁规则是数据处理过程中提交。 ]]> </remark>
+			<syntax> <![CDATA[ SHOW LOCK RULE ]]> </syntax>
+			<params> <![CDATA[  ]]> </params>
+		</item>		
+		
+		<item title=" Open Share Database ">
+			<remark> <![CDATA[注册用户向其他用户开放自己的数据库及下属数据表资源。开放数据资源是用户在得到系统授权情况下，由用户自己提起。资源共享有助提高集群中的数据使用效率，减少对内存和磁盘空间的占用。  ]]> </remark>
+			<syntax> <![CDATA[ OPEN SHARE DATABASE ALL ON 共享操作符 TO 被授权人名称 
+OPEN SHARE DATABASE ALL ON 共享操作符 TO 被授权人签名
+OPEN SHARE DATABASE 数据库名 ON 共享操作符 TO 被授权人名称 
+OPEN SHARE DATABASE 数据库名 ON 共享操作符 TO 被授权人签名 ]]> </syntax>
+			<params> <![CDATA[ ALL : 开放全部数据库及下属数据表。
+数据库名：除ASCII控制符号字符之外，1-20个任意语言的字符组合，忽略大小写，忽略大小写。
+共享操作符：SELECT、INSERT、DELETE、UPDATE四个关键字中的一个，或者它们以逗号为分隔符的任意组合。
+被授权人名称 ：任意语言的字符组合。多个被授权人名称之间用逗号隔开。
+被授权人签名：以“SIGN”为前缀的64个16进制字符组合。多个被授权人签名之间用逗号隔开。 ]]> </params>
+		</item>		
+		<item title=" Close Share Database ">
+			<remark> <![CDATA[ 注册用户关闭自己已经开放的数据库。是OPEN SHARE DATABASE的反向操作。 ]]> </remark>
+			<syntax> <![CDATA[ CLOSE SHARE DATABASE ALL ON 共享操作符  FROM 被授权人名称 
+CLOSE SHARE DATABASE ALL ON 共享操作符 FROM 被授权人签名
+CLOSE SHARE DATABASE 数据库名 ON 共享操作符 FROM 被授权人名称 
+CLOSE SHARE DATABASE 数据库名 ON 共享操作符 FROM 被授权人签名 ]]> </syntax>
+			<params> <![CDATA[ ALL : 关闭全部数据库及下属数据表。
+数据库名：除ASCII控制符号字符之外，1-20个任意语言的字符组合，忽略大小写。
+共享操作符：SELECT、INSERT、DELETE、UPDATE四个关键字中的一个，或者它们以逗号为分隔符的任意组合。
+被授权人名称 ：任意语言的字符组合。多个被授权人名称之间用逗号隔开。
+被授权人签名：以“SIGN”为前缀的64个16进制字符组合。多个被授权人签名之间用逗号隔开。 ]]> </params>
+		</item>		
+				
+		<item title=" Open Share Table ">
+			<remark> <![CDATA[注册用户向其他用户开放自己的数据表资源。  ]]> </remark>
+			<syntax> <![CDATA[ OPEN SHARE TABLE ALL ON 共享操作符 TO 被授权人名称 
+OPEN SHARE TABLE ALL ON 共享操作符 TO 被授权人签名
+OPEN SHARE TABLE 数据表名 ON 共享操作符 TO 被授权人名称 
+OPEN SHARE TABLE 数据表名 ON 共享操作符 TO 被授权人签名 ]]> </syntax>
+			<params> <![CDATA[ ALL : 开放全部数据库及下属数据表。
+数据表名：除ASCII控制符号字符之外，1-20个任意语言的字符组合，忽略大小写。
+共享操作符：SELECT、INSERT、DELETE、UPDATE四个关键字中的一个，或者它们以逗号为分隔符的任意组合。
+被授权人名称 ：任意语言的字符组合。多个被授权人名称之间用逗号隔开。
+被授权人签名：以“SIGN”为前缀的64个16进制字符组合。多个被授权人签名之间用逗号隔开。 ]]> </params>
+		</item>		
+				
+		<item title=" Close Share Table ">
+			<remark> <![CDATA[ 注册用户关闭自己已经开放的数据表，是OPEN SHARE TABLE的反向操作。 ]]> </remark>
+			<syntax> <![CDATA[ CLOSE SHARE TABLE ALL ON 共享操作符 FROM 被授权人名称 
+CLOSE SHARE TABLE ALL ON 共享操作符 FROM 被授权人签名
+CLOSE SHARE TABLE 数据表名 ON 共享操作符 FROM 被授权人名称 
+CLOSE SHARE TABLE 数据表名 ON 共享操作符 FROM 被授权人签名 ]]> </syntax>
+			<params> <![CDATA[ALL : 关闭全部数据表及下属数据表。
+数据表名：除ASCII控制符号字符之外，1-20个任意语言的字符组合，忽略大小写。
+共享操作符：SELECT、INSERT、DELETE、UPDATE四个关键字中的一个，或者它们以逗号为分隔符的任意组合。
+被授权人名称 ：任意语言的字符组合。多个被授权人名称之间用逗号隔开。
+被授权人签名：以“SIGN”为前缀的64个16进制字符组合。多个被授权人签名之间用逗号隔开。  ]]> </params>
+		</item>		
+		<item title=" Show Open Resource ">
+			<remark> <![CDATA[ 注册用户显示自己开放的数据表资源。 ]]> </remark>
+			<syntax> <![CDATA[SHOW OPEN RESOURCE TO ALL
+SHOW OPEN RESOURCE TO 被授权人名称 
+SHOW OPEN RESOURCE TO 被授权人签名  ]]> </syntax>
+			<params> <![CDATA[ ALL ：全部开放的用户
+被授权人名称 ：任意语言的字符组合。多个被授权人名称之间用逗号隔开。
+被授权人签名：以“SIGN”为前缀的64个16进制字符组合。多个被授权人签名之间用逗号隔开。 ]]> </params>
+		</item>
+		<item title=" Show Passive Resource ">
+			<remark> <![CDATA[注册用户显示自己“被授权”的数据表资源。  ]]> </remark>
+			<syntax> <![CDATA[ SHOW PASSIVE RESOURCE FROM ALL
+SHOW PASSIVE RESOURCE FROM 授权人名称 
+SHOW PASSIVE RESOURCE FROM 授权人签名 ]]> </syntax>
+			<params> <![CDATA[ ALL ：全部授权人
+授权人名称 ：任意语言的字符组合。多个授权人名称之间用逗号隔开。
+授权人签名：以“SIGN”为前缀的64个16进制字符组合。多个授权人签名之间用逗号隔开。 ]]> </params>
+		</item>		
+		
+		<item title=" Create Regulate Time ">
+			<remark> <![CDATA[ 设置数据重组时间。这个命令设置后，系统将根据用户的时间要求，自动启动数据重组操作，执行优化磁盘数据的工作。磁盘数据优化经过重组处理后，硬盘垃圾数据会被清除，数据结构将更加紧凑，有助于提高数据检索效率。 ]]> </remark>
+			<syntax> <![CDATA[CREATE REGULATE TIME 数据库名.表名 HOURLY 分:秒 [ORDER BY 列名]
+CREATE REGULATE TIME 数据库名.表名 DAILY 时:分:秒 [ORDER BY 列名]
+CREATE REGULATE TIME 数据库名.表名 WEEKLY 星期的某天 时:分:秒 [ORDER BY 列名]
+CREATE REGULATE TIME 数据库名.表名 MONTHLY 月的某天 时:分:秒 [ORDER BY 列名]  ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制符号字符外，1-20任意语言字符组合，忽略大小写。
+HOURLY：以小时为单位的定时启动
+DAILY：以天为单位的定时启动
+WEEKLY：以星期为单位的定时启动
+MONTHLY : 以月为单位的定时启动
+列名：表下属的列名，必须主/从索引键的任何一个。设置这个参数后，重组工作将以此列做索引执行，否则是默认主键。 ]]> </params>
+		</item>		
+		<item title=" Drop Regulate Time ">
+			<remark> <![CDATA[ 撤销数据重组时间。这个命令设置后，系统清除之前定义的数据优化时间，不再执行关联表的数据重组操作。 ]]> </remark>
+			<syntax> <![CDATA[ DROP REGULATE TIME 数据库名.表名  ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制符号字符外，1-20任意语言字符组合，忽略大小写。 ]]> </params>
+		</item>		
+		<item title=" Print Regulate Time ">
+			<remark> <![CDATA[ 显示数据重组时间 ]]> </remark>
+			<syntax> <![CDATA[ PRINT REGULATE TIME ALL 
+PRINT REGULATE TIME 数据库名.表名 ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制符号字符外，1-20任意语言字符组合，忽略大小写。如果有多个，用逗号分隔。
+ALL : 当前用户的全部数据重组触发时间 ]]> </params>
+		</item>		
+		
+		<item title="Seek Cloud Ware ">
+			<remark> <![CDATA[ 检索用户在云端的应用软件分布状态。 ]]> </remark>
+			<syntax> <![CDATA[SEEK CLOUD WARE 软件命名
+SEEK CLOUD WARE ALL ]]> </syntax>
+			<params> <![CDATA[ ALL：全部应用或者部分应用的全部。
+软件命名：LAXCUS集群操作系统命名格式的字符串，多个软件命名之间用逗号隔开。]]> </params>
+		</item>
+		
+		<item title="Set Reply Packet Mode">
+			<remark> <![CDATA[设置FRONT节点异步应答包传输模式，包括串行和并行两种。\n此命令参数是用户提供给FRONT节点的建议选项，具体情况将由FRONT节点根据当时网络宽度、CPU、内存等变量因素智能调节。]]> </remark>
+			<syntax> <![CDATA[ SET REPLY PACKET MODE 传输模式关键字 TO LOCAL ]]> </syntax>
+			<params> <![CDATA[ 传输模式关键字：SERIAL、PARALLEL。
+LOCAL : 关键字，当前FRONT节点。 ]]> </params>
+		</item>
+		
+		<item title="Set Reply Packet Size">
+			<remark> <![CDATA[设置FRONT节点自己的异步应答包尺寸。]]> </remark>
+			<syntax> <![CDATA[ SET REPLY PACKET SIZE FIXP包数据域尺寸 FIXP子包数据域尺寸 TO LOCAL ]]> </syntax>
+			<params> <![CDATA[ FIXP包数据域尺寸：一次发送的FIXP包数据域尺寸，以“M、K”为后缀单位。
+FIXP子包数据域尺寸：限制在大于0，但是小于等于 65407 字节范围内。
+LOCAL : 关键字，当前Front节点。 ]]> </params>
+		</item>
+		<item title="Set Reply Packet Size">
+			<remark> <![CDATA[设置FRONT节点异步应答包尺寸。包括FIXP包数据域尺寸和FIXP子包数据域尺寸。FIXP包由多个FIXP子包组成。\n此命令参数是用户提供给FRONT节点的建议选项，具体情况将由FRONT节点根据当时网络宽度、CPU、内存等变量因素智能调节。]]> </remark>
+			<syntax> <![CDATA[ SET REPLY PACKET SIZE FIXP包数据域尺寸 FIXP子包数据域尺寸 TO LOCAL 
+SET REPLY PACKET SIZE FIXP包数据域尺寸 FIXP子包数据域尺寸 TO LOCAL ON WIDE ]]> </syntax>
+			<params> <![CDATA[ FIXP包数据域尺寸：一次发送的FIXP包数据域尺寸，以“M、K”为后缀单位。
+FIXP子包数据域尺寸：限制在大于0，但是小于等于 65407 字节范围内。
+LOCAL : 关键字，当前FRONT节点。
+ON WIDE : 在互联网中使用。 ]]> </params>
+		</item>
+		<item title="Set Reply Send Timeout">
+			<remark> <![CDATA[设置FRONT节点发送异步数据等待反馈的超时时间。通常要求大于异步数据接收时间，且保证集群全部节点一致。\n此命令参数是用户提供给FRONT节点的建议选项，具体情况将由FRONT节点根据当时网络宽度、CPU、内存等变量因素智能调节。]]> </remark>
+			<syntax> <![CDATA[ SET REPLY SEND TIMEOUT FIXP包超时 FIXP子包超时 FIXP子包发送间隔 TO LOCAL  ]]> </syntax>
+			<params> <![CDATA[ FIXP包超时：ASCII字符的0-9，与“小时、时、分、秒、HOUR、MINUTE、SECOND、H、M、S”时间单位的组合，必须大于0。
+FIXP子包超时：ASCII字符的0-9，与“小时、时、分、秒、HOUR、MINUTE、SECOND、H、M、S”时间单位的组合，必须大于0。
+FIXP子包发送间隔：ASCII字符的0-9，与“小时、时、分、秒、HOUR、MINUTE、SECOND、H、M、S”时间单位的组合，必须在于0。
+LOCAL : 关键字，当前FRONT节点。 ]]> </params>
+		</item>
+		<item title="Set Reply Receive Timeout">
+			<remark> <![CDATA[设置FRONT节点接收异步应答数据的超时时间，通常要求小于发送异步数据等待反馈的超时时间。\n此命令参数是用户提供给FRONT节点的建议选项，具体情况将由FRONT节点根据当时网络宽度、CPU、内存等变量因素智能调节。]]> </remark>
+			<syntax> <![CDATA[SET REPLY RECEIVE TIMEOUT FIXP包超时 FIXP子包超时 TO LOCAL   ]]> </syntax>
+			<params> <![CDATA[ FIXP包超时：ASCII字符的0-9，与“小时、时、分、秒、HOUR、MINUTE、SECOND、H、M、S”时间单位的组合，必须大于0。
+FIXP子包超时：ASCII字符的0-9，与“小时、时、分、秒、HOUR、MINUTE、SECOND、H、M、S”时间单位的组合，必须大于0。
+LOCAL : 关键字，当前FRONT节点。 ]]> </params>
+		</item>
+		<item title="Set Reply Flow Control">
+			<remark> <![CDATA[设置FRONT节点异步应答流量控制参数。依此参数，系统为每个连接分配合适的带宽、发送速率。\n此命令参数是用户提供给FRONT节点的建议选项，具体情况将由FRONT节点根据当时网络宽度、CPU、内存、网络套接字等变量因素智能调节。]]> </remark>
+			<syntax> <![CDATA[SET REPLY FLOW CONTROL [-BLOCK -TIMESLICE -UNIT] TO LOCAL]]> </syntax>
+			<params> <![CDATA[ -BLOCK | -B 包队列成员数，类似tcp backlog。
+-TIMESLICE | -TS 包操作时间，以纳秒计。
+-UNIT | -U 在Massive MIMO信道传输的数据包尺寸，不能超过65417个字节。
+LOCAL : 关键字，当前FRONT节点。 ]]> </params>
+		</item>
+
+		<item title="Swarm">
+		<remark> <![CDATA[ 测试FRONT/GATE节点之间的数据传输速率。命令在FRONT/GATE节点之间进行，通过反馈数据，确定FRONT/GATE节点之间的最佳网络传输速率。合适的数据包尺寸，是保证数据稳定高效传输的基础。任何网络环境，单个数据包尺寸过大，都会出现中继设备拆分/重组数据包和丢包现象，严重时导致数据传输失败。但是数据包尺寸过小，也将促使LAXCUS集群服务器更多地被动接收/分发，后端线程频繁交互，消耗CPU资源。保守的策略，可参照INTERNET IP MTU的576字节，再略去FIXP包头大约100字节，实际FIXP数据域在476字节以内。 ]]> </remark>
+		<syntax> <![CDATA[ SWARM 传输流量 FIXP包数据域尺寸 FIXP子包数据域尺寸 FIXP子包发送间隔时间  TO HUB ]]> </syntax>
+		<params> <![CDATA[ 传输流量：一次测试的数据尺寸，以“M、K”为后缀单位。考虑网络流量对集群产生的压力，数据尺寸不得超过1G。
+FIXP包数据域尺寸：一次发送的FIXP包数据域尺寸，以“M、K”为后缀单位。一个FIXP数据包包含任意多个FIXP子包。考虑流量测试对集群产生的压力，FIXP包数据域尺寸限制在10M以内。
+FIXP子包数据域尺寸：UDP数据包最大长度是65507字节，FIXP包头尺寸在100字节左右。实际FIXP子包最大数据域尺寸应该在：65507 - 100范围内。
+FIXP子包发送间隔时间：以“MS”（毫秒）为关键字的时间参数，最小为0，表示无间隔发送。
+HUB：关键字，是登录的GATE节点。 ]]> </params>
+	</item>
+	
+	<item title="Multi Swarm ">
+		<remark> <![CDATA[ 连续测试FRONT/GATE节点之间的数据传输速率。通常单个“SWARM”命令不能反映节点之间的总体传输质量，持续多次的网络流量测试则能够把这个问题反应出来。测试结果是取多次流量测试的平均值。 ]]> </remark>
+		<syntax> <![CDATA[ MULTI SWARM 传输流量 FIXP包数据域尺寸 FIXP子包数据域尺寸 FIXP子包发送间隔时间  TO HUB 次数 ]]> </syntax>
+		<params> <![CDATA[ 传输流量：数据传输尺寸，以“M、K”为后缀单位。考虑数据流量对集群产生的压力，流量测试不得超过1G。
+FIXP包数据域尺寸：一次发送的FIXP包数据域尺寸，以“M、K”为后缀单位。一个FIXP数据包包含任意多个FIXP子包。考虑流量测试对集群产生的压力，FIXP包数据域尺寸限制在10M以内。
+FIXP子包数据域尺寸：UDP数据包最大长度是65507字节，FIXP包头尺寸在100字节左右。实际FIXP子包最大数据域尺寸应该在：65507 - 100范围内。
+FIXP子包发送间隔时间：以“MS”（毫秒）为关键字的时间参数，最小为0，表示无间隔发送。
+HUB：关键字，是登录的GATE节点。
+次数： 数字，要求大于或者等于1。 ]]> </params>
+	</item>
+
+		<item title="Parallel Multi Swarm ">
+		<remark> <![CDATA[ 测试FRONT/GATE节点之间在并行状态下的数据传输速率。通过在FRONT/GATE节点之间施加多个并行的传输流量，能够更精确地得到这两个节点之间的数据传输速率。 ]]> </remark>
+		<syntax> <![CDATA[ PARALLEL MULTI SWARM 传输流量 FIXP包数据域尺寸 FIXP子包数据域尺寸 FIXP子包发送间隔时间 TO HUB 次数 ITERATE 并行数目 ]]> </syntax>
+		<params> <![CDATA[ 传输流量：数据传输尺寸，以“M、K”为后缀单位。考虑数据流量对集群产生的压力，流量测试不得超过1G。
+FIXP包数据域尺寸：一次发送的FIXP包数据域尺寸，以“M、K”为后缀单位。一个FIXP数据包包含任意多个FIXP子包。考虑流量测试对集群产生的压力，FIXP包数据域尺寸限制在10M以内。
+FIXP子包数据域尺寸：UDP数据包最大长度是65507字节，FIXP包头尺寸在100字节左右。实际FIXP子包最大数据域尺寸应该在：65507 - 100范围内。
+FIXP子包发送间隔时间：以“MS”（毫秒）为关键字的时间参数，最小为0，表示无间隔发送。
+HUB：关键字，是登录的GATE节点。
+次数： 数字，要求大于或者等于1。
+并行数目：以“ITERATE”为前缀关键字的调用器数目。特别注意，不能超过FRONT节点最大调用器数目！ ]]> </params>
+		</item>
+
+		<item title="Release Memory">
+		<remark> <![CDATA[FRONT节点释放自己内存中的过期数据。  ]]> </remark>
+		<syntax> <![CDATA[ RELEASE MEMORY TO LOCAL ]]> </syntax>
+		<params> <![CDATA[ LOCAL : 关键字。FRONT节点只能释放自己节点的过期数据。 ]]> </params>
+		</item>
+
+		<item title="Set Release Memory Interval">
+			<remark> <![CDATA[设置FRONT节点释放内存过期数据间隔时间。  ]]> </remark>
+			<syntax> <![CDATA[ SET RELEASE MEMORY INTERVAL 间隔时间 TO LOCAL ]]> </syntax>
+			<params> <![CDATA[ LOCAL : 关键字。FRONT节点只能释放自己节点的过期数据。 ]]> </params>
+		</item>
+		
+		<item title="Set Most CPU">
+			<remark> <![CDATA[定义FRONT节点的CPU运行上限。允许FRONT节点短暂超载，如果长时间超载，系统将主动实施限载措施。]]> </remark>
+			<syntax> <![CDATA[ SET MOST CPU 中央处理器运行上限比率 TO LOCAL ]]> </syntax>
+			<params> <![CDATA[ 中央处理器运行上限比率：ASCII字符0-9，与“%”符号的组合。
+LOCAL : FRONT本地节点。 ]]> </params>
+		</item>
+		<item title="Set Most VM Memory">
+			<remark> <![CDATA[定义FRONT节点的虚拟机内存使用上限。]]> </remark>
+			<syntax> <![CDATA[SET MOST VM MEMORY 虚拟机内存使用上限比率 TO LOCAL]]> </syntax>
+			<params> <![CDATA[虚拟机内存使用上限比率：ASCII字符0-9，与“%”符号的组合。
+LOCAL : FRONT本地节点。]]> </params>
+		</item>
+		
+		<item title="Set Least Memory">
+			<remark> <![CDATA[定义FRONT节点的最低内存限制，超过规定值，节点将报警。]]> </remark>
+			<syntax> <![CDATA[ SET LEAST MEMORY UNLIMIT TO LOCAL
+SET LEAST MEMORY 内存最小剩余容量 TO LOCAL
+SET LEAST MEMORY 内存最小剩余空间比率 TO LOCAL ]]> </syntax>
+			<params> <![CDATA[ UNLIMIT：没有最低内存空间限制。
+内存最小剩余容量：ASCII字符0-9，与“G/M/K”符号的组合。
+内存最小剩余空间比率：ASCII字符0-9，与“%”符号的组合。
+LOCAL : FRONT本地节点。 ]]> </params>
+		</item>
+		<item title="Set Least Disk">
+			<remark> <![CDATA[定义FRONT节点的最低磁盘空间限制，超过规定值，节点将报警。]]> </remark>
+			<syntax> <![CDATA[ SET LEAST DISK UNLIMIT TO LOCAL
+SET LEAST DISK 磁盘最小剩余容量 TO LOCAL
+SET LEAST DISK 磁盘最小剩余空间占比 TO LOCAL
+SET LEAST DISK 磁盘目录 磁盘最小剩余容量, 磁盘目录 磁盘最小剩余空间占比  TO LOCAL ]]> </syntax>
+			<params> <![CDATA[ UNLIMIT：没有最低磁盘空间限制。
+磁盘最小剩余容量：ASCII字符0-9，与“G/M/K”符号的组合。
+磁盘最小剩余空间占比：ASCII字符0-9，与“%”符号的组合。
+LOCAL：FRONT本地节点。 ]]> </params>
+		</item>
+
+		<item title="Check Site Path">
+			<remark> <![CDATA[显示FRONT节点实时追踪检测目录，目录涉及临时数据的存取、保存日志。命令只作用于FRONT本地。]]> </remark>
+			<syntax> <![CDATA[CHECK SITE PATH TO LOCAL ]]> </syntax>
+			<params> <![CDATA[ LOCAL : FRONT本地节点。 ]]> </params>
+		</item>
+		
+		<item title="Open Tigger">
+		<remark> <![CDATA[开放Tigger部分或者全部选项。此命令只作用于Front本地。Tigger用来追踪和记录命令的流程、处理行为、数据特征。用户可以要求Front节点启用或者拒绝Tigger的记录。]]> </remark>
+		<syntax> <![CDATA[OPEN TIGGER Tigger选项 TO LOCAL ]]> </syntax>
+		<params> <![CDATA[ Tigger选项 : 包括COMMAND、MESSAGE、WARNING、ERROR、FATAL五种，多个选项之间用逗号分隔。ALL是全部选项。
+LOCAL : FRONT本地节点。 ]]> </params>
+	</item>
+
+<item title="Close Tigger">
+		<remark> <![CDATA[关闭Tigger部分或者全部选项。此命令只作用于Front本地。Tigger用来追踪和记录命令的流程、处理行为、数据特征。用户可以要求Front节点启用或者拒绝Tigger的记录。]]> </remark>
+		<syntax> <![CDATA[CLOSE TIGGER Tigger选项 FROM LOCAL]]> </syntax>
+		<params> <![CDATA[ Tigger选项 : 包括COMMAND、MESSAGE、WARNING、ERROR、FATAL五种，多个选项之间用逗号分隔。ALL是全部选项。
+LOCAL : FRONT本地节点。 ]]> </params>
+	</item>	
+	
+		<item title="Run Tub Service">
+			<remark> <![CDATA[启动边缘应用服务。边缘应用软件是LAXCUS集群操作系统提供API接口，用户遵循规范设计开发，在FRONT节点运行的服务。它即可以做为连接云端业务的终端服务，也可以是更大范围的“云边端”一体化数据处理之间的中介桥梁。 ]]> </remark>
+			<syntax> <![CDATA[ RUN TUB SERVICE 边缘应用软件名称 启动参数 ]]> </syntax>
+			<params> <![CDATA[ 边缘应用软件名称 : 任意语言语种的字符串组合，不允许有空格。边缘应用名称由开发者在软件配置定义，只在本地有效。
+启动参数：以空格为分隔符的字符串组合，由开发者和用户协商定义。 ]]> </params>
+		</item>
+		
+		<item title="Stop Tub Service">
+			<remark> <![CDATA[停止边缘应用服务。]]> </remark>
+			<syntax> <![CDATA[ STOP TUB SERVICE 边缘应用进程号 停止参数 ]]> </syntax>
+			<params> <![CDATA[ 边缘应用进程号 : 长整型正整数，通过PRINT TUB SERVICE获得。
+停止参数：以空格为分隔符的字符串组合，由开发者和用户协商定义。 ]]> </params>
+		</item>
+		
+		<item title="Print Tub Service">
+			<remark> <![CDATA[显示处于运行状态的边缘应用服务。打印结果包括边缘应用名称、进程号、线程编号。]]> </remark>
+			<syntax> <![CDATA[ PRINT TUB SERVICE 边缘应用名称  
+PRINT TUB SERVICE ]]> </syntax>
+			<params> <![CDATA[ 边缘应用名称 : 任意语言语种的字符串组合，不允许有空格。容器名称由开发者定义，只在本地有效。 ]]> </params>
+		</item>
+		
+		<item title="Show Tub Container">
+			<remark> <![CDATA[显示存在的边缘应用，无论是否运行。显示结果包括边缘应用名称、类名称。]]> </remark>
+			<syntax> <![CDATA[ SHOW TUB CONTAINER 边缘应用名称  
+SHOW TUB CONTAINER ALL ]]> </syntax>
+			<params> <![CDATA[ 边缘应用名称 : 任意语言语种的字符串组合，不允许有空格，多个名称之间用空格分隔。
+ALL : 全部容器。 ]]> </params>
+		</item>
+		
+		<item title="Check Tub Listener">
+			<remark> <![CDATA[检测FRONT节点本地运行的边缘应用服务器监听地址，包括IP和端口，采用TCP通信模式。\n边缘应用服务器负责与终端的通信，接收、判断、受理来自终端的操作，包括RPC操作和远程方法操作。]]> </remark>
+			<syntax> <![CDATA[ CHECK TUB LISTENER ]]> </syntax>
+			<params> <![CDATA[  ]]> </params>
+		</item>
+		
+		<item title="Build Conduct Package">
+			<remark> <![CDATA[生成用于大规模数据计算的分布式应用软件包。软件包在FRONT节点本地生成，发布到云端运行。]]> </remark>
+			<syntax> <![CDATA[ BUILD CONDUCT PACKAGE 分布计算包文件 IMPORT BY 分布计算脚本文件 ]]> </syntax>
+			<params> <![CDATA[ 分布计算包文件 : 以“.cpk”为后缀，文件路径适配所属操作系统。
+分布计算脚本文件：是“.script”后缀和采用UTF8编码的纯文本XML格式文件。脚本文件格式另见“LAXCUS大数据应用软件包配置脚本说明”。 ]]> </params>
+		</item>
+		
+<item title="Build Establish Package">
+			<remark> <![CDATA[生成用于大规模数据构建和数据重组的分布式应用软件包。软件包在FRONT节点本地生成，发布到云端运行。]]> </remark>
+			<syntax> <![CDATA[ BUILD ESTABLISH PACKAGE 分布数据构建包文件 IMPORT BY 分布数据构建脚本文件 ]]> </syntax>
+			<params> <![CDATA[ 分布数据构建包文件 : 以“.epk”为后缀，文件路径适配所属操作系统。
+分布数据构建脚本文件：是“.script”后缀和采用UTF8编码的纯文本XML格式文件。脚本文件格式另见“LAXCUS大数据应用软件包配置脚本说明”。 ]]> </params>
+		</item>
+		
+<item title="Build Contact Package">
+			<remark> <![CDATA[生成用于小规模快速迭代计算的分布式应用软件包。软件包在FRONT节点本地生成，发布到云端运行。]]> </remark>
+			<syntax> <![CDATA[ BUILD CONTACT PACKAGE 迭代计算分布式应用软件包文件 IMPORT BY 迭代计算脚本文件 ]]> </syntax>
+			<params> <![CDATA[ 迭代计算分布式应用软件包文件 : 以“.spk”为后缀，文件路径适配所属操作系统。
+脚本文件：是“.script”后缀和采用UTF8编码的纯文本XML格式文件。脚本文件格式另见“LAXCUS大数据应用软件包配置脚本说明”。 ]]> </params>
+		</item>
+		
+		<item title="Deploy Conduct Package">
+			<remark> <![CDATA[在本地和云端部署分布计算应用软件包。软件包在云端的分发和部署过程由LAXCUS集群操作系统自动完成。]]> </remark>
+			<syntax> <![CDATA[ DEPLOY CONDUCT PACKAGE 分布计算包文件 [-CHECKTIME]
+DEPLOY CONDUCT PACKAGE 分布计算包文件 [-CHECKTIME] TO LOCAL ]]> </syntax>
+			<params> <![CDATA[分布计算包文件 : 以“.cpk”为后缀，软件包文件路径适配当前操作系统。
+-CHECKTIME : 部署成功后的检测时间，以“秒”为单位。
+TO LOCAL : 部署软件包中的FRONT节点部分，其它忽略。 ]]> </params>
+		</item>
+		<item title="Deploy Establish Package">
+			<remark> <![CDATA[在本地和云端部署分布数据构建应用软件包。软件包在云端的分发和部署过程由LAXCUS集群操作系统自动完成。]]> </remark>
+			<syntax> <![CDATA[ DEPLOY ESTABLISH PACKAGE 分布计算包文件 [-CHECKTIME]
+DEPLOY ESTABLISH PACKAGE 分布计算包文件 [-CHECKTIME] TO LOCAL ]]> </syntax>
+			<params> <![CDATA[分布数据构建包文件 : 以“.epk”为后缀，软件包文件路径适配当前操作系统。
+-CHECKTIME : 部署成功后的检测时间，以“秒”为单位。
+TO LOCAL : 部署软件包中的FRONT节点部分，其它忽略。 ]]> </params>
+		</item>
+		<item title="Deploy Contact Package">
+			<remark> <![CDATA[在本地和云端部署迭代计算分布式应用软件包。软件包在云端的分发和部署过程由LAXCUS集群操作系统自动完成。]]> </remark>
+			<syntax> <![CDATA[ DEPLOY CONTACT PACKAGE 迭代计算分布式应用软件包文件 [-CHECKTIME]
+DEPLOY CONTACT PACKAGE 迭代计算分布式应用软件包文件 [-CHECKTIME] TO LOCAL ]]> </syntax>
+			<params> <![CDATA[迭代计算分布式应用软件包文件 : 以“.spk”为后缀，软件包文件路径适配当前操作系统。
+-CHECKTIME : 部署成功后的检测时间，以“秒”为单位。
+TO LOCAL : 只部署软件包中的FRONT节点部分，其它忽略。]]> </params>
+		</item>
+
+		<item title="Drop Conduct Package">
+			<remark> <![CDATA[删除云端和本地的分布计算应用软件包。应用软件包被删除后不能恢复，请谨慎使用！]]> </remark>
+			<syntax> <![CDATA[ DROP CONDUCT PACKAGE 应用软件名称
+DROP CONDUCT PACKAGE 应用软件名称 FROM LOCAL ]]> </syntax>
+			<params> <![CDATA[应用软件名称 : 除ASCII控制符号字符外，任意语言的字符组合，忽略大小写。应用软件名称限制在16个字符内。通常由软件的开发者或者生产商定义。
+FROM LOCAL : 只删除软件包中部署在FRONT节点部分，云端部分忽略。 ]]> </params>
+		</item>
+		<item title="Drop Establish Package">
+			<remark> <![CDATA[删除云端和本地的分布计算应用软件包。应用软件包被删除后不能恢复，请谨慎使用！]]> </remark>
+			<syntax> <![CDATA[ DROP ESTABLISH PACKAGE 应用软件名称
+DROP ESTABLISH PACKAGE 应用软件名称 FROM LOCAL ]]> </syntax>
+			<params> <![CDATA[应用软件名称 : 除ASCII控制符号字符外，任意语言的字符组合，忽略大小写。应用软件名称限制在16个字符内。通常由软件的开发者或者生产商定义。
+FROM LOCAL : 只删除软件包中部署在FRONT节点部分，云端部分忽略。 ]]> </params>
+		</item>
+		<item title="Drop Contact Package">
+			<remark> <![CDATA[删除云端和本地的迭代计算应用软件包。应用软件包被删除后不能恢复，请谨慎使用！]]> </remark>
+			<syntax> <![CDATA[ DROP CONTACT PACKAGE 应用软件名称
+DROP CONTACT PACKAGE 应用软件名称 FROM LOCAL ]]> </syntax>
+			<params> <![CDATA[应用软件名称 : 除ASCII控制符号字符外，任意语言的字符组合，忽略大小写。应用软件名称限制在16个字符内。通常由软件的开发者或者生产商定义。
+FROM LOCAL : 只删除软件包中部署在FRONT节点部分，云端部分忽略。 ]]> </params>
+		</item>
+		<item title="Create Cloud Directory">
+			<remark> <![CDATA[在云端空间建立一个新的目录。]]> </remark>
+			<syntax> <![CDATA[ CREATE CLOUD DIRECTORY 存储资源定义器 ]]> </syntax>
+			<params> <![CDATA[存储资源定义器 : Store Resource Locator，用来标记Laxcus集群用户资源的唯一性地址，类似URL，由节点类型、主机地址、主机端口、资源路径名组成。如：call://192.168.1.23:9090_9090/paths ]]> </params>
+		</item>
+		<item title="Drop Cloud Directory">
+			<remark> <![CDATA[删除云端空间目录，以及目录下面的文件，目录删除后不可恢复，请谨慎使用。]]> </remark>
+			<syntax> <![CDATA[ DROP CLOUD DIRECTORY 存储资源定义器 ]]> </syntax>
+			<params> <![CDATA[存储资源定义器 : Store Resource Locator，用来标记Laxcus集群用户资源的唯一性地址，类似URL，由节点类型、主机地址、主机端口、资源路径名组成。如：call://192.168.1.23:9090_9090/paths  ]]> </params>
+		</item>
+		<item title="Drop Cloud File">
+			<remark> <![CDATA[删除云端文件，文件删除后不可恢复，请谨慎使用。]]> </remark>
+			<syntax> <![CDATA[ DROP CLOUD FILE 存储资源定义器 ]]> </syntax>
+			<params> <![CDATA[存储资源定义器 : Store Resource Locator，用来标记Laxcus集群用户资源的唯一性地址，类似URL，由节点类型、主机地址、主机端口、资源路径名组成。如：call://192.168.1.23:9090_9090/paths  ]]> </params>
+		</item>
+		<item title="Rename Cloud Directory">
+			<remark> <![CDATA[修改云端的目录名称。被修改者只限目录名称本身，不影响目录下的子目录和文件名称。]]> </remark>
+			<syntax> <![CDATA[RENAME CLOUD DIRECTORY 存储资源定义器 AS 新的目录名称 ]]> </syntax>
+			<params> <![CDATA[存储资源定义器 : Store Resource Locator，用来标记Laxcus集群用户资源的唯一性地址，类似URL，由节点类型、主机地址、主机端口、资源路径名组成。如：call://192.168.1.23:9090_9090/paths \n新的目录名称：仅为目录名称本身，不包含它的全路径。 ]]> </params>
+		</item>
+		<item title="Rename Cloud File">
+			<remark> <![CDATA[修改云端文件名称。被修改者只限这个文件本身，同目录下的其它文件或者目录不受影响。]]> </remark>
+			<syntax> <![CDATA[ RENAME CLOUD FILE 存储资源定义器 AS 新的文件名称 ]]> </syntax>
+			<params> <![CDATA[存储资源定义器 : Store Resource Locator，用来标记Laxcus集群用户资源的唯一性地址，类似URL，由节点类型、主机地址、主机端口、资源路径名组成。如：call://192.168.1.23:9090_9090/paths \n新的文件名称：仅为文件名称本身，不包含它的全路径。 ]]> </params>
+		</item>
+		<item title="Scan Cloud Directory">
+			<remark> <![CDATA[扫描云端空间中的资源，包括目录和目录下面的文件。]]> </remark>
+			<syntax> <![CDATA[ SCAN CLOUD DIRECTORY 存储资源定义器 ]]> </syntax>
+			<params> <![CDATA[存储资源定义器 : Store Resource Locator，用来标记Laxcus集群用户资源的唯一性地址，类似URL，由节点类型、主机地址、主机端口、资源路径名组成。如：call://192.168.1.23:9090_9090/paths ]]> </params>
+		</item>
+		<item title="Upload Cloud File">
+			<remark> <![CDATA[上传文件到云端空间。]]> </remark>
+			<syntax> <![CDATA[ UPLOAD CLOUD FILE FROM [-O YES|NO] [-F 本地磁盘文件] TO 存储资源定义器 ]]> </syntax>
+			<params> <![CDATA[存储资源定义器 : Store Resource Locator，用来标记Laxcus集群用户资源的唯一性地址，类似URL，由节点类型、主机地址、主机端口、资源路径名组成。如：call://192.168.1.23:9090_9090/path/file.txt ]]> </params>
+		</item>
+		<item title="Download Cloud File">
+			<remark> <![CDATA[下载云端的文件到本地。]]> </remark>
+			<syntax> <![CDATA[ DOWNLOAD CLOUD FILE FROM 存储资源定义器 TO [-O YES|NO] [-F 本地磁盘文件]  ]]> </syntax>
+			<params> <![CDATA[存储资源定义器 : Store Resource Locator，用来标记Laxcus集群用户资源的唯一性地址，类似URL，由节点类型、主机地址、主机端口、资源路径名组成。如：call://192.168.1.23:9090_9090/path/file.txt ]]> </params>
+		</item>
+		<item title="Run DAPP">
+			<remark> <![CDATA[运行分布式应用。]]> </remark>
+			<syntax> <![CDATA[ RUN DAPP 基础字 ]]> </syntax>
+			<params> <![CDATA[基础字 : 软件名称.组件根命名。是除ASCII控制符号字符外，任意语言的字符组合，忽略大小写。应用软件名称限制在16个字符内。通常由软件的开发者或者生产商定义。 ]]> </params>
+		</item>
+	</group>
+	
+	<group no="4" title="分布计算命令">
+		<item title="Conduct">
+			<remark> <![CDATA[ 大规模分布式计算命令。CONDUCT命令是基于集群架构的"DIFFUSE/CONVERGE"算法语句化实现。它采用“容器/框架命令”结构，在它的内部可以包含各种命令，包括SQL命令，以及各种系统参数和自定义参数。CONDUCT命令通过命名，调用关联的分布式应用软件，实现复杂环境下的多层次、多数据维度的分布式计算工作。语法格式中“[]”范围内的阶段为可选项。详细介绍另见《LAXCUS集群操作系统 - 分布式计算操作使用说明》。 ]]> </remark>
+			<syntax> <![CDATA[ CONDUCT 命名 
+[INIT 系统和自定义参数] 
+FROM 系统和自定义参数
+TO 系统和自定义参数 
+[SUBTO 系统和自定义参数] 
+[BALANCE 系统和自定义参数] 
+[PUT 系统和自定义参数] ]]> </syntax>
+			<params> <![CDATA[ 命名：由应用软件名称和组件根名称组成，中间由点号(.)分隔。名称除ASCII控制符号字符外，任意语言的字符组合，忽略大小写。应用软件名称限制在16个字符内，组件根名称长度不限制。如：Soft1.Task1。\n
+系统参数格式：名称:值。名称忽略大小写，不检查重复。\n
+自定义参数格式：名称=值。名称忽略大小写，不检查重复。\n
+
+事务规则，语法组合有：
+1. ATTACH ALL BE SHARE
+2. ATTACH ALL BE NOT SHARE
+3. ATTACH DATABASE 数据库 BE SHARE
+4. ATTACH DATABASE 数据库 NOT SHARE
+5. ATTACH TABLE 数据库.表 BE SHARE
+6. ATTACH TABLE 数据库.表 BE NOT SHARE
+7. ATTACH ROW 数据库.表/列 列参数 BE SHARE 
+8. ATTACH ROW 数据库.表/列 列参数 BE NOT SHARE ]]> </params>
+		</item>
+		
+		<item title="Contact">
+			<remark> <![CDATA[ 简单和快速的分布式计算命令。CONTACT命令兼顾客户机/服务器模型和计算机集群模型，用来处理传统的数据库业务，或者纯粹的分布式计算业务。典型如EJB和比特币挖矿。这些计算工作通常数据处理规模比较小，要求更快的计算效率。CONTACT也是“容器命令”，遵循“阶段化”的数据处理原则，通过命名，调用分布在集群中的应用软件，执行数据存储和计算工作。语法格式中“[]”范围内的阶段为可选项。详细介绍另见《LAXCUS集群操作系统 - 分布式计算操作使用说明》。 ]]> </remark>
+			<syntax> <![CDATA[ CONTACT 命名 
+[FORK 系统和自定义参数] 
+DISTANT 系统和自定义参数 
+[SUBDISTANT 系统和自定义参数] 
+[MERGE 系统和自定义参数] 
+[NEAR 系统和自定义参数] ]]> </syntax>
+			<params> <![CDATA[ 命名：由应用软件名称和组件根名称组成，中间由点号(.)分隔。名称除ASCII控制符号字符外，任意语言的字符组合，忽略大小写。应用软件名称限制在16个字符内，组件根名称长度不限制。如：Soft1.Task1。\n
+系统参数格式：名称:值。名称忽略大小写，不检查重复。\n
+自定义参数格式：名称=值。名称忽略大小写，不检查重复。\n
+
+事务规则，语法组合有：
+1. ATTACH ALL BE SHARE
+2. ATTACH ALL BE NOT SHARE
+3. ATTACH DATABASE 数据库 BE SHARE
+4. ATTACH DATABASE 数据库 NOT SHARE
+5. ATTACH TABLE 数据库.表 BE SHARE
+6. ATTACH TABLE 数据库.表 BE NOT SHARE
+7. ATTACH ROW 数据库.表/列 列参数 BE SHARE 
+8. ATTACH ROW 数据库.表/列 列参数 BE NOT SHARE ]]> </params>
+		</item>
+
+		<item title="Establish">
+			<remark> <![CDATA[ 分布数据构建命令，是“SCAN/SIFT”算法的语句化实现。它做为“容器命令”，遵循“阶段化”的数据处理原则。在它的内部可以包含其它命令和系统、自定义参数。ESTABLISH通过命名，调用关联的分布式应用软件，在分布状态下，执行各种数据的组合、重组和分配工作。语法格式中“[]”范围内的阶段为可选项。 ]]> </remark>
+			<syntax> <![CDATA[ ESTABLISH 命名 
+[ISSUE 自定义参数] 
+SCAN [系统和自定义参数] 
+SIFT [系统和自定义参数] 
+[RISE 系统和自定义参数] 
+[ASSIGN 系统和自定义参数] 
+[END 系统和自定义] ]]> </syntax>
+			<params> <![CDATA[ 命名：由应用软件名称和组件根名称组成，中间由点号(.)分隔。名称除ASCII控制符号字符外，任意语言的字符组合，忽略大小写。应用软件名称限制在16个字符内，组件根名称长度不限制。如：Soft1.Task1。\n
+系统参数格式：名称:值。名称忽略大小写，不检查重复。\n
+自定义参数格式：名称=值。名称忽略大小写，不检查重复。\n
+事务规则，语法组合有：
+1. ATTACH ALL BE SHARE
+2. ATTACH ALL BE NOT SHARE
+3. ATTACH DATABASE 数据库 BE SHARE
+4. ATTACH DATABASE 数据库 NOT SHARE
+5. ATTACH TABLE 数据库.表 BE SHARE
+6. ATTACH TABLE 数据库.表 BE NOT SHARE
+7. ATTACH ROW 数据库.表/列 列参数 BE SHARE 
+8. ATTACH ROW 数据库.表/列 列参数 BE NOT SHARE ]]> </params>
+		</item>
+		
+		<item title="Regulate ">
+			<remark> <![CDATA[ 重组单个数据节点的数据。数据重组是删除磁盘的垃圾记录，以更紧凑的格式重新排列数据。重组后的数据通常数据尺寸更小，检索速度更快。数据重组期间，各台计算机只处理本地数据，相互之间不发生联系，不接受来自外部的数据修改、删除操作。 ]]> </remark>
+			<syntax> <![CDATA[ REGULATE 数据库名.表名  ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制符号字符外，1-20任意语言的字符组合，忽略大小写。  ]]> </params>
+		</item>
+		
+		<item title=" Modulate">
+			<remark> <![CDATA[ 多机协调下的数据重组工作，可以视为REGULATE命令的集群版本。MODULATE重组工作也是删除磁盘垃圾数据。但是在重组过程中，计算机之间需要进行网络通信，评估数据资源的分布状况，发生数据协同。这项工作将使集群的数据分布结构更加优化，最大化平衡数据资源。在数据重组过程中，不接受来自外部的数据修改、删除操作。 ]]> </remark>
+			<syntax> <![CDATA[ MODULATE 数据库名.表名 [ORDER BY 列名] ]]> </syntax>
+			<params> <![CDATA[ 数据库名.表名：除ASCII控制符号字符外，1-20任意语言字符组合，忽略大小写。\n
+列名：表下属的列名，必须主/从索引键的任何一个。设置这个参数后，重组工作将以此列做索引执行，否则是默认主键。 ]]> </params>
+		</item>
+		
+	</group>
+	
+	<group no="5" title="工具命令">
+		<item title="Build MD5">
+			<remark> <![CDATA[ 生成文本或者磁盘文件的MD5数字签名。如果是文本，是它的UTF8编码后的数字签名；如果是磁盘文件，是它二进制内容的数字签名。  ]]> </remark>
+			<syntax> <![CDATA[ BUILD MD5 [NOT CASE|CASE] 任意语种的文本  \n BUILD MD5 磁盘文件  ]]> </syntax>
+			<params> <![CDATA[ CASE 文本大小写敏感，以当前原生字符生成数字签名。\n
+NOT CASE 文本大小写不敏感，转字小写字符生成数字签名。 \n
+如果没有指定，默认是不敏感，文本转成小写字符生成数字签名。  ]]> </params>
+		</item>
+		<item title="Build SHA1">
+			<remark> <![CDATA[ 生成文本或者磁盘文件的SHA1数字签名。如果是文本，是它的UTF8编码后的数字签名；如果是磁盘文件，是它二进制内容的数字签名。  ]]> </remark>
+			<syntax> <![CDATA[ BUILD SHA1 [NOT CASE|CASE] 任意语种的文本  \n BUILD SHA1 磁盘文件  ]]> </syntax>
+			<params> <![CDATA[ CASE 文本大小写敏感，以当前原生字符生成数字签名。\n
+NOT CASE 文本大小写不敏感，转字小写字符生成数字签名。 \n
+如果没有指定，默认是不敏感，文本转成小写字符生成数字签名。  ]]> </params>
+		</item>
+		<item title="Build SHA256">
+			<remark> <![CDATA[ 生成文本或者磁盘文件的SHA256数字签名。如果是文本，是它的UTF8编码后的数字签名；如果是磁盘文件，是它二进制内容的数字签名。  ]]> </remark>
+			<syntax> <![CDATA[ BUILD SHA256 [NOT CASE|CASE] 任意语种的文本  \n BUILD SHA256 磁盘文件  ]]> </syntax>
+			<params> <![CDATA[ CASE 文本大小写敏感，以当前原生字符生成数字签名。\n
+NOT CASE 文本大小写不敏感，转字小写字符生成数字签名。 \n
+如果没有指定，默认是不敏感，文本转成小写字符生成数字签名。  ]]> </params>
+		</item>
+		<item title="Build SHA512">
+			<remark> <![CDATA[ 生成文本或者磁盘文件的SHA512数字签名。如果是文本，是它的UTF8编码后的数字签名；如果是磁盘文件，是它二进制内容的数字签名。  ]]> </remark>
+			<syntax> <![CDATA[ BUILD SHA512 [NOT CASE|CASE] 任意语种的文本  \n BUILD SHA512 磁盘文件  ]]> </syntax>
+			<params> <![CDATA[ CASE 文本大小写敏感，以当前原生字符生成数字签名。\n
+NOT CASE 文本大小写不敏感，转字小写字符生成数字签名。 \n
+如果没有指定，默认是不敏感，文本转成小写字符生成数字签名。  ]]> </params>
+		</item>
+		
+		<item title=" Encode Half">
+			<remark> <![CDATA[ 把一串文本编码成半截符码。半截符码是Laxcus集群操作系统内部使用的一种编码，类似UTF8。 ]]> </remark>
+			<syntax> <![CDATA[ ENCODE HALF [NOT CASE|CASE] 任意文字 ]]> </syntax>
+			<params> <![CDATA[ NOT CASE 文本大小写不敏感。\n
+CASE 文本大小写敏感。\n
+如果没有指定，默认是不敏感，文本转成小写字符后编码。 ]]> </params>
+		</item>
+		
+		<item title=" Decode Half ">
+			<remark> <![CDATA[ 把一串半截符码还原成它的明文。 ]]> </remark>
+			<syntax> <![CDATA[ DECODE HALF 半截符文字 ]]> </syntax>
+			<params> <![CDATA[  ]]> </params>
+		</item>
+		
+		<item title=" Build Each ">
+			<remark> <![CDATA[ 生成Each算法的数字签名。Each是Laxcus集群操作系统私有数字签名算法。任意长度的字节数组签名，返回一个64位的长整型。值的范围在0 - 0x7FFFFFFF之间，实际是一个63位的长整形正数值。 ]]> </remark>
+			<syntax> <![CDATA[ BUILD EACH [NOT CASE|CASE] 任意语种的文本 ENCODE BY [UTF8, UTF16, UTF32] \n
+BUILD EACH 磁盘文件路径 ]]> </syntax>
+			<params> <![CDATA[ CASE 文本大小写敏感。\n
+NOT CASE文本大小写不敏感，转成小写字符生成数字签名。\n
+以上都没有指定，默认是不敏感，文本转成小写字符生成数字签名。\n
+ENCODE BY 文本编码格式，包括UTF8、UTF16(大头码)、UTF32三种。默认采用UTF8编码。 ]]> </params>
+		</item>
+	</group>
+	
+	<group no="6" title="本地命令">
+		<item title="Help">
+			<remark> <![CDATA[ 显示被查询命令和详细使用信息。HELP命令只能在字符控制台和桌面终端上使用，图形环境下无效。]]> </remark>
+			<syntax> <![CDATA[ HELP \n HELP 命令子句 \n HELP 命令子句*  ]]> </syntax>
+			<params> <![CDATA[ 命令 除本地命令之外的所有命令，支持命令子句和通配符“*”组合的模糊查询。]]> </params>
+		</item>
+		<item title="Version">
+			<remark> <![CDATA[ 当前Laxcus分布式操作系统版本号和关联信息。 这个命令作用于当前节点。 ]]> </remark>
+			<syntax> <![CDATA[ VERSION  ]]> </syntax>
+			<params> <![CDATA[   ]]> </params>
+		</item>
+		<item title="Clear ">
+			<remark> <![CDATA[ 清除全部显示记录。这个命令在桌面环境下的远程终端有效和使用。 ]]> </remark>
+			<syntax> <![CDATA[ CLEAR ]]> </syntax>
+			<params> <![CDATA[  ]]> </params>
+		</item>
+		<item title="Set Number ">
+			<remark> <![CDATA[ 在屏幕上为每一个记录设置行号，或者否。这个命令在桌面环境下的远程终端有效和使用。]]> </remark>
+			<syntax> <![CDATA[ SET NUMBER  [YES|NO]  \n SET NUM  [YES|NO]  ]]> </syntax>
+			<params> <![CDATA[ ]]> </params>
+		</item>
+		
+		<item title=" Set Rows">
+			<remark> <![CDATA[ 设置当前环境的最大显示记录数，超出后自动清除。这个命令在桌面环境下的远程终端有效和使用，记录数是一个大0的正整数。 ]]> </remark>
+			<syntax> <![CDATA[ SET ROWS  记录数 ]]> </syntax>
+			<params> <![CDATA[  ]]> </params>
+		</item>
+		
+		<item title="Exit">
+			<remark> <![CDATA[ 退出当前控制台运行环境。 ]]> </remark>
+			<syntax> <![CDATA[ EXIT ]]> </syntax>
+			<params> <![CDATA[  ]]> </params>
+		</item>
+	</group>
+	
+</commands>

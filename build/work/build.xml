@@ -1,0 +1,109 @@
+<project default="build-work-jar">
+
+	<target name="build-work-jar">
+		<delete file="${basedir}/build/work/laxcus_work.jar"/>
+		<jar destfile="${basedir}/build/work/laxcus_work.jar" manifest="${basedir}/build/work/META-INF/MANIFEST.MF">
+
+			<fileset dir="${basedir}/bin">
+				<exclude name="com/laxcus/pool/conduct/ToListener.class"/>
+				<exclude name="com/laxcus/pool/conduct/ToPool.class"/>
+				
+				<include name="com/laxcus/thread/*.class"/>
+				<include name="com/laxcus/launch/**/*.class"/>
+				<exclude name="com/laxcus/launch/hub/*.class"/>
+				
+				<include name="com/laxcus/launch/licence/*.class"/>
+				<exclude name="com/laxcus/launch/licence/LicenceWriter.class"/>
+				
+				<include name="com/laxcus/pool/*.class"/>
+				<include name="com/laxcus/pool/archive/*.class"/>
+
+
+				<include name="com/laxcus/distribute/**/*.class"/>
+				<include name="com/laxcus/scaler/**/*.class"/>
+
+				<include name="com/laxcus/task/*.class"/>
+				<include name="com/laxcus/task/archive/*.class"/>
+				<include name="com/laxcus/task/mid/*.class"/>
+				<include name="com/laxcus/task/meta/*.class"/>
+				<include name="com/laxcus/task/flux/*.class"/>
+				<include name="com/laxcus/task/talk/**/*.class"/>
+				<include name="com/laxcus/task/util/*.class"/>
+				
+				<include name="com/laxcus/task/conduct/*.class"/>
+				<!-- <include name="com/laxcus/task/conduct/seeker/*.class"/> -->
+				<include name="com/laxcus/task/conduct/to/*.class"/>
+				<include name="com/laxcus/task/conduct/util/*.class"/>
+
+				<include name="com/laxcus/task/contact/*.class"/>
+				<!-- <include name="com/laxcus/task/contact/seeker/*.class"/> -->
+				<include name="com/laxcus/task/contact/distant/*.class"/>
+				<include name="com/laxcus/task/contact/util/*.class"/>
+
+				<!--
+				<include name="com/laxcus/task/swift/*.class"/>
+				<include name="com/laxcus/task/swift/distant/*.class"/>
+				<include name="com/laxcus/task/swift/util/*.class"/>
+				-->
+				
+				<!--
+				<include name="com/laxcus/swift/**/*.class"/>
+				<exclude name="com/laxcus/swift/demo/**/*.class"/>
+				-->
+				
+				<include name="com/laxcus/xml/*.class"/>
+				<include name="com/laxcus/invoke/*.class"/>
+				<include name="com/laxcus/invoke/impl/*.class"/>
+				<include name="com/laxcus/fixp/**/*.class"/>
+				<include name="com/laxcus/security/*.class"/>
+				
+				<include name="com/laxcus/util/**/*.class"/>
+				
+				<include name="com/laxcus/law/**/*.class"/>
+					
+				<include name="com/laxcus/access/**/*.class"/>
+				<exclude name="com/laxcus/access/Access.class"/>
+				
+				<include name="com/laxcus/echo/**/*.class"/>
+				<include name="com/laxcus/command/**/*.class"/>
+
+				<include name="com/laxcus/work/**/*.class"/>
+
+				<include name="com/laxcus/log/*.class"/>
+				<include name="com/laxcus/log/client/*.class"/>
+
+				<include name="com/laxcus/site/*.class"/>
+				<include name="com/laxcus/site/work/*.class"/>
+				<include name="com/laxcus/site/rank/*.class"/>
+				<include name="com/laxcus/site/data/*.class"/>
+				<include name="com/laxcus/site/archive/*.class"/>
+
+				<include name="com/laxcus/remote/*.class"/>
+				<include name="com/laxcus/remote/client/*.class"/>
+				<include name="com/laxcus/remote/client/hub/*.class"/>
+				<include name="com/laxcus/remote/client/echo/*.class"/>
+				
+				<include name="com/laxcus/remote/client/home/*.class"/>
+				<include name="com/laxcus/remote/client/work/*.class"/>
+				<include name="com/laxcus/remote/client/data/*.class"/>
+				<include name="com/laxcus/remote/client/call/*.class"/>
+				
+				<include name="com/laxcus/visit/*.class"/>
+				<include name="com/laxcus/visit/echo/*.class"/>
+				<include name="com/laxcus/visit/hub/*.class"/>
+				
+				<include name="com/laxcus/visit/naming/home/*.class"/>
+				<include name="com/laxcus/visit/naming/work/*.class"/>
+				<include name="com/laxcus/visit/naming/data/*.class"/>
+				<include name="com/laxcus/visit/naming/call/*.class"/>
+				
+				<include name="com/laxcus/visit/impl/*.class"/>
+				<include name="com/laxcus/visit/impl/work/*.class"/>
+
+				<!-- <include name="com/laxcus/task/system/select/util/*.class"/> -->
+			</fileset>
+
+		</jar>
+	</target>
+
+</project>

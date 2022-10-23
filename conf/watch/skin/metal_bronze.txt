@@ -1,0 +1,170 @@
+# 青铜样式定义！只保留有用的，默认忽略！
+
+# Viewport.background由TextField.background来决定 ， 两侧双引号是关键字，表示这是一个代理样式！
+Viewport.background {"TextField.background"}
+
+# 集群节点参数溢出颜色（红色！)
+SiteRuntime.fullText {"纯红色"}
+
+# 消息面板，CommentTextForeground ，匹配List.foreground
+#MessagePanel.CommentTextForeground {"List.foreground"}
+#MessagePanel.WarningTextForeground {255,220,35}
+#MessagePanel.FaultTextForeground {169,46,34}
+# 命令输入窗口的颜色 
+#CommandPane.textCommand {#8BB279}
+#CommandPane.textKeyword {#4CA3D2}
+#CommandPane.textType {#f07966}
+#CommandPane.textNormal {168,168,168}
+
+# 消息面板
+MessagePanel.CommentTextForeground {"List.foreground"}
+MessagePanel.WarningTextForeground ESL:{28,240,100}
+MessagePanel.FaultTextForeground ESL:{5,240,110}
+
+# 命令面板
+CommandPane.textCommand ESL:{80,240,55}
+CommandPane.textKeyword ESL:{140,240,95}
+CommandPane.textType ESL:{25,240,100}
+CommandPane.textNormal ESL:{160,0,162}
+
+# 边框颜色! 指向加黑和文本色
+Border.lineBackground {138,138,138}
+Border.textForeground {"controlText"}
+Border.lineShadow {#808080}
+Border.lineLight {#808080}
+
+# HTML面板颜色
+HTMLHelpPane.background {"Tree.background"}
+HTMLHelpPane.textForeground {168,168,168}
+HTMLHelpPane.textHerf {168,168,168}
+
+# 青铜主题颜色
+
+#bronze.primary1 {55, 55, 55}
+#bronze.primary2 {77, 77, 77}
+bronze.primary3 {99, 99, 99}
+
+#bronze.secondary1 {31, 31, 31}
+#bronze.secondary2 {51, 51, 51}
+##bronze.secondary3 {65,88,86}
+#bronze.secondary3 {63,86,84}
+
+#bronze.black {168, 168, 168}
+#bronze.white {63,63,63}
+
+#bronze.black {158,158,158}
+#bronze.white {61,83,81}
+
+# 62,83,81 -> 116,37,68 对应white
+# 64,87,85 -> 116,37,71 对应secondary3
+# 63,86,84 -> 116,37,70
+
+# HBL -> RGB
+# S3: 57,12,73 -> 79,82,73
+# S2: 57,12,50 -> 53,56,50
+# S2: 57,12,62 -> 66,69,63
+
+COLOR: HBL -> RGB
+WHITE: 57,12,66 -> 71,74,67
+WHITE: 44,58,57 -> 116,37,48
+WHITE: 38,53,52 -> 116,37,43
+WHITE: 37,50,49 -> 116,37,41
+WHITE: 36,37,48 -> 116,37,40
+S3:  116,37,68 -> 51,71,69 (以61,83,81为基础) // 79,82,73
+S3: 41,56,55 -> 116,37,46
+S3: 40,55,54 -> 116,37,45
+S2: 50,67,65 -> 116,37,55
+S1: 58,80,78 -> 116,37,65
+P3: 79,96,94 -> 117,38,78
+P2: 67,92,90 -> 117,38,75
+P2: 58,80,79 -> 117,38,65
+P2: 49,68,67 -> 117,38,55
+P2: 40,55,54 -> 117,38,45
+P2: 45,62,61 -> 117,38,50
+
+WHITE: 37,50,49 -> 116,37,41
+
+#bronze.primary1 {49,68,67}
+#bronze.primary2 {49,68,67}
+#bronze.primary3 {70,96,94}
+#bronze.secondary1 {58,80,78}
+#bronze.secondary2 {58,80,78}
+#bronze.secondary3 {40,55,54}
+
+#bronze.white {37,50,49}
+# bronze.black {138,138,138}
+#bronze.black {168,168,168}
+
+# NEW BRONZE
+#bronze.secondary3 {33,44,43}
+#bronze.white {28,38,37}
+
+# 青铜颜色，ESL颜色样式
+#bronze.primary1 ESL:{116,37,50}
+#bronze.primary2 ESL:{116,37,60}
+#bronze.primary3 ESL:{116,37,70}
+#bronze.secondary1 ESL:{116,37,68}
+#bronze.secondary2 ESL:{116,37,60}
+#bronze.secondary3 ESL:{116,37,30}
+
+# TAB选项卡非激活，暗于基础色WHITE
+#bronze.secondary2 ESL:{116,37,15}
+# 控件背景色
+#bronze.secondary3 ESL:{116,37,35}
+
+# 基础色、文本框背景色
+#bronze.white ESL:{116,37,25}
+# 文本框前景色
+#bronze.black {168,168,168}
+
+## 新的青铜色
+bronze.primary1 ESL:{116,45,50}
+bronze.primary2 ESL:{116,45,25}
+bronze.primary3 ESL:{116,45,70}
+bronze.secondary1 ESL:{116,45,68}
+bronze.secondary2 ESL:{116,45,60}
+bronze.secondary3 ESL:{116,45,30}
+
+# TAB选项卡非激活，暗于基础色WHITE
+bronze.secondary2 ESL:{116,45,15}
+# 控件背景色
+bronze.secondary3 ESL:{116,45,35}
+
+# 基础色、文本框背景色
+bronze.white ESL:{116,45,20}
+# 文本框前景色
+bronze.black {172,172,172}
+
+### =============================
+## 新的青铜色
+##bronze.primary1 ESL:{110,58,30}
+##bronze.primary2 ESL:{110,58,25}
+##bronze.primary3 ESL:{110,58,60}
+##bronze.secondary1 ESL:{110,58,58}
+
+# TAB选项卡非激活，暗于基础色WHITE
+##bronze.secondary2 ESL:{110,58,18}
+# 控件背景色
+##bronze.secondary3 ESL:{110,58,28}
+
+# 基础色、文本框背景色
+##bronze.white ESL:{110,58,20}
+# 文本框前景色
+##bronze.black {172,172,172}
+
+### ==============================
+## 新青铜色
+cyano.primary1 ESL:{110,58,30}
+# P2:滚动条把手
+cyano.primary2 ESL:{110,58,25}
+# P3文本高亮
+cyano.primary3 ESL:{110,58,60}
+cyano.secondary1 ESL:{110,58,60}
+# TAB选项卡非激活，暗于基础色WHITE
+cyano.secondary2 ESL:{110,58,18}
+# 控件背景色
+cyano.secondary3 ESL:{110,58,28}
+# 基础色，文本框背景色
+cyano.white ESL:{110,58,10}
+# 文本颜色
+cyano.black {172,172,172}

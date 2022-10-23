@@ -1,0 +1,31 @@
+<project default="build-ring-jar">
+
+	<target name="build-ring-jar">
+		<delete file="${basedir}/build/ring/laxcus_ring.jar"/>
+		<jar destfile="${basedir}/build/ring/laxcus_ring.jar" manifest="${basedir}/build/ring/META-INF/MANIFEST.MF">
+
+			<fileset dir="${basedir}/bin">
+				<include name="com/laxcus/ring/*.class"/>
+				
+				<include name="com/laxcus/command/*.class"/>
+				<include name="com/laxcus/command/mix/Ring.class"/>
+				
+				<include name="com/laxcus/thread/*.class"/>
+				
+				<include name="com/laxcus/fixp/**/*.class"/>
+				<exclude name="com/laxcus/fixp/monitor/*.class"/>
+				<include name="com/laxcus/util/**/*.class"/>
+				<include name="com/laxcus/log/client/*.class"/>
+				<include name="com/laxcus/xml/*.class"/>
+				
+				<include name="com/laxcus/site/*.class"/>
+				<include name="com/laxcus/security/*.class"/>
+
+				<include name="com/laxcus/echo/*.class"/>
+				<include name="com/laxcus/echo/invoke/*.class"/>
+			</fileset>
+
+		</jar>
+	</target>
+
+</project>

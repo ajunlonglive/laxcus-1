@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 文档配置文本 -->
+
+<config>
+
+	<resource language="zh" country="CN"> <![CDATA[ conf/front/terminal/about/zh_CN/about.html ]]> </resource>
+	<resource language="en" country="US"> <![CDATA[ conf/front/terminal/about/en_US/about.html ]]> </resource>
+	<resource language="default" country="default">  <![CDATA[ conf/front/terminal/about/en_US/about.html ]]> </resource>
+
+</config>

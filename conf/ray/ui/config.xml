@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 帮助文档配置文本 -->
+
+<config>
+
+<!--
+	<resource language="zh" country="CN"> <![CDATA[ conf/ray/ui/zh_CN/properties.txt ]]> </resource>
+	<resource language="en" country="US"> <![CDATA[ conf/ray/ui/en_US/properties.txt ]]> </resource>
+	<resource language="default" country="default">  <![CDATA[ conf/ray/ui/en_US/properties.txt ]]> </resource>
+-->
+<!--
+	<resource language="zh" country="CN"> <![CDATA[ conf/ray/ui/en_US/properties.txt ]]> </resource>
+	<resource language="en" country="US"> <![CDATA[ conf/ray/ui/zh_CN/properties.txt ]]> </resource>
+	<resource language="default" country="default">  <![CDATA[ conf/ray/ui/en_US/properties.txt ]]> </resource>
+-->
+
+	<resource language="zh" country="CN"> <![CDATA[ conf/ray/ui/zh_CN/properties.txt ]]> </resource>
+	<resource language="en" country="US"> <![CDATA[ conf/ray/ui/zh_CN/properties.txt ]]> </resource>
+	<resource language="default" country="default">  <![CDATA[ conf/ray/ui/zh_CN/properties.txt ]]> </resource>
+
+</config>

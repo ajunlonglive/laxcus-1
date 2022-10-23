@@ -1,0 +1,94 @@
+/**
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ * 
+ * Copyright 2009 laxcus.com. All rights reserved
+ * 
+ * @license Laxcus Public License (LPL)
+ */
+package com.laxcus.front.invoker;
+
+import com.laxcus.access.schema.*;
+import com.laxcus.command.relate.*;
+import com.laxcus.front.pool.*;
+import com.laxcus.log.client.*;
+import com.laxcus.visit.*;
+import com.laxcus.util.*;
+import com.laxcus.site.Node;
+
+/**
+ * 申请授权人分享表调用器。<br>
+ * 在获取授权人数据表之前，必须注册到授权人的GATE站点。
+ * 
+ * @author scott.liang
+ * @version 1.0 8/7/2018
+ * @since laxcus 1.0
+ */
+public class FrontTakeAuthorizerTableInvoker extends FrontInvoker {
+	
+	/**
+	 * 构造申请授权人分享表调用器，指定命令
+	 * @param cmd 申请授权人分享表
+	 */
+	public FrontTakeAuthorizerTableInvoker(TakeAuthorizerTable cmd) {
+		super(cmd);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.laxcus.echo.invoke.EchoInvoker#getCommand()
+	 */
+	@Override
+	public TakeAuthorizerTable getCommand() {
+		return (TakeAuthorizerTable) super.getCommand();
+	}
+
+	/* (non-Javadoc)
+	 * @see com.laxcus.echo.invoke.EchoInvoker#launch()
+	 */
+	@Override
+	public boolean launch() {
+		TakeAuthorizerTable cmd = getCommand();
+		Siger authorizer = cmd.getAuthorizer();
+		// 根据授权人签名找到GATE站点，然后把命令发送到GATE站点
+		Node hub = AuthroizerGateOnFrontPool.getInstance().findSite(authorizer);
+		boolean success = (hub != null);
+		if (success) {
+			success = launchTo(hub, cmd);
+		}
+		
+		Logger.debug(this, "launch", success, "check share table [%s] to [%s]", authorizer, hub);
+		
+		return success;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.laxcus.echo.invoke.EchoInvoker#ending()
+	 */
+	@Override
+	public boolean ending() {
+		TakeAuthorizerTableProduct product = null;
+		int index = findEchoKey(0);
+		try {
+			if (isSuccessObjectable(index)) {
+				product = getObject(TakeAuthorizerTableProduct.class, index);
+			}
+		} catch (VisitException e) {
+			Logger.error(e);
+		}
+
+		if (product == null) {
+			Logger.error(this, "ending", "cannot find product");
+			return false;
+		}
+
+		Logger.debug(this, "ending", "[%s] share table count %d", getCommand().getAuthorizer(), product.size());
+		
+		// 保存数据表
+		for (Table table : product.list()) {
+			boolean success = getStaffPool().addPassiveTable(table);
+			Logger.debug(this, "ending", success, "save table: %s", table);
+		}
+		return useful();
+	}
+
+}

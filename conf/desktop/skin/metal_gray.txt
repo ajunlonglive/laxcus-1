@@ -1,0 +1,66 @@
+# 灰色定义！只保留有用的，默认忽略！
+
+# 滚动条把手！
+# ScrollBar.thumb {128,128,128}
+
+# 在灰色模式里，Viewport.background由TextField.background来决定 ， 两侧双引号是关键字，表示这是一个代理样式！
+Viewport.background {"Panel.background"}
+Viewport.background {"TextField.background"}
+
+# 集群节点参数溢出颜色（红色！)
+SiteRuntime.fullText {218,82,67}
+
+# 消息面板，颜色趋向深色
+MessagePanel.CommentTextForeground ESL:{140,120,86}
+MessagePanel.WarningTextForeground ESL:{25,240,90}
+MessagePanel.FaultTextForeground ESL:{236,232,100}
+
+# HTML面板颜色
+HTMLHelpPane.background {"Tree.background"}
+HTMLHelpPane.textForeground ESL:{160, 0, 20}
+HTMLHelpPane.textHerf ESL:{150,175,130}
+
+## 命令窗口
+CommandPane.textCommand ESL:{80,240,65}
+CommandPane.textKeyword ESL:{140,240,105}
+CommandPane.textType ESL:{25,240,110}
+CommandPane.textNormal {"controlText"}
+CommandPane.textWarning ESL:{25,240,90}
+CommandPane.textFault ESL:{236,232,100}
+CommandPane.background ESL:{160,0,10}
+CommandPane.cursor ESL:{160,0,235}
+
+# 桌面颜色
+#gray.desktop ESL:{135,37,100}
+#gray.desktop {58, 110, 165}
+#gray.desktop ESL:{141, 115, 105}
+
+gray.desktop ESL:{138, 100, 86}
+
+## 标准色
+gray.primary1 ESL:{120, 10, 128}
+gray.primary2 ESL:{120, 10, 138}
+gray.primary3 ESL:{120, 10, 158}
+
+## 文本色
+gray.secondary1 {128,128,128}
+gray.secondary2 {179,179,179}
+gray.secondary3 {214,217,223}
+
+## 白/黑色，标题
+gray.black ESL:{0, 0, 20}
+gray.white ESL:{0, 0, 230}
+
+# 菜单失效颜色
+gray.menuDisabledForeground {108,108,108}
+
+# 标题栏激活状态下的前景/背景
+gray.windowTitleForeground ESL:{0, 0, 238}
+gray.windowTitleBackground ESL:{120, 12, 130}
+# 标题栏非激活状态下的前景/背景
+gray.windowTitleInactiveForeground ESL:{0, 0, 90}
+gray.windowTitleInactiveBackground ESL:{147, 30, 193}
+
+## 桌面按纽在激活/未激活状态下的文本颜色
+DesktopButton.TextActiveForeground  ESL:{0, 0, 240}
+DesktopButton.TextInactiveForeground ESL:{0, 0, 210}

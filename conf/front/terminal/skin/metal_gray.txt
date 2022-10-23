@@ -1,0 +1,40 @@
+# 灰色定义！只保留有用的，默认忽略！
+
+# 滚动条把手！
+# ScrollBar.thumb {128,128,128}
+
+# 在灰色模式里，Viewport.background由TextField.background来决定 ， 两侧双引号是关键字，表示这是一个代理样式！
+Viewport.background {"Panel.background"}
+
+# 集群节点参数溢出颜色（红色！)
+SiteRuntime.fullText {218,82,67}
+
+# 消息面板，颜色趋向深色
+MessagePanel.CommentTextForeground ESL:{140,120,86}
+MessagePanel.WarningTextForeground ESL:{25,240,90}
+MessagePanel.FaultTextForeground ESL:{236,232,100}
+
+# HTML面板颜色
+HTMLHelpPane.background {"Tree.background"}
+HTMLHelpPane.textForeground ESL:{160, 0, 20}
+HTMLHelpPane.textHerf ESL:{150,175,130}
+
+# 桌面颜色
+gray.desktop ESL:{135,37,100}
+
+## 标准色
+gray.primary1 ESL:{120, 10, 128}
+gray.primary2 ESL:{120, 10, 138}
+gray.primary3 ESL:{120, 10, 158}
+
+## 文本色
+gray.secondary1 {128,128,128}
+gray.secondary2 {179,179,179}
+gray.secondary3 {214,217,223}
+
+## 白/黑色，标题
+gray.white ESL:{160,0,233}
+gray.black ESL:{160,0,3}
+
+# 菜单失效颜色
+gray.menuDisabledForeground {108,108,108}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- message tip  -->
+
+<Messages>
+
+	<correct-syntax no="1"> <![CDATA[correct syntax]]> </correct-syntax>
+	<command-accepted no="2"> <![CDATA[command accepted]]> </command-accepted>
+	<command-execute no="3"> <![CDATA[ execute command ... ]]>  </command-execute>
+	
+	<!-- distributed lock  -->
+	<rule-attach no="4"> <![CDATA[ attach distributed resource, no %d]]>  </rule-attach>
+	<rule-attach-return-ok no="5"> <![CDATA[ distributed resource bound, no %d ]]> </rule-attach-return-ok>
+	<rule-detach no="6"> <![CDATA[ release distributed resource, no %d ]]>  </rule-detach>
+	<rule-detach-return-ok no="7"> <![CDATA[ distributed resource released, no %d]]>  </rule-detach-return-ok>
+	
+	<!-- FRONT节点加载GATE/CALL的分布资源 -->
+	<loading-user-resource no="8"> <![CDATA[ loading cyber resource, please... ]]>  </loading-user-resource>
+	<loaded-user-resource no="9"> <![CDATA[ loaded cyber resource! ]]>  </loaded-user-resource>
+	<command-processed no="10"> <![CDATA[ command processed! ]]>  </command-processed>
+
+	<!-- format messages -->
+	<successful-x no="10000"> <![CDATA[ "%s" successful!]]> </successful-x>
+
+	<command-runtime-x no="10001"> <![CDATA[ process time {[DD] /[HH]:/[MM]:/[SS]./[MS]} ]]> </command-runtime-x>
+	<shutdown-x no="10002"> <![CDATA[ %s shutdowned! ]]> </shutdown-x>
+	<push-node-x no="10003"> <![CDATA[ Push "%s" ]]> </push-node-x>
+	<success-fault-x no="10004"> <![CDATA[ , successful:%d, faults:%d ! ]]> </success-fault-x>
+	<distributed-time-x no="10005"> <![CDATA[ distributed time: {[DD] /[HH]:/[MM]:/[SS]./[MS]} ]]> </distributed-time-x>
+
+	<create-x no="10010"> <![CDATA[ create "%s", successful! ]]>  </create-x>
+	<drop-x no="10011"> <![CDATA[ drop "%s", successful! ]]>  </drop-x>
+	<modify-x no="10012"> <![CDATA[ adjust "%s", successful! ]]>  </modify-x>
+	<launch-time-x no="10013"> <![CDATA[ {{[DD] /[HH]:/[MM]:/[SS]./[MS]} ]]> </launch-time-x>
+	<check-x no="10014"> <![CDATA[ check "%s" ]]>  </check-x>
+	<override-gui-x no="10015"> <![CDATA[ Override %s  ]]>  </override-gui-x>
+	<override-console-x no="10016"> <![CDATA[ Override %s ? (Yes or No) ]]>  </override-console-x>
+	<timeing-refresh-node-x no="10017"> <![CDATA[ refresh %s ]]> </timeing-refresh-node-x>
+	<simple-runtime-x no="10018"> <![CDATA[ {[DD] /[HH]:/[MM]:/[SS]./[MS]} ]]> </simple-runtime-x>
+
+</Messages>

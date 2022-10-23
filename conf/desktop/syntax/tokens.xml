@@ -1,0 +1,1117 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<tokens>
+
+	<!-- <color command="0xB16A" keyword="0x14A2D4" type="0x5CFF" normal="0x0"/> -->
+
+	<token>
+		<command> HELP</command>
+		<keywords> HELP </keywords>
+		<types> </types>
+	</token>
+	
+	<!-- 建立用户账号 -->
+	<token>
+		<command> CREATE USER </command>
+		<keywords> PASSWORD,IDENTIFIED,MAXSIZE,MEMBERS,LOGINS,JOBS,GATEWAYS,WORKERS,BUILDERS,BASES,SUBBASES,MAXTABLES,CLUSTERS,CHUNKSIZE,DEPLOY,EXPIRE TIME,TO,TOP,HOME,LOG,DATA,WORK,BUILD,CALL,AID,FRONT </keywords>
+		<types> [0-9]+\s*(?i)(M|MB|G|GB|T|TB|P|PB) </types>
+	</token>
+
+	<!-- 删除注册用户  -->
+	<token>
+		<command> DROP USER </command>
+		<keywords>  SIGN</keywords>
+		<types> </types>
+	</token>
+	
+	<!-- 修改账号密码 -->
+	<token>
+		<command> ALTER USER </command>
+		<keywords> SIGN,PASSWORD,IDENTIFIED </keywords>
+		<types> </types>
+	</token>
+	
+	<!-- 判断用户账号存在或者否 -->
+	<token>
+		<command> ASSERT USER </command>
+		<keywords> SIGN  </keywords>
+		<types> </types>
+	</token>
+	
+	<!-- 解禁用户账号  -->
+	<token>
+		<command> OPEN USER </command>
+		<keywords> SIGN </keywords>
+		<types> </types>
+	</token>
+	
+	<!-- 禁用用户账号  -->
+	<token>
+		<command> CLOSE USER </command>
+		<keywords> SIGN </keywords>
+		<types> </types>
+	</token>
+	
+	<!-- 显示注册用户自己的属性  -->
+	<token>
+		<command>PRINT USER DIAGRAM</command>
+		<keywords> FROM, ME </keywords>
+		<types> </types>
+	</token>
+	
+	<!-- 授权操作 -->
+	<token>
+		<command> GRANT </command>
+		<keywords> ON DATABASE, ON SCHEMA, ON TABLE, TO, DBA, ALL, MEMBER, CREATE USER, DROP USER, ALTER USER, OPEN RESOURCE, CLOSE RESOURCE, CREATE LIMIT, DROP LIMIT, 
+			CREATE FAULT, DROP FAULT, CREATE DATABASE, DROP DATABASE, CREATE TABLE, DROP TABLE, 
+			PUBLISH TASK COMPONENT, PUBLISH TASK ASSIST COMPONENT, PUBLISH TASK LIBRARY COMPONENT, 
+			SELECT, INSERT INTO, INJECT INTO, DELETE, UPDATE, CONDUCT, CONTACT, ESTABLISH, EXPORT ENTITY, IMPORT ENTITY, 
+			LOAD INDEX, LOAD ENTITY, EXCLUSIVE </keywords>
+		<types> </types>
+	</token>
+
+	<!-- 回收授权操作 -->
+	<token>
+		<command> REVOKE </command>
+		<keywords> ON DATABASE, ON SCHEMA, ON TABLE, FROM, DBA, ALL, MEMBER, CREATE USER, DROP USER, ALTER USER, OPEN RESOURCE, CLOSE RESOURCE, CREATE LIMIT, DROP LIMIT, 
+			CREATE FAULT, DROP FAULT, CREATE DATABASE, DROP DATABASE, CREATE TABLE, DROP TABLE,
+			PUBLISH TASK COMPONENT, PUBLISH TASK ASSIST COMPONENT, PUBLISH TASK LIBRARY COMPONENT, 
+			SELECT, INSERT INTO, INJECT INTO, DELETE, UPDATE, CONDUCT, CONTACT, ESTABLISH, EXPORT ENTITY, IMPORT ENTITY,
+			LOAD INDEX, LOAD ENTITY, EXCLUSIVE </keywords>
+		<types> </types>
+	</token>
+	
+	<!-- 显示注册用户的被授权命令 -->
+	<token>
+		<command>PRINT GRANT DIAGRAM</command>
+		<keywords> FROM, ME </keywords>
+		<types> </types>
+	</token>
+	
+	<!-- 建立数据库，数据库是一个虚状态 -->
+	<token>
+		<command> CREATE DATABASE </command>
+		<keywords> MAXSIZE </keywords>
+		<types> </types>
+	</token>
+
+	<!-- 删除数据库  -->
+	<token>
+		<command> DROP DATABASE </command>
+		<keywords> DROP,DATABASE </keywords>
+		<types> </types>
+	</token>
+
+	<!-- 判断数据库存在或者否 -->
+	<token>
+		<command> ASSERT DATABASE </command>
+		<keywords>   </keywords>
+		<types> </types>
+	</token>
+	
+	<!-- 显示数据库图谱 -->
+	<token>
+		<command> PRINT DATABASE DIAGRAM  </command>
+		<keywords>  DIAGRAM, ALL, FROM, ME </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 显示数据库参数 -->
+	<token>
+		<command> SHOW DATABASE </command>
+		<keywords> ALL </keywords>
+		<types> </types>
+	</token>
+
+	<!-- 建表，通过集群分配  -->
+	<token>
+		<command> CREATE TABLE </command>
+		<keywords> SM,STORAGEMODEL,DSM,NSM,ROWS,COLUMNS, MULTIPLE, PrimeHosts,HM,HostMode,SHARE,EXCLUSIVE, CHUNKCOPY, CHUNKSIZE, PUBLISH,TO,GROUPS,NOT,NULL,CASE,LIKE,PACKING,AND,DEFAULT,PRIME,SLAVE,KEY,COMMENT </keywords>
+		<types> RAW,BINARY,CHAR,WCHAR,HCHAR,SHORT,SMALLINT,INT,INTEGER,LONG,BIGINT,REAL,FLOAT,DOUBLE,TIMESTAMP,DATETIME, DATE,TIME,M </types>
+	</token>
+
+	<!-- 删除数据表 -->
+	<token>
+		<command> DROP TABLE </command>
+		<keywords>  </keywords>
+		<types> </types>
+	</token>
+
+	<!-- 判断数据表存在或者否 -->
+	<token>
+		<command> ASSERT TABLE </command>
+		<keywords>   </keywords>
+		<types> </types>
+	</token>
+	
+	<!-- 打印数据表图表 -->
+	<token>
+		<command> PRINT TABLE DIAGRAM  </command>
+		<keywords>  ALL, FROM, ME </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 显示数据表参数 -->
+	<token>
+		<command> SHOW TABLE </command>
+		<keywords>  ALL</keywords>
+		<types> </types>
+	</token>
+
+	<!-- 扫描数据表资源 -->
+	<token>
+		<command> SCAN TABLE </command>
+		<keywords>  TO </keywords>
+		<types> </types>
+	</token>
+		
+	<!--  扫描数据库资源   -->
+	<token>
+		<command> SCAN DATABASE </command>
+		<keywords>  TO </keywords>
+		<types> </types>
+	</token>
+	
+	
+	<!-- 小规模和简单的快速计算CONTACT指令-->
+	<token>
+		<command> CONTACT </command>
+		<keywords> FORK,DISTANT,MERGE,NEAR,WRITEDISTANT,SITES,DIFFUSE,SUBDISTANT,NEXDISTANT,MODE,GENERATE,EVALUATE,ATTACH ALL, ATTACH DATABASE, ATTACH TABLE, ATTACH ROW, BE, SHARE, NOT SHARE, AND </keywords>		
+		<types> RAW,BINARY,BOOLEAN,BOOL,CHAR,STRING,DATE,TIME,DATETIME,TIMESTAMP,SMALLINT,SHORT,INT,LONG,BIGINT,FLOAT,REAL,DOUBLE,COMMAND </types> 
+	</token>
+	
+	<!-- SQL SELECT -->
+	<token>
+		<command> SELECT </command>
+		<keywords> AS,TOP,RANGE,DISTINCT,FROM,WHERE,AND,OR,GROUP,HAVING,ORDER,BY,ASC,DESC,IS,NOT,NULL,EMPTY,IN, NOT IN, EXISTS, NOT EXISTS, ALL, ANY, SOME </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- SQL INSERT -->
+	<token>
+		<command> INSERT INTO </command>
+		<keywords> VALUES </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- SQL INJECT -->
+	<token>
+		<command> INJECT INTO </command>
+		<keywords> VALUES, SELECT, AS,TOP,RANGE,DISTINCT,FROM,WHERE,AND,OR,GROUP,HAVING,ORDER,BY,ASC,DESC,IS,NOT,NULL,EMPTY,IN, NOT IN, EXISTS, NOT EXISTS, ALL, ANY, SOME </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- SQL DELETE -->
+	<token>
+		<command> DELETE  </command>
+		<keywords> FROM,WHERE,AND,OR </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- SQL UPDATE -->
+	<token>
+		<command> UPDATE </command>
+		<keywords> SET,WHERE,AND,OR </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 分布计算CONDUCT指令-->
+	<token>
+		<command> CONDUCT </command>
+		<keywords> INIT,FROM,TO,BALANCE,PUT,WRITETO,SITES,DIFFUSE,SUBTO,NEXTO,MODE,GENERATE,EVALUATE,ATTACH ALL, ATTACH DATABASE, ATTACH TABLE, ATTACH ROW, BE, SHARE, NOT SHARE, AND </keywords>
+		
+		<!-- <types> .+?\(\s*(?i)(RAW|BINARY|BOOLEAN|BOOL|CHAR|STRING|DATE|TIME|DATETIME|TIMESTAMP|SMALLINT|SHORT|INT|LONG|BIGINT|FLOAT|REAL|DOUBLE|COMMAND)\s*\).+ </types> -->
+		
+		<types> RAW,BINARY,BOOLEAN,BOOL,CHAR,STRING,DATE,TIME,DATETIME,TIMESTAMP,SMALLINT,SHORT,INT,LONG,BIGINT,FLOAT,REAL,DOUBLE,COMMAND </types> 
+	</token>
+
+	<!-- 分布数据构建，ESTABLISH指令 -->
+	<token>
+		<command> ESTABLISH </command>
+		<keywords> ISSUE,SCAN,SIFT,SUBSIFT,RISE,ASSIGN,END,BRANCH,SPACE TO,DOCK TO,WRITETO, ATTACH ALL, ATTACH DATABASE, ATTACH TABLE, ATTACH ROW, BE,SHARE, NOT SHARE,AND </keywords>
+		<!-- <types> .+?\(\s*(?i)(RAW|BINARY|BOOLEAN|BOOL|CHAR|STRING|DATE|TIME|DATETIME|TIMESTAMP|SMALLINT|SHORT|INT|LONG|BIGINT|FLOAT|REAL|DOUBLE|COMMAND)\s*\).+ </types> -->
+		<types> RAW,BINARY,BOOLEAN,BOOL,CHAR,STRING,DATE,TIME,DATETIME,TIMESTAMP,SMALLINT,SHORT,INT,LONG,BIGINT,FLOAT,REAL,DOUBLE,COMMAND </types>
+	</token>
+
+	<!-- 分布数据优化，MARSHA/EDUCE -->
+	<token>
+		<command> REGULATE </command>
+		<keywords> TO,ORDER,BY </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 建立数据优化触发时间 -->
+	<token>
+		<command> CREATE REGULATE TIME </command>
+		<keywords>  HOURLY, DAILY, WEEKLY, MONTHLY, ORDER, BY</keywords>
+		<types> </types>
+	</token>
+
+	<!-- 删除数据优化触发时间 -->
+	<token>
+		<command> DROP REGULATE TIME </command>
+		<keywords>  </keywords>
+		<types> </types>
+	</token>
+
+	<!-- 打印数据优化触发时间 -->
+	<token>
+		<command> PRINT REGULATE TIME </command>
+		<keywords>  ALL </keywords>
+		<types> </types>
+	</token>
+	
+	<!-- RUSH 指令，只允许管理员操作 -->
+	<token>
+		<command> RUSH </command>
+		<keywords> TO </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 数据重组 -->
+	<token>
+		<command> MODULATE </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 检查集群数据块一致性 -->
+	<token>
+		<command> CHECK ENTITY CONSISTENCY </command>
+		<keywords>  DETAIL </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 恢复集群数据块一致性 -->
+	<token>
+		<command> RECOVER ENTITY CONSISTENCY </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>	
+	
+	<!-- 分析表分布数据容量 -->
+	<token>
+		<command> SCAN SKETCH </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 加载数据块的索引  -->
+	<token>
+		<command> LOAD INDEX</command>
+		<keywords> TO </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 加载数据块 -->
+	<token>
+		<command> LOAD ENTITY</command>
+		<keywords> TO </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 卸载数据块的索引 -->
+	<token>
+		<command> STOP INDEX,UNLOAD INDEX</command>
+		<keywords> FROM </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 卸载数据块 -->
+	<token>
+		<command> STOP ENTITY,UNLOAD ENTITY</command>
+		<keywords> FROM </keywords>
+		<types>  </types>
+	</token>
+
+	<!--  设置数据块尺寸 -->
+	<token>
+		<command> SET ENTITY SIZE</command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 显示数据块尺寸 -->
+	<token>
+		<command> SHOW ENTITY SIZE</command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 扫描数据块 -->
+	<token>
+		<command> SCAN ENTITY </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 散列码 -->
+	<token>
+		<command> BUILD SHA1 </command>
+		<keywords> NOT,CASE </keywords>
+		<types> </types>
+	</token>
+	<token>
+		<command> BUILD SHA256 </command>
+		<keywords>  NOT,CASE </keywords>
+		<types> </types>
+	</token>
+	<token>
+		<command> BUILD SHA512 </command>
+		<keywords>  NOT,CASE </keywords>
+		<types> </types>
+	</token>
+	<token>
+		<command>  BUILD MD5 </command>
+		<keywords> NOT,CASE </keywords>
+		<types> </types>
+	</token>
+
+	<!-- EACH签名 -->
+	<token>
+		<command> BUILD EACH  </command>
+		<keywords> NOT,CASE, ENCODE , BY , UTF8, UTF16, UTF32</keywords>
+		<types> </types>
+	</token>
+	
+	<!-- 分布命令模式，硬盘或者内存 -->
+	<token>
+		<command> SET COMMAND MODE</command>
+		<keywords> MEMORY,DISK </keywords>
+		<types> </types>
+	</token>
+	
+	<!-- 每个命令的最大超时时间 -->
+	<token>
+		<command> SET COMMAND TIMEOUT</command>
+		<keywords> UNLIMIT </keywords>
+		<types> [0-9]+\s*(?i)(H|M|S|HOUR|HOURS|MINUTE|MINUTES|SECOND|SECONDS|MS|MILLISECONDS|MILLISECOND|时|小时|分|分钟|秒|毫秒) </types>
+	</token>
+	
+	<!-- 密文超时 -->
+	<token>
+		<command> SET CIPHER TIMEOUT</command>
+		<keywords>  TO, LOCAL</keywords>
+		<types> [0-9]+\s*(?i)(H|M|S|HOUR|HOURS|MINUTE|MINUTES|SECOND|SECONDS|MS|MILLISECONDS|MILLISECOND|时|小时|分|分钟|秒|毫秒) </types>
+	</token>
+
+	<!-- 调用器参数  -->
+	<token>
+		<command> SET MAX INVOKER</command>
+		<keywords> -M, -CT, ALWAYS, TO, LOCAL </keywords>
+		<types> [0-9]+\s*(?i)(H|M|S|HOUR|HOURS|MINUTE|MINUTES|SECOND|SECONDS|MS|MILLISECONDS|MILLISECOND|时|小时|分|分钟|秒|毫秒) </types>
+	</token>
+	<!-- 最大异步缓存空间 -->
+	<token>
+		<command> SET ECHO BUFFER </command>
+		<keywords>  TO, LOCAL </keywords>
+		<types> [0-9]+\s*(?i)(K|KB|M|MB|G|GB) </types>
+	</token>
+
+	<!-- 打印FRONT网关地址（CALL站点地址） -->
+	<token>
+		<command> PRINT FRONT GATEWAY</command>
+		<keywords>  </keywords>
+		<types> </types>
+	</token>
+
+	<!-- 建立限制操作规则 -->
+	<token>
+		<command> CREATE LIMIT</command>
+		<keywords> ON,USER,DATABASE, TABLE,READ,WRITE </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 删除限制操作规则 -->
+	<token>
+		<command> DROP LIMIT</command>
+		<keywords> ON,USER,DATABASE,TABLE,READ,WRITE </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 显示限制操作单元 -->
+	<token>
+		<command> SHOW LIMIT</command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 提交故障锁定 -->
+	<token>
+		<command> CREATE FAULT </command>
+		<keywords> ON,USER,DATABASE,TABLE </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 撤销故障锁定 -->
+	<token>
+		<command> DROP FAULT </command>
+		<keywords> ON,USER,DATABASE,TABLE </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 显示被锁定的限制操作 -->
+	<token>
+		<command> SHOW FAULT </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 显示禁止操作单元 -->
+	<token>
+		<command> SHOW FORBID</command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 显示分布锁事务规则 -->
+	<token>
+		<command> SHOW LOCK RULE</command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 设置账号最大在线用户数 -->
+	<token>
+		<command> SET MAX JOBS</command>
+		<keywords>  TO, SIGN </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 应用软件数目 -->
+	<token>
+		<command> SET MAX APPLICATIONS</command>
+		<keywords>  TO, SIGN </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- WORK节点数目 -->
+	<token>
+		<command> SET MAX WORKERS</command>
+		<keywords>  TO, SIGN </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- BUILD节点数目 -->
+	<token>
+		<command> SET MAX BUILDERS</command>
+		<keywords>  TO, SIGN </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 账号使用期满时间 -->
+	<token>
+		<command> SET EXPIRE TIME</command>
+		<keywords>  TO, SIGN </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 中间缓存尺寸 -->
+	<!--
+	<token>
+		<command> SET MIDDLE BUFFER</command>
+		<keywords>  TO, SIGN </keywords>
+		<types>  </types>
+	</token>
+	-->
+
+	<!-- 中间缓存尺寸 -->
+	<token>
+		<command> SET MIDDLE BUFFER</command>
+		<keywords> TO, SIGN </keywords>
+		<types> [0-9]+\s*(?i)(M|MB|K|KB|G|GB) </types>
+	</token>
+	
+	<!-- 云存储空间尺寸 -->
+	<token>
+		<command> SET CLOUD SIZE</command>
+		<keywords>  TO, SIGN </keywords>
+		<types> [0-9]+\s*(?i)(M|MB|K|KB|G|GB) </types>
+	</token>
+	
+	<!-- 设置账号最大并行任务数 -->
+	<token>
+		<command> SET MAX MEMBERS</command>
+		<keywords>  TO, SIGN </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 设置用户命令的权级，共有4种 -->
+	<token>
+		<command> SET USER PRIORITY</command>
+		<keywords>  TO, SIGN </keywords>
+		<types> NONE, MIN, NORMAL, MAX  </types>
+	</token>
+
+	<!-- 开放数据库资源 -->
+	<token>
+		<command> OPEN SHARE DATABASE</command>
+		<keywords>  ALL, ON, SELECT, INSERT, DELETE, UPDATE,  TO, SIGN </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 开放数据表资源 -->
+	<token>
+		<command> OPEN SHARE TABLE</command>
+		<keywords>  ALL, ON, SELECT, INSERT, DELETE, UPDATE,  TO, SIGN </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 关闭数据库资源 -->
+	<token>
+		<command> CLOSE SHARE DATABASE</command>
+		<keywords>  ALL, ON, SELECT, INSERT, DELETE, UPDATE,  FROM, SIGN </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 关闭数据表资源 -->
+	<token>
+		<command> CLOSE SHARE TABLE</command>
+		<keywords>  ALL, ON, SELECT, INSERT, DELETE, UPDATE,  FROM, SIGN </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 授权人显示自己分享的数据资源 -->
+	<token>
+		<command> SHOW OPEN RESOURCE</command>
+		<keywords>  TO, ALL, SIGN </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 被授权人显示授权人分享的数据资源 -->
+	<token>
+		<command> SHOW PASSIVE RESOURCE</command>
+		<keywords>  FROM, ALL, SIGN </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 半截符编码  -->
+	<token>
+		<command> ENCODE HALF  </command>
+		<keywords>  NOT , CASE </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 半截符解码  -->
+	<token>
+		<command> DECODE HALF  </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 获得数据块编号 -->
+	<token>
+		<command> GIT ENTITY STUBS  </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 获得数据块分布图谱 -->
+	<token>
+		<command> PRINT ENTITY STUBS DIAGRAM  </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 从计算机集群导出一个数据块到本地磁盘或者显示器上 -->
+	<token>
+		<command> EXPORT ENTITY  </command>
+		<keywords>  TO, TYPE, CHARSET, CSV, TXT, UTF8,UTF-8,UTF16BE,UTF-16BE,UTF16LE,UTF-16LE,UTF32BE,UTF-32BE,UTF32LE,UTF-32LE,GBK,GB18030,GB2312 </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 把本地磁盘上的数据导入到计算机集群 -->
+	<token>
+		<command> IMPORT ENTITY  </command>
+		<keywords>  FROM, TYPE, CHARSET, SECTION, CSV, TXT, UTF8,UTF-8,UTF16BE,UTF-16BE,UTF16LE,UTF-16LE,UTF32BE,UTF-32BE,UTF32LE,UTF-32LE,GBK,GB18030,GB2312 </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 在两个DATA节点间复制数据块-->
+	<token>
+		<command> COPY ENTITY  </command>
+		<keywords>  FROM, TO </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 检查导入内容的正确性 -->
+	<token>
+		<command> CHECK ENTITY CONTENT </command>
+		<keywords>  FROM, TYPE, CHARSET, CSV, TXT, UTF8,UTF-8,UTF16BE,UTF-16BE,UTF16LE,UTF-16LE,UTF32BE,UTF-32BE,UTF32LE,UTF-32LE,GBK,GB18030,GB2312 </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 检测本地磁盘文件的内容编码 -->
+	<token>
+		<command> CHECK ENTITY CHARSET </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 发布多个分布任务组件 -->
+	<token>
+		<command> PUBLISH TASK COMPONENT</command>
+		<keywords>  </keywords>
+		<types> </types>
+	</token>
+	
+	<!-- 发布分布任务组件附件, TYPE 见PublishTaskAxes -->
+	<token>
+		<command> PUBLISH TASK ASSIST COMPONENT </command>
+		<keywords>  TO </keywords>
+		<types> CONDUCT.INIT,CONDUCT.FROM,CONDUCT.TO,CONDUCT.BALANCE,CONDUCT.PUT,ESTABLISH.ISSUE,ESTABLISH.SCAN,ESTABLISH.SIFT,ESTABLISH.RISE,ESTABLISH.ASSIGN,ESTABLISH.END,CONTACT.DISTANT,CONTACT.NEAR,CONTACT.FORK,CONTACT.MERGE </types>
+	</token>
+	
+	<!-- 发布分布任务组件链接库, TYPE 见PublishTaskAxes -->
+	<token>
+		<command> PUBLISH TASK LIBRARY COMPONENT </command>
+		<keywords>  TO </keywords>
+		<types> CONDUCT.INIT,CONDUCT.FROM,CONDUCT.TO,CONDUCT.BALANCE,CONDUCT.PUT,ESTABLISH.ISSUE,ESTABLISH.SCAN,ESTABLISH.SIFT,ESTABLISH.RISE,ESTABLISH.ASSIGN,ESTABLISH.END,CONTACT.DISTANT,CONTACT.NEAR,CONTACT.FORK,CONTACT.MERGE </types>
+	</token>
+	
+	<!-- 设置账号最大磁盘空间 -->
+	<token>
+		<command> SET MAX SIZE</command>
+		<keywords>  TO, SIGN </keywords>
+		<types> [0-9]+\s*(?i)(K|KB|M|MB|G|GB) </types>
+	</token>
+	
+	<!-- 设置账号最大HOME子域集群 -->
+	<token>
+		<command> SET MAX GROUPS</command>
+		<keywords>  TO, SIGN </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 设置账号最大CALL网关节点数目 -->
+	<token>
+		<command> SET MAX GATEWAYS</command>
+		<keywords> TO, SIGN </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 设置账号最多应用软件数目 -->
+	<token>
+		<command> SET MAX TASKS</command>
+		<keywords>  TO, SIGN </keywords>
+		<types>  </types>
+	</token>
+	<!-- 设置账号最多优化表数目 -->
+	<token>
+		<command> SET MAX REGULATES</command>
+		<keywords>  TO, SIGN </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 设置账号最大表数目 -->
+	<token>
+		<command> SET MAX TABLES</command>
+		<keywords>  TO, SIGN </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 设置表最大索引数目 -->
+	<token>
+		<command> SET MAX INDEXES</command>
+		<keywords>  TO, SIGN </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 检索在线命令 -->
+	<token>
+		<command> SEEK ONLINE COMMAND</command>
+		<keywords>  TO, LOCAL</keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 网络传输流量测试 -->
+	<token>
+		<command> SWARM </command>
+		<keywords> TO,HUB</keywords>
+		<types> [0-9]+\s*(?i)(M|MB|K|KB|MS|毫秒) </types>
+	</token>
+	
+	<!-- 网络传输流量持续测试 -->
+	<token>
+		<command> MULTI SWARM </command>
+		<keywords> TO,HUB</keywords>
+		<types> [0-9]+\s*(?i)(M|MB|K|KB|MS|毫秒) </types>
+	</token>
+	
+	<!-- 并行流量测试 -->
+	<token>
+		<command> PARALLEL MULTI SWARM </command>
+		<keywords> TO,HUB, ITERATE</keywords>
+		<types> [0-9]+\s*(?i)(M|MB|K|KB|MS|毫秒) </types>
+	</token>
+	
+	<!-- 释放节点内存 -->
+	<token>
+		<command> RELEASE MEMORY </command>
+		<keywords>  TO, LOCAL </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 释放节点内存间隔时间 -->
+	<token>
+		<command> SET RELEASE MEMORY INTERVAL </command>
+		<keywords> TO, LOCAL </keywords>
+		<types> [0-9]+\s*(?i)(H|M|S|HOUR|HOURS|MINUTE|MINUTES|SECOND|SECONDS|MS|MILLISECONDS|MILLISECOND|时|小时|分|分钟|秒|毫秒) </types>
+	</token>
+
+	<!-- 检查CALL注册表 -->
+	<token>
+		<command> CHECK REMOTE TABLE </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 检查CALL注册分布任务组件 -->
+	<token>
+		<command> CHECK REMOTE TASK </command>
+		<keywords> -FULL, -F </keywords>
+		<types> Y,YES,N,NO,是,否 </types>
+	</token>
+	
+	<!-- 打印本地任务组件 -->
+	<token>
+		<command> CHECK LOCAL TASK </command>
+		<keywords> -FULL, -F </keywords>
+		<types> Y,YES,N,NO,是,否 </types>
+	</token>
+
+	<!-- 设置应答包传输模式 -->
+	<token>
+		<command> SET REPLY PACKET MODE </command>
+		<keywords> SERIAL, PARALLEL, TO, LOCAL </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 设置应答包尺寸 -->
+	<token>
+		<command> SET REPLY PACKET SIZE </command>
+		<keywords>  TO, LOCAL, ON, WIDE</keywords>
+		<types> [0-9]+\s*(?i)(M|MB|K|KB) </types>
+	</token>
+	<token>
+		<command> SET REPLY SEND TIMEOUT</command>
+		<keywords> TO, LOCAL </keywords>
+		<types> [0-9]+\s*(?i)(H|M|S|HOUR|HOURS|MINUTE|MINUTES|SECOND|SECONDS|MS|MILLISECONDS|MILLISECOND|时|小时|分|分钟|秒|毫秒) </types>
+	</token>
+	<token>
+		<command> SET REPLY RECEIVE TIMEOUT</command>
+		<keywords> TO, LOCAL </keywords>
+		<types> [0-9]+\s*(?i)(H|M|S|HOUR|HOURS|MINUTE|MINUTES|SECOND|SECONDS|MS|MILLISECONDS|MILLISECOND|时|小时|分|分钟|秒|毫秒) </types>
+	</token>
+	<token>
+		<command> SET REPLY FLOW CONTROL </command>
+		<keywords> -BLOCK, -B, -TIMESLICE, -TS, -T,-UNIT, -U, TO, ALL, LOCAL </keywords>
+		<types> [0-9]+\s*(?i)(MILLISECOND|MILLISECONDS|MS|毫秒|MICROSECOND|MICROSECONDS|MMS|微秒|KB|K) </types>
+	</token>
+
+	<!-- 用户刷新自己的私有网络空间  -->
+	<token>
+		<command> REFRESH CYBER </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- DSM表最大压缩倍数  -->
+	<token>
+		<command> SET MAX DSM REDUCE </command>
+		<keywords>  SIGN </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 边缘计算服务 -->
+	<token>
+		<command> RUN TUB SERVICE </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	
+	<token>
+		<command> STOP TUB SERVICE </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	
+	<token>
+		<command> PRINT TUB SERVICE </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	
+	<token>
+		<command> SHOW TUB CONTAINER </command>
+		<keywords>  ALL </keywords>
+		<types>  </types>
+	</token>
+	
+	<token>
+		<command> CHECK TUB LISTENER </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- FRONT节点最大CPU占比  -->
+	<token>
+		<command> SET MOST CPU </command>
+		<keywords>  TO, LOCAL </keywords>
+		<types> [0-9]+\s*(?i)(%) </types>
+	</token>
+	
+	<!-- FRONT节点最大虚拟机内存占比  -->
+	<token>
+		<command> SET MOST VM MEMORY </command>
+		<keywords>  TO, LOCAL </keywords>
+		<types> [0-9]+\s*(?i)(%) </types>
+	</token>
+	
+	<!-- 节点的最少内存值，低于规定数报警  -->
+	<token>
+		<command> SET LEAST MEMORY </command>
+		<keywords> UNLIMIT, TO, LOCAL </keywords>
+		<types> [0-9]+\s*(?i)(M|MB|K|KB|G|GB|%) </types>
+	</token>
+	
+	<!-- 节点的最少磁盘空间值，低于规定数报警  -->
+	<token>
+		<command> SET LEAST DISK </command>
+		<keywords>  UNLIMIT, TO, LOCAL </keywords>
+		<types> [0-9]+\s*(?i)(M|MB|K|KB|G|GB|%) </types>
+	</token>
+
+	<!-- 打印检测目录  -->
+	<token>
+		<command> CHECK SITE PATH </command>
+		<keywords>  TO, LOCAL </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 分布计算任务超时（FRONT不允许分布命令超时） -->
+	<token>
+		<command> SET DISTRIBUTED INVOKER TIMEOUT</command>
+		<keywords>  UNLIMIT, TO, LOCAL</keywords>
+		<types> [0-9]+\s*(?i)(H|M|S|HOUR|HOURS|MINUTE|MINUTES|SECOND|SECONDS|MS|MILLISECONDS|MILLISECOND|时|小时|分|分钟|秒|毫秒) </types>
+	</token>
+
+	<!-- 图形界面日志可显示数目 -->
+	<token>
+		<command> SET LOG ELEMENTS </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 开放TIGGER类型 -->
+	<token>
+		<command> OPEN TIGGER </command>
+		<keywords>  COMMAND, INVOKER,MESSAGE, WARNING, ERROR, FATAL, ALL, TO, LOCAL </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 关闭TIGGER类型 -->
+	<token>
+		<command> CLOSE TIGGER </command>
+		<keywords>  COMMAND, INVOKER,MESSAGE, WARNING, ERROR, FATAL, ALL, FROM, LOCAL </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 检索云端应用 -->
+	<token>
+		<command> SEEK CLOUD WARE </command>
+		<keywords>  ALL </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 生成云应用软件包 -->
+	<token>
+		<command> BUILD CONDUCT PACKAGE </command>
+		<keywords>  IMPORT, BY, README, LOGO, LICENCE, INIT, BALANCE, FROM, TO, PUT </keywords>
+		<types>  </types>
+	</token>
+	<token>
+		<command> BUILD ESTABLISH PACKAGE </command>
+		<keywords>  IMPORT, BY, README, LOGO, LICENCE, ISSUE, ASSIGN, SCAN, SIFT, RISE, END </keywords>
+		<types>  </types>
+	</token>
+	<token>
+		<command> BUILD CONTACT PACKAGE </command>
+		<keywords>  IMPORT, BY, README, LOGO, LICENCE, DISTANT, NEAR </keywords>
+		<types>  </types>
+	</token>
+	
+	<!-- 部署应用软件到云端 -->
+	<token>
+		<command> DEPLOY CONDUCT PACKAGE </command>
+		<keywords> TO, LOCAL, -CHECKTIME </keywords>
+		<types> [0-9]+\s*(?i)(S|SECOND|SECONDS|秒) </types>
+	</token>
+	<token>
+		<command> DEPLOY ESTABLISH PACKAGE </command>
+		<keywords>  TO, LOCAL, -CHECKTIME </keywords>
+		<types> [0-9]+\s*(?i)(S|SECOND|SECONDS|秒) </types>
+	</token>
+	<token>
+		<command> DEPLOY CONTACT PACKAGE </command>
+		<keywords> TO, LOCAL, -CHECKTIME </keywords>
+		<types> [0-9]+\s*(?i)(S|SECOND|SECONDS|秒) </types>
+	</token>
+
+	<!-- 删除云端应用软件，三种！ -->
+	<token>
+		<command> DROP CONDUCT PACKAGE </command>
+		<keywords> FROM, LOCAL  </keywords>
+		<types>  </types>
+	</token>
+	<token>
+		<command> DROP ESTABLISH PACKAGE </command>
+		<keywords>  FROM, LOCAL </keywords>
+		<types>  </types>
+	</token>
+	<token>
+		<command> DROP CONTACT PACKAGE </command>
+		<keywords> FROM, LOCAL </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 运行分布应用软件 -->
+	<token>
+		<command> RUN DAPP </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 检测登录和注册的节点 -->
+	<token>
+		<command> CHECK REMOTE SITE </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	<token>
+		<command> CHECK JOB SITE </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	
+	
+	<!-- 检测FRONT本地系统信息，包括CPU、内存、磁盘 -->
+	<token>
+		<command> CHECK SYSTEM INFO</command>
+		<keywords> TO, LOCAL </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 检测内网穿透地址 -->
+	<token>
+		<command> CHECK POCK CHANNEL </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 以下只限用在桌面的控制台上 -->
+	<!-- 清除界面上的文本 -->
+	<token>
+		<command> CLEAR </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	<!-- 退出控制台 -->
+	<token>
+		<command> EXIT </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	<!-- 帮助文本  -->
+	<token>
+		<command> HELP </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	<!-- 软件版本信息 -->
+	<token>
+		<command> VERSION </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	<!-- 设置行数 -->
+	<token>
+		<command> SET ROWS </command>
+		<keywords>  </keywords>
+		<types>  </types>
+	</token>
+	<!-- 显示行号 -->
+	<token>
+		<command> SET NUMBER, SET NUM </command>
+		<keywords> YES,NO,Y,N </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 设置行间距 -->
+	<!--
+	<token>
+		<command> SET LINE SPACING </command>
+		<keywords> </keywords>
+		<types>  </types>
+	</token>
+	-->
+	
+	<!-- 建立云目录 -->
+	<token>
+		<command> CREATE CLOUD DIRECTORY </command>
+		<keywords> </keywords>
+		<types>  </types>
+	</token>
+	<!-- 删除云端目录 -->
+	<token>
+		<command> DROP CLOUD DIRECTORY </command>
+		<keywords> </keywords>
+		<types>  </types>
+	</token>
+	<!-- 删除云端文件 -->
+	<token>
+		<command> DROP CLOUD FILE </command>
+		<keywords> </keywords>
+		<types>  </types>
+	</token>
+	<!-- 修改云端目录 -->
+	<token>
+		<command> RENAME CLOUD DIRECTORY </command>
+		<keywords> AS </keywords>
+		<types>  </types>
+	</token>
+	<!-- 修改云端文件 -->
+	<token>
+		<command> RENAME CLOUD FILE </command>
+		<keywords> AS </keywords>
+		<types>  </types>
+	</token>
+
+	<!-- 扫描云端目录 -->
+	<token>
+		<command> SCAN CLOUD DIRECTORY </command>
+		<keywords> -FULL, -F </keywords>
+		<types> Y,YES,N,NO,是,否 </types>
+	</token>
+	
+	<!-- 上传文件 -->
+	<token>
+		<command> UPLOAD CLOUD FILE </command>
+		<keywords> FROM, -O, -OVERRIDE, -F, -FILE, TO </keywords>
+		<types> Y,YES,N,NO,是,否 </types>
+	</token>
+	<!-- 下载文件 -->
+	<token>
+		<command> DOWNLOAD CLOUD FILE </command>
+		<keywords> FROM, TO, -F, -FILE </keywords>
+		<types> Y,YES,N,NO,是,否 </types>
+	</token>
+
+	<!-- 检索网关支持MASSIVE MIMO -->
+	<token>
+		<command> CHECK MASSIVE MIMO </command>
+		<keywords> TO </keywords>
+		<types>  </types>
+	</token>
+
+</tokens>

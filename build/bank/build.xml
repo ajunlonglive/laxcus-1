@@ -1,0 +1,73 @@
+<project default="build-bank-jar">
+
+	<target name="build-bank-jar">
+		<delete file="${basedir}/build/bank/laxcus_bank.jar"/>
+		<jar destfile="${basedir}/build/bank/laxcus_bank.jar" manifest="${basedir}/build/bank/META-INF/MANIFEST.MF">
+
+			<fileset dir="${basedir}/bin">
+				<include name="com/laxcus/thread/*.class"/>
+				<include name="com/laxcus/launch/**/*.class"/>
+				<exclude name="com/laxcus/launch/job/*.class"/>
+				<include name="com/laxcus/launch/licence/*.class"/>
+				<exclude name="com/laxcus/launch/licence/LicenceWriter.class"/>
+				
+				<include name="com/laxcus/xml/*.class"/>
+				<include name="com/laxcus/invoke/*.class"/>
+				<include name="com/laxcus/invoke/impl/*.class"/>
+
+				<include name="com/laxcus/bank/**/*.class"/>
+				
+				<include name="com/laxcus/pool/*.class"/>
+				<include name="com/laxcus/pool/archive/*.class"/>
+				<include name="com/laxcus/pool/schedule/*.class"/>
+
+				<include name="com/laxcus/distribute/**/*.class"/>
+
+				<exclude name="com/laxcus/access/Access.class"/>
+				<exclude name="com/laxcus/access/parse/**/*.class"/>
+				<include name="com/laxcus/access/**/*.class"/>
+				<include name="com/laxcus/law/**/*.class"/>
+
+				<include name="com/laxcus/task/archive/*.class"/>
+				<include name="com/laxcus/scaler/*.class"/>
+				<include name="com/laxcus/scaler/archive/*.class"/>
+				<include name="com/laxcus/swift/*.class"/>
+				<include name="com/laxcus/swift/archive/*.class"/>
+				<include name="com/laxcus/swift/parameter/*.class"/>
+
+				<include name="com/laxcus/echo/**/*.class"/>
+				<include name="com/laxcus/command/**/*.class"/>
+				
+				<include name="com/laxcus/util/range/*.class"/>
+				<include name="com/laxcus/fixp/**/*.class"/>
+				<include name="com/laxcus/security/*.class"/>
+				<include name="com/laxcus/site/**/*.class"/>
+				<include name="com/laxcus/util/**/*.class"/>
+
+				<include name="com/laxcus/log/*.class"/>
+				<include name="com/laxcus/log/client/*.class"/>
+				
+				<include name="com/laxcus/remote/*.class"/>
+				<include name="com/laxcus/remote/client/*.class"/>
+				<include name="com/laxcus/remote/client/hit/*.class"/>
+				<include name="com/laxcus/remote/client/hub/*.class"/>
+				<include name="com/laxcus/remote/client/echo/*.class"/>
+				
+				<include name="com/laxcus/remote/client/bank/*.class"/>
+				<include name="com/laxcus/remote/client/top/*.class"/>
+				<include name="com/laxcus/remote/client/data/*.class"/>
+				<include name="com/laxcus/remote/client/call/*.class"/>
+				<include name="com/laxcus/remote/client/build/*.class"/>
+
+				<include name="com/laxcus/visit/*.class"/>
+				<include name="com/laxcus/visit/hit/*.class"/>
+				<include name="com/laxcus/visit/hub/*.class"/>
+
+				<include name="com/laxcus/visit/impl/*.class"/>
+				<include name="com/laxcus/visit/impl/bank/*.class"/>
+
+			</fileset>
+		</jar>
+	</target>
+
+</project>

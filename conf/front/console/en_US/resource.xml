@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- FRONT控制台显示文本 -->
+
+<root>
+	<console>
+		<!-- <welcome>welcome to laxcus cluster, please... </welcome>-->
+		
+		<welcome> <![CDATA[Welcome to laxcus cluster<br>Website: www.laxcus.com<br>Bug/Suggest: bbs.laxcus.com<br>Please... ]]> </welcome>
+		<username>username:</username>
+		<password>password:</password>
+		
+		<exit>exit laxcus cluster, goodbye!</exit>
+		<cancel>  cancel command! </cancel>
+		<doit>syntax correct, do it?  (Yes or No)</doit>
+		<loginto>login to: %s %s</loginto>
+		<login-successful>login successful! used time: %.3f seconds </login-successful>
+		
+		<pitch-not-found>not found %s, check address or network, please! </pitch-not-found>
+		<entrance-failed>login failure! check entrance server, please! </entrance-failed>
+		<redirect-failed>cannot be find gate server! </redirect-failed>
+		<gate-failed>login failure! check gate server or account, please!  </gate-failed>
+		<nat-failed> network failure! or secure limitation!</nat-failed>
+		<connect-failed>connect failure! check network, please!  </connect-failed>
+		<max-user> sorry! max user out! </max-user>
+		<login-timeout> sorry! server busy, please retry! </login-timeout> 
+		<service-missing> login failure! check username or password, account permission, please! </service-missing>
+		<reflect-failed> init failure! check network or entrance site, please!  </reflect-failed>
+		<max-retry> connect failure! check username or password, please! </max-retry>
+		<licence-nat-refuse> cannot be support nat network! </licence-nat-refuse>
+		<version-notmatch> version not match! </version-notmatch>
+
+		<disconnect>network interrupted! please relogin...</disconnect>
+		
+		<affirm>exit console? (Yes or No)</affirm>
+		
+		<syntax-error>syntax incorrect! style: OPEN host port </syntax-error>
+		<address-error>address error! please relogin... </address-error>
+		<illegal-port>illegal port, please relogin.... </illegal-port>
+		
+		<not-found-command>cannot be find command!</not-found-command>
+		<illegal-command> illegal command ! </illegal-command>
+		
+		<grade>
+			<administrator>you are laxcus adminstrator</administrator>
+			<user>you are laxcus user </user>
+			<undefined>Authorized Failure!! </undefined>
+		</grade>
+		
+		<version><![CDATA[Console - Laxcus Distributed OS<br>6.0 RP2 Standard Version <br>Laxcus AI Tech Lab <br>2009-2022 All Rights Reserved]]></version>
+		<licence> accept licence? (Yes or No) </licence>
+
+		<guide>
+			<missing> "%s" missing, please! </missing>
+			<param-error> "%s" is invalid! </param-error>
+			<format-error> "%s" format error! </format-error>
+			<error> error: "%s" </error>
+			<notfound-task> not found "%s", can't be start!  </notfound-task>
+			<startup-failed> run "%s", failed!  </startup-failed>
+			<throwable> execute failed!  </throwable>
+			<stage> %s Stage </stage>
+		</guide>
+		
+		<!-- auto relogin -->
+		<auto-login>
+			<retry> Auto retry...</retry>
+			<failed> Retry failed! </failed>
+			<successful> Retry successfully! </successful>
+		</auto-login>
+	</console>
+
+</root>

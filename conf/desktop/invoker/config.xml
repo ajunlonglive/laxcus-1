@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 异步调用器多语言提示  -->
+
+<config>
+
+	<invoker language="zh" country="CN"> <![CDATA[ conf/desktop/invoker/zh_CN/invoker.xml ]]> </invoker>
+	<invoker language="en" country="US"> <![CDATA[ conf/desktop/invoker/en_US/invoker.xml ]]> </invoker>
+	<invoker language="default" country="default">  <![CDATA[ conf/desktop/invoker/en_US/invoker.xml ]]> </invoker>
+
+</config>

@@ -1,0 +1,926 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<commands>
+
+	<!-- 在右侧显示的HTML模板 -->
+	
+	<!-- windows/linux -->
+	<template font-family="宋体">
+		<command title-font-size="18.0000pt" />
+		<remark title="命令说明" title-font-size="15.0000pt" content-font-size="13.0000pt"/>
+		<syntax title="语法格式" title-font-size="15.0000pt" content-font-size="13.0000pt"/>
+		<params title="参数" title-font-size="15.0000pt" content-font-size="13.0000pt"/>
+	</template>
+
+	<!--
+	<item title=" ">
+		<remark> <![CDATA[  ]]> </remark>
+		<syntax> <![CDATA[  ]]> </syntax>
+		<params> <![CDATA[  ]]> </params>
+	</item>
+	-->
+
+	<group no="1" title="资源检索命令">
+		<item title="Seek Front Site">
+			<remark> <![CDATA[ 检索在GATE/CALL节点上登录的FRONT节点。\n要求WATCH节点登录到BANK/HOME节点才能使用。 ]]> </remark>
+			<syntax> <![CDATA[ SEEK FRONT SITE TO 节点地址 
+SEEK FRONT SITE TO ALL ]]> </syntax>
+			<params> <![CDATA[ 节点地址 ：LAXCUS节点标准格式，包括CALL/GATE两种类型地址，多个节点地址之间用逗号（,）隔开。
+ALL ：要求HOME/BANK集群下的全部CALL/GATE节点。 ]]> </params>
+		</item>
+
+		<item title="Seek Front User">
+			<remark> <![CDATA[ 根据用户签名，检索在GATE/CALL节点登录的FRONT用户。\n要求WATCH节点登录到BANK/HOME节点才能使用。 ]]> </remark>
+			<syntax> <![CDATA[ SEEK FRONT USER 用户名称 
+SEEK FRONT USER 用户签名 
+SEEK FRONT USER ALL ]]> </syntax>
+			<params> <![CDATA[ 用户名称：任意语言的字符组合，多个签名之间用逗号隔开。
+用户签名：带SIGN前缀的64个16进制字符组合，多个用户签名之间用逗号隔开。
+ALL ：检索全部注册用户。 ]]> </params>
+		</item>
+
+		<item title=" Seek Online Command">
+			<remark> <![CDATA[ 检索本地或者分布节点上正在运行的命令，命令包括等待、挂起、处理中三种状态。 ]]> </remark>
+			<syntax> <![CDATA[ SEEK ONLINE COMMAND TO 节点地址  \n SEEK ONLINE COMMAND TO LOCAL]]> </syntax>
+			<params> <![CDATA[ 节点地址 ：LAXCUS节点标准格式：如bank://135.1.23.2:967_899，不支持多个节点。\n LOCAL ：关键字，集群管理员自己的WATCH节点。 ]]> </params>
+		</item>
+		
+		<item title=" Seek Online Resource">
+			<remark> <![CDATA[ 检索分布节点上的运行资源。运行资源包括数据表、分布式应用软件。 ]]> </remark>
+			<syntax> <![CDATA[ SEEK ONLINE RESOURCE TO 节点地址  ]]> </syntax>
+			<params> <![CDATA[ 节点地址 ：LAXCUS节点标准格式：如bank://135.1.23.2:967_899，不支持多个节点。 ]]> </params>
+		</item>
+
+		<item title=" Seek Register Metadata">
+			<remark> <![CDATA[ 检索用户分布在集群中的元数据。元数据内容包括数据表、分布式应用软件。\n限Top、Home集群使用。 ]]> </remark>
+			<syntax> <![CDATA[ SEEK REGISTER METADATA 用户名称  \n SEEK REGISTER METADATA 用户签名 ]]> </syntax>
+			<params> <![CDATA[ 用户名称：任意语言的字符组合，多个用户名称之间用逗号（,）隔开。\n
+用户签名：带SIGN前缀的64个16进制字符组合，多个签名之间用逗号（,）隔开。 ]]> </params>
+		</item>
+
+		<item title="Seek User Area">
+			<remark> <![CDATA[ 检索用户在集群中各种节点的分布。 ]]> </remark>
+			<syntax> <![CDATA[ SEEK USER AREA 用户名称 \n SEEK USER AREA 用户签名 ]]> </syntax>
+			<params> <![CDATA[ 用户名称：任意语言的字符组合，多个用户名称之间用逗号（,）隔开。\n
+用户签名：带SIGN前缀的64个16进制字符组合，多个签名之间用逗号（,）隔开。 ]]> </params>
+		</item>
+
+		<item title=" Seek User Site">
+			<remark> <![CDATA[ 检索集群中的用户名称和它匹配的节点分布状况。TOP集群检索只检索HOME三类节点，HOME集群检索CALL、DATA、WORK、BUILD四类节点。 ]]> </remark>
+			<syntax> <![CDATA[ SEEK USER SITE 用户名称 ON 节点类型
+SEEK USER SITE 用户名称 ON ALL
+SEEK USER SITE ALL ON 节点类型
+SEEK USER SITE ALL ON ALL  ]]> </syntax>
+			<params> <![CDATA[ 用户名称：任意语言的字符组合。
+用户签名：64个16进制字符组合。
+节点类型：关键包括HOME、CALL、DATA、WORK、BUILD。
+ALL：“全部用户”或者“全部节点类型”。 ]]> </params>
+		</item>
+
+		<item title=" Check Distributed Member">
+			<remark> <![CDATA[ 检索注册用户在LAXCUS集群上的分布情况。 ]]> </remark>
+			<syntax> <![CDATA[ CHECK DISTRIBUTED MEMBER 用户名称 
+CHECK DISTRIBUTED MEMBER 用户签名
+CHECK DISTRIBUTED MEMBER ALL  ]]> </syntax>
+			<params> <![CDATA[ 用户名称：任意语言的字符组合，多个用户名称之间用逗号（,）隔开。
+用户签名：带SIGN前缀的64个16进制字符组合，多个签名之间用逗号（,）隔开。
+ALL ：关键字，全部注册用户。 ]]> </params>
+		</item>
+
+		<item title=" Check System Info">
+			<remark> <![CDATA[ 检测服务器系统硬件基础信息，这些硬件包括CPU、内存、磁盘。硬件参数有助于管理员远程管理计算机集群。 ]]> </remark>
+			<syntax> <![CDATA[ CHECK SYSTEM INFO TO LOCAL 
+CHECK SYSTEM INFO TO ALL 
+CHECK SYSTEM INFO TO 节点地址  ]]> </syntax>
+			<params> <![CDATA[ LOCAL : 关键字。当前WATCH节点。
+ALL : 关键字，当前集群的全部节点。
+节点地址：LAXCUS规范节点格式，多个节点地址之间用逗号分开。 ]]> </params>
+		</item>
+
+		<item title="Seek User Table">
+			<remark> <![CDATA[ 检索集群中注册用户的数据表和关联的节点。TOP集群检索HOME节点。HOME集群检索CALL、DATA、WORK、BUILD四类节点。 ]]> </remark>
+			<syntax> <![CDATA[ SEEK USER TABLE 用户名称 ON 节点类型
+SEEK USER TABLE 用户名称 ON ALL
+SEEK USER TABLE 用户签名 ON 节点类型
+SEEK USER TABLE 用户签名 ON ALL ]]> </syntax>
+			<params> <![CDATA[ 用户名称：任意语言的字符组合。\n
+用户签名：64个16进制字符组合。\n
+节点类型：关键包括HOME、CALL、DATA、WORK、BUILD。\n
+ALL：全部用户 或者 全部节点类型  ]]> </params>
+		</item>
+		
+		<item title="Seek User Task">
+			<remark> <![CDATA[ 检索集群中注册用户的分布式应用软件和关联节点。针对HOME集群，要求WATCH节点登录到HOME节点才能使用。  ]]> </remark>
+			<syntax> <![CDATA[ SEEK USER TASK 用户名称 ON 节点类型
+SEEK USER TASK 用户名称 ON ALL
+SEEK USER TASK 用户签名 ON 节点类型
+SEEK USER TASK 用户签名 ON ALL]]> </syntax>
+			<params> <![CDATA[ 用户名称：任意语言的字符组合。
+用户签名：64个16进制字符组合。
+节点类型：关键字包括CALL、DATA、WORK、BUILD。
+ALL：全部用户 或者 全部节点类型 ]]> </params>
+		</item>
+		
+		<item title="Scan Database ">
+			<remark> <![CDATA[ 扫描用户的数据库及下属数据表资源在集群的分布状态。 ]]> </remark>
+			<syntax> <![CDATA[ SCAN DATABASE 数据库名 \n
+SCAN DATABASE 数据库名 TO DATA节点地址  ]]> </syntax>
+			<params> <![CDATA[ 数据库名：除ASCII控制符号字符之外，1-20个任意语言的字符串，忽略大小写。多个数据库名之间用逗号（,）隔开。
+DATA节点地址：LAXCUS节点标准格式，如DATA://192.168.2.23:877_876，多个DATA节点地址之间用逗号（,）隔开。不指定DATA节点，将扫描全部DATA节点上的数据。  ]]> </params>
+		</item>
+		
+		<item title=" Scan Table">
+			<remark> <![CDATA[ 描任注册用户的数据表资源在集群的分布状态。 ]]> </remark>
+			<syntax> <![CDATA[ SCAN TABLE 数据表名 \n
+SCAN TABLE 数据表名 TO DATA节点地址 ]]> </syntax>
+			<params> <![CDATA[ 数据表名：采用“数据库.表”格式，是除ASCII控制、符号字符之外，1-20个任意语言的字符串，忽略大小写。多个数据表名之间用逗号（,）隔开。\n
+DATA节点地址：LAXCUS节点标准格式：如DATA://192.168.2.23:877_876，多个DATA节点地址之间用逗号（,）隔开。不指定DATA节点，将扫描全部DATA节点上的数据。 ]]> </params>
+		</item>
+		
+		<item title="Scan Entity ">
+			<remark> <![CDATA[ 扫描和统计指定DATA节点、指定数据表的数据块，包括缓存块和固定块数量，以及数据总长度。 ]]> </remark>
+			<syntax> <![CDATA[ SCAN ENTITY 数据库名.表名 \nSCAN ENTITY 数据库名.表名 TO DATA节点地址 ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制、符号字符外，1-20任意语言字符组合，忽略大小写。\n
+DATA节点地址：LAXCUS节点标准格式，多个DATA节点地址之间用逗号（,）隔开。如果不指定DATA节点，将扫描全部关联DATA节点。 ]]> </params>
+		</item>
+		
+		<item title="Seek Task">
+			<remark> <![CDATA[ 检索一个用户的分布式应用软件在集群的分布。特别注意！这个命令检索的是单用户分布式应用软件！ ]]> </remark>
+			<syntax> <![CDATA[ SEEK TASK ALL ON 用户名称 
+SEEK TASK ALL ON 用户签名
+SEEK TASK 分布任务名称 ON 用户名称 
+SEEK TASK 分布任务名称 ON 用户签名
+SEEK TASK 分布任务名称 ]]> </syntax>
+			<params> <![CDATA[ 用户名称：任意语言的字符组合。
+用户签名：以“SIGN”为前缀的64个16进制字符。
+分布任务名称：由软件名称和组件名称组成。名称是除ASCII控制、符号字符之外的任意字符。组件名称由用户定义，系统检查名称唯一性。多个分布任务名之间用逗号隔开。格式如：”Soft1.Task1, Soft2.Task2”。
+ALL：全部分布式应用软件。ALL和分布式应用软件名称二选一。 ]]> </params>
+		</item>
+
+		<item title=" Scan User Log">
+			<remark> <![CDATA[ 检索用户执行过的命令。 ]]> </remark>
+			<syntax> <![CDATA[ SCAN USER LOG 用户名称
+SCAN USER LOG 用户签名
+SCAN USER LOG 用户名称 FROM 开始时间 TO 结束时间
+SCAN USER LOG 用户签名 FROM 开始时间 TO 结束时间 ]]> </syntax>
+			<params> <![CDATA[ 用户名称：任意语言的字符组合，多个用户名称之间用逗号（,）隔开。
+用户签名：以“SIGN”为前缀的64个16进制字符，多个用户名称之间用逗号（,）隔开。
+开始时间/结束时间：年 月 日 : 时:分:秒 ]]> </params>
+		</item>
+		
+		<item title="Print User Diagram">
+			<remark> <![CDATA[ 检索注册用户状态 ]]> </remark>
+			<syntax> <![CDATA[ PRINT USER DIAGRAM FROM 用户名称
+PRINT USER DIAGRAM FROM 用户签名 ]]> </syntax>
+			<params> <![CDATA[ 用户名称：任意语言的字符组合，多个用户名称之间用逗号（,）隔开。
+用户签名：以“SIGN”为前缀的64个16进制字符，多个用户名称之间用逗号（,）隔开。 ]]> </params>
+		</item>
+		
+		<item title="Print Grant Diagram ">
+			<remark> <![CDATA[ 检索注册用户被授权命令。  ]]> </remark>
+			<syntax> <![CDATA[ PRINT GRANT DIAGRAM FROM 用户名称
+PRINT GRANT DIAGRAM FROM 用户签名 ]]> </syntax>
+			<params> <![CDATA[ 用户名称：任意语言的字符组合，多个用户名称之间用逗号（,）隔开。
+用户签名：以“SIGN”为前缀的64个16进制字符，多个用户名称之间用逗号（,）隔开。  ]]> </params>
+		</item>
+		
+		<item title="Print Database Diagram">
+			<remark> <![CDATA[ 显示指定注册用户下属的数据库记录  ]]> </remark>
+			<syntax> <![CDATA[ PRINT DATABASE DIAGRAM 数据库名 FROM 用户名称
+PRINT DATABASE DIAGRAM 数据库名 FROM 用户签名
+PRINT DATABASE DIAGRAM ALL FROM 用户名称
+PRINT DATABASE DIAGRAM ALL FROM 用户签名 ]]> </syntax>
+			<params> <![CDATA[ 用户名称：任意语言的字符组合，多个用户名称之间用逗号（,）隔开。
+用户签名：以“SIGN”为前缀的64个16进制字符，多个用户名称之间用逗号（,）隔开。
+数据库名：除ASCII控制、符号字符外，1-20任意语言字符组合，忽略大小写。 ]]> </params>
+		</item>
+		
+		<item title="Print Table Diagram">
+			<remark> <![CDATA[ 显示指定注册用户下属的数据表记录。 ]]> </remark>
+			<syntax> <![CDATA[ PRINT TABLE DIAGRAM 数据库名.表名 FROM 用户名称
+PRINT TABLE DIAGRAM 数据库名.表名 FROM 用户签名
+PRINT TABLE DIAGRAM ALL FROM 用户名称
+PRINT TABLE DIAGRAM ALL FROM 用户签名 ]]> </syntax>
+			<params> <![CDATA[ 用户名称：任意语言的字符组合，多个用户名称之间用逗号（,）隔开。
+用户签名：以“SIGN”为前缀的64个16进制字符，多个用户名称之间用逗号（,）隔开。
+数据库名和表名：除ASCII控制、符号字符外，1-20任意语言字符组合，忽略大小写。  ]]> </params>
+		</item>
+		
+	</group>
+	
+	<group no="2" title="资源管理命令">
+		<item title="Create Secure Token">
+			<remark> <![CDATA[ 建立一个密钥令牌。密钥令牌是Laxcus集群安全通信的基础，它指定节点可以接受的IP地址来源范围，拒绝哪些地址。Laxcus节点通过密钥令牌判断和限制基于IP地址的网络通信，防止DDOS攻击，保护Laxcus集群安全可靠运行。
+1. 密钥令牌保存在节点服务端，包括名称、安全检查类型、应用模式、白名单地址，RSA私钥、RSA公钥。RSA私钥用于服务端解密，RSA公钥用于客户机加密。获得RSA密钥，除了由管理员操作命令产生，还支持通过随机数、传统密钥机、量子通信网络分发获得。
+2. 在Laxcus节点上，Special类型密钥令牌允许任意多个，Common类型密钥令牌最多只允许一个。
+3. 由于Laxcus集群通信和处理业务深度依赖密钥令牌，任何误操作“Create Secure Token”和“Drop Secure Token”命令，都可以造成节点之间的网络通信失败，请管理员谨慎使用。 ]]> </remark>
+			<syntax> <![CDATA[ CREATE SECURE TOKEN -Name -Check -Mode -Address -Password -Keysize To 目标节点地址
+CREATE SECURE TOKEN -Name -Check -Mode -Address -Password -Keysize To ALL  ]]> </syntax>
+			<params> <![CDATA[ -Name | -N：密钥令牌字符串名称，忽略大小写。名称具有唯一性，允许同名密钥令牌替换。
+-Check | -C：安全检查类型，包括“None、Address、Cipher、Duplex”四种类型。None是最低等级的安全检查，只做IP包源地址和白名单地址一致性判断。Address要求客户机提供混淆的来源地址签名，和IP包来源、白名单地址进行一致性判断。Cipher要求客户端采用加密安全通信，在正式的安全通信前，进行非对称密钥+对称密钥交换，过程类似SSH。Cipher类型采用一次一密的方式，用完即弃。Duplex是结合了Address和Cipher的复合型检查，安全等级最高。
+-Mode | -M：应用模式，包括Special和Common，Special适用某一组的IP地址，Common适用除Special之外的所有IP地址。
+-Address | -A：白名单地址范围，在白名单上的IP地址，将被服务器接受。一个白名单地址范围由“开始IP地址,结尾IP地址”组成，多个地址范围之间由分号分隔。
+-Password | -PWD | -P：服务器密码，依据这个密码，将生成RSA非对称密钥。
+-Keysize | -KS：RSA非对称密钥数位，不于低于512位。
+目标节点地址：LAXCUS节点标准格式，多个节点之间用逗号分隔。
+ALL : 当前集群全部节点地址。ALL和节点地址之间二选一。 ]]> </params>
+		</item>
+		<item title="Drop Secure Token">
+			<remark> <![CDATA[ 基于密钥令牌名称，删除一个或者多个密钥令牌。 ]]> </remark>
+			<syntax> <![CDATA[ DROP SECURE TOKEN 密钥令牌名称 FROM 目标节点地址 
+DROP SECURE TOKEN 密钥令牌名称 FROM 目标节点地址  ]]> </syntax>
+			<params> <![CDATA[ 密钥令牌名称：字符串，多个密钥令牌之间用逗号分开。
+节点地址：LAXCUS规范节点格式，多个节点地址之间用逗号分开。
+ALL : 当前集群全部节点地址。ALL和节点地址之间二选一。 ]]> </params>
+		</item>
+		<item title="Flush Secure Token">
+			<remark> <![CDATA[ 将节点上的所有密钥令牌输出到磁盘上保存。保存位置在节点根目录的“conf/security.xml”文件。 ]]> </remark>
+			<syntax> <![CDATA[ FLUSH SECURE TOKEN TO 目标节点地址
+FLUSH SECURE TOKEN TO ALL  ]]> </syntax>
+			<params> <![CDATA[ 节点地址：LAXCUS规范节点格式，多个节点地址之间用逗号分开。
+ALL : 当前集群全部节点地址。ALL和节点地址之间二选一。 ]]> </params>
+		</item>
+		<item title="Show Secure Token">
+			<remark> <![CDATA[ 显示节点上的所有密钥令牌信息。 ]]> </remark>
+			<syntax> <![CDATA[ SHOW SECURE TOKEN FROM 目标节点地址 
+SHOW SECURE TOKEN FROM ALL  ]]> </syntax>
+			<params> <![CDATA[ 节点地址：LAXCUS规范节点格式，多个节点地址之间用逗号分开。
+ALL : 当前集群全部节点地址。ALL和节点地址之间二选一。 ]]> </params>
+		</item>
+		<item title="Set Secure Size">
+			<remark> <![CDATA[ 设置LAXCUS集群节点对称密钥数位长度。 ]]> </remark>
+			<syntax> <![CDATA[ SET SECURE SIZE -client -server TO 目标节点地址 
+SET SECURE SIZE -client -server TO ALL
+SET SECURE SIZE -client -server TO LOCAL ]]> </syntax>
+			<params> <![CDATA[ -Client | -C：节点以客户机执行时，对称密钥数位长度。对称密钥长度必须是8的倍数。-SERVER | -S：节点以服务器执行时，对称密钥数位长度。对称密钥长度必须是8的倍数。
+LOCAL : 关键字，当前WATCH节点
+节点地址：LAXCUS规范节点格式，多个节点地址之间用逗号分开。
+ALL : 当前集群全部节点地址。ALL、LOCAL、节点地址之间三选一。 ]]> </params>
+		</item>
+
+		<item title="Reload Dynamic Library">
+			<remark> <![CDATA[ 通知指定的计算机节点，重新加载它本地的动态链接库。这个操作通常是增加、删除运行节点的动态链接库后，重置节点的动态链接库时执行。\n在Laxcus运行环境中，存放动态链接库的目录有两种，它们包括：属于节点的动态链库、属于分布式应用软件的动态链接库。它们分别在节点的启动文件里，通过“laxcus.library”、“laxcus.task.library”指定设置。 ]]> </remark>
+			<syntax> <![CDATA[ RRLOAD DYNAMIC LIBRARY TO 节点地址 \n RELOAD DYNAMIC LIBRARY TO ALL  ]]> </syntax>
+			<params> <![CDATA[ 节点地址：LAXCUS规范节点格式。多个节点地址之间用逗号分开。\n
+ALL : 当前集群全部节点地址。ALL和节点地址之间二选一。 ]]> </params>
+		</item>
+		
+		<item title="Reload Security Policy ">
+			<remark> <![CDATA[ 通知指定的计算机节点，重新加载新的安全策略。这个操作是在集群管理员修改了节点conf目录下的site.policy安全策略文件后，重置系统安全时使用。 ]]> </remark>
+			<syntax> <![CDATA[ RELOAD SECURITY POLICY TO 节点地址 
+RELOAD SECURITY POLICY TO ALL ]]> </syntax>
+			<params> <![CDATA[ 节点地址：LAXCUS规范节点格式。多个节点地址之间用逗号分开。
+ALL : 当前集群全部节点地址。ALL和节点地址之间二选一。 ]]> </params>
+		</item>
+
+		<item title="Publish Licence">
+			<remark> <![CDATA[ 发送新的许可证文件到指定的计算机节点。许可证固定是所在节点"conf"目录的"licence"文件。 ]]> </remark>
+			<syntax> <![CDATA[ PUBLISH LICENCE 磁盘许可证文件路径 TO 节点地址 [-IE]
+PUBLISH LICENCE 磁盘许可证文件路径 TO ALL [-IE] ]]> </syntax>
+			<params> <![CDATA[ 磁盘许可证文件路径：名称为“licence”的磁盘文件，路径格式依赖本地系统。
+节点地址：LAXCUS规范节点格式。多个节点地址之间用逗号分开。
+ALL : 当前集群全部节点地址。ALL和节点地址之间二选一。
+-IE : 同步执行加载新许可证  ]]> </params>
+		</item>
+		
+		<item title="Reload Licence">
+			<remark> <![CDATA[ 通知指定的计算机节点，重新加载新的许可证。许可证固定是所在节点"conf"目录的"licence"文件。这个命令通常在“Publish Licence”命令之后执行。 ]]> </remark>
+			<syntax> <![CDATA[ RELOAD LICENCE TO 节点地址 
+RELOAD LICENCE TO ALL ]]> </syntax>
+			<params> <![CDATA[ 节点地址：LAXCUS规范节点格式。多个节点地址之间用逗号分开。
+ALL : 当前集群全部节点地址。ALL和节点地址之间二选一。 ]]> </params>
+		</item>
+
+		<item title="Release Memory">
+			<remark> <![CDATA[通知指定的节点，释放内存中的过期数据。  ]]> </remark>
+			<syntax> <![CDATA[ RELEASE MEMORY TO LOCAL \nRELEASE MEMORY TO ALL \nRELEASE MEMORY TO 节点地址 ]]> </syntax>
+			<params> <![CDATA[ LOCAL : 关键字。释放当前WATCH节点的过期数据。\nALL : 关键字，当前集群全部节点。\n节点地址：LAXCUS规范节点格式，多个节点地址之间用逗号分开。 ]]> </params>
+		</item>
+
+		<item title="Set Release Memory Interval">
+			<remark> <![CDATA[WATCH节点设置释放内存过期数据间隔时间。  ]]> </remark>
+			<syntax> <![CDATA[ SET RELEASE MEMORY INTERVAL 间隔时间 TO LOCAL \nSET RELEASE MEMORY INTERVAL 间隔时间 TO ALL\nSET RELEASE MEMORY INTERVAL 间隔时间 TO 节点地址  ]]> </syntax>
+			<params> <![CDATA[ LOCAL : 关键字。释放当前WATCH节点的过期数据。\nALL : 关键字，当前集群全部节点。\n节点地址：LAXCUS规范节点格式，多个节点地址之间用逗号分开。 ]]> </params>
+		</item>
+		
+		<item title="Open Command Stack">
+			<remark> <![CDATA[ 通知指定的计算机节点，启动命令堆栈的定时扫描工作。扫描结果将写入日志，集群管理员通过调阅日志查看命令/调用器的执行记录。 ]]> </remark>
+			<syntax> <![CDATA[ OPEN COMMAND STACK 间隔时间 TO 节点地址 
+OPEN COMMAND STACK 间隔时间 TO ALL ]]> </syntax>
+			<params> <![CDATA[ 节点地址：LAXCUS规范节点格式。多个节点地址之间用逗号分开。
+ALL : 当前集群全部节点地址。ALL和节点地址之间二选一。  ]]> </params>
+		</item>
+		
+		<item title="Close Command Stack ">
+			<remark> <![CDATA[ 通知指定的计算机节点，退出命令堆栈的定时扫描工作。 ]]> </remark>
+			<syntax> <![CDATA[ CLOSE COMMAND STACK FROM 节点地址 
+CLOSE COMMAND STACK FROM ALL ]]> </syntax>
+			<params> <![CDATA[ 节点地址：LAXCUS规范节点格式。多个节点地址之间用逗号分开。
+ALL : 当前集群全部节点地址。ALL和节点地址之间二选一。 ]]> </params>
+		</item>
+		
+		<item title="Refresh User">
+			<remark> <![CDATA[ 通知BANK节点，重新检查和加载Front登录用户与集群分布资源的关联配置。只在WATCH节点登录到BANK节点时有效和使用。 ]]> </remark>
+			<syntax> <![CDATA[ REFRESH USER 用户名称 
+REFRESH USER 用户签名 ]]> </syntax>
+			<params> <![CDATA[ 用户名称：任意语言的字符组合，多个用户名称之间用逗号（,）隔开。
+用户签名：以“SIGN”为前缀的64个16进制字符，多个用户名称之间用逗号（,）隔开。 ]]> </params>
+		</item>
+		
+		<item title="Refresh Metadata ">
+			<remark> <![CDATA[ 要求DATA、WORK、BUILD节点向CALL节点提供与指定用户签名有关的本地元数据。 只在WATCH节点到TOP/HOME节点时才有效和使用。]]> </remark>
+			<syntax> <![CDATA[ REFRESH METADATA 用户名称 
+REFRESH METADATA 用户签名 ]]> </syntax>
+			<params> <![CDATA[ 用户名称：任意语言的字符组合，多个用户名称之间用逗号（,）隔开。
+用户签名：以“SIGN”为前缀的64个16进制字符，多个用户名称之间用逗号（,）隔开。  ]]> </params>
+		</item>
+		
+		<item title="Refresh Login ">
+			<remark> <![CDATA[ 要求指定的节点重新注册到它的管理节点 。]]> </remark>
+			<syntax> <![CDATA[ REFRESH LOGIN TO 节点地址 
+REFRESH LOGIN TO ALL ]]> </syntax>
+			<params> <![CDATA[ 节点地址：LAXCUS规范节点格式，多个地址之间逗号分开。
+ALL : 当前集群的全部节点。ALL和节点地址二选一。 ]]> </params>
+		</item>
+		
+		<item title="Set Shadow Mode">
+			<remark> <![CDATA[ ENTRANCE节点向登录用户分配集群虚拟空间时，采用的处理模式，包括散列模式和诊断模式。两者的区别：散列模式能够帮助用户快速登录集群，但是存在集群资源分配不平均的问题。诊断模式会启动一系列检测行为，集群资源分配更精确和均衡，但是用户登录耗时会较长。正常情况下，散列模式足够使用，如果集群新增节点或者撤销某个节点后，为保证均衡地分配集群数据资源和数据资源一致性，请采用诊断模式。]]> </remark>
+			<syntax> <![CDATA[ SET SHADOW MODE HASH
+SET SHADOW MODE ASSERT ]]> </syntax>
+			<params> <![CDATA[ HASH : 散列模式。快速为登录用户分配集群虚拟空间，但是存在集群资源分配不平均的问题。
+ASSERT : 诊断模式。集群资源分配比较均衡，但是需要耗长时间的判断分析分配过程。 ]]> </params>
+		</item>
+		
+		<item title="Check Shadow Consistency">
+			<remark> <![CDATA[ 根据集群的虚拟空间分配算法，检查GATE站点上的注册用户与所在站点一致性。]]> </remark>
+			<syntax> <![CDATA[ CHECK SHADOW CONSISTENCY TO ALL 
+CHECK SHADOW CONSISTENCY TO GATE节点地址 ]]> </syntax>
+			<params> <![CDATA[ ALL : 当前全部GATE站点。
+GATE节点地址 : LAXCUS规范的GATE节点，多个节点地址之间用逗号分开。 ]]> </params>
+		</item>
+
+		<item title="Compact">
+			<remark> <![CDATA[ 删除DATA主节点的缓存数据块的冗余数据。这个命令用于测试目的，生产环境禁止使用。系统运行过程中，定时检测缓存块的冗余数据并删除它们。  ]]> </remark>
+			<syntax> <![CDATA[ COMPACT 数据库名.表名 TO DATA节点地址
+COMPACT 数据库名.表名  ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制、符号字符之外，1-20个任意语言的字符串，忽略大小写。
+DATA节点地址：LAXCUS节点标准格式，多个DATA节点地址之间用逗号（,）隔开。如果不指定DATA节点地址，将扫描全部与指定数据库有关的DATA节点数据。 ]]> </params>
+		</item>
+		
+		<item title="Rush ">
+			<remark> <![CDATA[ 将DATA主节点的数据块，从缓存状态转换成固定状态。强制数据块转换状态只能用于测试目的，生产环境禁止使用。 ]]> </remark>
+			<syntax> <![CDATA[ RUSH 数据库名.表名 TO DATA节点地址
+RUSH 数据库名.表名 ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制、符号字符之外，1-20个任意语言的字符串，忽略大小写。
+DATA节点地址：LAXCUS节点标准格式，多个DATA节点地址之间用逗号（,）隔开。如果不指定DATA节点地址，将扫描全部与指定数据库有关的DATA节点数据。 ]]> </params>
+		</item>
+		
+		<item title="Copy Master Mass ">
+			<remark> <![CDATA[ 将数据块，从指定的DATA主节点复制到DATA从节点。这个命令通常用于用户数据扩容，提高并行计算算力。 ]]> </remark>
+			<syntax> <![CDATA[ COPY MASTER MASS 数据库名.表名 [数据块编号集合] FROM DATA主节点 TO DATA从节点
+COPY MASTER MASS 数据库名.表名 FROM DATA主节点 TO DATA从节点 ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制、符号字符之外，1-20个任意语言的字符串，忽略大小写。
+数据块编号集合：16进制或者十进制数字，多个编码之间用逗号隔开。
+DATA主/从节点地址：LAXCUS节点标准格式，只允许一个。 ]]> </params>
+		</item>
+		
+		<item title="Set DSM Reduce">
+			<remark> <![CDATA[ 设置列存储模型表的数据压缩倍数。压缩倍数与数据占用的磁盘空间呈反比，即压缩倍数越大，数据占用的磁盘空间越小。但是在数据输出过程中，因为列/行模型的数据转换原因，会占用较多的内存。此命令是特别情况下针对特定表和特定的Data节点的操作，属于临时性行为，不改变数据表配置里的压缩倍数。 ]]> </remark>
+			<syntax> <![CDATA[ SET DSM REDUCE 数据库名.表名 压缩倍数 TO DATA节点地址 \nSET DSM REDUCE 数据库名.表名 压缩倍数  ]]> </syntax>
+			<params> <![CDATA[ 数据库名和表名：除ASCII控制、符号字符之外，1-20个任意语言的字符串，忽略大小写。
+压缩倍数：正整数，必须大于0。
+DATA节点地址：LAXCUS节点标准格式，多个DATA节点地址之间用逗号（,）隔开。如果不指定DATA节点地址，将扫描全部与指定数据库有关的DATA节点数据。 ]]> </params>
+		</item>
+		
+		<item title="Shutdown ">
+			<remark> <![CDATA[ 通过Watch节点远程关闭其他节点。\n被要求关闭的节点将被迫退出集群，请谨慎使用这个命令。]]> </remark>
+			<syntax> <![CDATA[ SHUTDOWN 节点地址 DELAY 延时时间
+SHUTDOWN ALL DELAY 延时时间
+SHUTDOWN 节点地址 
+SHUTDOWN ALL ]]> </syntax>
+			<params> <![CDATA[ 节点地址：LAXCUS规范节点格式，多个地址之间逗号分开。
+ALL : 当前集群的全部节点。
+延时时间：ASCII字符的0-9，与“小时、时、分、秒、HOUR、MINUTE、SECOND、H、M、S”时间单位的组合。 ]]> </params>
+		</item>
+
+		<item title="Set Log Level ">
+			<remark> <![CDATA[ 设置运行节点的日志级别 ]]> </remark>
+			<syntax> <![CDATA[ SET LOG LEVEL 日志级别 TO 节点地址 
+SET LOG LEVEL 日志级别 TO ALL ]]> </syntax>
+			<params> <![CDATA[ 日志级别 ：包括DEBUG、INFO、WARNING、ERROR、FATAL五种。
+节点地址 ：LAXCUS规范节点格式，多个节点地址之间用逗号分开。
+ALL : 当前节点的全部节点地址。ALL和节点地址之间二选一。 ]]> </params>
+		</item>
+		
+		<item title="Set Log Elements">
+			<remark> <![CDATA[ 设置界面日志显示数目。系统显示限制在0 - 2000行范围，完整记录请查阅磁盘上的日志文件。 ]]> </remark>
+			<syntax> <![CDATA[ SET LOG ELEMENTS 显示数目 ]]> </syntax>
+			<params> <![CDATA[ 显示数目 ：数字。 ]]> </params>
+		</item>
+		
+		<item title="Reload Custom Package ">
+			<remark> <![CDATA[ 通知运行节点，重新加载和发布自定义JAR包。 ]]> </remark>
+			<syntax> <![CDATA[ RELOAD CUSTOM PACKAGE TO 节点地址 
+RELOAD CUSTOM PACKAGE TO ALL ]]> </syntax>
+			<params> <![CDATA[ 节点地址 ：LAXCUS规范节点格式，多个节点地址之间用逗号分开。
+ALL : 当前节点的全部节点地址。ALL和节点地址之间二选一。 ]]> </params>
+		</item>
+		
+		<item title="Set Command Mode ">
+			<remark> <![CDATA[ 设置命令在集群中的数据存取模式，包括内存存取或者磁盘存取两种。此命令生效后，所有从WATCH节点发出的命令，它的中间数据存取方式，将选择内存存取或者硬盘存取的一种。WATCH节点命令默认是磁盘存取。 ]]> </remark>
+			<syntax> <![CDATA[SET COMMAND MODE MEMORY 
+SET COMMAND MODE DISK  ]]> </syntax>
+			<params> <![CDATA[ MEMORY 内存存取模式
+DISK 磁盘存取模式 ]]> </params>
+		</item>
+		
+		<item title="Set Command Timeout ">
+			<remark> <![CDATA[ 设置命令超时时间。此命令生效后，从WATCH节点发出的命令，将遵守这个时间限制。达到超时时间后，系统将立即结束它们工作并释放分布资源，并返回超时故障通知。 ]]> </remark>
+			<syntax> <![CDATA[ SET COMMAND TIMEOUT UNLIMIT
+SET COMMAND TIMEOUT 超时时间 ]]> </syntax>
+			<params> <![CDATA[ UNLIMIT： 取消超时限制。
+超时时间：ASCII字符的0-9，与“小时、时、分、秒、HOUR、MINUTE、SECOND、H、M、S”时间单位的组合。 ]]> </params>
+		</item>
+		
+		<item title="Set Command Priority ">
+			<remark> <![CDATA[ 设置命令优先级，优先级决定命令在节点上处理顺序，采用从高到低排列处理。\n此命令生效后，所有从WATCH节点发出的命令，将遵守这个优先级规定。 ]]> </remark>
+			<syntax> <![CDATA[ SET COMMAND PRIORITY NONE|MIN|NORMAL|MAX|FAST ]]> </syntax>
+			<params> <![CDATA[ NONE 无优先级定义，总在最后处理。
+MIN 最小优先级，高于NONE优先级处理。
+NORMAL 普通优先级，高于MIN优先级处理。
+MAX 最大优先级，高于NORMAL优先级处理。
+FAST 极速处理，高于MAX优先级且不受节点资源检测限制，被立即处理。 ]]> </params>
+		</item>
+		
+		<item title="Set Cipher Timeout">
+			<remark> <![CDATA[ 集群管理员规定的客户端节点密钥在服务端节点的超时时间。\n密钥是保证集群安全运行的重要因素。通过设置密钥超时，将保证集群各节点之间的通信在安全和可验证的范围内运行，并将不可靠和发生故障的节点剔除出去。 ]]> </remark>
+			<syntax> <![CDATA[ SET CIPHER TIMEOUT 超时时间 TO ALL
+SET CIPHER TIMEOUT 超时时间 TO LOCAL
+SET CIPHER TIMEOUT 超时时间 TO节点地址 ]]> </syntax>
+			<params> <![CDATA[ 超时时间：ASCII字符的0-9，与“小时、时、分、秒、HOUR、MINUTE、SECOND、H、M、S”时间单位的组合。
+ALL：集群中的全部节点。
+LOCAL：当前WATCH节点。
+节点地址：LAXCUS标准格式节点地址，多个地址之间用逗号分隔。]]> </params>
+		</item>
+		
+		<item title="Set Distributed Command Timeout">
+			<remark> <![CDATA[ 设置分布计算命令处理前的等待时间。\n分布计算命令被节点处理前，有一个“等待”状态。 ]]> </remark>
+			<syntax> <![CDATA[ SET DISTRIBUTED COMMAND TIMEOUT 超时时间 TO ALL
+SET DISTRIBUTED COMMAND TIMEOUT 超时时间 TO 节点地址]]> </syntax>
+			<params> <![CDATA[ 超时时间：ASCII字符的0-9，与“小时、时、分、秒、HOUR、MINUTE、SECOND、H、M、S”时间单位的组合。关键字“UNLIMIT”表示不限制。
+ALL：集群中的全部节点。
+节点地址：LAXCUS标准格式节点地址，多个地址之间用逗号分隔。]]> </params>
+		</item>
+		
+		<item title="Set Distributed Invoker Timeout">
+			<remark> <![CDATA[ 设置分布任务的处理超时时间。\nLAXCUS集群上所有任务，都是分布式状态存在，通过规定分布处理超时时间，将促使任务管理器及时清除掉已经“死亡”的分布任务，防止“垃圾”业务堆积，进而提高节点硬件资源的使用效率，保证集群稳定性。清除完成后，调用方将收到集群管理员发来的错误提示。这个命令的优先级高于用户定义的“SET COMMAND TIMEOUT”命令。]]> </remark>
+			<syntax> <![CDATA[ SET DISTRIBUTED INVOKER TIMEOUT 超时时间 TO ALL
+SET DISTRIBUTED INVOKER TIMEOUT 超时时间 TO LOCAL
+SET DISTRIBUTED INVOKER TIMEOUT 超时时间 TO 节点地址]]> </syntax>
+			<params> <![CDATA[ 超时时间：ASCII字符的0-9，与“小时、时、分、秒、HOUR、MINUTE、SECOND、H、M、S”时间单位的组合。关键字“UNLIMIT”表示不限制。
+ALL：集群中的全部节点。
+LOCAL：当前WATCH节点。
+节点地址：LAXCUS标准格式节点地址，多个地址之间用逗号分隔。]]> </params>
+		</item>
+
+		<item title="Set Max Invoker">
+			<remark> <![CDATA[ 设置集群节点调用器参数，包括最大调用器成员数和最大限制时间。\n通过设置调用器参数，可以适配不同性能的服务器，提高或者减少分布任务运行规模，为管理员提供灵活方案。]]> </remark>
+			<syntax> <![CDATA[ SET MAX INVOKER [-M -CT] TO ALL
+SET MAX INVOKER [-M -CT] TO LOCAL
+SET MAX INVOKER [-M -CT] TO 节点地址 ]]> </syntax>
+			<params> <![CDATA[ -M：调用器最大运行数，ASCII字符的0-9组成的数字。
+-CT：ASCII字符的0-9，与“小时、时、分、秒、HOUR、MINUTE、SECOND、H、M、S”时间单位的组合。
+ALL：集群中的全部节点。
+LOCAL：当前WATCH节点。
+节点地址：LAXCUS标准格式节点地址，多个地址之间用逗号分隔。]]> </params>
+		</item>
+		<item title="Set Echo Buffer">
+			<remark> <![CDATA[ 设置本地或者集群节点的异步缓冲区空间尺寸。\n稳定性是LAXCUS集群操作系统的第一设计要素，内存溢出将严重影响集群运行的稳定性，通过限制分布式应用的内存使用量，可以大大减少内存溢出现象。当内存超过规定尺寸后，系统将把数据将自动切换至硬盘存取。]]> </remark>
+			<syntax> <![CDATA[ SET ECHO BUFFER 缓冲区尺寸 TO ALL
+SET ECHO BUFFER 缓冲区尺寸 TO LOCAL
+SET ECHO BUFFER 缓冲区尺寸 TO 节点地址 ]]> </syntax>
+			<params> <![CDATA[ 缓冲区尺寸：ASCII字符的0-9，与“K、M、G”等内存单位的组合。如果是0，表示不限制内存使用量。
+ALL：集群中的全部节点。
+LOCAL：当前WATCH节点。
+节点地址：LAXCUS标准格式节点地址，多个地址之间用逗号分隔。]]> </params>
+		</item>
+		<item title="Set Reflect Port">
+			<remark> <![CDATA[ 设置网关节点的外网通信映射端口。网关节点包括Entrance、Gate、Call三类。
+映射端口能够起到屏蔽内网拓扑环境、保护内网安全、节约运营商网络地址的作用。
+特别注意：此操作具有一定危险性，如果设置错误，将会导致Front节点登录失败。在操作前，请仔细核对映射端口号和关联服务器类型，慎重使用！]]> </remark>
+			<syntax> <![CDATA[ SET REFLECT PORT 映射端口 ON 服务器类型 TO 节点地址 ]]> </syntax>
+			<params> <![CDATA[ 映射端口：大于0的正整数数字，0表示忽略。多个映射端口之间用逗号分隔。
+服务器类型：关键字,多个服务器类型之间用逗号分隔，服务器类型必须关联映射端口。它们有四类，分别是：STREAM SERVER（流模式控制信道服务器）、PACKET SERVER（包模式控制信道服务器）、SUCKER SERVER（数据输入信道服务器）、DISPATCHER SERVER（数据输出信道服务器）。
+节点地址：LAXCUS标准格式节点地址，必须显示指定，只有一个。]]> </params>
+		</item>
+		
+		<item title="Set Outlook Interval">
+			<remark> <![CDATA[ 定时追踪和检测LAXCUS集群节点设备资源的间隔时间。\nWATCH节点根据这个间隔时间，定时向集群的所有节点发送检测命令，并将命令反馈结果显示在WATCH节点屏幕上。被检测的资源包括CPU、内存、磁盘、分布计算任务数。间隔时间不能少于10秒。 ]]> </remark>
+			<syntax> <![CDATA[ SET OUTLOOK INTERVAL 超时时间]]> </syntax>
+			<params> <![CDATA[ 超时时间：ASCII字符的0-9，与“小时、时、分、秒、HOUR、MINUTE、SECOND、H、M、S”时间单位的组合。 ]]> </params>
+		</item>
+		
+		<item title=" Set Scan Link Time">
+			<remark> <![CDATA[ 检查集群各节点之间关联链的间隔时间。\nWATCH节点将这个命令发送到TOP/HOME节点，TOP/HOME根据这个时间，定时检查所属集群各节点之间的用户和资源的关联关系。包括：\n<1> 重新组织和调配各节点之间的关联。\n<2> 向WATCH节点反馈已经故障和消失的节点，提示请求人工处理。 ]]> </remark>
+			<syntax> <![CDATA[ SET SCAN LINK TIME  超时时间 [REFRESH] ]]> </syntax>
+			<params> <![CDATA[ 超时时间：ASCII字符的0-9，与“小时、时、分、秒、HOUR、MINUTE、SECOND、H、M、S”时间单位的组合。
+REFRESH : 关键字，要求TOP/HOME立即启动检查 ]]> </params>
+		</item>
+
+	<item title="Set Reply Packet Mode">
+		<remark> <![CDATA[设置集群节点异步应答包尺寸，包括FIXP包数据域尺寸和FIXP子包数据域尺寸。FIXP包由多个FIXP子包组成。通常异步应答包尺寸应保证集群全部节点一致。\n此命令参数是管理员提供给集群的建议选项，具体情况将由集群节点根据当时网络宽度、CPU、内存等变量因素智能调节。]]> </remark>
+		<syntax> <![CDATA[ SET REPLY PACKET MODE 传输模式关键字 TO LOCAL 
+SET REPLY PACKET MODE 传输模式关键字 TO ALL
+SET REPLY PACKET MODE 传输模式关键字 TO 节点地址]]> </syntax>
+		<params> <![CDATA[ 传输模式关键字：SERIAL、PARALLEL。
+LOCAL : 关键字，当前WATCH节点。
+ALL : 关键字，当前集群的全部节点。
+节点地址：LAXCUS规范节点格式，多个节点地址之间用逗号分开。 ]]> </params>
+	</item>
+	<item title="Set Reply Packet Size">
+		<remark> <![CDATA[设置集群节点异步应答包尺寸，包括FIXP包数据域尺寸和FIXP子包数据域尺寸。FIXP包由多个FIXP子包组成。通常异步应答包尺寸应保证集群全部节点一致。\n此命令参数是管理员提供给集群的建议选项，具体情况将由集群节点根据当时网络宽度、CPU、内存等变量因素智能调节。]]> </remark>
+		<syntax> <![CDATA[ SET REPLY PACKET SIZE FIXP包数据域尺寸 FIXP子包数据域尺寸 TO LOCAL 
+SET REPLY PACKET SIZE FIXP包数据域尺寸 FIXP子包数据域尺寸 TO ALL
+SET REPLY PACKET SIZE FIXP包数据域尺寸 FIXP子包数据域尺寸 TO 节点地址
+SET REPLY PACKET SIZE FIXP包数据域尺寸 FIXP子包数据域尺寸 TO LOCAL ON WIDE
+SET REPLY PACKET SIZE FIXP包数据域尺寸 FIXP子包数据域尺寸 TO ALL ON WIDE
+SET REPLY PACKET SIZE FIXP包数据域尺寸 FIXP子包数据域尺寸 TO 节点地址 ON WIDE ]]> </syntax>
+		<params> <![CDATA[ FIXP包数据域尺寸：一次发送的FIXP包数据域尺寸，以“M、K”为后缀单位。
+FIXP子包数据域尺寸：限制在大于0，但是小于等于 65407 字节范围内。
+LOCAL : 关键字，当前WATCH节点。
+ALL : 关键字，当前集群的全部节点。
+ON WIDE : 在互联网中使用。
+节点地址：LAXCUS规范节点格式，多个节点地址之间用逗号分开。]]> </params>
+	</item>
+	<item title="Set Reply Send Timeout">
+		<remark> <![CDATA[设置集群节点发送异步数据等待反馈的超时时间。通常要求大于异步数据接收时间，且保证集群全部节点一致。\n此命令参数是管理员提供给集群的建议选项，具体情况将由集群节点根据当时网络宽度、CPU、内存等变量因素智能调节。]]> </remark>
+		<syntax> <![CDATA[ SET REPLY SEND TIMEOUT FIXP包超时 FIXP子包超时 FIXP子包发送间隔 TO LOCAL 
+SET REPLY SEND TIMEOUT FIXP包超时 FIXP子包超时 FIXP子包发送间隔 TO ALL
+SET REPLY SEND TIMEOUT FIXP包超时 FIXP子包超时 FIXP子包发送间隔 TO 节点地址 ]]> </syntax>
+		<params> <![CDATA[ FIXP包超时：ASCII字符的0-9，与“小时、时、分、秒、HOUR、MINUTE、SECOND、H、M、S”时间单位的组合，必须大于0。
+FIXP子包超时：ASCII字符的0-9，与“小时、时、分、秒、HOUR、MINUTE、SECOND、H、M、S”时间单位的组合，必须大于0。
+FIXP子包发送间隔：ASCII字符的0-9，与“小时、时、分、秒、HOUR、MINUTE、SECOND、H、M、S”时间单位的组合，必须在于0。
+LOCAL : 关键字，当前WATCH节点。
+ALL : 关键字，当前集群的全部节点。
+节点地址：LAXCUS规范节点格式，多个节点地址之间用逗号分开。 ]]> </params>
+	</item>
+	<item title="Set Reply Receive Timeout">
+		<remark> <![CDATA[设置集群节点接收异步应答数据的超时时间，通常要求小于发送异步数据等待反馈的超时时间。\n此命令参数是管理员提供给集群的建议选项，具体情况将由集群节点根据当时网络宽度、CPU、内存等变量因素智能调节。]]> </remark>
+		<syntax> <![CDATA[ SET REPLY RECEIVE TIMEOUT FIXP包超时 FIXP子包超时 TO LOCAL 
+SET REPLY RECEIVE TIMEOUT FIXP包超时 FIXP子包超时 TO ALL
+SET REPLY RECEIVE TIMEOUT FIXP包超时 FIXP子包超时 TO 节点地址 ]]> </syntax>
+		<params> <![CDATA[ FIXP包超时：ASCII字符的0-9，与“小时、时、分、秒、HOUR、MINUTE、SECOND、H、M、S”时间单位的组合，必须大于0。
+FIXP子包超时：ASCII字符的0-9，与“小时、时、分、秒、HOUR、MINUTE、SECOND、H、M、S”时间单位的组合，必须大于0。
+LOCAL : 关键字，当前WATCH节点。
+ALL : 关键字，当前集群的全部节点。
+节点地址：LAXCUS规范节点格式，多个节点地址之间用逗号分开。]]> </params>
+	</item>
+	<item title="Set Reply Flow Control">
+		<remark> <![CDATA[设置异步应答流量控制参数。依此参数，系统为每个连接分配合适的带宽、发送速率。\n此命令参数是管理员提供给集群的建议选项，具体情况将由集群节点根据当时网络宽度、CPU、内存、网络套接字等变量因素智能调节。]]> </remark>
+		<syntax> <![CDATA[ SET REPLY FLOW CONTROL [-BLOCK -TIMESLICE -UNIT] TO LOCAL 
+SET REPLY FLOW CONTROL [-BLOCK -TIMESLICE -UNIT] TO ALL
+SET REPLY FLOW CONTROL [-BLOCK -TIMESLICE -UNIT] TO 节点地址 ]]> </syntax>
+		<params> <![CDATA[ -BLOCK | -B 包队列成员数，类似tcp backlog。
+-TIMESLICE | -TS 一个UDP包的处理时间，以纳秒计。
+-UNIT | -U 在Massive MIMO信道传输的数据包尺寸，不能超过65417个字节。
+LOCAL : 关键字，当前WATCH节点。
+ALL : 关键字，当前集群的全部节点。
+节点地址：LAXCUS规范节点格式，多个节点地址之间用逗号分开。]]> </params>
+	</item>
+
+	<item title="Set Most CPU">
+		<remark> <![CDATA[设置LAXCUS节点中央处理器运行上限。\nLAXCUS集群操作系统允许CPU运行过程中短暂超载。如果出现长时间超载的情况，会主动实施限载/降载措施。CPU超载不会主动报告给WATCH节点，用户可以通过WATCH节点定期刷新的节点运行参数查看。]]> </remark>
+		<syntax> <![CDATA[ SET MOST CPU 中央处理器运行上限比率 TO LOCAL
+SET MOST CPU 中央处理器运行上限比率 TO ALL
+SET MOST CPU 中央处理器运行上限比率 TO 节点地址 ]]> </syntax>
+		<params> <![CDATA[ 中央处理器运行上限占比：ASCII字符0-9，与“%”符号的组合。
+LOCAL：WATCH本地节点。
+ALL：集群中的全部节点。
+节点地址：LAXCUS标准格式节点地址，多个地址之间用逗号分隔。 ]]> </params>
+	</item>
+
+	<item title="Set Most VM Memory">
+		<remark> <![CDATA[设置LAXCUS节点虚拟机内存使用上限。\n为了避免内存溢出的问题，LAXCUS集群操作系统控制节点和应用软件使用虚拟机内存，一旦超出将启动垃圾回收机制，主动发起使用限制措施。用户可以通过WATCH节点上显示的集群节点运行参数实时观察虚拟机内存使用情况。]]> </remark>
+		<syntax> <![CDATA[ SET MOST VM MEMORY 虚拟机内存使用上限比率 TO LOCAL
+SET MOST VM MEMORY 虚拟机内存使用上限比率 TO ALL
+SET MOST VM MEMORY 虚拟机内存使用上限比率 TO 节点地址 ]]> </syntax>
+		<params> <![CDATA[ 虚拟机内存使用上限比率：ASCII字符0-9，与“%”符号的组合。
+LOCAL：WATCH本地节点。
+ALL：集群中的全部节点。
+节点地址：LAXCUS标准格式节点地址，多个地址之间用逗号分隔。 ]]> </params>
+	</item>
+
+	<item title="Set Least Memory">
+		<remark> <![CDATA[指示LAXCUS节点运行过程中的最低内存阀值，少于规定值，节点将报警。\n内存溢出在计算机运行中不可避免，特别当承载大量数据和计算任务的时候，是计算机故障的主要根源。设置节点最低内存限制，并且进行实时监控，将保证节点更可靠地运行，进而提高计算机集群的稳定性。这是一个非常有用的命令，集群管理员应该根据节点配置有选择地进行设置。]]> </remark>
+		<syntax> <![CDATA[ SET LEAST MEMORY UNLIMIT TO LOCAL
+SET LEAST MEMORY UNLIMIT TO ALL
+SET LEAST MEMORY UNLIMIT TO 节点地址
+SET LEAST MEMORY 内存最小剩余容量 TO LOCAL
+SET LEAST MEMORY 内存最小剩余容量 TO ALL
+SET LEAST MEMORY 内存最小剩余容量 TO节点地址
+SET LEAST MEMORY 内存最小剩余空间比率 TO LOCAL
+SET LEAST MEMORY 内存最小剩余空间比率 TO ALL
+SET LEAST MEMORY 内存最小剩余空间比率 TO 节点地址 ]]> </syntax>
+		<params> <![CDATA[ UNLIMIT：没有最低内存空间限制。
+内存最小剩余容量：ASCII字符0-9，与“G/M/K”符号的组合。
+内存最小剩余空间比率：ASCII字符0-9，与“%”符号的组合。
+LOCAL：WATCH本地节点。
+ALL：集群中的全部节点。
+节点地址：LAXCUS标准格式节点地址，多个地址之间用逗号分隔。 ]]> </params>
+	</item>
+	
+	<item title="Set Least Disk">
+		<remark> <![CDATA[指示LAXCUS节点运行最低磁盘空间阀值，少于规定值，节点将报警。\n磁盘空间不足是计算机运行中一种常见现象，通过给每个节点和节点的个别目录设置最低磁盘空间限制，进行实时监控，将保证节点更可靠地运行，进而提高整个计算机集群的稳定性。]]> </remark>
+		<syntax> <![CDATA[ SET LEAST DISK UNLIMIT TO LOCAL
+SET LEAST DISK UNLIMIT TO ALL
+SET LEAST DISK UNLIMIT TO 节点地址
+SET LEAST DISK 磁盘最小剩余容量 TO LOCAL
+SET LEAST DISK 磁盘最小剩余容量 TO ALL
+SET LEAST DISK 磁盘最小剩余容量 TO 节点地址
+SET LEAST DISK 磁盘最小剩余空间占比 TO LOCAL
+SET LEAST DISK 磁盘最小剩余空间占比 TO ALL
+SET LEAST DISK 磁盘最小剩余空间占比 TO 节点地址
+SET LEAST DISK 磁盘目录 磁盘最小剩余容量，磁盘目录 磁盘最小剩余空间占比 TO LOCAL
+SET LEAST DISK 磁盘目录 磁盘最小剩余容量，磁盘目录 磁盘最小剩余空间占比 TO ALL
+SET LEAST DISK 磁盘目录 磁盘最小剩余容量，磁盘目录 磁盘最小剩余空间占比 TO 节点地址 ]]> </syntax>
+		<params> <![CDATA[ UNLIMIT：没有最低磁盘空间限制。
+磁盘最小剩余容量：ASCII字符0-9，与“G/M/K”符号的组合。
+磁盘最小剩余空间占比：ASCII字符0-9，与“%”符号的组合。
+LOCAL：WATCH本地节点。
+ALL：集群中的全部节点。
+节点地址：LAXCUS标准格式节点地址，多个地址之间用逗号分隔。 ]]> </params>
+	</item>
+	
+	<item title="Check Site Path">
+		<remark> <![CDATA[显示节点的实时追踪检测目录，显示内容包括磁盘目录名，全部、已用、剩余空间尺寸。这些目录涉及数据存取、日志记录、账号资料、中间数据缓存等。]]> </remark>
+		<syntax> <![CDATA[CHECK SITE PATH TO LOCAL
+CHECK SITE PATH TO ALL
+CHECK SITE PATH TO 节点地址 ]]> </syntax>
+		<params> <![CDATA[ LOCAL：WATCH本地节点。
+ALL：集群中的全部节点。
+节点地址：LAXCUS标准格式节点地址，多个地址之间用逗号分隔。 ]]> </params>
+	</item>
+	
+	<item title="Open Tigger">
+		<remark> <![CDATA[通知指定的Laxcus集群节点，开放Tigger部分或者全部选项。\nTigger用来追踪和记录分布式操作的流程、处理行为、数据特征。在此基础上用户可以通过建立数据模型，为自己的数据业务分析和追踪判断提供依据。Tigger是系统选项，集群管理员和用户都可以要求计算机节点记录或者拒绝Tigger的记录。]]> </remark>
+		<syntax> <![CDATA[OPEN TIGGER Tigger选项 TO LOCAL
+OPEN TIGGER Tigger选项 TO ALL
+OPEN TIGGER Tigger选项 TO 节点地址]]> </syntax>
+		<params> <![CDATA[ Tigger选项：包括COMMAND、INVOKER、MESSAGE、WARNING、ERROR、FATAL，多个选项之间用逗号分隔。ALL是全部选项。
+LOCAL：WATCH本地节点。
+ALL：集群中的全部节点。
+节点地址：LAXCUS标准格式节点地址，多个地址之间用逗号分隔。 ]]> </params>
+	</item>
+	
+	<item title="Close Tigger">
+		<remark> <![CDATA[通知指定的Laxcus集群节点，关闭Tigger部分或者全部选项。\nTigger用来追踪和记录分布式操作的流程、处理行为、数据特征。在此基础上用户可以通过建立数据模型，为自己的数据业务分析和追踪判断提供依据。Tigger是系统选项，集群管理员和用户都可以要求计算机节点记录或者拒绝Tigger的记录。]]> </remark>
+		<syntax> <![CDATA[CLOSE TIGGER Tigger选项 FROM LOCAL
+CLOSE TIGGER Tigger选项 FROM ALL
+CLOSE TIGGER Tigger选项 FROM 节点地址]]> </syntax>
+		<params> <![CDATA[ Tigger选项：包括COMMAND、INVOKER、MESSAGE、WARNING、ERROR、FATAL，多个选项之间用逗号分隔。ALL是全部选项。
+LOCAL：WATCH本地节点。
+ALL：集群中的全部节点。
+节点地址：LAXCUS标准格式节点地址，多个地址之间用逗号分隔。 ]]> </params>
+	</item>	
+	
+	<item title="Deploy User ">
+			<remark> <![CDATA[ 部署用户资源到指定的节点。\n要求被部署的用户账号必须已经存在，集群管理员登录TOP/HOME节点执行,指定的节点包括DATA、CALL、BUILD、WORK四种类型。 ]]> </remark>
+			<syntax> <![CDATA[ DEPLOY USER 用户名称 TO 节点地址
+DEPLOY USER 用户签名 TO 节点地址 ]]> </syntax>
+			<params> <![CDATA[ 用户名称：任意语言的字符组合，多个用户名称之间用逗号（,）隔开。
+用户签名：带SIGN前缀的64个16进制字符组合，多个签名之间用逗号（,）隔开。
+节点地址：LAXCUS节点标准格式，多个节点地址之间用逗号（,）隔开。 ]]> </params>
+	</item>
+
+	<item title="Erase User ">
+			<remark> <![CDATA[ 清除指定节点上的用户资源。集群管理员登录TOP/HOME节点执行,指定的节点包括DATA、CALL、BUILD、WORK四种类型，是“Deploy User”命令的反向操作。如果作用在DATA节点有一定危险性，将导致磁盘数据被删除后不能恢复，请谨慎使用。 ]]> </remark>
+			<syntax> <![CDATA[ ERASE USER 用户名称 FROM 节点地址
+ERASE USER 用户签名 FROM 节点地址]]> </syntax>
+			<params> <![CDATA[ 用户名称：任意语言的字符组合，多个用户名称之间用逗号（,）隔开。
+用户签名：带SIGN前缀的64个16进制字符组合，多个签名之间用逗号（,）隔开。
+节点地址：LAXCUS节点标准格式，多个节点地址之间用逗号（,）隔开。 ]]> </params>
+	</item>
+	
+	<item title="Deploy Table ">
+			<remark> <![CDATA[ 部署数据表到指定的节点。被部署的数据表和用户账号必须已经存在。集群管理员登录TOP/HOME节点执行,指定的节点包括DATA、CALL、BUILD、WORK四种类型。 ]]> </remark>
+			<syntax> <![CDATA[ DEPLOY TABLE 数据表名 TO 节点地址 ]]> </syntax>
+			<params> <![CDATA[ 数据表名：已经存在的数据表。
+节点地址：LAXCUS节点标准格式，多个节点地址之间用逗号（,）隔开。 ]]> </params>
+	</item>
+
+	<item title="Swarm ">
+		<remark> <![CDATA[测试WATCH节点与其他节点之间的数据传输速率，这里的其他节点不包括FRONT节点。\n命令由WATCH节点发出和执行，通过反馈参数，了解WATCH节点与其他节点之间的网络传输速率。合适的数据包尺寸，是保证数据稳定高效传输的基础。任何网络环境，单个数据包尺寸过大，都会出现中继设备拆分/重组数据包和丢包现象，严重时导致数据传输失败。但是数据包尺寸过小，也将促使LAXCUS集群服务器更多地被动接收/分发，后端线程频繁交互，消耗CPU资源。保守的策略，可参照INTERNET IP MTU的576字节，再略去FIXP包头大约100字节，实际FIXP数据域在476字节以内。  ]]> </remark>
+		<syntax> <![CDATA[ SWARM 传输流量 FIXP包数据域尺寸 FIXP子包数据域尺寸 TO 接收节点
+SWARM 传输流量 FIXP包数据域尺寸 FIXP子包数据域尺寸 FIXP子包发送间隔时间 TO HUB ]]> </syntax>
+		<params> <![CDATA[ 传输流量：一次测试的数据尺寸，以“M、K”为后缀单位。考虑流量测试对集群产生的压力，流量测试不得超过1G。
+FIXP包数据域尺寸：一次发送的FIXP包数据域尺寸，以“M、K”为后缀单位。一个FIXP数据包包含任意多个FIXP子包。考虑流量测试对集群产生的压力，FIXP包数据域尺寸限制在10M以内。
+FIXP子包数据域尺寸：UDP数据包最大长度是65507字节，FIXP包头尺寸在100字节左右。实际FIXP子包最大数据域尺寸应该在：65507 - 100范围内。
+FIXP子包发送间隔时间：以“MS”（毫秒）为关键字的时间参数，最小为0，表示无间隔发送。
+接收节点：接收数据流的节点，以服务器状态存在，全地址格式。
+HUB：关键字，WATCH节点的登录节点，包括TOP/HOME/BANK。 ]]> </params>
+	</item>
+	
+	<item title="Multi Swarm ">
+		<remark> <![CDATA[连续测试WATCH节点与集群内其他节点之间的数据传输速率。\n命令由WATCH节点发出和执行，通过统计反馈参数，明确WATCH节点与其他节点之间的数据传输速率。  ]]> </remark>
+		<syntax> <![CDATA[ MULTI SWARM 传输流量 FIXP包数据域尺寸 FIXP子包数据域尺寸  FIXP子包发送间隔时间 TO 接收节点 次数 ]]> </syntax>
+		<params> <![CDATA[ 传输流量：数据传输尺寸，以“M、K”为后缀单位。考虑流量测试对集群产生的压力，流量测试不得超过1G。
+FIXP包数据域尺寸：一次发送的FIXP包数据域尺寸，以“M、K”为后缀单位。一个FIXP数据包包含任意多个FIXP子包。考虑流量测试对集群产生的压力，FIXP包数据域尺寸限制在10M以内。
+FIXP子包数据域尺寸：UDP数据包最大长度是65507字节，FIXP包头尺寸在100字节左右。实际FIXP子包最大数据域尺寸应该在：65507 - 100范围内。
+FIXP子包发送间隔时间：以“MS”（毫秒）为关键字的时间参数，最小为0，表示无间隔发送。
+接收节点：接收测试数据流的节点，要求全地址格式。
+次数： 数字，要求大于或者等于1。 ]]> </params>
+	</item>
+		
+	<item title="Parallel Multi Swarm">
+			<remark> <![CDATA[ 测试WATCH节点与集群内某个节点之间并行状态时的数据传输速率。\n命令从WATCH节点发出和执行，通过对某个节点的并行流量压力测试得出的统计数据，精确WATCH节点与某个节点之间的最佳数据传输速率。 ]]> </remark>
+			<syntax> <![CDATA[ PARALLEL MULTI SWARM 传输流量 FIXP包数据域尺寸 FIXP子包数据域尺寸 FIXP子包发送间隔时间 TO 接收节点 次数 ITERATE 并行数目 ]]> </syntax>
+			<params> <![CDATA[ 传输流量：数据传输尺寸，以“M、K”为后缀单位。考虑流量测试对集群产生的压力，流量测试不得超过1G。
+FIXP包数据域尺寸：一次发送的FIXP包数据域尺寸，以“M、K”为后缀单位。一个FIXP数据包包含任意多个FIXP子包。考虑流量测试对集群产生的压力，FIXP包数据域尺寸限制在10M以内。
+FIXP子包数据域尺寸：UDP数据包最大长度是65507字节，FIXP包头尺寸在100字节左右。实际FIXP子包最大数据域尺寸应该在：65507 - 100范围内。
+FIXP子包发送间隔时间：以“MS”（毫秒）为关键字的时间参数，最小为0，表示无间隔发送。
+接收节点：接收测试数据流的节点，要求全地址格式。
+次数： 数字，要求大于或者等于1。
+并行数目：以“ITERATE”为前缀关键字的调用器数目。特别注意，不能超过WATCH节点最大调用器数目！ ]]> </params>
+	</item>
+
+	<item title="Gust ">
+		<remark> <![CDATA[测试除WATCH/FRONT节点外，任何两个节点之间的数据传输速率。\n与“SWARM”命令的区别是，“GUST”命令虽然由WATCH节点发出，但是WATCH节点不执行，而在WATCH/FRONT之外的其他两个节点之间测试网络流量。根据反馈参数，WATCH节点获知任意两个节点之间的传输速率。  ]]> </remark>
+		<syntax> <![CDATA[GUST 传输流量 FIXP包数据域尺寸 FIXP子包数据域尺寸 FIXP子包发送间隔时间 FROM 数据发送节点 TO 数据接收节点 ]]> </syntax>
+		<params> <![CDATA[ 传输流量：一次测试的数据尺寸，以“M、K”为后缀单位。考虑流量测试对集群产生的压力，流量测试不得超过1G。
+FIXP包数据域尺寸：一次发送的FIXP包数据域尺寸，以“M、K”为后缀单位。一个FIXP数据包包含任意多个FIXP子包。考虑流量测试对集群产生的压力，FIXP包数据域尺寸限制在10M以内。
+FIXP子包数据域尺寸：UDP数据包最大长度是65507字节，FIXP包头尺寸在100字节左右。实际FIXP子包最大数据域尺寸应该在：65507 - 100范围内。
+FIXP子包发送间隔时间：以“MS”（毫秒）为关键字的时间参数，最小为0，表示无间隔发送。
+数据发送节点：发送测试数据流的节点，要求全地址格式。
+数据接收节点：接收测试数据流的节点，要求全地址格式。 ]]> </params>
+	</item>
+	
+	<item title="Multi Gust ">
+		<remark> <![CDATA[测试除WATCH/FRONT节点外，任意多个节点之间的数据传输速率，是“GUST”命令的数组版本。\n命令由WATCH节点发出，在多个节点之间进行。每次记录一次两个节点之间的传输速率，通过统计分析集群内多个节点的传输速率，可以推导出LAXCUS大数据集群各节点之间的最佳传输速率。最佳速率对系统运行影响巨大，将帮助集群稳定高效运行。  ]]> </remark>
+		<syntax> <![CDATA[MULTI GUST 传输流量 FIXP包数据域尺寸 FIXP子包数据域尺寸 FIXP子包发送间隔时间 FROM 多个数据发送节点 TO 多个数据接收节点  ]]> </syntax>
+		<params> <![CDATA[传输流量：一次测试的数据尺寸，以“M、K”为后缀单位。考虑流量测试对集群产生的压力，流量测试不得超过1G。
+FIXP包数据域尺寸：一次发送的FIXP包数据域尺寸，以“M、K”为后缀单位。一个FIXP数据包包含任意多个FIXP子包。考虑流量测试对集群产生的压力，FIXP包数据域尺寸限制在10M以内。
+FIXP子包数据域尺寸：UDP数据包最大长度是65507字节，FIXP包头尺寸在100字节左右。实际FIXP子包最大数据域尺寸应该在：65507 - 100范围内。
+FIXP子包发送间隔时间：以“MS”（毫秒）为关键字的时间参数，最小为0，表示无间隔发送。
+多个数据发送节点：发送测试数据流的节点，要求全地址格式，节点之间用逗号分隔。
+多个数据接收节点：接收测试数据流的节点，要求全地址格式，节点之间用逗号分隔。  ]]> </params>
+	</item>		
+	
+	<item title="Parallel Multi Gust">
+		<remark> <![CDATA[测试除WATCH/FRONT节点外，任意多个节点之间，数据并行传输速率。\n命令由WATCH节点发出，在多个节点之间并行进行。经过统计分析集群内多个节点的传输速率，可以推导出LAXCUS大数据集群各节点之间的最佳传输速率。最佳速率对系统运行影响巨大，将帮助集群稳定高效运行。  ]]> </remark>
+		<syntax> <![CDATA[PARALLEL MULTI GUST 传输流量 FIXP包数据域尺寸 FIXP子包数据域尺寸 FIXP子包发送间隔时间 FROM 多个数据发送节点 TO 多个数据接收节点 ITERATE 并行数目  ]]> </syntax>
+		<params> <![CDATA[传输流量：一次测试的数据尺寸，以“M、K”为后缀单位。考虑流量测试对集群产生的压力，流量测试不得超过1G。
+FIXP包数据域尺寸：一次发送的FIXP包数据域尺寸，以“M、K”为后缀单位。一个FIXP数据包包含任意多个FIXP子包。考虑流量测试对集群产生的压力，FIXP包数据域尺寸限制在10M以内。
+FIXP子包数据域尺寸：UDP数据包最大长度是65507字节，FIXP包头尺寸在100字节左右。实际FIXP子包最大数据域尺寸应该在：65507 - 100范围内。
+FIXP子包发送间隔时间：以“MS”（毫秒）为关键字的时间参数，最小为0，表示无间隔发送。
+多个数据发送节点：发送测试数据流的节点，要求全地址格式，节点之间用逗号分隔。
+多个数据接收节点：接收测试数据流的节点，要求全地址格式，节点之间用逗号分隔。
+并行数目：以“ITERATE”为前缀关键字的调用器数目。特别注意，不能超过WATCH节点最大调用器数目！  ]]> </params>
+	</item>
+	
+		<item title="Close Warning Message">
+			<remark> <![CDATA[ 屏蔽来自全部或者部分节点的警告信息。  ]]> </remark>
+			<syntax> <![CDATA[ CLOSE WARNING MESSAGE ALL
+CLOSE WARNING MESSAGE 节点地址  ]]> </syntax>
+			<params> <![CDATA[ ALL：全部节点。
+节点地址：LAXCUS节点标准格式，多个节点之间用逗号分隔。  ]]> 
+			</params>
+		</item>
+		<item title="Close Fault Message">
+			<remark> <![CDATA[ 屏蔽来自全部或者部分节点的故障信息。  ]]> </remark>
+			<syntax> <![CDATA[ CLOSE FAULT MESSAGE ALL
+CLOSE FAULT MESSAGE 节点地址  ]]> </syntax>
+			<params> <![CDATA[ ALL：全部节点。
+节点地址：LAXCUS节点标准格式，多个节点之间用逗号分隔。  ]]> 
+			</params>
+		</item>
+		<item title="Open Warning Message">
+			<remark> <![CDATA[ 开启来自全部或者部分节点的警告信息。 ]]> </remark>
+			<syntax> <![CDATA[ OPEN WARNING MESSAGE ALL
+OPEN WARNING MESSAGE 节点地址  ]]> </syntax>
+			<params> <![CDATA[ ALL：全部节点。
+节点地址：LAXCUS节点标准格式，多个节点之间用逗号分隔。 ]]> 
+			</params>
+		</item>
+		<item title="Open Fault Message">
+			<remark> <![CDATA[ 开放来自全部或者部分节点的故障信息。 ]]> </remark>
+			<syntax> <![CDATA[ OPEN FAULT MESSAGE ALL
+OPEN FAULT MESSAGE 节点地址  ]]> </syntax>
+			<params> <![CDATA[ ALL：全部节点。
+节点地址：LAXCUS节点标准格式，多个节点之间用逗号分隔。 ]]> 
+			</params>
+		</item>
+		
+		<item title="Set Member Cyber">
+			<remark> <![CDATA[ 设置注册成员虚拟空间限制参数，涉及节点包括：Account、Gate、Call、Data、Work、Build。 ]]> </remark>
+			<syntax> <![CDATA[ SET MEMBER CYBER 可以承载的最多人数 报警阀值 TO ALL
+SET MEMBER CYBER 可以承载的最多人数 报警阀值 TO 节点地址  ]]> </syntax>
+			<params> <![CDATA[ 可以承载的最多人数：大于或者等于0的数字，如果是0表示无限制，由节点自行调节。
+报警阀值：百分比数，不能大于100%
+ALL：全部节点。
+节点地址：LAXCUS节点标准格式，多个节点之间用逗号分隔。 ]]> 
+			</params>
+		</item>
+		<item title="Set Front Cyber">
+			<remark> <![CDATA[ 设置Front远程登录用户虚拟空间限制参数，涉及节点包括：Gate、Call。 ]]> </remark>
+			<syntax> <![CDATA[ SET FRONT CYBER 可以承载的最多人数 报警阀值 TO ALL
+SET FRONT CYBER 可以承载的最多人数 报警阀值 TO 节点地址  ]]> </syntax>
+			<params> <![CDATA[ 可以承载的最多人数：大于或者等于0的数字，如果是0表示无限制，由节点自行调节。
+报警阀值：百分比数，不能大于100%
+ALL：全部节点。
+节点地址：LAXCUS节点标准格式，多个节点之间用逗号分隔。 ]]> 
+			</params>
+		</item>
+		<item title="Check User Cyber">
+			<remark> <![CDATA[ 检查LAXCUS集群中的用户虚拟空间，包括注册成员虚拟空间和登录用户虚拟空间，涉及节点包括：Account、Gate、Call、Data、Work、Build。 ]]> </remark>
+			<syntax> <![CDATA[ CHECK USER CYBER TO ALL
+CHECK USER CYBER TO 节点地址  ]]> </syntax>
+			<params> <![CDATA[ ALL：全部节点。
+节点地址：LAXCUS节点标准格式，多个节点之间用逗号分隔。 ]]> 
+			</params>
+		</item>
+		<item title="Drop Conduct Package">
+			<remark> <![CDATA[ 删除部署在云端的系统级分布计算应用软件包。 ]]> </remark>
+			<syntax> <![CDATA[ DROP CONDUCT PACKAGE SYSTEM ]]> </syntax>
+			<params> <![CDATA[ SYSTEM : 系统级软件名称，LAXCUS集群操作系统关键字。 ]]> 
+			</params>
+		</item>
+		<item title="Drop Establish Package">
+			<remark> <![CDATA[ 删除部署在云端的系统级数据构建应用软件包。]]> </remark>
+			<syntax> <![CDATA[ DROP ESTABLISH PACKAGE SYSTEM]]> </syntax>
+			<params> <![CDATA[ SYSTEM : 系统级软件名称，LAXCUS集群操作系统系统软件关键字。 ]]> 
+			</params>
+		</item>
+		<item title="Drop Contact Package">
+			<remark> <![CDATA[ 删除部署在云端的系统级迭代计算应用软件包。]]> </remark>
+			<syntax> <![CDATA[ DROP CONTACT PACKAGE SYSTEM]]> </syntax>
+			<params> <![CDATA[ SYSTEM : 系统级软件名称，LAXCUS集群操作系统系统关键字。]]> 
+			</params>
+		</item>
+	</group>
+
+	<group no="3" title="工具命令">
+		<item title="Ring">
+			<remark> <![CDATA[ 检测当前节点与与目标节点之间的TCP/IP网络是否连通，以及绑定目标节点端口的进程是否存活。\n供集群管理员测试网络通信和校对密钥时使用。\nRING命令的意义：PING命令检测IP地址存在，Linux NC命令检测IP地址和端口存在，RING命令在它们的基础上，检测IP地址、端口存在，且绑定端口的进程处于工作状态，进而可以证明进程有效性。 ]]> </remark>
+			<syntax> <![CDATA[ RING [-SECURE -COUNT -TIMEOUT -DELAY] TO 目标节点套接字地址  ]]> </syntax>
+			<params> <![CDATA[ -SECURE | -S 采用加密安全通信，对应关键字：Y、N、YES、NO，默认是YES。是否启用加密安全通信请询问集群管理员或者检查套接字地址配置。
+-COUNT | -C 连续测试次数
+-TIMEOUT | -T 套接字（socket）连接超时时间，如：20s, 20秒
+-DELAY | -D 连续多次测试时的间隔时间，如：1秒，100毫秒，100ms
+目标节点套接字地址：以TCP/UDP关键字为前缀的网络地址，如 tcp://192.168.1.12:8000，或者 udp://www.yousite.com:7233  ]]> 
+			</params>
+		</item>
+
+		<item title="Build MD5">
+			<remark> <![CDATA[ 生成文本或者磁盘文件的MD5数字签名。如果是文本，是它的UTF8编码后的数字签名；如果是磁盘文件，是它二进制内容的数字签名。  ]]> </remark>
+			<syntax> <![CDATA[ BUILD MD5 [NOT CASE|CASE] 任意语种的文本  \n BUILD MD5 磁盘文件  ]]> </syntax>
+			<params> <![CDATA[ CASE 文本大小写敏感，以当前原生字符生成数字签名。\n
+NOT CASE 文本大小写不敏感，转字小写字符生成数字签名。 \n
+如果没有指定，默认是不敏感，文本转成小写字符生成数字签名。  ]]> </params>
+		</item>
+		<item title="Build SHA1">
+			<remark> <![CDATA[ 生成文本或者磁盘文件的SHA1数字签名。如果是文本，是它的UTF8编码后的数字签名；如果是磁盘文件，是它二进制内容的数字签名。  ]]> </remark>
+			<syntax> <![CDATA[ BUILD SHA1 [NOT CASE|CASE] 任意语种的文本  \n BUILD SHA1 磁盘文件  ]]> </syntax>
+			<params> <![CDATA[ CASE 文本大小写敏感，以当前原生字符生成数字签名。\n
+NOT CASE 文本大小写不敏感，转字小写字符生成数字签名。 \n
+如果没有指定，默认是不敏感，文本转成小写字符生成数字签名。  ]]> </params>
+		</item>
+		<item title="Build SHA256">
+			<remark> <![CDATA[ 生成文本或者磁盘文件的SHA256数字签名。如果是文本，是它的UTF8编码后的数字签名；如果是磁盘文件，是它二进制内容的数字签名。  ]]> </remark>
+			<syntax> <![CDATA[ BUILD SHA256 [NOT CASE|CASE] 任意语种的文本  \n BUILD SHA256 磁盘文件  ]]> </syntax>
+			<params> <![CDATA[ CASE 文本大小写敏感，以当前原生字符生成数字签名。\n
+NOT CASE 文本大小写不敏感，转字小写字符生成数字签名。 \n
+如果没有指定，默认是不敏感，文本转成小写字符生成数字签名。  ]]> </params>
+		</item>
+		<item title="Build SHA512">
+			<remark> <![CDATA[ 生成文本或者磁盘文件的SHA512数字签名。如果是文本，是它的UTF8编码后的数字签名；如果是磁盘文件，是它二进制内容的数字签名。  ]]> </remark>
+			<syntax> <![CDATA[ BUILD SHA512 [NOT CASE|CASE] 任意语种的文本  \n BUILD SHA512 磁盘文件  ]]> </syntax>
+			<params> <![CDATA[ CASE 文本大小写敏感，以当前原生字符生成数字签名。\n
+NOT CASE 文本大小写不敏感，转字小写字符生成数字签名。 \n
+如果没有指定，默认是不敏感，文本转成小写字符生成数字签名。  ]]> </params>
+		</item>
+
+		<item title="Encode Half">
+			<remark> <![CDATA[ 把一串文本编码成半截符码。半截符码是Laxcus集群操作系统内部使用的一种编码，类似UTF8。 ]]> </remark>
+			<syntax> <![CDATA[ ENCODE HALF [NOT CASE|CASE] 任意文字 ]]> </syntax>
+			<params> <![CDATA[ NOT CASE 文本大小写不敏感。\n
+CASE 文本大小写敏感。\n 如果没有指定，默认是不敏感，文本转成小写字符后编码。 ]]> </params>
+		</item>
+
+		<item title="Decode Half">
+			<remark> <![CDATA[ 把一串半截符码还原成它的明文文本。 ]]> </remark>
+			<syntax> <![CDATA[ DECODE HALF 半截符文字 ]]> </syntax>
+			<params> <![CDATA[  ]]> </params>
+		</item>
+		
+		<item title="Build Each">
+			<remark> <![CDATA[ 生成Each算法的数字签名。Each是Laxcus集群操作系统私有数字签名算法。任意长度的字节数组签名，返回一个64位的长整型。值的范围在0 - 0x7FFFFFFF之间，实际是一个63位的长整形正数值。 ]]> </remark>
+			<syntax> <![CDATA[ BUILD EACH [NOT CASE|CASE] 任意语种的文本 ENCODE BY [UTF8, UTF16, UTF32] \n
+BUILD EACH 磁盘文件路径 ]]> </syntax>
+			<params> <![CDATA[ CASE 文本大小写敏感。\n
+NOT CASE文本大小写不敏感，转成小写字符生成数字签名。\n
+以上都没有指定，默认是不敏感，文本转成小写字符生成数字签名。\n
+ENCODE BY 文本编码格式，包括UTF8、UTF16(大头码)、UTF32三种。默认采用UTF8编码。 ]]> </params>
+		</item>
+	</group>
+
+</commands>

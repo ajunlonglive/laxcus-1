@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config>
+	<!-- 普通提示 -->
+	<message language="zh" country="CN"> <![CDATA[ conf/watch/tip/message/zh_CN/message.xml]]> </message>
+	<message language="en" country="US"> <![CDATA[ conf/watch/tip/message/en_US/message.xml ]]> </message>
+	<message language="default" country="default"> <![CDATA[ conf/watch/tip/message/en_US/message.xml ]]> </message>
+
+	<!-- 警告 -->
+	<warning language="zh" country="CN"> <![CDATA[ conf/watch/tip/warning/zh_CN/warning.xml]]> </warning>
+	<warning language="en" country="US"> <![CDATA[ conf/watch/tip/warning/en_US/warning.xml ]]> </warning>
+	<warning language="default" country="default">  <![CDATA[ conf/watch/tip/warning/en_US/warning.xml ]]> </warning>
+
+	<!-- 错误 -->
+	<fault language="zh" country="CN"> <![CDATA[ conf/watch/tip/fault/zh_CN/fault.xml]]> </fault>
+	<fault language="en" country="US"> <![CDATA[ conf/watch/tip/fault/en_US/fault.xml ]]> </fault>
+	<fault language="default" country="default">  <![CDATA[ conf/watch/tip/fault/en_US/fault.xml ]]> </fault>
+
+	<!-- 对应Minor类中的编号，包含正常或者错误 -->
+	<echo language="zh" country="CN"> <![CDATA[ conf/watch/tip/echo/zh_CN/echo.xml ]]> </echo>
+	<echo language="en" country="US"> <![CDATA[ conf/watch/tip/echo/en_US/echo.xml ]]> </echo>
+	<echo language="default" country="default">  <![CDATA[ conf/watch/tip/echo/en_US/echo.xml ]]> </echo>
+
+</config>

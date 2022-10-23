@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Faults>
+	
+	<incorrect-syntax no="1"> <![CDATA[incorrect syntax]]>  </incorrect-syntax>
+	<illegal-command no="2"> <![CDATA[illegal command]]>  </illegal-command> 
+	<command-refused no="3"> <![CDATA[command refused]]>  </command-refused>
+	<server-failed no="4"> <![CDATA[ cannot be connect server ]]> </server-failed>
+	<parameter-missing no="5"> <![CDATA[ parameter missing!  ]]> </parameter-missing>
+	<conduct_failed no="6"> <![CDATA[ Conduct Failed! ]]> </conduct_failed>
+	<establish_failed no="7"> <![CDATA[ Establish Failed! ]]> </establish_failed>
+	<empty-list no="8"> <![CDATA[ Emply Record! ]]> </empty-list>
+	<permission-missing no="9"> <![CDATA[ Permission Missing! ]]> </permission-missing>
+	<system-denied no="10"> <![CDATA[ System Denied! ]]> </system-denied>
+	<network-failure no="11"> <![CDATA[ Network Failure! ]]> </network-failure>
+	<cannot-submit no="12">  <![CDATA[ Cannot be submit! ]]> </cannot-submit>
+	<site-missing no="13">  <![CDATA[ Site Missing! ]]> </site-missing>
+	<implement_fault no="14">  <![CDATA[ Implement Failed! ]]> </implement_fault>
+	<illegal-parameter no="15">  <![CDATA[ Illegal Parameter! ]]> </illegal-parameter>
+	<job-timeout no="16">  <![CDATA[ Job Timeout! ]]> </job-timeout>
+	
+	<!-- distrubted lock fault -->
+	<rule-attach-fault no="17"> <![CDATA[ attach distributed resource, failed! no %d ]]>  </rule-attach-fault>
+	<rule-attach-return-fault no="18"> <![CDATA[ attach distributed resource, system refused! no %d ]]>  </rule-attach-return-fault>
+	<rule-detach-fault no="19"> <![CDATA[ detach distributed resource, failed! no %d ]]>  </rule-detach-fault>
+	<rule-detach-return-fault no="20"> <![CDATA[ detach distribute resource, system refused! no %d ]]>  </rule-detach-return-fault>
+	
+	<site-not-login no="21">  <![CDATA[ Front site not login! ]]> </site-not-login>
+	<refuse-refresh-cyber no="22">  <![CDATA[ Refuse refresh cyber! ]]> </refuse-refresh-cyber>
+	
+	<!-- load gate/call resource, failed! -->
+	<cannot-load-user-resource no="23"> <![CDATA[ cannot be load cyber resource! ]]>  </cannot-load-user-resource>
+	
+	<!-- login -->
+	<top-retry no="24"> <![CDATA[ permission missing! login to top retry! ]]>  </top-retry>
+	<home-retry no="25"> <![CDATA[ permission missing! login to home retry! ]]>  </home-retry>
+	<bank-retry no="26"> <![CDATA[ permission missing! login to bank retry! ]]>  </bank-retry>
+	<top-home-retry no="27"> <![CDATA[ permission missing! login to top/home retry! ]]>  </top-home-retry>
+	<top-bank-retry no="28"> <![CDATA[ permission missing! login to top/bank retry! ]]>  </top-bank-retry>
+	<home-bank-retry no="29"> <![CDATA[ permission missing! login to home/bank retry! ]]>  </home-bank-retry>
+
+
+	<offline-refuse no="30"> <![CDATA[ offline status...! ]]>  </offline-refuse>
+
+	<failed-x no="10000"> <![CDATA["%s" failed!]]>  </failed-x>
+	<notfound-x no="10001"> <![CDATA[cannot be find "%s" !]]> </notfound-x>
+	<cannot-submit no="10002"> <![CDATA[ cannot be submit to "%s", please check network firewall or server! ]]> </cannot-submit>
+	<incorrect-syntax-x no="10003"> <![CDATA[ incorrect syntax "%s" ]]> </incorrect-syntax-x>
+	<notsupported-x no="10004"> <![CDATA[cannot be support "%s" !]]> </notsupported-x>
+	<notresolved-x no="10005"> <![CDATA[cannot be resolve "%s" !]]> </notresolved-x>
+	<param-missing-x no="10006">  <![CDATA[ parameter missing "%s" ]]> </param-missing-x>
+	<illegal-site-x no="10007">  <![CDATA[ illegal site "%s" ]]> </illegal-site-x>
+	<existed-x no="10008"> <![CDATA[ %s existed! ]]> </existed-x>
+	<occured-conflict no="10009"> <![CDATA[ occured conflict "%s"!  ]]> </occured-conflict>
+	<notmatch-x no="10010">  <![CDATA[ not match "%s"! ]]> </notmatch-x>
+	<destroy-node-x no="10011"> <![CDATA[  "%s" is destroyed ]]> </destroy-node-x>
+	<notfound-site-x no="10012"> <![CDATA[ cannot be find site "%s"! ]]> </notfound-site-x>
+	<illegal-where-operator-x no="10013"> <![CDATA[ illegal sql where "%s %s" ]]> </illegal-where-operator-x>
+	<illegal-charset-x no="10014"> <![CDATA[ Illegal charset "%s"! ]]> </illegal-charset-x>
+	<permission-missing-x no="10015"> <![CDATA[ "%s" permission missing! ]]> </permission-missing-x>
+	<LICENCE-TIMEOUT_X no="10016"> <![CDATA[ Licence Timeout! from %s!]]>  </LICENCE-TIMEOUT_X>
+	<FORBID_KEYWORD_X no="10017"> <![CDATA["%s" is keywords!]]>  </FORBID_KEYWORD_X>
+	<ILLEGAL_VALUE_X no="10018"> <![CDATA[ Illegal value:"%s"! ]]>  </ILLEGAL_VALUE_X>
+	<NOTFOUND-TASK-X no="10019"> <![CDATA[Not found task "%s"! ]]>  </NOTFOUND-TASK-X>
+	
+	<insert-x no="10020">  <![CDATA[ insert "%s" failed! ]]> </insert-x>
+	<delete-x no="10021">  <![CDATA[ delete "%s" failed! ]]> </delete-x>
+	<update-x no="10022">  <![CDATA[ update "%s" failed! ]]> </update-x>
+	
+	<SQL-ILLEGAL-COLUMN-X no="10030">  <![CDATA[ Invalid column %s ! ]]> </SQL-ILLEGAL-COLUMN-X>
+	<SQL-OVERLAP-COLUMN-X no="10031">  <![CDATA[ Duplicate column %s ]]> </SQL-OVERLAP-COLUMN-X>
+	<SQL-ILLEGAL-KEY-X no="10032">  <![CDATA[ Invalid index key %s ]]> </SQL-ILLEGAL-KEY-X>
+	<SQL-ILLEGAL-FUNCTION-X no="10033">  <![CDATA[ Invalid sql function %s ]]> </SQL-ILLEGAL-FUNCTION-X>
+	<SQL-ILLEGAL-VALUE-X no="10034">  <![CDATA[ Invalid sql value %s ]]> </SQL-ILLEGAL-VALUE-X>
+	<SQL-INCORRECT-SYNTAX-X no="10035">  <![CDATA[ Invalid sql syntax '%s' ]]> </SQL-INCORRECT-SYNTAX-X>
+
+	<SQL-ILLEGAL-ATTRIBUTE-X no="10036"> <![CDATA[ Invalid column attribute '%s' ]]>  </SQL-ILLEGAL-ATTRIBUTE-X>
+	<SQL-TYPE-NOTMATCH-X no="10037"> <![CDATA[ Not match type! %s ]]>  </SQL-TYPE-NOTMATCH-X>
+	<SQL-CANNOT-SUPPORT-X no="10038"> <![CDATA[ Cannot be support '%s' ]]>  </SQL-CANNOT-SUPPORT-X>
+	<SQL-NOT-INDEXKEY-X no="10039"> <![CDATA[ Not index key! %s ]]>  </SQL-NOT-INDEXKEY-X>
+	<SQL-KEY-MISSING-X no="10040"> <![CDATA[ Index key missing! %s  ]]>  </SQL-KEY-MISSING-X>
+	<SQL-PRIMEKEY-MEMBEROUT-X no="10041"> <![CDATA[ Index key out! %s  ]]>  </SQL-PRIMEKEY-MEMBEROUT-X>
+	<SQL-DATABASE-NAMEOUT-X no="10042"> <![CDATA[ Database name out! %s  ]]>  </SQL-DATABASE-NAMEOUT-X>
+	<SQL-TABLE-NAMEOUT-X no="10043"> <![CDATA[ Table name out! %s  ]]>  </SQL-TABLE-NAMEOUT-X>
+	<SQL-CANNOT-TRANSLATE-X no="10044"> <![CDATA[ Cannot be resolve! %s  ]]>  </SQL-CANNOT-TRANSLATE-X>
+	<SQL-ILLEGAL-AGGREGATE-FUNCTION-X no="10045">  <![CDATA[ Invalid aggregate function! %s ]]> </SQL-ILLEGAL-AGGREGATE-FUNCTION-X>
+	<SQL-GROUPBY-ELEMENT-MISSING-X no="10046"> <![CDATA[ GROUP BY Error! "%s" ]]>  </SQL-GROUPBY-ELEMENT-MISSING-X>
+	<SQL-ORDERBY-INCORRECT-SYNTAX-X no="10047"> <![CDATA[ ORDER BY Error! "%s" ]]>  </SQL-ORDERBY-INCORRECT-SYNTAX-X>
+	
+</Faults>

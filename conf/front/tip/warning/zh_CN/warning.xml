@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 警告提示信息标签  -->
+<!-- 关键参数是标签编号"no"（小写），通过它与MessageTip中的定义匹配，不可写错 -->
+
+<Messages>
+
+	<CANNOT-IMPLEMENT no="1"> <![CDATA[ 没有执行！  ]]>  </CANNOT-IMPLEMENT>
+	<SEARCH-RESULT-EMPTY no="2"> <![CDATA[ 您的搜索结果是空集合！  ]]>  </SEARCH-RESULT-EMPTY>
+	
+
+	<DISK-MISSING no="10000"> <![CDATA[磁盘空间不足，来自"%s" ！]]>  </DISK-MISSING>
+	<CANNOT-IMPLEMENT-X no="10001"> <![CDATA[没有执行，"%s" ]]>  </CANNOT-IMPLEMENT-X>
+	<drop-node-x no="10002"> <![CDATA[ "%s" 退出！]]> </drop-node-x>
+	<USERSITE-MISSING-X no="10003"> <![CDATA[用户站点不足，用户签名：%s，节点类型：%s ]]>  </USERSITE-MISSING-X>
+	<MEMORY-MISSING no="10004"> <![CDATA[内存空间不足，来自"%s" ！]]>  </MEMORY-MISSING>
+	<PERSON-MISSING no="10005"> <![CDATA[用户虚拟空间不足，来自"%s" ！]]>  </PERSON-MISSING>
+	<PERSON-FULL no="10006"> <![CDATA[用户虚拟空间耗尽，来自"%s" ！]]>  </PERSON-FULL>
+	<FRONT-MISSING no="10007"> <![CDATA[FRONT在线用户虚拟空间不足，来自"%s" ！]]>  </FRONT-MISSING>
+	<FRONT-FULL no="10008"> <![CDATA[FRONT在线用户虚拟空间耗尽，来自"%s" ！]]>  </FRONT-FULL>
+	<VM_MEMORY-MISSING no="10009"> <![CDATA[虚拟机内存空间不足，来自"%s" ！]]>  </VM_MEMORY-MISSING>
+	<LICENCE-TIMEOUT no="10010"> <![CDATA["%s"节点的许可证使用%d天超期 ！]]>  </LICENCE-TIMEOUT>
+	<NOT-FOUND-LOCAL no="10011"> <![CDATA[ 本地没有找到 "%s" ！]]>  </NOT-FOUND-LOCAL>
+	
+</Messages>

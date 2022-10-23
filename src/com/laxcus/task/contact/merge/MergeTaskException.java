@@ -1,0 +1,65 @@
+/**
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ * 
+ * Copyright 2009 laxcus.com. All rights reserved
+ * 
+ * @license Laxcus Public License (LPL)
+ */
+package com.laxcus.task.contact.merge;
+
+import com.laxcus.task.*;
+
+/**
+ * CONTACT.MERGE阶段异常。<br>
+ * 在执行MERGE工作中发生。
+ * 
+ * @author scott.liang
+ * @version 1.0 5/8/2020
+ * @since laxcus 1.0
+ */
+public class MergeTaskException extends TaskException {
+	
+	private static final long serialVersionUID = 5159133742055686941L;
+
+	/**
+	 * 构造默认的CONTACT.MERGE阶段异常
+	 */
+	public MergeTaskException() {
+		super();
+	}
+
+	/**
+	 * 构造CONTACT.MERGE阶段异常，说明异常信息
+	 * @param message 异常信息
+	 */
+	public MergeTaskException(String message) {
+		super(message);
+	}
+
+	/**
+	 * 构造CONTACT.MERGE阶段异常，格式化异常信息
+	 * @param format 格式化语句
+	 * @param args 参数
+	 */
+	public MergeTaskException(String format, Object... args) {
+		super(String.format(format, args));
+	}
+
+	/**
+	 * 在一个异常的基础上构造CONTACT.MERGE阶段异常
+	 * @param cause 另一个异常实例
+	 */
+	public MergeTaskException(Throwable cause) {
+		super(cause);
+	}
+
+	/**
+	 * 在一个异常的基础上构造CONTACT.MERGE阶段异常，指定提示信息和异常
+	 * @param message 异常信息
+	 * @param cause 另一个异常实例
+	 */
+	public MergeTaskException(String message, Throwable cause) {
+		super(message, cause);
+	}
+
+}

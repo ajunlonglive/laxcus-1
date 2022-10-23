@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<application>
+
+	<home-site>
+		<ip> localhost </ip>
+		<tcp-port> 8000 </tcp-port>
+		<udp-port> 8000 </udp-port>
+	</home-site>
+
+	<!-- service listen address -->
+	<local-site>
+		<ip> localhost </ip>
+		<tcp-port> 7230 </tcp-port>
+		<udp-port> 7230 </udp-port>
+	</local-site>
+
+	<write-directory><![CDATA[ e:/logs ]]></write-directory>
+
+	<accept-shutdown-address>
+		<ip> 192.168.1.100 </ip>
+		<ip> 192.168.1.122 </ip>
+	</accept-shutdown-address>
+
+	<!-- log listen address -->
+	<listen-list>
+
+		<node>
+			<tag>TOP</tag>
+			<port>9010</port>
+		</node>
+
+		<node>
+			<tag>HOME</tag>
+			<port>9020</port>
+		</node>
+
+		<node>
+			<tag>WORK</tag>
+			<port>9030</port>
+		</node>
+
+		<node>
+			<tag>DATA</tag>
+			<port>9040</port>
+		</node>
+
+		<node>
+			<tag>CALL</tag>
+			<port>9050</port>
+		</node>
+
+	</listen-list>
+
+</application>

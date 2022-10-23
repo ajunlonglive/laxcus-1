@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 故障提示信息标签  -->
+<!-- 关键参数是标签编号"no"（小写），通过它与FaultTip中的定义匹配，不可写错 -->
+
+<Faults>
+
+	<incorrect-syntax no="1"> <![CDATA[语法错误]]>  </incorrect-syntax>
+	<illegal-command no="2"> <![CDATA[未知命令，或者参数存在错误、不足！]]>  </illegal-command>
+	<command-refused no="3"> <![CDATA[命令被拒绝]]> </command-refused>
+	<system-failed no="4"> <![CDATA[ 系统故障 ]]> </system-failed>
+	<parameter-missing no="5"> <![CDATA[ 参数不足！ ]]> </parameter-missing>
+	<conduct-failed no="6"> <![CDATA[ 分布计算故障！请检查计算流程和网络日志！ ]]> </conduct-failed>
+	<establish-failed no="7"> <![CDATA[ 数据构造故障！请检查计算流程和网络日志！ ]]> </establish-failed>
+	<empty-list no="8"> <![CDATA[ 空记录！ ]]> </empty-list>
+	<permission-missing no="9"> <![CDATA[ 权限不足，或者服务器拒绝接受这个命令！ ]]> </permission-missing>
+	<system-denied no="10"> <![CDATA[ 由于参数、操作权限、操作范围或者其它原因，系统拒绝执行！ ]]> </system-denied>
+	<network-failure no="11"> <![CDATA[ 执行中出现网络故障！ ]]> </network-failure>
+	<cannot-submit no="12">  <![CDATA[ 发送失败，请检查网络或者重新登录！ ]]> </cannot-submit>
+	<site-missing no="13">  <![CDATA[ 节点不足！ ]]> </site-missing>
+	<implement-fault no="14">  <![CDATA[ 业务执行失败！ ]]> </implement-fault>
+	<illegal-parameter no="15">  <![CDATA[ 无效参数！ ]]> </illegal-parameter>
+	<job-timeout no="16">  <![CDATA[ 业务超时！ ]]> </job-timeout>
+	
+	<!-- 分布锁+事务规则的申请、撤销 -->
+	<rule-attach-fault no="17"> <![CDATA[ 申请数据资源时发生通信故障，编号 %d ]]>  </rule-attach-fault>
+	<rule-attach-return-fault no="18"> <![CDATA[ 系统不接受申请的数据资源，编号 %d ]]>  </rule-attach-return-fault>
+	<rule-detach-fault no="19"> <![CDATA[ 释放数据资源时发生通信故障，编号 %d ]]>  </rule-detach-fault>
+	<rule-detach-return-fault no="20"> <![CDATA[ 系统不接受解除的数据资源，编号 %d ]]>  </rule-detach-return-fault>
+
+	<site-not-login no="21">  <![CDATA[ 当前节点没有登录！ ]]> </site-not-login>
+	<refuse-refresh-cyber no="22">  <![CDATA[  刷新操作要求空运行队列，现在暂时不能执行，请稍后再试！ ]]> </refuse-refresh-cyber>
+
+	<!-- FRONT加载GATE/CALL分布资源失败！ -->
+	<cannot-load-user-resource no="23"> <![CDATA[ 加载计算机集群资源失败，请退出重试！ ]]>  </cannot-load-user-resource>
+
+	<!-- 重新登录TOP/HOME/BANK节点 -->
+	<TOP-RETRY no="24"> <![CDATA[ 集群服务范围限制，请登录TOP节点再试！ ]]>  </TOP-RETRY>
+	<HOME-RETRY no="25"> <![CDATA[ 集群服务范围限制，请登录HOME节点再试！ ]]>  </HOME-RETRY>
+	<BANK-RETRY no="26"> <![CDATA[ 集群服务范围限制，请登录BANK节点再试！ ]]>  </BANK-RETRY>
+	<TOP-HOME-RETRY no="27"> <![CDATA[ 集群服务范围限制，请登录TOP/HOME节点再试！ ]]>  </TOP-HOME-RETRY>
+	<TOP-BANK-RETRY no="28"> <![CDATA[ 集群服务范围限制，请登录TOP/BANK节点再试！ ]]>  </TOP-BANK-RETRY>
+	<HOME-BANK-RETRY no="29"> <![CDATA[ 集群服务范围限制，请登录HOME/BANK节点再试！ ]]>  </HOME-BANK-RETRY>
+
+	<!-- 非连线 -->
+	<offline-refuse no="30"> <![CDATA[ 非连线状态，拒绝执行任何网络操作！ ]]>  </offline-refuse>
+
+	<!-- 带参数的错误提示  -->
+	<failed no="10000">  <![CDATA["%s" 失败]]>  </failed>
+	<notfound no="10001"> <![CDATA[ 没有找到 "%s" !]]> </notfound>
+	<cannot-submit no="10002">  <![CDATA[ 没有提交到 "%s"，请检查网络、防火墙或者服务端节点！ ]]> </cannot-submit>
+	<incorrect-syntax-x no="10003"> <![CDATA[语法错误 "%s" ]]> </incorrect-syntax-x>
+	<notsupported-x no="10004"> <![CDATA[不支持 "%s" !]]> </notsupported-x>
+	<notresolved-x no="10005"> <![CDATA[不能解析 "%s" !]]> </notresolved-x>
+	<param-missing-x no="10006">  <![CDATA[ "%s" 参数不足 !]]> </param-missing-x>
+	<illegal-site-x no="10007">  <![CDATA[ 无效站点"%s" ]]> </illegal-site-x>
+	<existed-x no="10008"> <![CDATA["%s"已经存在 ]]> </existed-x>
+	<occured-conflict no="10009"> <![CDATA["%s" 发生冲突 ]]> </occured-conflict>
+	<notmatch-x no="10010">  <![CDATA[ 不匹配 "%s" ]]> </notmatch-x>
+	<destroy-node-x no="10011"> <![CDATA[ "%s"发生故障被销毁！]]> </destroy-node-x>
+	<notfound-site-x no="10012"> <![CDATA[ 没有找到"%s"站点！ ]]> </notfound-site-x>
+	<illegal-where-operator-x no="10013"> <![CDATA[ WHERE比较符无效"%s %s"！ ]]> </illegal-where-operator-x>
+	<illegal-charset-x no="10014"> <![CDATA[ 无效的字符集"%s"！ ]]> </illegal-charset-x>
+	<permission-missing-x no="10015"> <![CDATA[ "%s"权限不足！ ]]> </permission-missing-x>
+	<LICENCE-TIMEOUT-X no="10016"> <![CDATA["%s"节点的许可证使用已经超期 ！]]>  </LICENCE-TIMEOUT-X>
+	<FORBID-KEYWORD-X no="10017"> <![CDATA[“%s”是禁用的关键字！]]>  </FORBID-KEYWORD-X>
+	<ILLEGAL-VALUE-X no="10018"> <![CDATA[“%s”是无效值！]]>  </ILLEGAL-VALUE-X>
+	<NOTFOUND-TASK-X no="10019"> <![CDATA[没有找到应用组件“%s”，请安装！]]>  </NOTFOUND-TASK-X>
+	
+	<insert-x no="10020">  <![CDATA[ 插入"%s"失败 ]]> </insert-x>
+	<delete-x no="10021">  <![CDATA[ 删除"%s"失败 ]]> </delete-x>
+	<update-x no="10022">  <![CDATA[ 更新"%s"失败 ]]> </update-x>
+	
+	<SQL-ILLEGAL-COLUMN-X no="10030">  <![CDATA[ 无效列："%s"！ ]]> </SQL-ILLEGAL-COLUMN-X>
+	<SQL-OVERLAP-COLUMN-X no="10031">  <![CDATA[ 重复列："%s"！ ]]> </SQL-OVERLAP-COLUMN-X>
+	<SQL-ILLEGAL-KEY-X no="10032">  <![CDATA[ 无效的索引键："%s"！ ]]> </SQL-ILLEGAL-KEY-X>
+	<SQL-ILLEGAL-FUNCTION-X no="10033">  <![CDATA[ 无效函数："%s"！ ]]> </SQL-ILLEGAL-FUNCTION-X>
+	<SQL-ILLEGAL-VALUE-X no="10034">  <![CDATA[ 无效值："%s"！ ]]> </SQL-ILLEGAL-VALUE-X>
+	<SQL-INCORRECT-SYNTAX-X no="10035">  <![CDATA[ 无效的语句："%s" ]]> </SQL-INCORRECT-SYNTAX-X>
+	<SQL-ILLEGAL-ATTRIBUTE-X no="10036"> <![CDATA[ "%s"是无效属性 ]]>  </SQL-ILLEGAL-ATTRIBUTE-X>
+	<SQL-TYPE-NOTMATCH-X no="10037"> <![CDATA[ 类型不能匹配！%s ]]>  </SQL-TYPE-NOTMATCH-X>
+	<SQL-CANNOT-SUPPORT-X no="10038"> <![CDATA[ "%s"不能支持 ]]>  </SQL-CANNOT-SUPPORT-X>
+	<SQL-NOT-INDEXKEY-X no="10039"> <![CDATA[ "%s"不是索引键 ]]>  </SQL-NOT-INDEXKEY-X>
+	<SQL-KEY-MISSING-X no="10040"> <![CDATA[ %s 索引键不足 ]]>  </SQL-KEY-MISSING-X>
+	<SQL-PRIMEKEY-MEMBEROUT-X no="10041"> <![CDATA[ %s 主键过多 ]]>  </SQL-PRIMEKEY-MEMBEROUT-X>
+	<SQL-DATABASE-NAMEOUT-X no="10042"> <![CDATA[ %s 数据库名过长 ]]>  </SQL-DATABASE-NAMEOUT-X>
+	<SQL-TABLE-NAMEOUT-X no="10043"> <![CDATA[ %s 数据表名过长 ]]>  </SQL-TABLE-NAMEOUT-X>
+	<SQL-CANNOT-TRANSLATE-X no="10044"> <![CDATA[ %s 不能解析 ]]>  </SQL-CANNOT-TRANSLATE-X>
+	<SQL-ILLEGAL-AGGREGATE-FUNCTION-X no="10045">  <![CDATA[ 无效聚合函数："%s"！ ]]> </SQL-ILLEGAL-AGGREGATE-FUNCTION-X>
+	<SQL-GROUPBY-ELEMENT-MISSING-X no="10046"> <![CDATA[ "%s"不在GROUP BY语句列表中 ]]>  </SQL-GROUPBY-ELEMENT-MISSING-X>
+	<SQL-ORDERBY-INCORRECT-SYNTAX-X no="10047"> <![CDATA[ ORDER BY语句错误！%s ]]>  </SQL-ORDERBY-INCORRECT-SYNTAX-X>
+	
+</Faults>

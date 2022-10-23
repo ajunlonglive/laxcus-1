@@ -1,0 +1,117 @@
+<project default="build-edge-jar">
+
+	<target name="build-edge-jar">
+		<delete file="${basedir}/build/edge/laxcus_edge.jar"/>
+		<jar destfile="${basedir}/build/edge/laxcus_edge.jar" manifest="${basedir}/build/edge/META-INF/MANIFEST.MF">
+			
+			<fileset dir="${basedir}">
+				<include name="conf/front/**/*.*"/>
+				<exclude name="conf/front/terminal/**/*.*"/>
+			</fileset>
+
+			<fileset dir="${basedir}/bin">
+				<include name="com/laxcus/launch/licence/*.class"/>
+				<exclude name="com/laxcus/launch/licence/LicenceWriter.class"/>
+				
+				<include name="com/laxcus/law/**/*.class"/>
+				
+				<include name="com/laxcus/scaler/ScalerName.class"/>
+				<include name="com/laxcus/scaler/archive/*.class"/>
+
+				<exclude name="com/laxcus/access/Access.class"/>
+				<include name="com/laxcus/access/**/*.class"/>
+
+				<include name="com/laxcus/util/**/*.class"/>
+				<exclude name="com/laxcus/util/effect/*.class"/>
+				<include name="com/laxcus/xml/*.class"/>
+				
+				<include name="com/laxcus/fixp/**/*.class"/>
+				<include name="com/laxcus/security/*.class"/>
+				<include name="com/laxcus/thread/*.class"/>
+				<include name="com/laxcus/launch/*.class"/>
+				
+				<include name="com/laxcus/pool/*.class"/>
+				<include name="com/laxcus/pool/invoke/*.class"/>
+				
+				<include name="com/laxcus/echo/**/*.class"/>
+				<include name="com/laxcus/command/**/*.class"/>
+				
+				<!-- edge 自定义异步调用器  -->
+				<include name="com/laxcus/echo/invoke/custom/*.class"/>
+				<include name="com/laxcus/echo/invoke/custom/front/*.class"/>
+				<include name="com/laxcus/echo/invoke/custom/front/meet/*.class"/>
+				
+				<include name="com/laxcus/util/naming/*.class"/>
+				
+				<include name="com/laxcus/task/*.class"/>
+				<include name="com/laxcus/task/local/*.class"/>
+				<include name="com/laxcus/task/util/*.class"/>
+				<include name="com/laxcus/task/archive/*.class"/>
+				<include name="com/laxcus/task/display/*.class"/>
+				<include name="com/laxcus/task/conduct/*.class"/>
+				<include name="com/laxcus/task/conduct/put/*.class"/>
+				<include name="com/laxcus/task/establish/*.class"/>
+				<include name="com/laxcus/task/establish/end/*.class"/>
+				<include name="com/laxcus/task/contact/*.class"/>
+				<include name="com/laxcus/task/contact/near/*.class"/>
+				<include name="com/laxcus/task/guide/**/*.class"/>
+				<include name="com/laxcus/distribute/**/*.class"/>
+				
+				<!-- tub computing component -->
+				<include name="com/laxcus/tub/**/*.class"/>
+				<include name="com/laxcus/mission/**/*.class"/>
+				
+				<include name="com/laxcus/log/*.class"/>
+				<include name="com/laxcus/log/client/*.class"/>
+				<include name="com/laxcus/track/**/*.class"/>
+				
+				<include name="com/laxcus/invoke/*.class"/>
+				<include name="com/laxcus/invoke/impl/*.class"/>
+
+				<exclude name="com/laxcus/front/driver/**/*.class"/>
+				<exclude name="com/laxcus/front/terminal/**/*.class"/>
+				<exclude name="com/laxcus/front/console/**/*.class"/>
+				<exclude name="com/laxcus/front/meet/**/*.class"/>
+				<exclude name="com/laxcus/front/desktop/**/*.class"/>
+				
+				<include name="com/laxcus/front/**/*.class"/>
+				
+				<!--
+				<include name="com/laxcus/front/*.class"/>
+				<include name="com/laxcus/front/pool/*.class"/>
+				<include name="com/laxcus/front/invoker/*.class"/>
+				<include name="com/laxcus/front/edge/*.class"/>
+				<include name="com/laxcus/front/help.ini"/>
+				<include name="com/laxcus/front/rsakey.public"/>
+				-->
+
+				<include name="com/laxcus/site/*.class"/>
+				<include name="com/laxcus/site/front/*.class"/>
+				<include name="com/laxcus/site/rabbet/*.class"/>
+
+				<include name="com/laxcus/remote/*.class"/>
+				<include name="com/laxcus/remote/client/*.class"/>
+				<include name="com/laxcus/remote/client/hub/*.class"/>
+				<include name="com/laxcus/remote/client/echo/*.class"/>
+
+				<include name="com/laxcus/remote/client/top/*.class"/>
+				<include name="com/laxcus/remote/client/home/*.class"/>
+				<include name="com/laxcus/remote/client/call/*.class"/>
+
+				<include name="com/laxcus/visit/*.class"/>
+				<include name="com/laxcus/visit/hub/*.class"/>
+				<include name="com/laxcus/visit/naming/top/*.class"/>
+				<include name="com/laxcus/visit/naming/home/*.class"/>
+				<include name="com/laxcus/visit/naming/call/*.class"/>
+				
+				<include name="com/laxcus/visit/naming/front/*.class"/>
+				
+				<include name="com/laxcus/visit/impl/*.class"/>
+				<include name="com/laxcus/visit/impl/front/*.class"/>
+
+				<include name="com/laxcus/task/system/select/util/*.class"/>
+			</fileset>
+		</jar>
+	</target>
+
+</project>

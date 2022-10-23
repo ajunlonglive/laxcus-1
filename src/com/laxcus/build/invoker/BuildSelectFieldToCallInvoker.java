@@ -1,0 +1,103 @@
+/**
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ * 
+ * Copyright 2009 laxcus.com. All rights reserved
+ * 
+ * @license Laxcus Public License (LPL)
+ */
+package com.laxcus.build.invoker;
+
+import java.util.*;
+
+import com.laxcus.build.pool.*;
+import com.laxcus.command.*;
+import com.laxcus.command.field.*;
+import com.laxcus.log.client.*;
+import com.laxcus.site.Node;
+import com.laxcus.task.establish.sift.*;
+import com.laxcus.util.*;
+import com.laxcus.util.naming.*;
+
+/**
+ * 筛选BUILD站点元数据命令调用器。
+ * 这个命令由HOME发出，BUILD站点选择账号签名匹配的阶段命名，发送给CALL站点。
+ * 
+ * @author scott.liang
+ * @version 1.0 4/19/2013
+ * @since laxcus 1.0
+ */
+public class BuildSelectFieldToCallInvoker extends BuildInvoker {
+
+	/**
+	 * 构造筛选元数据命令调用器，指定命令
+	 * @param cmd 筛选BUILD站点元数据命令。
+	 */
+	public BuildSelectFieldToCallInvoker(SelectFieldToCall cmd) {
+		super(cmd);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.laxcus.echo.invoke.EchoInvoker#getCommand()
+	 */
+	@Override
+	public SelectFieldToCall getCommand() {
+		return (SelectFieldToCall) super.getCommand();
+	}
+
+	/* (non-Javadoc)
+	 * @see com.laxcus.echo.invoke.EchoInvoker#launch()
+	 */
+	@Override
+	public boolean launch() {
+		SelectFieldToCall cmd = getCommand();
+		Node call = cmd.getCallSite();
+		List<Siger> sigers = cmd.list();
+
+		// 找到关联的阶段命令，生成PushBuildField命令，发送给CALL站点
+		Node local = getLocal();
+		PushBuildField field = new PushBuildField(local);
+		// 判断内存/磁盘空间不足！
+		field.setMemoryMissing(isLocalMemoryMissing());
+		field.setDiskMissing(isLocalDiskMissing());
+		// 设置为最大优先级，CALL节点将优先处理
+		field.setPriority(CommandPriority.MAX); 
+
+		// 选择账号签名匹配的阶段命名
+		List<Phase> phases = SiftTaskPool.getInstance().getPhases();
+		for (Phase phase : phases) {
+			for (Siger siger : sigers) {
+				if (phase.isIssuer(siger)) {
+					field.addPhase(phase);
+					break;
+				}
+			}
+		}
+
+		// 保存用户签名
+		for (Siger siger : sigers) {
+			boolean success = StaffOnBuildPool.getInstance().hasRefer(siger);
+			if (success) {
+				field.addSiger(siger);
+			}
+		}
+
+		// 直投给CALL站点，不用反馈
+		boolean success = directTo(call, field);
+
+		Logger.debug(this, "launch", success, "siger size:%d, send %d phases to %s", 
+				sigers.size(), field.getPhases().size(), call);
+		
+		return useful(success);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.laxcus.echo.invoke.EchoInvoker#ending()
+	 */
+	@Override
+	public boolean ending() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

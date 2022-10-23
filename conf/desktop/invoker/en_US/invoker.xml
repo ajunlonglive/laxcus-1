@@ -1,0 +1,1066 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<invokers>
+	
+	<GAP>
+		<ITEM background="ESL:{146,140,210}"> Item </ITEM>
+	</GAP>
+	<SUBGAP>
+		<ITEM background="ESL:{86,93,210}"> Item </ITEM>
+	</SUBGAP>
+	
+	<!-- process status -->
+	<Confirm>
+		<OK foreground="ESL:{99,162,80}"> Okay</OK>
+		<ERROR foreground="ESL:{0,240,98}"> Failed </ERROR>
+	</Confirm>
+
+	<CUSTOM-COMMAND>
+		<MESSAGE-BOX title="Are you send command?"/>
+	</CUSTOM-COMMAND>
+	
+	<!-- create user -->
+	<CREATE-USER>
+		<STATUS title="Status" width="80"/>
+		<USERNAME title="Username" width="160"/>
+		<PUBLISH title="Login Site" width="300"/>
+		<FAILED> Cannot be create account! check cluster, please!  </FAILED>
+	</CREATE-USER>
+
+	<!-- drop user -->
+	<DROP-USER>
+		<STATUS title="Status" width="80"/>
+		<USERNAME title="Username" width="160"/>
+		<WARNING-CONTENT> 
+			<CONSOLE>此操作将导致用户账号和磁盘数据被彻底删除且不能恢复，请确定是否继续（Yes/No）？</CONSOLE>
+			<TERMINAL>此操作将导致用户账号和磁盘数据被彻底删除且不能恢复，请确定是否继续？</TERMINAL>
+ 		</WARNING-CONTENT>
+	</DROP-USER>
+	
+	<!-- ALTER USER -->
+	<ALTER-USER>
+		<STATUS title="Status" width="80"/>
+		<USERNAME title="Username" width="160"/>
+	</ALTER-USER>
+	
+	<!-- command: assert user -->
+	<ASSERT-USER>
+		<STATUS title="Status" width="100">
+			<YES> Existed! </YES>
+			<NO> Not found! </NO>
+		</STATUS>
+		<USERNAME title="Username" width="160"/>
+	</ASSERT-USER>
+	
+	<!-- command: open user -->
+	<OPEN-USER>
+		<STATUS title="Status" width="100"/>
+		<USERNAME title="Username" width="160"/>
+	</OPEN-USER>
+	
+	<!-- command: close user -->
+	<CLOSE-USER>
+		<STATUS title="Status" width="100"/>
+		<USERNAME title="Username" width="160"/>
+	</CLOSE-USER>
+
+	<!-- grant/revoke command -->
+	<CERTIFICATE>
+		<STATUS title="Report" width="50"/>
+		<USERNAME title="Account" width="260"/>
+	</CERTIFICATE>
+
+	<!-- command: create database -->
+	<CREATE-DATABASE>
+		<STATUS title="Status" width="100"/>
+		<DATABASE title="Database" width="150"/>
+		<FAILED> Cannot be create database! check cluster, please! </FAILED>
+	</CREATE-DATABASE>
+
+	<!-- command: drop database ... -->
+	<DROP-DATABASE>
+		<STATUS title="Status" width="100"/>
+		<DATABASE title="Database" width="150"/>
+		<WARNING-CONTENT>
+			<CONSOLE>此操作将导致数据库和磁盘数据被彻底删除且不能恢复，请确定是否继续（Yes/No）？</CONSOLE>
+			<TERMINAL>此操作将导致数据库和磁盘数据被彻底删除且不能恢复，请确定是否继续？</TERMINAL>
+ 		</WARNING-CONTENT>
+	</DROP-DATABASE>
+	
+	<!-- command: assert database -->
+	<ASSERT-DATABASE>
+		<STATUS title="Status" width="100">
+			<YES> Existed! </YES>
+			<NO> Passed! </NO>
+		</STATUS>
+		<DATABASE title="Database" width="160"/>
+	</ASSERT-DATABASE>
+
+	<!-- command : create table ... -->
+	<CREATE-TABLE>
+		<STATUS title="Status" width="100"/>
+		<TABLE title="Table" width="200"/>
+		<SITE title="Site" width="233"/>
+		<FAILED> Cannot be create table, check cluster, please! </FAILED>
+	</CREATE-TABLE>
+
+	<!-- command: drop table ... -->
+	<DROP-TABLE>
+		<STATUS title="Status" width="100"/>
+		<TABLE title="Table" width="200"/>
+		<WARNING-CONTENT>
+			<CONSOLE>此操作将导致数据表和磁盘数据被彻底删除且不能恢复，请确定是否继续（Yes/No）？</CONSOLE>
+			<TERMINAL>此操作将导致数据表和磁盘数据被彻底删除且不能恢复，请确定是否继续？</TERMINAL>
+ 		</WARNING-CONTENT>
+	</DROP-TABLE>
+	
+	<!-- command: asssert table -->
+	<ASSERT-TABLE>
+		<STATUS title="Status" width="100">
+			<YES> Existed! </YES>
+			<NO> Passed! </NO>
+		</STATUS>
+		<TABLE title="Table" width="160"/>
+	</ASSERT-TABLE>
+	
+	<!-- CREATE REGULATE TIME / DROP REGULATE TIME -->
+	<REGULATE-TIME>
+		<STATUS title="Report" width="50"/>
+		<SPACE title="Table" width="180"/>
+	</REGULATE-TIME>
+
+	<!-- PRINT REGULATE TIME command -->
+	<PRINT-REGULATE-TIME>
+		<DATABASE title="Database" width="100"/>
+		<TABLE title="Table" width="100"/>
+		<COLUMN title="Column" width="80"/>
+		<FAMILY title="Type" width="80"/>
+		<INTERVAL title="Touch" width="120"/>
+	</PRINT-REGULATE-TIME>
+	
+	<!-- scan table -->
+	<SCAN-TABLE>
+		<DATABASE title="Database" width="100"/>
+		<TABLE title="Table" width="100"/>
+		<STUBS title="Count" width="80"/>
+		<ROWS title="All Rows" width="100"/>
+		<AROWS title="Real Rows" width="100"/>
+	</SCAN-TABLE>
+	
+	<!-- scan data chunk -->
+	<SCAN-ENTITY>
+		<SITE title="Site" width="230"/>
+		<DATABASE title="Database" width="100"/>
+		<TABLE title="Table" width="100"/>
+		<STUBS title="Count" width="80"/>
+		<SIZE title="Size" width="100"/>
+	</SCAN-ENTITY>
+	
+	<!-- check chunk status -->
+	<SCAN-SKETCH>
+		<DATABASE title="Database" width="100"/>
+		<TABLE title="Table" width="100"/>
+		<STUBS title="Count" width="80"/>
+		<SIZE title="Size" width="100"/>
+		<ROWS title="Row Size" width="80"/>
+		<AROWS title="Available Rows" width="80"/>
+		<RATE title="Rate" width="60"/>
+	</SCAN-SKETCH>
+	
+	<SHUTDOWN>
+		<SITE title="Shutdown Site"/>
+	</SHUTDOWN>
+	
+	<!-- CHECK ONLY command -->
+	<CHECK-ONLY>
+		<TABLE-NAME title="Table Name"/>
+		<TOTAL-CHUNKS title="Total Chunk Size"/>
+		<VALID-CHUNKS title="Valid Chunk Size"/>
+		<RATE title="Rate"/>
+	</CHECK-ONLY>
+	
+	<!-- command: check entity consistency  -->
+	<CHECK-ENTITY-CONSISTENCY>
+		<TABLE-NAME title="Table Name" width="150"/>
+		<TOTAL-CHUNKS title="Total Masses" width="100"/>
+		<VALID-CHUNKS title="Valid Masses" width="100"/>
+		<RATE title="Rate" width="100"/>
+		
+		<!-- stubs detail information  -->
+		<DETAIL>
+			<T1 title="*" width="200"/>
+			<T2 title="*" width="260"/>
+			<T3 title="*" width="220"/>
+			<T4 title="*" width="300"/>
+		
+			<STATUS>
+				<CACHE> Cache </CACHE>
+				<CACHE-REFLEX> Cache Reflex </CACHE-REFLEX>
+				<CHUNK> Chunk </CHUNK>
+			</STATUS>
+			<CONSISTENCY>
+				<YES> Yes </YES>
+				<NO> No </NO>
+			</CONSISTENCY>
+		</DETAIL>
+	</CHECK-ENTITY-CONSISTENCY>
+
+	<!-- RECOVER TABLE MASS COMMAND -->
+	<RECOVER-TABLE-MASS>
+		<STUB title="Fault Mass No"/>
+		<STATUS title="Result">
+			<SUCCESSFUL> Successful </SUCCESSFUL>
+			<FAILED> Failed </FAILED>
+		</STATUS>
+	</RECOVER-TABLE-MASS>
+	
+	<!-- limit type -->
+	<LIMIT-ITEM>
+		<RANK title="Rank">
+			<USER> User </USER>
+			<SCHEMA> Database </SCHEMA>
+			<TABLE> Table </TABLE>
+		</RANK>
+		<OPERATOR title="Operator">
+			<READ> Read </READ>
+			<WRITE> Write </WRITE>
+		</OPERATOR>
+		<RESOURCE title="Resource"/>
+	</LIMIT-ITEM>
+	
+	<!-- forbid type -->
+	<FORBID-ITEM>
+		<RANK title="Rank">
+			<USER> User </USER>
+			<SCHEMA> Database </SCHEMA>
+			<TABLE> Table </TABLE>
+			<ROW> Row </ROW>
+		</RANK>
+		<RESOURCE title="Resource"/>
+	</FORBID-ITEM>
+	
+	<!-- RULE ITEM -->
+	<RULE-ITEM>
+		<RANK title="Rank">
+			<USER> User </USER>
+			<SCHEMA> Database </SCHEMA>
+			<TABLE> Table </TABLE>
+			<ROW> Row </ROW>
+		</RANK>
+		<OPERATOR title="Operator">
+			<SHARE-READ> Share Read </SHARE-READ>
+			<SHARE-WRITE> Share Write </SHARE-WRITE>
+			<EXCLUSIVE-WRITE> Exclusive Write </EXCLUSIVE-WRITE>
+		</OPERATOR>
+		<RESOURCE title="Resource"/>
+		<STATUS title="Status">
+			<RUNNING> Running </RUNNING>
+			<WAITING> Waiting </WAITING>
+		</STATUS>
+	</RULE-ITEM>
+	
+	<!-- RUSH COMMAND -->
+	<RUSH>
+		<STATUS title="Status"/>
+		<SITE title="Data Site"/>
+		<CODE title="Return Code"/>		
+	</RUSH>
+	
+	<!-- INSERT COMMAND -->
+	<INSERT>
+		<RESULT title="Result" width="60"/>
+		<SPACE title="Space" width="130"/>
+		<ROWS title="Rows" width="100"/>
+	</INSERT>
+	<!-- DELETE COMMAND -->
+	<DELETE>
+		<SPACE title="Space" width="130"/>
+		<ROWS title="Rows" width="100"/>
+	</DELETE>
+	<!-- UPDATE COMMAND -->
+	<UPDATE>
+		<SPACE title="Space" width="130"/>
+		<ROWS title="Rows" width="100"/>
+	</UPDATE>
+
+	<!-- SET MAX WORKS / SET MAX MEMBERS -->
+	<SET-PARAM>
+		<RESULT title="Result"/>
+		<USERNAME title="Username"/>
+	</SET-PARAM>
+	
+	<!-- command timeout -->
+	<COMMAND-TIMEOUT>
+		<TIME title="Command Timeout" width="300"/>
+	</COMMAND-TIMEOUT>
+	
+	<!-- local cipher timeout -->
+	<LOCAL-CIPHER-TIMEOUT>
+		<TIME title="Local Cipher Timeout" width="300"/>
+	</LOCAL-CIPHER-TIMEOUT>
+	
+	<!-- local echo buffer size-->
+	<LOCAL-MAX-ECHO-BUFFER>
+		<CAPACITY title="Local Buffer Size" width="280"/>
+		<ANY> Unlimit </ANY>
+	</LOCAL-MAX-ECHO-BUFFER>
+
+	<!-- COMMAND: SET MAX INVOKER -->
+	<MAX-INVOKER>
+	
+		<LOCAL>
+			<INVOKERS title="Invokers" width="120"/>
+			<CONFINE-TIME title="Confine Time(s)" width="100"/>
+			<CONFINE-TIME-MS title="Confine Time(ms)" width="100"/>
+		</LOCAL>
+		<ALWAY> Alway </ALWAY>
+	</MAX-INVOKER>
+	
+	<!-- HASH COMMAND -->
+	<BUILD-HASH>
+		<CODE title="Hash Code" width="500"/>
+	</BUILD-HASH>
+
+	<!-- BUILD EACH SIGN -->
+	<BUILD-EACH>
+		<SIGN title="Each Sign" width="200"/>
+	</BUILD-EACH>
+	
+	<!-- command mode -->
+	<COMMAND-MODE>
+		<MODE title="Mode" width="500">
+			<DISK> Disk Mode </DISK>
+			<MEMORY> Memory Mode </MEMORY>
+		</MODE>
+	</COMMAND-MODE>
+	<!-- front gateway site -->
+	<FRONT-GATEWAY>
+		<SITE title="网关地址" width="300"/>
+	</FRONT-GATEWAY>
+	
+	<!-- open/close share resource -->
+	<CROSS-ITEM>
+		<USERNAME title="Username" width="260"/>
+		<OPERATOR title="Operator" width="250"/>
+ 		<TABLE title="Table" width="200"/>
+	</CROSS-ITEM>
+
+	<!-- show active resource -->
+	<SHOW-ACTIVE-RESOURCE>
+		<USERNAME title="Conferrer" width="260"/>
+		<OPERATOR title="Operator" width="250"/>
+ 		<TABLE title="Table" width="200"/>
+ 		<CREATETIME title="Create Time" width="120"/>
+	</SHOW-ACTIVE-RESOURCE>
+	
+	<!-- show passive resource -->
+	<SHOW-PASSIVE-RESOURCE>
+		<USERNAME title="Authorizer" width="260"/>
+		<OPERATOR title="Operator" width="250"/>
+ 		<TABLE title="Table" width="200"/>
+ 		<CREATETIME title="Create Time" width="120"/>
+	</SHOW-PASSIVE-RESOURCE>
+	
+	<!-- HALF COMMAND-->
+	<BUILD-HALF>
+		<TEXT title="Result" width="380"/>
+	</BUILD-HALF>
+
+	<!-- git all stubs, see "git all stubs" command -->
+	<GIT-STUBS>
+		<STUB title="Identity" width="150"/>
+		<SITE title="Site" width="220"/>
+		<STATUS title="Status" width="120">
+			<CACHE> Cache </CACHE>
+			<CHUNK> Solid </CHUNK>
+		</STATUS>
+	</GIT-STUBS>
+
+	<!-- print stubs diagram -->
+	<PRINT-STUBS-DIAGRAM>
+		<T1 title="*" width="100"/>
+		<T2 title="*" width="500"/>
+
+		<SITE title="Site" width="220"/>
+		<STUB title="Entity" width="260"/>
+		<STATUS title="Status" width="120">
+			<CACHE> Cache </CACHE>
+			<CACHE-REFLEX> Cache Reflex </CACHE-REFLEX>
+			<CHUNK> Chunk</CHUNK>
+		</STATUS>
+	</PRINT-STUBS-DIAGRAM>
+
+	<!-- download a entity from laxcus cluster, see "export entity" command -->
+	<EXPORT-ENTITY>
+		<ROWS-X> writed %s  </ROWS-X>
+		<DOWNLOAD> 下载 %s ... </DOWNLOAD>
+		
+		<!-- export to file -->
+		<EXPORT>
+			<STATUS title="Status" width="40"/>
+			<STUB title="Identity" width="150"/>
+			<ROWS title="Rows" width="90"/>
+			<FILE title="Disk File" width="300"/>
+		</EXPORT>
+	</EXPORT-ENTITY>
+
+	<!-- upload entity to laxcus cluster, see "import entity" command  -->
+	<IMPORT-ENTITY>
+		<STATUS title="Result" width="40"/>
+		<TABLE title="Table" width="200"/>
+		<FILE title="File" width="280"/>
+		<ROWS title="Rows" width="100"/>
+		<FINISHED-X> Writed rows: %d, Finished! </FINISHED-X>
+		<WRITE-X> Writed rows: %d, next... </WRITE-X>
+		<UPLOAD> Upload %s ... </UPLOAD>
+	</IMPORT-ENTITY>
+	
+	<!-- 复制数据块 -->
+	<COPY-ENTITY>
+		<STATUS title="Status" width="50"/>
+		<STUB title="Serial Number" width="200"/>
+	</COPY-ENTITY>
+	
+	<!-- command: check entity ...  -->
+	<CHECK-ENTITY-CONTENT>
+		<STATUS title="Status" width="39"/>
+		<TABLE title="Table" width="180"/>
+		<FILE title="File" width="260"/>
+		<CHARSET title="Charset" width="80"/>
+		<ROWS title="Rows" width="50"/>
+	</CHECK-ENTITY-CONTENT>
+	
+	<!-- CHECK ENTITY CHARSET  -->
+	<CHECK-ENTITY-CHARSET>
+		<SINGLE>
+			<FILE title="File" width="300"/>
+			<CHARSET title="Charset" width="130"/>
+			<UNSET> Unknown</UNSET>
+			<ERRORS title="Errors" width="60"/>
+		</SINGLE>
+
+		<MULTI>
+			<T1 title="*" width="100"/>
+			<T2 title="*" width="500"/>
+			<RESULT>
+				<FILE title="File" foreground="0x3B7960"/>
+				<COUNT title="Charset/Errors" foreground="0x1C84A0"/>
+			</RESULT>
+		</MULTI>
+	</CHECK-ENTITY-CHARSET>
+	
+	<!-- show database/table resource, see "show database/show table" command -->
+	<SHOW-TABLE>
+		<DATABASE title="Database" width="100"/>
+		<TABLE title="Table" width="100"/>
+		<COLUMN>
+			<NAME title="Name" width="88"/>
+			<TYPE title="Type" width="85"/>
+			<KEY title="Key" width="70"> 
+				<PRIME>Prime Key</PRIME>
+				<SLAVE>Slave Key</SLAVE>
+			</KEY>
+			<CASE title="Case Sensitive" width="60"> 
+				<YES>Yes</YES>
+				<NO>No</NO>
+			</CASE>
+			<LIKE title="Like" width="60">
+				<YES>Yes</YES>
+				<NO>No</NO>
+			</LIKE>
+			<NULL title="Allow Null" width="60"> 
+				<YES>Yes</YES>
+				<NO>No</NO>
+			</NULL>
+			<REMARK title="Remark" width="300"/>
+		</COLUMN>
+	</SHOW-TABLE>
+	
+	<!-- database/table information, see "print database diagram" or "print table diagram"  -->
+	<RESOURCE-DIAGRAM>
+		<ATTRIBUTE title="*" width="100"/>
+		<VALUE title="*" width="220"/>
+		
+		<ITEM>
+			<DATABASE title="Database"/>
+			<TABLE title="Table"/>
+			<CREATE-TIME title="Create Time"/>
+			
+			<CAPACITY title="Disk Capacity">
+				<UNLIMIT>Unlimit</UNLIMIT>
+			</CAPACITY>
+			
+			<TABLE-COUNT title="Table Count"/>
+			<COLUMN-COUNT title="Column Count"/>
+
+			<CHUNK-COPY title="Chunk Copy"/>
+			<CHUNK-SIZE title="Chunk Size"/>
+			<PRIME-SITES title="Prime Sites"/>
+			<SM title="Storage Model">
+				<NSM>NSM</NSM>
+				<DSM>DSM</DSM>
+				<MULTIPLE title="Multiple"/>
+			</SM>
+			<SITE-MODE title="Site Mode">
+				<SHARE>Share</SHARE>
+				<EXCLUSIVE>Exclusive</EXCLUSIVE>
+			</SITE-MODE>
+
+		</ITEM>
+	</RESOURCE-DIAGRAM>
+
+	<!-- user attribute, see "print user diagram" command -->
+	<USER-DIAGRAM>
+		<ATTRIBUTE title="Attribute" width="130"/>
+		<VALUE title="Value" width="360"/>
+		
+		<ITEM>
+			<SIGER title="Siger"/>
+			<CREATE-TIME title="Create Time"/>
+			<EXPIRE-TIME title="Expire Time">
+				<UNLIMIT>Unlimit</UNLIMIT>
+			</EXPIRE-TIME>
+			<USING title="Using">
+				<OPENING>Enabled</OPENING>
+				<CLOSED>Disable</CLOSED>
+			</USING>
+
+			<CAPACITY title="Disk Capacity">
+				<UNLIMIT>Unlimit</UNLIMIT>
+			</CAPACITY>
+			
+			<PRIORITY title="Priority"/>
+			<MEMBERS title="Max User Size"/>
+			<JOBS title="Max Jobs Size"/>
+
+			<GROUPS title="Cluster Size"/>
+			<BASES title="Primary Data Sites"/>
+			<SUBBASES title="Secondary Data Sites"/>
+			<GATEWAYS title="Call Sites"/>
+			<WORKERS  title="Work Sites"/>
+			<BUILDERS title="Build Sites"/>
+			<CHUNK-SIZE title="Data Entity Size"/>
+			<APPLICATIONS title="Applications"/>
+
+			<TABLE-SIZE title="Max Table Size">
+				<UNLIMIT>Unlimit</UNLIMIT>
+			</TABLE-SIZE>
+			<INDEX-SIZE title="Max Index Size">
+				<UNLIMIT>Unlimit</UNLIMIT>
+			</INDEX-SIZE>
+			<CLOUD-SIZE title="Cloud Size">
+				<LIMIT>Forbid</LIMIT>
+			</CLOUD-SIZE>
+		</ITEM>
+	</USER-DIAGRAM>
+	
+	<!-- grant command, seek "print grant diagram" command -->
+	<GRANT-DIAGRAM>
+		<COMMAND title="Command" width="180"/>
+		<REMARK title="Remark" width="180"/>
+		<RANK title="Rank" width="100">
+			<USER>User</USER>
+			<DATABASE>Database </DATABASE>
+			<TABLE>Table</TABLE>
+		</RANK>
+	</GRANT-DIAGRAM>
+
+	<!-- SET ENTITY SIZE-->
+	<SET-ENTITY-SIZE>
+		<STATUS title="Status" width="80"/>
+		<TABLE title="Table" width="200"/>
+		<SIZE title="Size" width="80"/>
+	</SET-ENTITY-SIZE>
+	
+	<!-- command: seek online command -->
+	<SEEK-ONLINE-COMMAND>
+		<COMMAND title="Command" width="200"/>
+		<ONLINE-TIME title="Online Time" width="130"/>
+		<SIGER title="Username" width="200">
+			<SYSTEM>System</SYSTEM>
+			<MYSELF>Me</MYSELF>
+		</SIGER>
+		<CABIN title="From" width="230"/>
+		<STATUS title="Status" width="80">
+			<RUNNING>Running</RUNNING>
+			<SUSPEND>Suspend</SUSPEND>
+			<WAITING>Waiting</WAITING>
+		</STATUS>
+		<PRIORITY title="Priority" width="60"/>
+		<MODE title="Access Mode" width="80">
+			<MEMORY>Memory</MEMORY>
+			<DISK>Disk</DISK>
+		</MODE>
+		<DIRECT title="Direct" width="80">
+			<YES>Yes</YES>
+			<NO>No</NO>
+		</DIRECT>
+		<THREAD-ID title="Thread Id" width="60"/>
+		<JOBS>Jobs: %d</JOBS>
+	</SEEK-ONLINE-COMMAND>
+	
+	<!-- test network stream rate -->
+	<TRAFFIC>
+		<ATTRIBUTE title="Name" width="80"/>
+		<VALUE title="Value" width="280"/>
+		
+		<STATUS title="Status"/>
+		<FROM title="Send Site"/>
+		<TO title="Receive Site"/>
+	
+		<LENGTH title="Post Size"/>
+		<RUNTIME title="Run Time" />	
+		<RATE title="Rate(M/S)" />
+		<PACKETS title="Sub Packets" />
+		<RETRIES title="Retry Count" />
+		<TIMEOUTS title="Timeout Count" />		
+	</TRAFFIC>
+
+	<!-- check multi swarm -->
+	<MULTI-TRAFFIC>
+		<ATTRIBUTE title="Name" width="80"/>
+		<VALUE title="Value" width="280"/>
+		
+		<SERIAL title="No"/>
+		<FAULTS title="Faults"/>
+		<CORRECTS title="Corrects"/>
+
+		<LENGTH title="Post Size"/>
+		<SOURCE-TIME title="Resource Time"/>
+		<SINGLE-TASK-TIME title="Single Resource Time"/>
+		<RUNTIME title="Run Time" />	
+		<RATE title="Rate(M/S)" />
+		<PACKETS title="Sub Packets" />
+		<RETRIES title="Retry Count" />
+		<TIMEOUTS title="Timeouts Count" />
+	</MULTI-TRAFFIC>
+
+	<!-- RELEASE MEMORY COMMAND -->
+	<RELEASE-MEMORY>		
+		<LOCAL title="Local" width="280">
+			<FREE> released memory! </FREE>
+		</LOCAL>
+	</RELEASE-MEMORY>
+	
+	<!-- SET RELEASE MEMORY INTERVAL-->
+	<RELEASE-MEMORY-INTERVAL>
+		<LOCAL title="Interval" width="280">
+			<CANCELED> Canceled </CANCELED>
+		</LOCAL>
+	</RELEASE-MEMORY-INTERVAL>
+	
+	<!-- check remote table -->
+	<CHECK-REMOTE-TABLE>
+		<STATUS title="Status" width="38"/>
+		<TABLE title="Table" width="180"/>
+		<ATTRIBUTE title="Attribute" width="100">
+			<OWN>Selflly</OWN>
+			<PASSIVE>Passive</PASSIVE>
+		</ATTRIBUTE>
+		<SITE title="Site" width="300"/>
+	</CHECK-REMOTE-TABLE>
+
+	<!-- check remote task -->
+	<CHECK-REMOTE-TASK>
+		<STATUS title="Status" width="38"/>
+		<TASK title="Task" width="280"/>
+		<SITE title="Site" width="300"/>
+	</CHECK-REMOTE-TASK>
+
+	<!-- command: set reply packet mode SERIAL|PARALLEL -->
+	<REPLY-PACKET-MODE>
+		<SERIAL>Serial</SERIAL>
+		<PARALLEL>Parallel</PARALLEL>
+		<LOCAL>
+			<PACKET-MODE title="Transfer Mode" width="190"/>
+		</LOCAL>
+	</REPLY-PACKET-MODE>
+	
+	<!-- command: set reply packet size ... -->
+	<REPLY-PACKET-SIZE>
+		<LOCAL>
+			<PACKET-SIZE title="Packet Size" width="220"/>
+			<SUBPACKET-SIZE title="Sub Pakcet size" width="220"/>
+		</LOCAL>
+	</REPLY-PACKET-SIZE>
+
+	<!-- command: set reply send timeout -->
+	<REPLY-SEND-TIMEOUT>
+		<LOCAL>
+			<DISABLE-TIMEOUT title="Packet Disable Timeout(s)" width="120"/>
+			<SUBPACKET-TIMEOUT title="Subpacket Timeout(s)" width="120"/>
+			<SUBPACKET-INTERVAL title="Send Interval(ms)" width="120"/>
+		</LOCAL>
+	</REPLY-SEND-TIMEOUT>
+	<!-- command: set reply receive timeout -->
+	<REPLY-RECEIVE-TIMEOUT>
+		<LOCAL>
+			<DISABLE-TIMEOUT title="Packet Disable Timeout(s)" width="120"/>
+			<SUBPACKET-TIMEOUT title="Sub Packet Timeout(s)" width="120"/>
+		</LOCAL>
+	</REPLY-RECEIVE-TIMEOUT>
+	
+	<!-- command: set reply flow control -->
+	<REPLY-FLOW-CONTROL>
+		<LOCAL>
+			<BLOCK title="Block" width="120"/>
+			<TIMESLICE title="Timeslice" width="120"/>
+			<SUBPACKET-CONTENTSIZE title="Packet Size" width="120"/>
+		</LOCAL>
+	</REPLY-FLOW-CONTROL>
+	
+	<!-- command: refresh cyber -->
+	<REFRESH-CYBER>
+		<T1 title="*" width="150"/>
+		<T2 title="*" width="600"/>
+		
+		<GRADE title="Grade">
+			<Admin> Administrator</Admin>
+			<User> User</User>
+		</GRADE>
+		
+		<ACCOUNT>
+			<Table title="Table" foreground="0x3B7960"/>
+			<PassiveTable title="Share Table" foreground="0x1C84A0"/>
+			<Schedule title="Swift" foreground="0x69B076"/>
+			<Phase title="Distrubte Task" foreground="0x69821B"/>
+		</ACCOUNT>
+		
+		<CALL-SITE>
+			<CloudHub title="Cloud Store Site" foreground="0x22b14c"/>
+			<TableHub title="Table Site" foreground="0x22b14c"/>
+			<Table title="Table" foreground="0x22b14c"/>
+			
+			<TaskHub title="Task Site" foreground="0x3F48CC"/>
+			<Task title="Distribute Task" foreground="0x3F48CC"/>
+		</CALL-SITE>
+		
+		<AUTHORIZER>
+			<Authorizer title="Authorizer "/>
+			<Hub title="Site"/>
+		</AUTHORIZER>
+		
+		<AUTHORIZER-SITE>
+			<Authorizer title="Authorizer"/>
+			<Table title="Share Table"/>
+			<Hub title="Site"/>
+		</AUTHORIZER-SITE>
+
+	</REFRESH-CYBER>
+	
+	<!-- set max dsm reduce  -->
+	<SET-MAX-DSMREDUCE>
+		<STATUS title="Status" width="38"/>
+		<SITE title="Data Site" width="300"/>
+		<CODE title="Code" width="80"/>		
+	</SET-MAX-DSMREDUCE>
+	
+	<!-- command: run edge service -->
+	<RUN-TUB-SERVICE>
+		<STATUS title="Result" width="38"/>
+		<CODE title="Code" width="80"/>
+		<NAMING title="Name" width="260"/>
+		<HOST title="Host" width="220"/>
+		<PID title="PID" width="80"/>
+	</RUN-TUB-SERVICE>
+
+	<!-- command: stop edge service -->
+	<STOP-TUB-SERVICE>
+		<STATUS title="Result" width="38"/>
+		<CODE title="Code" width="80"/>
+		<NAMING title="Name" width="260"/>
+		<HOST title="Host" width="220"/>
+		<PID title="PID" width="80"/>
+	</STOP-TUB-SERVICE>
+
+	<!-- command: print edge service  -->
+	<PRINT-TUB-SERVICE>
+		<RUNTIME title="Run time" width="160"/>
+		<NAMING title="Name" width="260"/>
+		<PID title="PID" width="80"/>		
+		<HOST title="Host" width="150"/>
+	</PRINT-TUB-SERVICE>
+	
+	<!-- command: show tub container  -->
+	<SHOW-TUB-CONTAINER>
+		<NAMING title="Application Name" width="200"/>
+		<CLASS title="Class Name" width="260"/>
+	</SHOW-TUB-CONTAINER>
+	
+	<!-- command: check tub listen  -->
+	<CHECK-TUB-LISTEN>
+		<IP title="IP" width="150"/>
+		<PORT title="PORT" width="50"/>
+	</CHECK-TUB-LISTEN>
+	
+	<!-- command: set most cpu  -->
+	<MOST-CPU>
+		<LOCAL title="Most CPU" width="200">
+			<SUCCESS> Successful </SUCCESS>
+			<FAILED> Failed </FAILED>
+		</LOCAL>
+	</MOST-CPU>
+	
+	<!-- command: set most vm memory  -->
+	<MOST-VMMEMORY>
+		<LOCAL title="Most VM Memory" width="200">
+			<SUCCESS> Successful </SUCCESS>
+			<FAILED> Failed </FAILED>
+		</LOCAL>
+	</MOST-VMMEMORY>
+	
+	<!-- command: set least memory  -->
+	<LEAST-MEMORY>
+		<LOCAL title="Least Memory" width="200">
+			<SUCCESS> Successful </SUCCESS>
+			<FAILED> Failed </FAILED>
+		</LOCAL>
+	</LEAST-MEMORY>
+
+	<!-- command: set least disk -->
+	<LEAST-DISK>
+		<LOCAL title="Least Disk" width="200">
+			<SUCCESS> Successful </SUCCESS>
+			<FAILED> Failed </FAILED>
+		</LOCAL>
+	</LEAST-DISK>
+
+	<!-- command: print device directory -->
+	<CHECK-SITE-PATH>
+		<T1 title="*" width="100"/>
+		<T2 title="*" width="500"/>
+		
+		<ITEM>
+			<SITE title="Site" foreground="0xFF0000"/>
+			<STATUS title="Status" foreground="0xE83929"/>
+			<OS title="OS" foreground="0x028760"/>
+			<PATH title="Directory" foreground="0x0000FF"/>
+		</ITEM>
+	</CHECK-SITE-PATH>
+
+	<!-- command: set member timeout -->
+	<DISTRIBUTED-TIMEOUT-LOCAL>
+		<TIME title="Timeout" unlimit="Unlimit" width="280"/>
+	</DISTRIBUTED-TIMEOUT-LOCAL>
+
+	<!-- command: print local task -->
+	<CHECK-LOCAL-TASK>
+		<STATUS title="Status" width="50"/>
+		<TASK title="Local Task" width="800"/>
+	</CHECK-LOCAL-TASK>
+	
+	<!-- command: set log elements -->
+	<MAX-LOG-ELEMENTS>
+		<ELEMENTS title="Log Elements" width="200"/>
+	</MAX-LOG-ELEMENTS>
+	
+	<!-- command: open tigger -->
+	<OPEN-TIGGER>
+		<LOCAL title="Open Tigger" width="120">
+			<SUCCESS> Successful </SUCCESS>
+			<FAILED> Failed </FAILED>
+		</LOCAL>
+		<TYPE title="Enable Type" width="300"/>
+	</OPEN-TIGGER>
+	<!-- command: close tigger -->
+	<CLOSE-TIGGER>
+		<LOCAL title="Close Tigger" width="120">
+			<SUCCESS> Successful </SUCCESS>
+			<FAILED> Failed </FAILED>
+		</LOCAL>
+		<TYPE title="Enable Type" width="300"/>
+	</CLOSE-TIGGER>
+	
+	<!-- command: seek cloud ware -->
+	<SEEK-CLOUD-WARE>
+		<T1 title="*" width="100"/>
+		<T2 title="*" width="600"/>
+		
+		<ITEM>
+			<SITE title="Site" foreground="0xD3381C"/>
+			<TASK-NAME title="Distributed Task" foreground="0x028760"/>
+			<ASSIST title="Assist" foreground="0x2A83A2"/>
+			<LIBRARY title="Library" foreground="0x2A83A2"/>
+		</ITEM>
+	</SEEK-CLOUD-WARE>
+
+	<!-- command: BUILD CONDUCT PACKAGE, BUILD ESTABLISH PACKAGE, BUILD CONTACT PACKAGE -->
+	<BUILD-CLOUD-PACKAGE>
+		<STATUS title="Status" width="50"/>
+		<FILE title="Disk File" width="380"/>
+	</BUILD-CLOUD-PACKAGE>
+	
+	<!-- command: DEPLOY CONDUCT PACKAGE, DEPLOY ESTABLISH PACKAGE, DEPLOY CONTACT PACKAGE -->
+	<DEPLOY-CLOUD-PACKAGE>
+		<STATUS title="Deploy Result" width="80"/>
+		<COUNT title="Deploy Count" width="80"/>
+		<FILE title="Disk File" width="380"/>
+	</DEPLOY-CLOUD-PACKAGE>
+
+	<!-- command: DROP CONDUCT PACKAGE, DROP ESTABLISH PACKAGE, DROP CONTACT PACKAGE -->
+	<DROP-CLOUD-PACKAGE>
+		<STATUS title="Drop Result" width="68"/>
+		<COUNT title="Drop Count" width="38"/>
+		<SOFTWARE title="Software" width="160"/>
+	</DROP-CLOUD-PACKAGE>
+	
+	<!-- command: check remote site -->
+	<CHECK-REMOTE-SITE>
+		<TYPE title="Type" width="100">
+			<ENTRANCE> Entrance </ENTRANCE>
+			<GATE> Gate </GATE>
+			<AUTHROIZER-GATE> Authorizer Gate </AUTHROIZER-GATE>
+			<CLOUD-SITE> Cloud Store </CLOUD-SITE>
+			<CALL> Call </CALL>
+		</TYPE>
+		<SITE title="Address" width="200"/>
+	</CHECK-REMOTE-SITE>
+
+	<!-- command: check job site -->
+	<CHECK-JOB-SITE>
+		<TYPE title="Type" width="100">
+			<DATA> Data Site </DATA>
+			<BUILD> Build Site </BUILD>
+			<WORK> Work Site</WORK>
+			<CALL> Call Site </CALL>
+		</TYPE>
+		<SITE title="Address" width="380"/>
+	</CHECK-JOB-SITE>
+
+	<!-- command: check system info -->
+	<CHECK-SYSTEM-INFO>
+		<T1 title="*" width="100"/>
+		<T2 title="*" width="280"/>
+
+		<SITE foreground="0xFF0000">Site</SITE>
+		
+		<VERSION foreground="ESL:{120,80,60}">
+			<VERSION>Site Version</VERSION>
+		</VERSION>
+
+		<CPU foreground="0X44617B">
+			<PROCESSOR>Processors </PROCESSOR>
+			<VENDOR>Vendor</VENDOR>
+			<MODEL-NAME>Model Name</MODEL-NAME>
+			<MHZ>MHZ</MHZ>
+			<CACHE-SIZE>Cache</CACHE-SIZE>
+			<PHYSICAL>CPU Physical </PHYSICAL>
+			<CORES>CPU Cores </CORES>
+		</CPU>
+		
+		<MEMORY foreground="0x1E50A2">
+			<TOTAL>Memory Capacity </TOTAL>
+			<FREE>Free Memory </FREE>
+			<USED>Used Memory</USED>
+			<CACHED>Cache</CACHED>
+			<BUFFERS>Buffers</BUFFERS>
+			<RATE>Used Rate</RATE>
+		</MEMORY>
+		
+		<DISK foreground="0x2A83A2">
+			<TOTAL>Disk Capacity</TOTAL>
+			<FREE>Free Disk </FREE>
+			<USED>Used Disk</USED>
+			<RATE>Used Rate</RATE>
+		</DISK>
+
+		<JAVA foreground="ESL:{140,240,192}">
+			<VENDOR>VM Vendor</VENDOR>
+			<VERSION>VM Version </VERSION>
+			<VMNAME>VM Name</VMNAME>
+			<ARCH>Arch</ARCH>
+			<OSNAME>OS Name</OSNAME>
+		</JAVA>		
+	</CHECK-SYSTEM-INFO>
+	
+	<CHECK-POCK-CHANNEL>
+		<TYPE title="Communication Type" width="150">
+			<CONTROL foreground="ESL:{80,240,60}"> Control Channel </CONTROL>
+			<SUCK-DATA foreground="ESL:{140,240,100}"> Receive Data Channel </SUCK-DATA>
+			<DISPATCH-DATA foreground="ESL:{140,240,100}"> Send Data Channel </DISPATCH-DATA>
+		</TYPE>
+		<LOCAL title="Local" width="230"/>
+		<POCK title="Pock" width="230"/>
+		<SERVER title="Server" width="230"/>
+		<BOUND title="Bound" width="280"/>
+	</CHECK-POCK-CHANNEL>
+	
+	<!-- sql process status -->
+	<SQL>
+		<SELECT-X>Rows %d </SELECT-X>
+		<INSERT-X>Rows %d </INSERT-X>
+	</SQL>
+
+	<!-- command: create directory -->
+	<CREATE-DIRECTORY>
+		<STATE title="Status" width="120">
+			<SUCCESS> Successful </SUCCESS>
+			<EXISTS> Exists </EXISTS>
+			<FAILED> Failed </FAILED>
+		</STATE>
+		<DIRECTORY title="Cloud Directory" width="230"/>
+	</CREATE-DIRECTORY>
+	<DROP-CLOUD-DIRECTORY>
+		<STATE title="Status" width="120">
+			<SUCCESS> Successful </SUCCESS>
+			<EXISTS> Exists </EXISTS>
+			<FAILED> Failed </FAILED>
+		</STATE>
+		<DIRECTORY title="Cloud Directory" width="230"/>
+	</DROP-CLOUD-DIRECTORY>
+	<DROP-CLOUD-FILE>
+		<STATE title="Status" width="120">
+			<SUCCESS> Successful </SUCCESS>
+			<EXISTS> Exists </EXISTS>
+			<FAILED> Failed </FAILED>
+		</STATE>
+		<FILE title="Cloud File" width="230"/>
+	</DROP-CLOUD-FILE>
+	<RENAME-CLOUD-DIRECTORY>
+		<STATE title="Status" width="120">
+			<SUCCESS> Successful </SUCCESS>
+			<EXISTS> Exists </EXISTS>
+			<FAILED> Failed </FAILED>
+		</STATE>
+		<DIRECTORY title="Cloud Directory" width="230"/>
+	</RENAME-CLOUD-DIRECTORY>
+	<RENAME-CLOUD-FILE>
+		<STATE title="Status" width="120">
+			<SUCCESS> Successful </SUCCESS>
+			<EXISTS> Exists </EXISTS>
+			<FAILED> Failed </FAILED>
+		</STATE>
+		<FILE title="Cloud File" width="230"/>
+	</RENAME-CLOUD-FILE>
+	
+	<UPLOAD-FILE>
+		<STATE title="State" width="120">
+			<SUCCESS> Successful </SUCCESS>
+			<EXISTS> Exists </EXISTS>
+			<FAILED> Failed</FAILED>
+			<DISK-MISSING> Disk Missing </DISK-MISSING>
+		</STATE>
+		<FILE title="File" width="230"/>
+	</UPLOAD-FILE>
+
+	<SCAN-CLOUD-DISK>
+		<TIME title="Time" width="120"/>
+		<TYPE title="Type" width="80">
+			<DISK> Disk </DISK>
+			<FILE> File </FILE>
+			<DIR> Dir </DIR>
+		</TYPE>
+		<LENGTH title="Length" width="160"/>
+		<NAME title="Name" width="300"/>
+	</SCAN-CLOUD-DISK>
+	
+	<CHECK-MASSIVE-MIMO>
+		<STATE title="Check Result" width="120">
+			<SUCCESS> Successfuly </SUCCESS>
+			<FAILED> Failed </FAILED>
+			<REFUSED> Refused </REFUSED>
+		</STATE>
+		<SUCKERS title="Receiver" width="230"/>
+	</CHECK-MASSIVE-MIMO>
+	
+</invokers>

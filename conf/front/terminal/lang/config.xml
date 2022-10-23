@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 图形终端界面资源配置文件 -->
+
+<config>
+	<resource language="zh" country="CN"> <![CDATA[ conf/front/terminal/lang/zh_CN/resource.xml ]]> </resource>
+	<resource language="en" country="US"> <![CDATA[ conf/front/terminal/lang/en_US/resource.xml ]]> </resource>
+	<resource language="default" country="default">  <![CDATA[ conf/front/terminal/lang/en_US/resource.xml ]]> </resource>
+
+<!--
+	<resource language="zh" country="CN"> <![CDATA[ conf/front/terminal/lang/en_US/resource.xml ]]> </resource>
+	<resource language="en" country="US"> <![CDATA[ conf/front/terminal/lang/en_US/resource.xml ]]> </resource>
+	<resource language="default" country="default">  <![CDATA[ conf/front/terminal/lang/en_US/resource.xml ]]> </resource>
+-->
+
+</config>

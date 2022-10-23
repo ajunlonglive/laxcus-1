@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 图形界面颜色适配文件，用户根据自己机器语言自动选择自己选择  -->
+
+<!--
+	说明：
+	1. title的文字出现在菜单和工具提示上
+	2. normal的文字写入配置文件
+	3. method的文字是鼠标点击触发方法，固化在WatchWindow的类中 
+	4. laf(look and feel)，感知外观。大小写敏感，与系统保持一致！
+	5. theme-class, 界面主题类, 只限"metal"类型的主题
+-->
+
+<config>
+
+	<skin language="default" country="default">
+		<!--
+		<mode title="Normal Style" name="normal" method="doSkinNormal" laf="Nimbus"> 
+			<![CDATA[ conf/watch/skin/nimbus_normal.txt ]]>
+		</mode> 
+		-->
+		<mode title="Gray Style" name="gray" method="doSkinGray" laf="Metal" theme-class="com.laxcus.util.skin.GrayMetalTheme"> 
+			<![CDATA[ conf/watch/skin/metal_gray.txt ]]>
+		</mode>
+		<mode title="Dark Style" name="dark" method="doSkinDark" laf="Metal" theme-class="com.laxcus.util.skin.DarkMetalTheme"> 
+			<![CDATA[ conf/watch/skin/metal_dark.txt ]]>
+		</mode>
+		<mode title="Bronze Style" name="bronze" method="doSkinBronze" laf="Metal" theme-class="com.laxcus.util.skin.BronzeMetalTheme"> 
+			<![CDATA[ conf/watch/skin/metal_bronze.txt ]]>
+		</mode>
+		<mode title="Deep Blue Style" name="cyano" method="doSkinCyano" laf="Metal" theme-class="com.laxcus.util.skin.CyanoMetalTheme"> 
+			<![CDATA[ conf/watch/skin/metal_cyano.txt ]]>
+		</mode>
+	</skin>
+
+	<skin language="en" country="US">
+		<!--
+		<mode title="Normal Style" name="normal" method="doSkinNormal" laf="Nimbus"> 
+			<![CDATA[ conf/watch/skin/nimbus_normal.txt ]]>
+		</mode> 
+		-->
+		<mode title="Gray Style" name="gray" method="doSkinGray" laf="Metal" theme-class="com.laxcus.util.skin.GrayMetalTheme"> 
+			<![CDATA[ conf/watch/skin/metal_gray.txt ]]>
+		</mode>
+		<mode title="Dark Style" name="dark" method="doSkinDark" laf="Metal" theme-class="com.laxcus.util.skin.DarkMetalTheme"> 
+			<![CDATA[ conf/watch/skin/metal_dark.txt ]]>
+		</mode>
+		<mode title="Bronze Style" name="bronze" method="doSkinBronze" laf="Metal" theme-class="com.laxcus.util.skin.BronzeMetalTheme"> 
+			<![CDATA[ conf/watch/skin/metal_bronze.txt ]]>
+		</mode>
+		<mode title="Deep Blue Style" name="cyano" method="doSkinCyano" laf="Metal" theme-class="com.laxcus.util.skin.CyanoMetalTheme"> 
+			<![CDATA[ conf/watch/skin/metal_cyano.txt ]]>
+		</mode>
+	</skin>
+
+	<skin language="zh" country="CN">
+		<!--
+		<mode title="水晶灵动" name="normal" method="doSkinNormal" laf="Nimbus"> 
+			<![CDATA[ conf/watch/skin/nimbus_normal.txt ]]>
+		</mode> 
+		-->
+		<mode title="浅雾清白" name="gray" method="doSkinGray" laf="Metal" theme-class="com.laxcus.util.skin.GrayMetalTheme"> 
+			<![CDATA[ conf/watch/skin/metal_gray.txt ]]>
+		</mode>
+		<mode title="暗夜时刻" name="dark" method="doSkinDark" laf="Metal" theme-class="com.laxcus.util.skin.DarkMetalTheme"> 
+			<![CDATA[ conf/watch/skin/metal_dark.txt ]]>
+		</mode>
+		<mode title="青绿设色" name="bronze" method="doSkinBronze" laf="Metal" theme-class="com.laxcus.util.skin.BronzeMetalTheme"> 
+			<![CDATA[ conf/watch/skin/metal_bronze.txt ]]>
+		</mode>
+		<mode title="深墨芝兰" name="cyano" method="doSkinCyano" laf="Metal" theme-class="com.laxcus.util.skin.CyanoMetalTheme"> 
+			<![CDATA[ conf/watch/skin/metal_cyano.txt ]]>
+		</mode>
+	</skin>
+
+</config>

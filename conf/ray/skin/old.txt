@@ -1,0 +1,86 @@
+# 灰色定义！只保留有用的，默认忽略！
+
+# 滚动条把手！
+# ScrollBar.thumb {128,128,128}
+
+# 在灰色模式里，Viewport.background由TextField.background来决定 ， 两侧双引号是关键字，表示这是一个代理样式！
+Viewport.background {"Panel.background"}
+
+# 集群节点参数溢出颜色（红色！)
+SiteRuntime.fullText {218,82,67}
+
+# 消息面板，颜色趋向深色
+MessagePanel.CommentTextForeground ESL:{140,120,86}
+MessagePanel.WarningTextForeground ESL:{25,240,90}
+MessagePanel.FaultTextForeground ESL:{236,232,100}
+
+# HTML面板颜色
+HTMLHelpPane.background {"Tree.background"}
+HTMLHelpPane.textForeground ESL:{160, 0, 20}
+HTMLHelpPane.textHerf ESL:{150,175,130}
+
+# 桌面颜色
+#grayblue.desktop ESL:{135,37,100}
+#grayblue.desktop {58, 110, 165}
+#grayblue.desktop ESL:{120, 80, 93}
+
+grayblue.desktop ESL:{136,70,90}
+
+## 标准色
+#grayblue.primary1 ESL:{120, 10, 128}
+#grayblue.primary2 ESL:{120, 10, 138}
+#grayblue.primary3 ESL:{120, 10, 158}
+
+#grayblue.primary1 ESL:{140, 107, 138}
+#grayblue.primary2 ESL:{140, 107, 148}
+#grayblue.primary3 ESL:{140, 107, 158}
+
+## 标准色
+#grayblue.primary1 ESL:{145, 75, 155}
+#grayblue.primary2 ESL:{145, 75, 175}
+#grayblue.primary3 ESL:{145, 75, 195}
+#grayblue.primary1 ESL:{145, 80, 195}
+#grayblue.primary2 ESL:{145, 100, 195}
+#grayblue.primary3 ESL:{145, 120, 195}
+
+grayblue.primary1 ESL:{120, 10, 148}
+grayblue.primary2 ESL:{120, 10, 158}
+grayblue.primary3 ESL:{120, 10, 168}
+
+## 文本色
+#grayblue.secondary1 {128,128,128}
+#grayblue.secondary2 {179,179,179}
+#grayblue.secondary3 {214,217,223}
+#grayblue.secondary1 ESL:{120,0,120}
+#grayblue.secondary2 ESL:{120,0,168}
+#grayblue.secondary3 ESL:{147,30,198}
+#grayblue.secondary3 ESL:{147,30,206}
+#grayblue.secondary3 ESL:{120, 0, 188}
+
+grayblue.secondary1 {128,128,128}
+grayblue.secondary2 {179,179,179}
+grayblue.secondary3 {214,217,223}
+
+## 白/黑色，标题
+grayblue.white ESL:{160,0,233}
+grayblue.black ESL:{160,0,3}
+
+# 菜单失效颜色
+grayblue.menuDisabledForeground {108,108,108}
+
+# 标题栏背景
+#grayblue.windowTitleBackground ESL:{145, 75, 200}
+#grayblue.windowTitleBackground ESL:{145, 130, 215}
+#grayblue.windowTitleBackground ESL:{140, 120, 168}
+#grayblue.windowTitleBackground ESL:{145, 190, 200}
+#grayblue.windowTitleBackground ESL:{120, 30, 180}
+#ESL:{120, 20, 138}
+
+#grayblue.windowTitleBackground ESL:{120, 28, 166}
+#grayblue.windowTitleBackground ESL:{107, 50, 80}
+#grayblue.windowTitleInactiveBackground ESL:{147,30,190}
+#grayblue.windowTitleBackground grayblue.primary3
+
+grayblue.windowTitleForeground ESL:{0, 0, 222}
+grayblue.windowTitleBackground ESL:{140, 240, 60}
+grayblue.windowTitleInactiveBackground grayblue.secondary3

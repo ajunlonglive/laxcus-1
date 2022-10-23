@@ -1,0 +1,92 @@
+# 暗黑定义！只保留有用的，默认忽略！
+
+# 滚动条把手！
+# ScrollBar.thumb {128,128,128}
+
+# 在暗黑模式里，Viewport.background由TextField.background来决定 ， 两侧双引号是关键字，表示这是一个代理样式！
+# Viewport.background {"TextField.background"}
+Viewport.background {"Panel.background"}
+Viewport.background {"TextField.background"}
+
+# 集群节点参数溢出颜色（红色！)
+SiteRuntime.fullText {218,82,67}
+
+#MessagePanel.WarningTextForeground {255,220,35}
+#MessagePanel.FaultTextForeground {169,46,34}
+MessagePanel.WarningTextForeground ESL:{28,240,100}
+MessagePanel.FaultTextForeground ESL:{5,240,110}
+
+# 命令输入窗口的颜色 
+#CommandPane.textCommand {#8BB279}
+#CommandPane.textKeyword {#4CA3D2}
+#CommandPane.textType {#f07966}
+#CommandPane.textType ESL:{0,240,100}
+
+# 消息面板，CommentTextForeground ，匹配List.foreground的“198,198,198"
+MessagePanel.CommentTextForeground {"List.foreground"}
+MessagePanel.WarningTextForeground ESL:{28,240,100}
+MessagePanel.FaultTextForeground ESL:{5,240,110}
+
+# 命令输入窗口的颜色 
+CommandPane.textCommand ESL:{80,240,55}
+CommandPane.textKeyword ESL:{140,240,95}
+CommandPane.textType ESL:{25,240,100}
+CommandPane.textNormal {"controlText"}
+CommandPane.textWarning ESL:{28,240,100}
+CommandPane.textFault ESL:{5,240,110}
+CommandPane.background {"TextField.background"}
+CommandPane.cursor ESL:{160,0,235}
+
+# 边框颜色! 指向加黑和文本色
+Border.lineBackground {102,102,102}
+Border.textForeground {"controlText"}
+Border.lineShadow {#808080}
+Border.lineLight {#808080}
+
+# HTML面板颜色
+HTMLHelpPane.background {"Tree.background"}
+HTMLHelpPane.textForeground {138,138,138}
+HTMLHelpPane.textHerf {198,198,198}
+
+#HTMLHelpPane.textHerf {#D0D0D0}
+
+# 桌面背景
+dark.desktop ESL:{0,0,42}
+
+# 暗黑模式，采用ESL颜色样式
+#dark.primary1 ESL:{0,0,41}
+#dark.primary2 ESL:{0,0,52}
+#dark.primary3 ESL:{0,0,83}
+#dark.secondary1 ESL:{0,0,93}
+#dark.secondary3 ESL:{0,0,27}
+# TAB选项卡非激活状态、控件失效色，暗于基础色WHITE
+#dark.secondary2 ESL:{0,0,70}
+# 文本框背景色、窗口控件背景色
+#dark.white ESL:{0,0,17}
+# 文本色
+#dark.black {168,168,168}
+
+# 新的暗黑
+dark.primary1 ESL:{0,0,31}
+dark.primary2 ESL:{0,0,42}
+dark.primary3 ESL:{0,0,73}
+dark.secondary1 ESL:{0,0,83}
+dark.secondary2 ESL:{0,0,60}
+dark.secondary3 ESL:{0,0,17}
+dark.white ESL:{0, 0, 3}
+dark.black ESL:{0, 0, 172}
+
+# 标题栏激活/失效下的背景
+#dark.windowTitleBackground ESL:{120, 0, 10}
+#dark.windowTitleInactiveBackground ESL:{120, 0, 60}
+
+# 标题栏激活状态下的前景/背景
+dark.windowTitleForeground ESL:{0, 0, 180}
+dark.windowTitleBackground ESL:{120, 0, 10}
+# 标题栏非激活状态下的前景/背景
+dark.windowTitleInactiveForeground ESL:{0, 0, 130}
+dark.windowTitleInactiveBackground ESL:{120, 0, 60}
+
+## 桌面按纽在激活/未激活状态下的文本颜色
+DesktopButton.TextActiveForeground  ESL:{0, 0, 240}
+DesktopButton.TextInactiveForeground ESL:{0, 0, 180}

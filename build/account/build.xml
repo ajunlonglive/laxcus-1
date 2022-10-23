@@ -1,0 +1,63 @@
+<project default="build-account-jar">
+
+	<target name="build-account-jar">
+		<delete file="${basedir}/build/account/laxcus_account.jar"/>
+		<jar destfile="${basedir}/build/account/laxcus_account.jar" manifest="${basedir}/build/account/META-INF/MANIFEST.MF">
+
+			<fileset dir="${basedir}/bin">
+				<include name="com/laxcus/thread/*.class"/>
+				<include name="com/laxcus/launch/**/*.class"/>
+				<include name="com/laxcus/launch/job/*.class"/>
+				<include name="com/laxcus/launch/licence/*.class"/>
+				<exclude name="com/laxcus/launch/licence/LicenceWriter.class"/>
+				
+				<include name="com/laxcus/xml/*.class"/>
+				<include name="com/laxcus/invoke/*.class"/>
+				<include name="com/laxcus/invoke/impl/*.class"/>
+				<include name="com/laxcus/fixp/**/*.class"/>
+				<include name="com/laxcus/security/*.class"/>
+				
+				<exclude name="com/laxcus/access/parse/**/*.class"/>
+				<exclude name="com/laxcus/access/Access.class"/>
+				<include name="com/laxcus/access/**/*.class"/>
+				<include name="com/laxcus/law/**/*.class"/>
+				
+				<include name="com/laxcus/util/**/*.class"/>
+
+				<include name="com/laxcus/echo/**/*.class"/>
+				<include name="com/laxcus/command/**/*.class"/>
+				
+				<include name="com/laxcus/account/**/*.class"/>
+				<include name="com/laxcus/pool/**/*.class"/>
+
+				<include name="com/laxcus/task/archive/*.class"/>
+				<include name="com/laxcus/scaler/**/*.class"/>
+				<include name="com/laxcus/swift/*.class"/>
+				<include name="com/laxcus/swift/archive/*.class"/>
+				<include name="com/laxcus/swift/parameter/*.class"/>
+
+				<include name="com/laxcus/log/*.class"/>
+				<include name="com/laxcus/log/client/*.class"/>
+
+				<include name="com/laxcus/site/*.class"/>
+				<include name="com/laxcus/site/log/*.class"/>
+				<include name="com/laxcus/site/account/*.class"/>
+
+				<include name="com/laxcus/remote/*.class"/>
+				<include name="com/laxcus/remote/client/*.class"/>
+				<include name="com/laxcus/remote/client/hub/*.class"/>
+				<include name="com/laxcus/remote/client/echo/*.class"/>
+				
+				<include name="com/laxcus/visit/*.class"/>
+				<include name="com/laxcus/visit/hub/*.class"/>
+				<include name="com/laxcus/visit/echo/*.class"/>
+				
+				<include name="com/laxcus/visit/impl/*.class"/>
+				<include name="com/laxcus/visit/impl/account/*.class"/>
+
+			</fileset>
+
+		</jar>
+	</target>
+
+</project>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config>
+	<!-- 普通提示 -->
+	<message language="zh" country="CN"> <![CDATA[ conf/desktop/tip/message/zh_CN/message.xml]]> </message>
+	<message language="zh" country="TW"> <![CDATA[ conf/desktop/tip/message/zh_CN/message.xml]]> </message>
+	<message language="en" country="US"> <![CDATA[ conf/desktop/tip/message/en_US/message.xml ]]> </message>
+	<message language="default" country="default">  <![CDATA[ conf/desktop/tip/message/en_US/message.xml ]]> </message>
+
+	<!-- 警告 -->
+	<warning language="zh" country="CN"> <![CDATA[ conf/desktop/tip/warning/zh_CN/warning.xml]]> </warning>
+	<warning language="zh" country="TW"> <![CDATA[ conf/desktop/tip/warning/zh_CN/warning.xml]]> </warning>
+	<warning language="en" country="US"> <![CDATA[ conf/desktop/tip/warning/en_US/warning.xml ]]> </warning>
+	<warning language="default" country="default">  <![CDATA[ conf/desktop/tip/warning/en_US/warning.xml ]]> </warning>
+
+	<!-- 错误 -->
+	<fault language="zh" country="CN"> <![CDATA[ conf/desktop/tip/fault/zh_CN/fault.xml]]> </fault>
+	<fault language="zh" country="TW"> <![CDATA[ conf/desktop/tip/fault/zh_CN/fault.xml]]> </fault>
+	<fault language="en" country="US"> <![CDATA[ conf/desktop/tip/fault/en_US/fault.xml ]]> </fault>
+	<fault language="default" country="default">  <![CDATA[ conf/desktop/tip/fault/en_US/fault.xml ]]> </fault>
+
+	<!-- 对应Minor类中的编号，包含正常或者错误 -->
+	<echo language="zh" country="CN"> <![CDATA[ conf/desktop/tip/echo/zh_CN/echo.xml ]]> </echo>
+	<echo language="en" country="US"> <![CDATA[ conf/desktop/tip/echo/en_US/echo.xml ]]> </echo>
+	<echo language="default" country="default">  <![CDATA[ conf/desktop/tip/echo/en_US/echo.xml ]]> </echo>
+
+</config>

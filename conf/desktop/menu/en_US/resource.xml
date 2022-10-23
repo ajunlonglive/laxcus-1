@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Root>
+	
+	<LaunchMenu>
+		<Flag> Laxcus Clusters Desktop </Flag> 
+	
+		<MenuItem caption="Help">
+				<ToolTip> </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon w="28" h="28"> conf/desktop/image/menu/launch/help.png </Icon>
+				<Method> <![CDATA[doHelp]]> </Method>
+		</MenuItem>
+		<MenuItem caption="Run Log">
+				<ToolTip>  </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon w="28" h="28"> conf/desktop/image/menu/launch/log.png </Icon>
+				<Method> <![CDATA[doOpenLogWindow]]> </Method>
+		</MenuItem>
+		<Separator/>
+
+		<Menu caption="Cloud Application" associate="DAS">
+			<ToolTip> start and run </ToolTip>
+			<ShortcutKey> </ShortcutKey>
+			<Icon w="28" h="28"> conf/desktop/image/menu/launch/dapp.png </Icon>
+		</Menu>
+		<Menu caption="Edge Application" associate="EDGE">
+			<ToolTip> start and run </ToolTip>
+			<ShortcutKey> </ShortcutKey>
+			<Icon w="28" h="28"> conf/desktop/image/menu/launch/edge.png </Icon>
+		</Menu>
+		<Separator/>
+		
+		<Menu caption="Tool" associate="TOOL">
+			<ToolTip> tool service </ToolTip>
+			<ShortcutKey> </ShortcutKey>
+			<Icon w="28" h="28"> conf/desktop/image/menu/launch/tools.png </Icon>
+		</Menu>
+		
+		<Menu caption="Service" associate="SERVICE">
+			<ToolTip> system service </ToolTip>
+			<ShortcutKey> </ShortcutKey>
+			<Icon w="28" h="28"> conf/desktop/image/menu/launch/service.png </Icon>
+			
+			<MenuItem caption="Make Application">
+				<ToolTip> make you's application </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon w="16" h="16"> conf/desktop/image/dialog/build/logo.png </Icon>
+				<Method> <![CDATA[ doBuildSoftware]]> </Method>
+			</MenuItem>
+			<MenuItem caption="Install Application">
+				<ToolTip> install you's application </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon w="16" h="16"> conf/desktop/image/dialog/install/logo.png </Icon>
+				<Method> <![CDATA[ doInstallSoftware]]> </Method>
+			</MenuItem>
+			<MenuItem caption="Uninstall Application">
+				<ToolTip> uninstall you's application </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon w="16" h="16"> conf/desktop/image/dialog/uninstall/logo.png </Icon>
+				<Method> <![CDATA[ doUninstallSoftware]]> </Method>
+			</MenuItem>
+			<!--
+			<Separator/>
+			<MenuItem caption="Application Store">
+				<ToolTip> laxcus application store </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> conf/desktop/image/dialog/store/logo.png </Icon>
+				<Method> <![CDATA[ ]]> </Method>
+			</MenuItem>
+			-->
+		</Menu>
+		
+		<Menu caption="Setting" associate="SET">
+			<ToolTip> system setting </ToolTip>
+			<ShortcutKey> </ShortcutKey>
+			<Icon w="28" h="28"> conf/desktop/image/menu/launch/set.png </Icon>
+			
+		</Menu>
+		
+		<Menu caption="Connection" associate="CONNECT">
+			<ToolTip> laxcus cluster network  </ToolTip>
+			<ShortcutKey> </ShortcutKey>
+			<Icon w="28" h="28"> conf/desktop/image/menu/launch/navigate.png </Icon>
+			
+			<MenuItem caption="Login">
+				<ToolTip> login to cluster </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> conf/desktop/image/menu/launch/login.png </Icon>
+				<Method> <![CDATA[login]]> </Method>
+			</MenuItem>
+			<MenuItem caption="Logout">
+				<ToolTip> logout from cluster </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> conf/desktop/image/menu/launch/logout.png </Icon>
+				<Method> <![CDATA[logout]]> </Method>
+			</MenuItem>
+			<Separator/>
+			<MenuItem caption="Relogin">
+				<ToolTip> logout and login </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> conf/desktop/image/menu/launch/relogin.png </Icon>
+				<Method> <![CDATA[relogin]]> </Method>
+			</MenuItem>
+		</Menu>
+		
+		<MenuItem caption="Run" associate="RUN">
+			<ToolTip> run application </ToolTip>
+			<ShortcutKey> </ShortcutKey>
+			<Icon w="28" h="28"> conf/desktop/image/menu/launch/run.png </Icon>
+			<Method> <![CDATA[doRun]]> </Method>
+		</MenuItem>
+		
+		<Separator/>
+		
+		<MenuItem caption="Shutdown" associate="SHUTDOWN">
+			<ToolTip> shutdown and exit desktop system </ToolTip>
+			<ShortcutKey> </ShortcutKey>
+			<Icon w="28" h="28"> conf/desktop/image/menu/launch/shutdown.png </Icon>
+			<Method> <![CDATA[exit]]> </Method>
+		</MenuItem>
+
+	</LaunchMenu>
+	
+	<!-- Desktop Popup Menu -->
+	<DesktopPopupMenu>
+	
+		<Menu caption="Arrange Icons" associate="IconAlignment">
+			<ToolTip> reset icons </ToolTip>
+			<ShortcutKey> </ShortcutKey>
+			<!-- <Icon w="16" h="16"> conf/desktop/image/window/launch/dapp.png </Icon> -->
+			
+			<MenuItem caption="Name">
+				<ToolTip> name icons </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon> </Icon>
+				<Method> <![CDATA[ ]]> </Method>
+			</MenuItem>
+			<MenuItem caption="Create Time">
+				<ToolTip> time cions </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon>  </Icon>
+				<Method> <![CDATA[ ]]> </Method>
+			</MenuItem>
+		</Menu>
+		<CheckBoxMenuItem caption="Lock Desktop" hotkey="K" checkon="false">
+				<ToolTip> lock desktop buttons </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon w="16" h="16"> conf/desktop/image/menu/popup/unlocked.png </Icon>
+				<Method> <![CDATA[doLockDesktop]]>  </Method>
+		</CheckBoxMenuItem>
+		<MenuItem caption="Refresh Desktop" >
+				<ToolTip> refresh window ui </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Icon w="16" h="16"> conf/desktop/image/menu/popup/refresh.png </Icon>
+				<Method> <![CDATA[doRefreshDesktop]]> </Method>
+		</MenuItem>
+		<Separator/>
+		
+		<CheckBoxMenuItem caption="Tasks Bar" hotkey="S" checkon="true">
+				<ToolTip> show or hide </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<!-- <Icon w="16" h="16"> conf/desktop/image/window/launch/log.png </Icon> -->
+				<Method> <![CDATA[doShowOrHideStatusBar]]>  </Method>
+		</CheckBoxMenuItem>
+		<CheckBoxMenuItem caption="Application Dock" hotkey="O" checkon="true">
+				<ToolTip> show or hide </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<Method> <![CDATA[doShowOrHideDockBar]]>  </Method>
+		</CheckBoxMenuItem>
+
+		<Separator/>
+		<MenuItem caption="System Desktop">
+				<ToolTip> Show And Modify Desktop Properties </ToolTip>
+				<ShortcutKey> </ShortcutKey>
+				<!-- <Icon w="16" h="16"> conf/desktop/image/window/launch/log.png </Icon> -->
+				<Method> <![CDATA[doDesktopProperties]]> </Method>
+		</MenuItem>
+	</DesktopPopupMenu>
+	
+	<!-- system applications  -->
+	<inner-applications>
+		<application> conf/desktop/application/cluster.das </application>
+		<application> conf/desktop/application/component.das </application>
+		<application> conf/desktop/application/console.das </application>
+		<application> conf/desktop/application/notepad.das </application>
+	</inner-applications>
+	
+</Root>

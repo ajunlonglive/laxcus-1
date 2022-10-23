@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 普通提示信息标签  -->
+<!-- 关键参数是标签编号"no"（小写），通过它与MessageTip中的定义匹配，不可写错 -->
+
+<Messages>
+
+	<!-- 普通文本 -->
+	<correct-syntax no=" 1 "> <![CDATA[语法正确]]>  </correct-syntax>
+	<command-accepted no="2"> <![CDATA[命令已被服务器受理]]>  </command-accepted>
+	<command-execute no="3"> <![CDATA[ 执行命令... ]]>  </command-execute>
+	
+	<!-- 分布锁和事务规则  -->
+	<rule-attach no="4"> <![CDATA[ 申请服务资源 ]]>  </rule-attach>
+	<rule-attach-return-ok no="5"> <![CDATA[ 服务资源已经绑定 ]]> </rule-attach-return-ok>
+	<rule-detach no="6"> <![CDATA[ 释放服务资源 ]]>  </rule-detach>
+	<rule-detach-return-ok no="7"> <![CDATA[ 服务资源已经解除 ]]>  </rule-detach-return-ok>
+	
+	<!-- FRONT节点加载GATE/CALL的分布资源 -->
+	<loading-user-resource no="8"> <![CDATA[ 正在初始化和加载计算机集群资源，请稍候... ]]>  </loading-user-resource>
+	<loaded-user-resource no="9"> <![CDATA[ 已经成功加载计算机集群资源！ ]]>  </loaded-user-resource>
+	<!-- 命令被执行完成 -->	
+	<command-processed no="10"> <![CDATA[ 命令已经执行！ ]]>  </command-processed>
+	
+	<!-- 以下是格式化配置 -->
+	<successful no="10000"> <![CDATA["%s" 成功！]]>  </successful>
+	<command-runtime-x no="10001"> <![CDATA[ 本次操作耗时{[DD]天/[HH]小时/[MM]分钟/[SS]秒/[MS]毫秒} ]]> </command-runtime-x>
+	<shutdown-x no="10002"> <![CDATA[ %s 被远程关闭！]]> </shutdown-x>
+	<push-node-x no="10003"> <![CDATA[ %s 加入 ]]> </push-node-x>
+	<success-fault-x no="10004"> <![CDATA[  ，"%d"个成功，"%d"个失败！ ]]> </success-fault-x>
+	<distributed-time-x no="10005"> <![CDATA[ 本次分布处理用时{[DD]天/[HH]小时/[MM]分钟/[SS]秒/[MS]毫秒} ]]> </distributed-time-x>
+	
+	<create-x no="10010"> <![CDATA[ 建立"%s" 成功！]]>  </create-x>
+	<drop-x no="10011"> <![CDATA[ 删除"%s" 成功！]]>  </drop-x>
+	<modify-x no="10012"> <![CDATA[ 调整"%s" 成功！]]>  </modify-x>
+	<format-time-x no="10013"> <![CDATA[ {[DD]天/[HH]小时/[MM]分钟/[SS]秒/[MS]毫秒} ]]> </format-time-x>
+	<check-x no="10014"> <![CDATA[ 检测 "%s" ]]>  </check-x>
+		
+	<override-gui-x no="10015"> <![CDATA[ 文件"%s"已经存在，确认覆盖它？ ]]>  </override-gui-x>
+	<override-console-x no="10016"> <![CDATA[ 文件"%s"已经存在，确认覆盖它？（键入‘Y’或者‘N’） ]]>  </override-console-x>
+	<timeing-refresh-node-x no="10017"> <![CDATA[ 刷新 %s ]]> </timeing-refresh-node-x>
+	<simple-runtime-x no="10018"> <![CDATA[ {[DD]天/[HH]小时/[MM]分钟/[SS]秒/[MS]毫秒} ]]> </simple-runtime-x>
+	
+</Messages>

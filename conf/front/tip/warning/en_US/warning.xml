@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- warning tip  -->
+
+<Messages>
+	
+	<CANNOT_IMPLEMENT no="1"> <![CDATA[ Cannot implement!  ]]>  </CANNOT_IMPLEMENT>
+	<SEARCH_RESULT_EMPTY no="2"> <![CDATA[ result is empty!  ]]>  </SEARCH_RESULT_EMPTY>
+
+	<DISK_MISSING no="10000"> <![CDATA[ Disk Missing! from "%s"! ]]>  </DISK_MISSING>
+	<CANNOT_IMPLEMENT_X no="10001"> <![CDATA[ Cannot implement!  "%s" ]]>  </CANNOT_IMPLEMENT_X>
+	<drop-node-x no="10002"> <![CDATA[  "%s" is logout! ]]> </drop-node-x>
+	<USERSITE-MISSING-X no="10003"> <![CDATA[Site Missing! sign: %s, site type: %s ]]>  </USERSITE-MISSING-X>
+	<MEMORY-MISSING no="10004"> <![CDATA[ Memory Missing! from "%s"! ]]>  </MEMORY-MISSING>
+	<PERSON-MISSING no="10005"> <![CDATA[ Virutal Cyber Missing, From "%s" ]]>  </PERSON-MISSING>
+	<PERSON-FULL no="10006"> <![CDATA[ Virtual Cyber Filled, From %s ]]>  </PERSON-FULL>
+	<FRONT-MISSING no="10007"> <![CDATA[ Front Virutal Cyber Missing! from %s ]]>  </FRONT-MISSING>
+	<FRONT-FULL no="10008"> <![CDATA[ Front Virtual Cyber Filled! fromt %s ]]>  </FRONT-FULL>
+	<VM_MEMORY-MISSING no="10009"> <![CDATA[ Virtual Machine Memory Missing! from %s]]>  </VM_MEMORY-MISSING>
+	<LICENCE-TIMEOUT no="10010"> <![CDATA[ Licence Timeout! from %s / %d days! ]]>  </LICENCE-TIMEOUT>
+	<NOT-FOUND-LOCAL no="10011"> <![CDATA[ Not Found "%s"! ]]>  </NOT-FOUND-LOCAL>
+
+</Messages>
